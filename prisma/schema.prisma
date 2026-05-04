@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Villa {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  name          String
+  description   String
+  shortDesc     String
+  location      String
+  latitude      Float?
+  longitude     Float?
+  bedrooms      Int
+  bathrooms     Int
+  maxGuests     Int
+  pricePerNight Float
+  cleaningFee   Float    @default(0)
+  images        String
+  amenities     String
+  airbnbIcalUrl String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  bookings     Booking[]
+  blockedDates BlockedDate[]
+
+  @@map("villas")
+}
+
+model Booking {
+  id              String   @id @default(cuid())
+  villaId         String
+  villa           Villa    @relation(fields: [villaId], references: [id])
+  guestName       String
+  guestEmail      String
+  guestPhone      String?
+  checkIn         DateTime
+  checkOut        DateTime
+  guests          Int
+  nights          Int
+  pricePerNight   Float
+  cleaningFee     Float
+  totalPrice      Float
+  status          String   @default("pending")
+  stripePaymentId String?
+  stripeSessionId String?
+  source          String   @default("direct")
+  notes           String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("bookings")
+}
+
+model BlockedDate {
+  id      String   @id @default(cuid())
+  villaId String
+  villa   Villa    @relation(fields: [villaId], references: [id])
+  date    DateTime
+  reason  String?
+
+  @@unique([villaId, date])
+  @@map("blocked_dates")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+
+  @@map("admins")
+}

@@ -1,0 +1,102 @@
+"use client";
+
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { Menu, X, Palmtree, Phone } from "lucide-react";
+
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handler);
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  const links = [
+    { href: "/villas", label: "Our Villas" },
+    { href: "/#why-fuerteventura", label: "Why Fuerteventura" },
+    { href: "/#activities", label: "Activities" },
+    { href: "/contact", label: "Contact" },
+  ];
+
+  return (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-white shadow-md" : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <Link href="/" className="flex items-center gap-2 font-bold text-xl text-sky-600">
+            <Palmtree className="w-6 h-6" />
+            <span className={scrolled ? "text-sky-700" : "text-white drop-shadow"}>
+              Canary Villas
+            </span>
+          </Link>
+
+          <div className="hidden md:flex items-center gap-8">
+            {links.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className={`text-sm font-medium transition-colors hover:text-sky-400 ${
+                  scrolled ? "text-gray-700" : "text-white drop-shadow"
+                }`}
+              >
+                {l.label}
+              </Link>
+            ))}
+            <a
+              href="tel:+447809870561"
+              className={`flex items-center gap-1 text-sm font-medium ${
+                scrolled ? "text-sky-600" : "text-white"
+              }`}
+            >
+              <Phone className="w-4 h-4" />
+              +44 7809 870561
+            </a>
+            <Link
+              href="/villas"
+              className="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors"
+            >
+              Book Now
+            </Link>
+          </div>
+
+          <button
+            className={`md:hidden ${scrolled ? "text-gray-700" : "text-white"}`}
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+
+      {open && (
+        <div className="md:hidden bg-white border-t shadow-lg">
+          <div className="px-4 py-4 space-y-3">
+            {links.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="block text-gray-700 font-medium py-2"
+                onClick={() => setOpen(false)}
+              >
+                {l.label}
+              </Link>
+            ))}
+            <Link
+              href="/villas"
+              className="block bg-sky-500 text-white text-center px-4 py-3 rounded-full font-semibold mt-2"
+              onClick={() => setOpen(false)}
+            >
+              Book Now
+            </Link>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+}
