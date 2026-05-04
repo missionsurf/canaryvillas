@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getAllVillas } from "@/lib/villas";
 import VillaCard from "@/components/VillaCard";
 import type { Metadata } from "next";
