@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { getVillaBySlug, getAllVillas, getBookedDates } from "@/lib/villas";
+import { getVillaBySlug, getBookedDates } from "@/lib/villas";
 import BookingWidget from "@/components/BookingWidget";
 import { Bed, Bath, Users, MapPin, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
@@ -9,10 +9,7 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  const villas = await getAllVillas();
-  return villas.map((v) => ({ slug: v.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
