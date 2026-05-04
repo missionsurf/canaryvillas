@@ -9,6 +9,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  serverExternalPackages: [
+    "@libsql/client",
+    "@prisma/adapter-libsql",
+    "node-ical",
+    "ical-generator",
+  ],
 };
 
 export default nextConfig;

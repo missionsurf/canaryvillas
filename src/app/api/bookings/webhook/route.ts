@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { sendBookingConfirmation } from "@/lib/email";
 import Stripe from "stripe";
 
-export const config = { api: { bodyParser: false } };
+export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
   const body = await req.text();
