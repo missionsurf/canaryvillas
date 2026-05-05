@@ -13,6 +13,7 @@ import {
   RefreshCw,
   LogOut,
   Plus,
+  UserCircle,
 } from "lucide-react";
 
 export const dynamic = "force-dynamic";
@@ -50,15 +51,20 @@ export default async function AdminDashboardPage() {
             <span className="font-bold text-gray-900">Canary Villas Admin</span>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-500">Welcome, {session.name}</span>
-            <form action="/api/admin/login" method="POST">
-              <Link
-                href="/api/admin/login"
-                className="flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700"
-              >
-                <LogOut className="w-4 h-4" /> Sign out
-              </Link>
-            </form>
+            <Link
+              href="/admin/guests"
+              className="flex items-center gap-1.5 text-sm text-gray-600 hover:text-sky-600 font-medium transition-colors"
+            >
+              <UserCircle className="w-4 h-4" /> Guests
+            </Link>
+            <span className="text-sm text-gray-400">|</span>
+            <span className="text-sm text-gray-500">{session.name}</span>
+            <Link
+              href="/api/admin/login"
+              className="flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700"
+            >
+              <LogOut className="w-4 h-4" /> Sign out
+            </Link>
           </div>
         </div>
       </header>

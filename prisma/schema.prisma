@@ -78,3 +78,18 @@ model Admin {
 
   @@map("admins")
 }
+
+model Guest {
+  id             String   @id @default(cuid())
+  email          String   @unique
+  name           String
+  phone          String?
+  nationality    String?
+  notes          String?
+  tags           String?
+  marketingOptIn Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("guests")
+}
