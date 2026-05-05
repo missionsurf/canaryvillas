@@ -127,66 +127,84 @@ export default function PhotoGallery({ images, villaName }: Props) {
         </div>
       </div>
 
-      {/* ── Desktop: Airbnb-style hero grid ── */}
-      <div className="hidden md:block relative overflow-hidden rounded-2xl mx-4 lg:mx-8 mt-4" style={{ height: "520px" }}>
-        <div className="grid h-full gap-2" style={{ gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr" }}>
-          {/* Large hero — spans full left column */}
+      {/* ── Desktop: 5-photo Airbnb grid ── */}
+      <div className="hidden md:block relative mt-4 mx-4 lg:mx-8" style={{ height: "560px" }}>
+        <div
+          className="grid h-full gap-2 overflow-hidden rounded-2xl"
+          style={{ gridTemplateColumns: "3fr 2fr", gridTemplateRows: "1fr 1fr" }}
+        >
+          {/* Hero — full left column */}
           <button
             onClick={() => open(0)}
-            className="relative row-span-2 overflow-hidden group focus:outline-none rounded-l-2xl"
+            className="relative row-span-2 overflow-hidden group focus:outline-none"
           >
             <Image
               src={images[0]}
               alt={`${villaName} — main photo`}
               fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-              sizes="50vw"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+              sizes="55vw"
               priority
             />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
           </button>
 
-          {/* Top-right */}
+          {/* Top-right top */}
           {images[1] && (
             <button
               onClick={() => open(1)}
-              className="relative overflow-hidden group focus:outline-none rounded-tr-2xl"
+              className="relative overflow-hidden group focus:outline-none"
             >
               <Image
                 src={images[1]}
                 alt={`${villaName} photo 2`}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                 sizes="25vw"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
             </button>
           )}
 
-          {/* Bottom-right */}
-          {images[2] && (
-            <button
-              onClick={() => open(2)}
-              className="relative overflow-hidden group focus:outline-none rounded-br-2xl"
-            >
-              <Image
-                src={images[2]}
-                alt={`${villaName} photo 3`}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                sizes="25vw"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-              {/* Show all button */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-            </button>
-          )}
+          {/* Top-right bottom — split into two side by side */}
+          <div className="grid grid-cols-2 gap-2">
+            {images[2] && (
+              <button
+                onClick={() => open(2)}
+                className="relative overflow-hidden group focus:outline-none"
+              >
+                <Image
+                  src={images[2]}
+                  alt={`${villaName} photo 3`}
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                  sizes="12vw"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
+              </button>
+            )}
+            {images[3] && (
+              <button
+                onClick={() => open(3)}
+                className="relative overflow-hidden group focus:outline-none"
+              >
+                <Image
+                  src={images[3]}
+                  alt={`${villaName} photo 4`}
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                  sizes="12vw"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
+              </button>
+            )}
+          </div>
         </div>
 
-        {/* Show all photos button — floating bottom-right */}
+        {/* Show all photos — floating pill */}
         <button
           onClick={() => open(0)}
-          className="absolute bottom-4 right-4 bg-white hover:bg-gray-50 text-gray-900 text-sm font-semibold px-4 py-2.5 rounded-xl shadow-lg flex items-center gap-2 transition-colors border border-gray-200"
+          className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm hover:bg-white text-gray-900 text-sm font-semibold px-4 py-2.5 rounded-xl shadow-md flex items-center gap-2 transition-all hover:shadow-lg border border-white/60"
         >
           <LayoutGrid className="w-4 h-4" />
           Show all {images.length} photos
