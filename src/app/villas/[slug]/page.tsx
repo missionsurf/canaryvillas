@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import { getVillaBySlug, getBookedDates } from "@/lib/villas";
 import BookingWidget from "@/components/BookingWidget";
+import PhotoGallery from "@/components/PhotoGallery";
 import { Bed, Bath, Users, MapPin, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -78,26 +78,7 @@ export default async function VillaDetailPage({ params }: Props) {
       <VillaSchema villa={villa} />
 
       <div className="pt-16 min-h-screen">
-        {/* Photo Gallery */}
-        <div className="grid grid-cols-4 grid-rows-2 h-[60vh] gap-2 mb-0">
-          {villa.images.slice(0, 5).map((src, i) => (
-            <div
-              key={i}
-              className={`relative overflow-hidden ${
-                i === 0 ? "col-span-2 row-span-2" : "col-span-1 row-span-1"
-              } ${i > 4 ? "hidden" : ""}`}
-            >
-              <Image
-                src={src}
-                alt={`${villa.name} photo ${i + 1}`}
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-500"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority={i === 0}
-              />
-            </div>
-          ))}
-        </div>
+        <PhotoGallery images={villa.images} villaName={villa.name} />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
