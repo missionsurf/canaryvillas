@@ -12,6 +12,7 @@ import {
   TrendingUp,
   RefreshCw,
   LogOut,
+  Plus,
 } from "lucide-react";
 
 export const dynamic = "force-dynamic";
@@ -115,8 +116,14 @@ export default async function AdminDashboardPage() {
 
         {/* Bookings Table */}
         <div className="bg-white rounded-2xl shadow-sm border overflow-hidden">
-          <div className="px-6 py-4 border-b">
+          <div className="px-6 py-4 border-b flex items-center justify-between">
             <h2 className="font-bold text-gray-900">Recent Bookings</h2>
+            <Link
+              href="/admin/bookings/new"
+              className="flex items-center gap-1.5 bg-sky-600 hover:bg-sky-700 text-white text-sm font-semibold px-3 py-1.5 rounded-lg transition-colors"
+            >
+              <Plus className="w-4 h-4" /> New Booking
+            </Link>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -132,23 +139,31 @@ export default async function AdminDashboardPage() {
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {bookings.map((b) => (
-                  <tr key={b.id} className="hover:bg-gray-50">
+                  <tr key={b.id} className="hover:bg-sky-50 cursor-pointer group">
                     <td className="px-6 py-4">
-                      <div className="font-medium text-gray-900">{b.guestName}</div>
-                      <div className="text-gray-400 text-xs">{b.guestEmail}</div>
+                      <Link href={`/admin/bookings/${b.id}`} className="block">
+                        <div className="font-medium text-gray-900 group-hover:text-sky-700">{b.guestName}</div>
+                        <div className="text-gray-400 text-xs">{b.guestEmail}</div>
+                      </Link>
                     </td>
-                    <td className="px-6 py-4 text-gray-600">{b.villa.name}</td>
                     <td className="px-6 py-4 text-gray-600">
-                      <div>{format(b.checkIn, "d MMM yy")}</div>
-                      <div className="text-gray-400">→ {format(b.checkOut, "d MMM yy")}</div>
+                      <Link href={`/admin/bookings/${b.id}`} className="block">{b.villa.name}</Link>
+                    </td>
+                    <td className="px-6 py-4 text-gray-600">
+                      <Link href={`/admin/bookings/${b.id}`} className="block">
+                        <div>{format(b.checkIn, "d MMM yy")}</div>
+                        <div className="text-gray-400">→ {format(b.checkOut, "d MMM yy")}</div>
+                      </Link>
                     </td>
                     <td className="px-6 py-4 font-semibold text-gray-900">
-                      €{b.totalPrice.toFixed(0)}
+                      <Link href={`/admin/bookings/${b.id}`} className="block">€{b.totalPrice.toFixed(0)}</Link>
                     </td>
                     <td className="px-6 py-4">
-                      <span className={`px-2 py-1 rounded-full text-xs font-semibold ${statusColour[b.status] || "bg-gray-100 text-gray-600"}`}>
-                        {b.status}
-                      </span>
+                      <Link href={`/admin/bookings/${b.id}`} className="block">
+                        <span className={`px-2 py-1 rounded-full text-xs font-semibold ${statusColour[b.status] || "bg-gray-100 text-gray-600"}`}>
+                          {b.status}
+                        </span>
+                      </Link>
                     </td>
                     <td className="px-6 py-4">
                       <AdminBookingActions bookingId={b.id} currentStatus={b.status} />

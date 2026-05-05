@@ -26,12 +26,14 @@ export async function PATCH(req: NextRequest) {
   const session = await getAdminSession();
   if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-  const { id, status } = await req.json();
-  if (!id || !status) return NextResponse.json({ error: "id and status required" }, { status: 400 });
+  const body = await req.json();
+  const { id, status, notes } = body;
+  if (!id) return NextResponse.json({ error: "id required" }, { status: 400 });
 
-  const booking = await prisma.booking.update({
-    where: { id },
-    data: { status },
-  });
+  const data: Record<string, string> = {};
+  if (status) data.status = status;
+  if (notes !== undefined) data.notes = notes;
+
+  const booking = await prisma.booking.update({ where: { id }, data });
   return NextResponse.json(booking);
 }
