@@ -2,27 +2,28 @@ import path from "path";
 import { PrismaClient } from "@prisma/client";
 import { PrismaLibSql } from "@prisma/adapter-libsql";
 
-function createPrismaClient(): PrismaClient {
-  const rawUrl = process.env.DATABASE_URL ?? `file:${path.resolve(process.cwd(), "dev.db")}`;
-  const isRemote = rawUrl.startsWith("libsql://") || rawUrl.startsWith("https://");
+function resolveUrl(): { url: string; authToken?: string } {
+  const raw = process.env.DATABASE_URL ?? "";
 
-  if (isRemote) {
-    // Use HTTP transport — works reliably in Vercel serverless
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { createClient } = require("@libsql/client/http");
-    const libsql = createClient({ url: rawUrl, authToken: process.env.TURSO_AUTH_TOKEN });
-    const adapter = new PrismaLibSql(libsql);
-    return new PrismaClient({ adapter } as ConstructorParameters<typeof PrismaClient>[0]);
+  // Remote Turso — convert libsql:// to https:// (WHATWG URL doesn't support libsql://)
+  if (raw.startsWith("libsql://") || raw.startsWith("https://")) {
+    return {
+      url: raw.replace(/^libsql:\/\//, "https://"),
+      authToken: process.env.TURSO_AUTH_TOKEN,
+    };
   }
 
-  // Local file-based SQLite for development
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const { createClient } = require("@libsql/client");
-  const libsql = createClient({ url: rawUrl });
-  const adapter = new PrismaLibSql(libsql);
+  // Local SQLite — always use an absolute file path
+  const absPath = path.resolve(process.cwd(), "dev.db");
+  return { url: `file:${absPath}` };
+}
+
+function createPrismaClient(): PrismaClient {
+  const { url, authToken } = resolveUrl();
+  const adapter = new PrismaLibSql({ url, authToken });
   return new PrismaClient({ adapter } as ConstructorParameters<typeof PrismaClient>[0]);
 }
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
-export const prisma = globalForPrisma.prisma || createPrismaClient();
+export const prisma = globalForPrisma.prisma ?? createPrismaClient();
 if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
