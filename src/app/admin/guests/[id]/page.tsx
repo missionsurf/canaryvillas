@@ -4,8 +4,8 @@ import { getAdminSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { format, differenceInDays } from "date-fns";
 import {
-  ArrowLeft, Users, Mail, Phone, Globe, Tag, Calendar,
-  FileText, TrendingUp, Star, ExternalLink
+  ArrowLeft, Users, Mail, Phone, Globe, Calendar,
+  FileText, TrendingUp, Star, ExternalLink, ChevronRight
 } from "lucide-react";
 import AdminGuestEditor from "@/components/AdminGuestEditor";
 import AdminGuestEmailComposer from "@/components/AdminGuestEmailComposer";
@@ -57,21 +57,17 @@ export default async function GuestDetailPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b shadow-sm sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center gap-4">
-          <Link href="/admin/guests" className="flex items-center gap-2 text-gray-500 hover:text-gray-900 text-sm">
-            <ArrowLeft className="w-4 h-4" /> Guests
-          </Link>
-          <div className="h-5 border-l border-gray-200" />
-          <span className="font-bold text-gray-900">{guest.name}</span>
-          {tags.map((t) => (
-            <span key={t} className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${tagClass(t)}`}>{t}</span>
-          ))}
-          {!guest.marketingOptIn && (
-            <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-500">opted out</span>
-          )}
-        </div>
-      </header>
+      <div className="bg-white border-b px-6 py-3 flex items-center gap-2 text-sm text-gray-500">
+        <Link href="/admin/guests" className="hover:text-gray-900 flex items-center gap-1"><ArrowLeft className="w-3.5 h-3.5" /> Guests</Link>
+        <ChevronRight className="w-3.5 h-3.5" />
+        <span className="font-semibold text-gray-900">{guest.name}</span>
+        {tags.map((t) => (
+          <span key={t} className={`px-2 py-0.5 rounded-full text-xs font-semibold ${tagClass(t)}`}>{t}</span>
+        ))}
+        {!guest.marketingOptIn && (
+          <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-500">opted out</span>
+        )}
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

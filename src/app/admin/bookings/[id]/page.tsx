@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { format, differenceInDays } from "date-fns";
 import {
   ArrowLeft, User, Home, Calendar, CreditCard,
-  Mail, Phone, FileText, Clock, ExternalLink
+  Mail, Phone, FileText, Clock, ExternalLink, ChevronRight
 } from "lucide-react";
 import AdminBookingDetailActions from "@/components/AdminBookingDetailActions";
 import AdminEmailComposer from "@/components/AdminEmailComposer";
@@ -39,28 +39,24 @@ export default async function BookingDetailPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b shadow-sm sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center gap-4">
-          <Link href="/admin/dashboard" className="flex items-center gap-2 text-gray-500 hover:text-gray-900 text-sm">
-            <ArrowLeft className="w-4 h-4" /> Back
-          </Link>
-          <div className="h-5 border-l border-gray-200" />
-          <span className="font-bold text-gray-900">Booking #{booking.id.slice(-8).toUpperCase()}</span>
-          <span className={`px-2.5 py-1 rounded-full text-xs font-semibold ${statusColour[booking.status] || "bg-gray-100 text-gray-600"}`}>
-            {booking.status}
-          </span>
-          <div className="ml-auto flex items-center gap-3">
-            <a
-              href={`/api/admin/bookings/${booking.id}/invoice`}
-              target="_blank"
-              className="flex items-center gap-1.5 border border-gray-300 hover:border-gray-400 text-gray-700 text-sm font-medium px-3 py-1.5 rounded-lg transition-colors"
-            >
-              <FileText className="w-4 h-4" /> Invoice
-            </a>
-          </div>
+      {/* Breadcrumb */}
+      <div className="bg-white border-b px-6 py-3 flex items-center gap-2 text-sm text-gray-500">
+        <Link href="/admin/bookings" className="hover:text-gray-900 flex items-center gap-1"><ArrowLeft className="w-3.5 h-3.5" /> Bookings</Link>
+        <ChevronRight className="w-3.5 h-3.5" />
+        <span className="font-semibold text-gray-900">#{booking.id.slice(-8).toUpperCase()}</span>
+        <span className={`ml-1 px-2.5 py-0.5 rounded-full text-xs font-semibold ${statusColour[booking.status] || "bg-gray-100 text-gray-600"}`}>
+          {booking.status}
+        </span>
+        <div className="ml-auto">
+          <a
+            href={`/api/admin/bookings/${booking.id}/invoice`}
+            target="_blank"
+            className="flex items-center gap-1.5 border border-gray-300 hover:border-gray-400 text-gray-700 text-sm font-medium px-3 py-1.5 rounded-lg transition-colors"
+          >
+            <FileText className="w-4 h-4" /> Invoice
+          </a>
         </div>
-      </header>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

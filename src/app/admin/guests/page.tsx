@@ -3,9 +3,7 @@ import Link from "next/link";
 import { getAdminSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { format } from "date-fns";
-import {
-  Home, Users, ArrowLeft, Search, Mail, Tag, RefreshCw, Plus, Star
-} from "lucide-react";
+import { Users, Search, Mail, Star, Plus, TrendingUp } from "lucide-react";
 import AdminGuestSyncButton from "@/components/AdminGuestSyncButton";
 
 export const dynamic = "force-dynamic";
@@ -82,16 +80,16 @@ export default async function GuestsPage({ searchParams }: { searchParams: Promi
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b shadow-sm sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center gap-4">
-          <Link href="/admin/dashboard" className="flex items-center gap-2 text-gray-500 hover:text-gray-900 text-sm">
-            <ArrowLeft className="w-4 h-4" /> Dashboard
-          </Link>
-          <div className="h-5 border-l border-gray-200" />
-          <span className="font-bold text-gray-900 flex items-center gap-2">
-            <Users className="w-4 h-4 text-sky-500" /> Guest CRM
-          </span>
-          <div className="ml-auto flex items-center gap-3">
+      <div className="max-w-7xl mx-auto px-6 py-8 space-y-6">
+
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-extrabold text-gray-900 flex items-center gap-2">
+              <Users className="w-6 h-6 text-sky-500" /> Guest CRM
+            </h1>
+            <p className="text-gray-500 text-sm mt-0.5">{totalGuests} guests · {marketingCount} opted in to marketing</p>
+          </div>
+          <div className="flex items-center gap-3">
             <AdminGuestSyncButton />
             <Link
               href="/admin/guests/new"
@@ -101,9 +99,6 @@ export default async function GuestsPage({ searchParams }: { searchParams: Promi
             </Link>
           </div>
         </div>
-      </header>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
 
         {/* Stats */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -111,7 +106,7 @@ export default async function GuestsPage({ searchParams }: { searchParams: Promi
             { label: "Total Guests", value: totalGuests, icon: Users, colour: "text-sky-600" },
             { label: "Marketing Opted In", value: marketingCount, icon: Mail, colour: "text-green-600" },
             { label: "Repeat Guests", value: repeatCount, icon: Star, colour: "text-amber-500" },
-            { label: "Total Revenue", value: `€${totalRevenue.toFixed(0)}`, icon: Home, colour: "text-purple-600" },
+            { label: "Total Revenue", value: `€${totalRevenue.toFixed(0)}`, icon: TrendingUp, colour: "text-purple-600" },
           ].map((s) => (
             <div key={s.label} className="bg-white rounded-2xl border shadow-sm p-5">
               <div className="flex items-center gap-2 mb-1">
