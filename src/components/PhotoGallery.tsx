@@ -53,8 +53,7 @@ export default function PhotoGallery({ images, villaName }: Props) {
     if (touchStartX.current === null) return;
     const dx = touchStartX.current - e.changedTouches[0].clientX;
     const dt = Date.now() - touchStartTime.current;
-    const velocity = Math.abs(dx) / dt; // px/ms
-    if (Math.abs(dx) > 30 || velocity > 0.5) {
+    if (Math.abs(dx) > 30 || Math.abs(dx) / dt > 0.5) {
       if (dx > 0) carouselNext();
       else carouselPrev();
     }
@@ -63,9 +62,8 @@ export default function PhotoGallery({ images, villaName }: Props) {
 
   return (
     <>
-      {/* ── Mobile: sliding carousel ── */}
+      {/* ── Mobile: full-bleed swipeable carousel with dots + arrows ── */}
       <div className="md:hidden select-none">
-        {/* Sliding strip */}
         <div
           className="relative w-full overflow-hidden bg-black"
           style={{ aspectRatio: "4/3" }}
@@ -73,11 +71,12 @@ export default function PhotoGallery({ images, villaName }: Props) {
           onTouchEnd={handleTouchEnd}
           onClick={() => open(carouselIndex)}
         >
+          {/* Sliding strip */}
           <div
             className="flex h-full"
             style={{
               transform: `translateX(-${carouselIndex * 100}%)`,
-              transition: "transform 0.42s cubic-bezier(0.4, 0, 0.2, 1)",
+              transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
               width: `${images.length * 100}%`,
             }}
           >
@@ -95,50 +94,52 @@ export default function PhotoGallery({ images, villaName }: Props) {
             ))}
           </div>
 
-          {/* Bottom gradient */}
-          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+          {/* Left arrow */}
+          {carouselIndex > 0 && (
+            <button
+              onClick={(e) => { e.stopPropagation(); carouselPrev(); }}
+              className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-1.5 shadow-md transition-all"
+            >
+              <ChevronLeft className="w-4 h-4 text-gray-800" />
+            </button>
+          )}
 
-          {/* Counter top-right */}
-          <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full pointer-events-none">
-            {carouselIndex + 1} / {images.length}
-          </div>
+          {/* Right arrow */}
+          {carouselIndex < images.length - 1 && (
+            <button
+              onClick={(e) => { e.stopPropagation(); carouselNext(); }}
+              className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-1.5 shadow-md transition-all"
+            >
+              <ChevronRight className="w-4 h-4 text-gray-800" />
+            </button>
+          )}
 
-          {/* Tap zones for prev/next — invisible, no buttons */}
-          <div className="absolute inset-y-0 left-0 w-1/3" onClick={(e) => { e.stopPropagation(); carouselPrev(); }} />
-          <div className="absolute inset-y-0 right-0 w-1/3" onClick={(e) => { e.stopPropagation(); carouselNext(); }} />
-
-          {/* Progress bar */}
-          <div className="absolute bottom-0 inset-x-0 h-0.5 bg-white/20 pointer-events-none">
-            <div
-              className="h-full bg-white"
-              style={{
-                width: `${((carouselIndex + 1) / images.length) * 100}%`,
-                transition: "width 0.42s cubic-bezier(0.4, 0, 0.2, 1)",
-              }}
-            />
-          </div>
-        </div>
-
-        {/* Below-image bar */}
-        <div className="flex items-center justify-between px-4 py-2.5 bg-white border-b border-gray-100">
-          <span className="text-xs text-gray-400 font-medium tracking-wide uppercase">
-            {villaName}
-          </span>
+          {/* "All photos" pill — top-right */}
           <button
-            onClick={() => open(carouselIndex)}
-            className="flex items-center gap-1.5 text-xs font-semibold text-gray-700 hover:text-gray-900"
+            onClick={(e) => { e.stopPropagation(); open(carouselIndex); }}
+            className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5"
           >
             <LayoutGrid className="w-3.5 h-3.5" />
             All {images.length} photos
           </button>
+
+          {/* Pill dots — bottom center */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={(e) => { e.stopPropagation(); setCarouselIndex(i); }}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === carouselIndex ? "w-5 bg-white" : "w-1.5 bg-white/50 hover:bg-white/80"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* ── Desktop: Airbnb-style mosaic (hero + 2×2 grid) ── */}
-      <div
-        className="hidden md:block relative mt-4 mx-4 lg:mx-8 rounded-2xl overflow-hidden"
-        style={{ height: "480px" }}
-      >
+      {/* ── Desktop: full-bleed Airbnb mosaic, tall ── */}
+      <div className="hidden md:block relative" style={{ height: "620px" }}>
         <div
           className="grid h-full"
           style={{
@@ -147,7 +148,7 @@ export default function PhotoGallery({ images, villaName }: Props) {
             gap: "4px",
           }}
         >
-          {/* Hero — left column, spans both rows */}
+          {/* Hero — left column, full height */}
           <button
             onClick={() => open(0)}
             className="relative row-span-2 overflow-hidden group focus:outline-none"
@@ -160,10 +161,10 @@ export default function PhotoGallery({ images, villaName }: Props) {
               sizes="50vw"
               priority
             />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
           </button>
 
-          {/* Top-right row: images[1] and images[2] */}
+          {/* Top-right: images[1] and [2] */}
           {images[1] && (
             <button
               onClick={() => open(1)}
@@ -176,7 +177,7 @@ export default function PhotoGallery({ images, villaName }: Props) {
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
                 sizes="25vw"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
             </button>
           )}
           {images[2] && (
@@ -191,11 +192,11 @@ export default function PhotoGallery({ images, villaName }: Props) {
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
                 sizes="25vw"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
             </button>
           )}
 
-          {/* Bottom-right row: images[3] and images[4] */}
+          {/* Bottom-right: images[3] and [4] */}
           {images[3] && (
             <button
               onClick={() => open(3)}
@@ -208,7 +209,7 @@ export default function PhotoGallery({ images, villaName }: Props) {
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
                 sizes="25vw"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
             </button>
           )}
           {images[4] && (
@@ -223,15 +224,15 @@ export default function PhotoGallery({ images, villaName }: Props) {
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
                 sizes="25vw"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
             </button>
           )}
         </div>
 
-        {/* Show all photos — Airbnb-style pill in bottom-right corner */}
+        {/* Show all photos — bottom-right pill */}
         <button
           onClick={() => open(0)}
-          className="absolute bottom-4 right-4 bg-white hover:bg-gray-100 text-gray-900 text-sm font-semibold px-4 py-2.5 rounded-lg shadow-md flex items-center gap-2 transition-colors border border-gray-300"
+          className="absolute bottom-4 right-4 bg-white hover:bg-gray-50 text-gray-900 text-sm font-semibold px-4 py-2.5 rounded-xl shadow-md flex items-center gap-2 transition-colors border border-gray-200"
         >
           <LayoutGrid className="w-4 h-4" />
           Show all {images.length} photos
