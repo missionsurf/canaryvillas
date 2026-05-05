@@ -11,9 +11,7 @@ interface Props {
 
 export default function PhotoGallery({ images, villaName }: Props) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  // Mobile carousel
   const [carouselIndex, setCarouselIndex] = useState(0);
-  const touchStartX = useRef<number | null>(null);
 
   const open = (i: number) => setLightboxIndex(i);
   const close = () => setLightboxIndex(null);
@@ -41,89 +39,98 @@ export default function PhotoGallery({ images, villaName }: Props) {
     };
   }, [lightboxIndex, prev, next]);
 
-  // Touch handlers for mobile carousel
+  const touchStartX = useRef<number | null>(null);
+  const touchStartTime = useRef<number>(0);
+
+  const carouselPrev = () => setCarouselIndex((i) => Math.max(i - 1, 0));
+  const carouselNext = () => setCarouselIndex((i) => Math.min(i + 1, images.length - 1));
+
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
+    touchStartTime.current = Date.now();
   };
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (touchStartX.current === null) return;
-    const diff = touchStartX.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) {
-      if (diff > 0) setCarouselIndex((i) => Math.min(i + 1, images.length - 1));
-      else setCarouselIndex((i) => Math.max(i - 1, 0));
+    const dx = touchStartX.current - e.changedTouches[0].clientX;
+    const dt = Date.now() - touchStartTime.current;
+    const velocity = Math.abs(dx) / dt; // px/ms
+    if (Math.abs(dx) > 30 || velocity > 0.5) {
+      if (dx > 0) carouselNext();
+      else carouselPrev();
     }
     touchStartX.current = null;
   };
 
   return (
     <>
-      {/* ── Mobile: full-bleed swipeable carousel ── */}
-      <div className="md:hidden relative">
+      {/* ── Mobile: sliding carousel ── */}
+      <div className="md:hidden select-none">
+        {/* Sliding strip */}
         <div
-          className="relative w-full h-[70vw] min-h-[260px] max-h-[480px] overflow-hidden bg-gray-900"
+          className="relative w-full overflow-hidden bg-black"
+          style={{ aspectRatio: "4/3" }}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
           onClick={() => open(carouselIndex)}
         >
-          {images.map((src, i) => (
-            <div
-              key={i}
-              className={`absolute inset-0 transition-opacity duration-300 ${
-                i === carouselIndex ? "opacity-100" : "opacity-0 pointer-events-none"
-              }`}
-            >
-              <Image
-                src={src}
-                alt={`${villaName} photo ${i + 1}`}
-                fill
-                className="object-cover"
-                sizes="100vw"
-                priority={i === 0}
-              />
-            </div>
-          ))}
-
-          {/* Prev / Next tap areas */}
-          {carouselIndex > 0 && (
-            <button
-              onClick={(e) => { e.stopPropagation(); setCarouselIndex((i) => i - 1); }}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-2 transition-colors"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-          )}
-          {carouselIndex < images.length - 1 && (
-            <button
-              onClick={(e) => { e.stopPropagation(); setCarouselIndex((i) => i + 1); }}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-2 transition-colors"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          )}
-
-          {/* Counter + "all photos" */}
-          <div className="absolute bottom-3 right-3 flex items-center gap-2">
-            <button
-              onClick={(e) => { e.stopPropagation(); open(0); }}
-              className="bg-black/50 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5"
-            >
-              <LayoutGrid className="w-3.5 h-3.5" />
-              All {images.length} photos
-            </button>
-          </div>
-
-          {/* Dot indicator */}
-          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-            {images.slice(0, Math.min(images.length, 8)).map((_, i) => (
-              <button
-                key={i}
-                onClick={(e) => { e.stopPropagation(); setCarouselIndex(i); }}
-                className={`rounded-full transition-all ${
-                  i === carouselIndex ? "w-4 h-1.5 bg-white" : "w-1.5 h-1.5 bg-white/50"
-                }`}
-              />
+          <div
+            className="flex h-full"
+            style={{
+              transform: `translateX(-${carouselIndex * 100}%)`,
+              transition: "transform 0.42s cubic-bezier(0.4, 0, 0.2, 1)",
+              width: `${images.length * 100}%`,
+            }}
+          >
+            {images.map((src, i) => (
+              <div key={i} className="relative h-full" style={{ width: `${100 / images.length}%` }}>
+                <Image
+                  src={src}
+                  alt={`${villaName} photo ${i + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                  priority={i === 0}
+                />
+              </div>
             ))}
           </div>
+
+          {/* Bottom gradient */}
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+
+          {/* Counter top-right */}
+          <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full pointer-events-none">
+            {carouselIndex + 1} / {images.length}
+          </div>
+
+          {/* Tap zones for prev/next — invisible, no buttons */}
+          <div className="absolute inset-y-0 left-0 w-1/3" onClick={(e) => { e.stopPropagation(); carouselPrev(); }} />
+          <div className="absolute inset-y-0 right-0 w-1/3" onClick={(e) => { e.stopPropagation(); carouselNext(); }} />
+
+          {/* Progress bar */}
+          <div className="absolute bottom-0 inset-x-0 h-0.5 bg-white/20 pointer-events-none">
+            <div
+              className="h-full bg-white"
+              style={{
+                width: `${((carouselIndex + 1) / images.length) * 100}%`,
+                transition: "width 0.42s cubic-bezier(0.4, 0, 0.2, 1)",
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Below-image bar */}
+        <div className="flex items-center justify-between px-4 py-2.5 bg-white border-b border-gray-100">
+          <span className="text-xs text-gray-400 font-medium tracking-wide uppercase">
+            {villaName}
+          </span>
+          <button
+            onClick={() => open(carouselIndex)}
+            className="flex items-center gap-1.5 text-xs font-semibold text-gray-700 hover:text-gray-900"
+          >
+            <LayoutGrid className="w-3.5 h-3.5" />
+            All {images.length} photos
+          </button>
         </div>
       </div>
 
