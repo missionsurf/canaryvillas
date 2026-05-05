@@ -42,8 +42,34 @@ export default function PhotoGallery({ images, villaName }: Props) {
 
   return (
     <>
-      {/* Hero grid */}
-      <div className="grid grid-cols-4 grid-rows-2 h-[60vh] gap-1">
+      {/* Mobile: stacked single column */}
+      <div className="md:hidden flex flex-col gap-1">
+        {gridImages.map((src, i) => (
+          <button
+            key={i}
+            onClick={() => open(i)}
+            className="relative w-full h-64 overflow-hidden group focus:outline-none"
+          >
+            <Image
+              src={src}
+              alt={`${villaName} photo ${i + 1}`}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              sizes="100vw"
+              priority={i === 0}
+            />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+            {i === 4 && images.length > 5 && (
+              <div className="absolute inset-0 bg-black/50 flex items-center justify-center pointer-events-none">
+                <span className="text-white font-bold text-xl">+{images.length - 5} more</span>
+              </div>
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* Desktop: masonry grid */}
+      <div className="hidden md:grid grid-cols-4 grid-rows-2 h-[60vh] gap-1">
         {gridImages.map((src, i) => (
           <button
             key={i}
@@ -57,11 +83,10 @@ export default function PhotoGallery({ images, villaName }: Props) {
               alt={`${villaName} photo ${i + 1}`}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-500"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="50vw"
               priority={i === 0}
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-            {/* "+N more" overlay on the last grid cell */}
             {i === 4 && images.length > 5 && (
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center pointer-events-none">
                 <span className="text-white font-bold text-lg">+{images.length - 5} more</span>

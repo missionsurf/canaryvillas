@@ -24,16 +24,14 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-md" : "bg-transparent"
+        scrolled ? "bg-white shadow-md" : "bg-white/95 backdrop-blur-sm shadow-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl text-sky-600">
-            <Palmtree className="w-6 h-6" />
-            <span className={scrolled ? "text-sky-700" : "text-white drop-shadow"}>
-              Canary Villas
-            </span>
+          <Link href="/" className="flex items-center gap-2 font-bold text-xl">
+            <Palmtree className="w-6 h-6 text-sky-500" />
+            <span className="text-sky-700">Canary Villas</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -41,18 +39,14 @@ export default function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`text-sm font-medium transition-colors hover:text-sky-400 ${
-                  scrolled ? "text-gray-700" : "text-white drop-shadow"
-                }`}
+                className="text-sm font-medium text-gray-700 transition-colors hover:text-sky-500"
               >
                 {l.label}
               </Link>
             ))}
             <a
               href="tel:+447809870561"
-              className={`flex items-center gap-1 text-sm font-medium ${
-                scrolled ? "text-sky-600" : "text-white"
-              }`}
+              className="flex items-center gap-1 text-sm font-medium text-sky-600 hover:text-sky-700"
             >
               <Phone className="w-4 h-4" />
               +44 7809 870561
@@ -66,7 +60,7 @@ export default function Navbar() {
           </div>
 
           <button
-            className={`md:hidden ${scrolled ? "text-gray-700" : "text-white"}`}
+            className="md:hidden text-gray-700 hover:text-sky-500 p-1"
             onClick={() => setOpen(!open)}
           >
             {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
