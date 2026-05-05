@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
-import { X, ChevronLeft, ChevronRight, LayoutGrid } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, LayoutGrid, ArrowLeft } from "lucide-react";
 
 interface Props {
   images: string[];
@@ -10,11 +10,18 @@ interface Props {
 }
 
 export default function PhotoGallery({ images, villaName }: Props) {
+  const [gridOpen, setGridOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [carouselIndex, setCarouselIndex] = useState(0);
 
-  const open = (i: number) => setLightboxIndex(i);
-  const close = () => setLightboxIndex(null);
+  const openGrid = () => setGridOpen(true);
+  const closeGrid = () => setGridOpen(false);
+
+  const openPhoto = (i: number) => {
+    setGridOpen(false);
+    setLightboxIndex(i);
+  };
+  const closePhoto = () => setLightboxIndex(null);
 
   const prev = useCallback(() => {
     setLightboxIndex((i) => (i === null ? null : (i - 1 + images.length) % images.length));
@@ -25,11 +32,16 @@ export default function PhotoGallery({ images, villaName }: Props) {
   }, [images.length]);
 
   useEffect(() => {
-    if (lightboxIndex === null) return;
+    if (lightboxIndex === null && !gridOpen) return;
     const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
+      if (e.key === "Escape") {
+        if (lightboxIndex !== null) closePhoto();
+        else closeGrid();
+      }
+      if (lightboxIndex !== null) {
+        if (e.key === "ArrowLeft") prev();
+        if (e.key === "ArrowRight") next();
+      }
     };
     window.addEventListener("keydown", handler);
     document.body.style.overflow = "hidden";
@@ -37,7 +49,7 @@ export default function PhotoGallery({ images, villaName }: Props) {
       window.removeEventListener("keydown", handler);
       document.body.style.overflow = "";
     };
-  }, [lightboxIndex, prev, next]);
+  }, [lightboxIndex, gridOpen, prev, next]);
 
   const touchStartX = useRef<number | null>(null);
   const touchStartTime = useRef<number>(0);
@@ -60,18 +72,35 @@ export default function PhotoGallery({ images, villaName }: Props) {
     touchStartX.current = null;
   };
 
+  // Lightbox touch swipe
+  const lbTouchStartX = useRef<number | null>(null);
+  const lbTouchStartTime = useRef<number>(0);
+  const handleLbTouchStart = (e: React.TouchEvent) => {
+    lbTouchStartX.current = e.touches[0].clientX;
+    lbTouchStartTime.current = Date.now();
+  };
+  const handleLbTouchEnd = (e: React.TouchEvent) => {
+    if (lbTouchStartX.current === null) return;
+    const dx = lbTouchStartX.current - e.changedTouches[0].clientX;
+    const dt = Date.now() - lbTouchStartTime.current;
+    if (Math.abs(dx) > 30 || Math.abs(dx) / dt > 0.5) {
+      if (dx > 0) next();
+      else prev();
+    }
+    lbTouchStartX.current = null;
+  };
+
   return (
     <>
-      {/* ── Mobile: full-bleed swipeable carousel with dots + arrows ── */}
+      {/* ── Mobile: full-bleed swipeable carousel ── */}
       <div className="md:hidden select-none">
         <div
           className="relative w-full overflow-hidden bg-black"
           style={{ aspectRatio: "4/3" }}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
-          onClick={() => open(carouselIndex)}
+          onClick={() => openPhoto(carouselIndex)}
         >
-          {/* Sliding strip */}
           <div
             className="flex h-full"
             style={{
@@ -82,156 +111,80 @@ export default function PhotoGallery({ images, villaName }: Props) {
           >
             {images.map((src, i) => (
               <div key={i} className="relative h-full" style={{ width: `${100 / images.length}%` }}>
-                <Image
-                  src={src}
-                  alt={`${villaName} photo ${i + 1}`}
-                  fill
-                  className="object-cover"
-                  sizes="100vw"
-                  priority={i === 0}
-                />
+                <Image src={src} alt={`${villaName} photo ${i + 1}`} fill className="object-cover" sizes="100vw" priority={i === 0} />
               </div>
             ))}
           </div>
 
-          {/* Left arrow */}
           {carouselIndex > 0 && (
-            <button
-              onClick={(e) => { e.stopPropagation(); carouselPrev(); }}
-              className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-1.5 shadow-md transition-all"
-            >
+            <button onClick={(e) => { e.stopPropagation(); carouselPrev(); }} className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-1.5 shadow-md transition-all">
               <ChevronLeft className="w-4 h-4 text-gray-800" />
             </button>
           )}
-
-          {/* Right arrow */}
           {carouselIndex < images.length - 1 && (
-            <button
-              onClick={(e) => { e.stopPropagation(); carouselNext(); }}
-              className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-1.5 shadow-md transition-all"
-            >
+            <button onClick={(e) => { e.stopPropagation(); carouselNext(); }} className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-1.5 shadow-md transition-all">
               <ChevronRight className="w-4 h-4 text-gray-800" />
             </button>
           )}
 
-          {/* "All photos" pill — top-right */}
           <button
-            onClick={(e) => { e.stopPropagation(); open(carouselIndex); }}
+            onClick={(e) => { e.stopPropagation(); openGrid(); }}
             className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5"
           >
             <LayoutGrid className="w-3.5 h-3.5" />
             All {images.length} photos
           </button>
 
-          {/* Pill dots — bottom center */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
             {images.map((_, i) => (
               <button
                 key={i}
                 onClick={(e) => { e.stopPropagation(); setCarouselIndex(i); }}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === carouselIndex ? "w-5 bg-white" : "w-1.5 bg-white/50 hover:bg-white/80"
-                }`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${i === carouselIndex ? "w-5 bg-white" : "w-1.5 bg-white/50 hover:bg-white/80"}`}
               />
             ))}
           </div>
         </div>
       </div>
 
-      {/* ── Desktop: full-bleed Airbnb mosaic, tall ── */}
+      {/* ── Desktop: full-bleed Airbnb mosaic ── */}
       <div className="hidden md:block relative" style={{ height: "620px" }}>
         <div
           className="grid h-full"
-          style={{
-            gridTemplateColumns: "2fr 1fr 1fr",
-            gridTemplateRows: "1fr 1fr",
-            gap: "4px",
-          }}
+          style={{ gridTemplateColumns: "2fr 1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "4px" }}
         >
-          {/* Hero — left column, full height */}
-          <button
-            onClick={() => open(0)}
-            className="relative row-span-2 overflow-hidden group focus:outline-none"
-          >
-            <Image
-              src={images[0]}
-              alt={`${villaName} — main photo`}
-              fill
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-              sizes="50vw"
-              priority
-            />
+          <button onClick={() => openPhoto(0)} className="relative row-span-2 overflow-hidden group focus:outline-none">
+            <Image src={images[0]} alt={`${villaName} — main photo`} fill className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" sizes="50vw" priority />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
           </button>
-
-          {/* Top-right: images[1] and [2] */}
           {images[1] && (
-            <button
-              onClick={() => open(1)}
-              className="relative overflow-hidden group focus:outline-none"
-            >
-              <Image
-                src={images[1]}
-                alt={`${villaName} photo 2`}
-                fill
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-                sizes="25vw"
-              />
+            <button onClick={() => openPhoto(1)} className="relative overflow-hidden group focus:outline-none">
+              <Image src={images[1]} alt={`${villaName} photo 2`} fill className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" sizes="25vw" />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
             </button>
           )}
           {images[2] && (
-            <button
-              onClick={() => open(2)}
-              className="relative overflow-hidden group focus:outline-none"
-            >
-              <Image
-                src={images[2]}
-                alt={`${villaName} photo 3`}
-                fill
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-                sizes="25vw"
-              />
+            <button onClick={() => openPhoto(2)} className="relative overflow-hidden group focus:outline-none">
+              <Image src={images[2]} alt={`${villaName} photo 3`} fill className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" sizes="25vw" />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
             </button>
           )}
-
-          {/* Bottom-right: images[3] and [4] */}
           {images[3] && (
-            <button
-              onClick={() => open(3)}
-              className="relative overflow-hidden group focus:outline-none"
-            >
-              <Image
-                src={images[3]}
-                alt={`${villaName} photo 4`}
-                fill
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-                sizes="25vw"
-              />
+            <button onClick={() => openPhoto(3)} className="relative overflow-hidden group focus:outline-none">
+              <Image src={images[3]} alt={`${villaName} photo 4`} fill className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" sizes="25vw" />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
             </button>
           )}
           {images[4] && (
-            <button
-              onClick={() => open(4)}
-              className="relative overflow-hidden group focus:outline-none"
-            >
-              <Image
-                src={images[4]}
-                alt={`${villaName} photo 5`}
-                fill
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-                sizes="25vw"
-              />
+            <button onClick={() => openPhoto(4)} className="relative overflow-hidden group focus:outline-none">
+              <Image src={images[4]} alt={`${villaName} photo 5`} fill className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" sizes="25vw" />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
             </button>
           )}
         </div>
 
-        {/* Show all photos — bottom-right pill */}
         <button
-          onClick={() => open(0)}
+          onClick={openGrid}
           className="absolute bottom-4 right-4 bg-white hover:bg-gray-50 text-gray-900 text-sm font-semibold px-4 py-2.5 rounded-xl shadow-md flex items-center gap-2 transition-colors border border-gray-200"
         >
           <LayoutGrid className="w-4 h-4" />
@@ -239,43 +192,82 @@ export default function PhotoGallery({ images, villaName }: Props) {
         </button>
       </div>
 
-      {/* ── Lightbox ── */}
-      {lightboxIndex !== null && (
-        <div
-          className="fixed inset-0 z-50 bg-black flex flex-col"
-          onClick={close}
-        >
-          {/* Header */}
-          <div
-            className="flex items-center justify-between px-5 py-4 shrink-0 border-b border-white/10"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={close}
-              className="flex items-center gap-2 text-white/70 hover:text-white text-sm font-medium transition-colors"
-            >
-              <X className="w-5 h-5" />
-              Close
-            </button>
-            <span className="text-white/50 text-sm">
-              {lightboxIndex + 1} / {images.length}
-            </span>
-            <span className="text-white font-semibold text-sm truncate max-w-[160px]">{villaName}</span>
+      {/* ── Photo grid modal ── */}
+      {gridOpen && (
+        <div className="fixed inset-0 z-50 bg-white overflow-y-auto">
+          {/* Sticky header */}
+          <div className="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-100 z-10">
+            <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+              <button
+                onClick={closeGrid}
+                className="flex items-center gap-2 text-gray-700 hover:text-gray-900 font-medium text-sm transition-colors"
+              >
+                <X className="w-5 h-5" />
+                Close
+              </button>
+              <span className="text-gray-900 font-semibold">{villaName}</span>
+              <span className="text-gray-400 text-sm">{images.length} photos</span>
+            </div>
           </div>
 
-          {/* Image area */}
-          <div
-            className="flex-1 flex items-center justify-center relative min-h-0 px-4 py-4"
-            onClick={(e) => e.stopPropagation()}
-          >
+          {/* 2-column grid */}
+          <div className="max-w-5xl mx-auto px-6 py-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {images.map((src, i) => (
+                <button
+                  key={i}
+                  onClick={() => openPhoto(i)}
+                  className="relative overflow-hidden rounded-2xl aspect-[4/3] group block w-full focus:outline-none"
+                >
+                  <Image
+                    src={src}
+                    alt={`${villaName} photo ${i + 1}`}
+                    fill
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-2xl" />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Single photo viewer ── */}
+      {lightboxIndex !== null && (
+        <div
+          className="fixed inset-0 z-50 bg-black/95 flex flex-col"
+          onTouchStart={handleLbTouchStart}
+          onTouchEnd={handleLbTouchEnd}
+        >
+          {/* Header */}
+          <div className="flex items-center justify-between px-5 py-4 shrink-0">
+            <button
+              onClick={closePhoto}
+              className="flex items-center gap-2 text-white/70 hover:text-white text-sm font-medium transition-colors"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              Back
+            </button>
+            <span className="text-white/60 text-sm tabular-nums">
+              {lightboxIndex + 1} / {images.length}
+            </span>
+            <button onClick={closePhoto} className="text-white/60 hover:text-white transition-colors">
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Image */}
+          <div className="flex-1 flex items-center justify-center relative min-h-0 px-14 md:px-20">
             <button
               onClick={prev}
-              className="absolute left-3 md:left-6 z-10 bg-white/10 hover:bg-white/20 text-white rounded-full p-3 transition-all hover:scale-110"
+              className="absolute left-3 md:left-5 z-10 text-white/60 hover:text-white transition-all hover:scale-110"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-8 h-8" />
             </button>
 
-            <div className="relative w-full h-full max-w-5xl">
+            <div className="relative w-full h-full">
               <Image
                 key={lightboxIndex}
                 src={images[lightboxIndex]}
@@ -289,38 +281,15 @@ export default function PhotoGallery({ images, villaName }: Props) {
 
             <button
               onClick={next}
-              className="absolute right-3 md:right-6 z-10 bg-white/10 hover:bg-white/20 text-white rounded-full p-3 transition-all hover:scale-110"
+              className="absolute right-3 md:right-5 z-10 text-white/60 hover:text-white transition-all hover:scale-110"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-8 h-8" />
             </button>
           </div>
 
-          {/* Thumbnail strip */}
-          <div
-            className="shrink-0 py-3 overflow-x-auto border-t border-white/10 scrollbar-hide"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex gap-2 px-4 w-max mx-auto">
-              {images.map((src, i) => (
-                <button
-                  key={i}
-                  onClick={() => setLightboxIndex(i)}
-                  className={`relative shrink-0 rounded-lg overflow-hidden transition-all duration-200 ${
-                    i === lightboxIndex
-                      ? "w-20 h-14 ring-2 ring-white scale-105"
-                      : "w-16 h-12 opacity-50 hover:opacity-80"
-                  }`}
-                >
-                  <Image
-                    src={src}
-                    alt={`Thumbnail ${i + 1}`}
-                    fill
-                    className="object-cover"
-                    sizes="80px"
-                  />
-                </button>
-              ))}
-            </div>
+          {/* Caption */}
+          <div className="shrink-0 py-4 text-center">
+            <p className="text-white/40 text-xs tracking-wider uppercase">{villaName}</p>
           </div>
         </div>
       )}
