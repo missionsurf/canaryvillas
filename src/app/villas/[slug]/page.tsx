@@ -78,7 +78,7 @@ export default async function VillaDetailPage({ params }: Props) {
       <VillaSchema villa={villa} />
 
       <div className="pt-16 min-h-screen">
-        <PhotoGallery images={villa.images} villaName={villa.name} />
+        <PhotoGallery images={villa.images} villaName={villa.name} imageGroups={villa.imageGroups} />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">

@@ -16,12 +16,14 @@ function parseVilla(v: {
   pricePerNight: number;
   cleaningFee: number;
   images: string;
+  imageGroups: string | null;
   amenities: string;
   airbnbIcalUrl: string | null;
 }): Villa {
   return {
     ...v,
     images: JSON.parse(v.images),
+    imageGroups: v.imageGroups ? JSON.parse(v.imageGroups) : null,
     amenities: JSON.parse(v.amenities),
   };
 }

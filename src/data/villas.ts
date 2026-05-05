@@ -50,6 +50,39 @@ Step straight from the terrace onto the golden sand and crystal-clear waters of 
       "Highchair available",
       "Non-smoking",
     ],
+    imageGroups: [
+      {
+        label: "Exterior & Terrace",
+        images: [
+          "https://canaryvillas.com/wp-content/uploads/2024/11/full-gallery-image-145-605x465.jpg",
+          "https://canaryvillas.com/wp-content/uploads/2024/11/full-gallery-image-122.jpg",
+          "https://canaryvillas.com/wp-content/uploads/2024/11/full-gallery-image-121-605x465.jpg",
+          "https://canaryvillas.com/wp-content/uploads/2024/11/full-gallery-image-123-605x465.jpg",
+          "https://canaryvillas.com/wp-content/uploads/2024/11/full-gallery-image-124-605x465.jpg",
+          "https://canaryvillas.com/wp-content/uploads/2024/11/full-gallery-image-125-605x465.jpg",
+          "https://canaryvillas.com/wp-content/uploads/2024/11/full-gallery-image-127-605x465.jpg",
+          "https://canaryvillas.com/wp-content/uploads/2024/11/full-gallery-image-128-605x465.jpg",
+          "https://canaryvillas.com/wp-content/uploads/2024/11/full-gallery-image-130-605x465.jpg",
+          "https://canaryvillas.com/wp-content/uploads/2024/11/full-gallery-image-132-605x465.jpg",
+        ],
+      },
+      {
+        label: "Bedrooms",
+        images: [
+          "https://canaryvillas.com/wp-content/uploads/2024/11/bed1-1-605x465.jpg",
+          "https://canaryvillas.com/wp-content/uploads/2024/11/bed2-605x465.jpg",
+          "https://canaryvillas.com/wp-content/uploads/2024/11/bed4-605x465.jpg",
+          "https://canaryvillas.com/wp-content/uploads/2024/11/bed6-605x465.jpg",
+        ],
+      },
+      {
+        label: "Living Room",
+        images: [
+          "https://canaryvillas.com/wp-content/uploads/2024/11/tv1-605x465.jpg",
+          "https://canaryvillas.com/wp-content/uploads/2024/11/room4-605x465.jpeg",
+        ],
+      },
+    ],
     airbnbIcalUrl: null,
   },
   {
@@ -89,6 +122,28 @@ Hotel-grade mattresses and crisp quality linens ensure a great night's sleep, wh
       "Quality linens",
       "Near transit",
       "Non-smoking",
+    ],
+    imageGroups: [
+      {
+        label: "Terrace & Outdoor",
+        images: [
+          "https://canaryvillas.com/wp-content/uploads/2024/11/IMG_9137-1024x768.jpg",
+          "https://canaryvillas.com/wp-content/uploads/2024/11/IMG_9140-605x465.jpg",
+        ],
+      },
+      {
+        label: "Living Area",
+        images: [
+          "https://canaryvillas.com/wp-content/uploads/2024/11/IMG_9148-605x465.jpg",
+        ],
+      },
+      {
+        label: "Bedroom & Bathroom",
+        images: [
+          "https://canaryvillas.com/wp-content/uploads/2024/11/IMG_9152-605x465.jpg",
+          "https://canaryvillas.com/wp-content/uploads/2024/11/IMG_9154-605x465.jpg",
+        ],
+      },
     ],
     airbnbIcalUrl: null,
   },

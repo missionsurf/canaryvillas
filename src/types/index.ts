@@ -13,6 +13,7 @@ export interface Villa {
   pricePerNight: number;
   cleaningFee: number;
   images: string[];
+  imageGroups?: { label: string; images: string[] }[] | null;
   amenities: string[];
   airbnbIcalUrl?: string | null;
 }

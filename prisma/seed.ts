@@ -30,11 +30,13 @@ async function main() {
       update: {
         ...villa,
         images: JSON.stringify(villa.images),
+        imageGroups: villa.imageGroups ? JSON.stringify(villa.imageGroups) : null,
         amenities: JSON.stringify(villa.amenities),
       },
       create: {
         ...villa,
         images: JSON.stringify(villa.images),
+        imageGroups: villa.imageGroups ? JSON.stringify(villa.imageGroups) : null,
         amenities: JSON.stringify(villa.amenities),
       },
     });

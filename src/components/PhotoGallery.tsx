@@ -4,15 +4,24 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, LayoutGrid, ArrowLeft } from "lucide-react";
 
+interface ImageGroup {
+  label: string;
+  images: string[];
+}
+
 interface Props {
   images: string[];
   villaName: string;
+  imageGroups?: ImageGroup[] | null;
 }
 
-export default function PhotoGallery({ images, villaName }: Props) {
+export default function PhotoGallery({ images, villaName, imageGroups }: Props) {
   const [gridOpen, setGridOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [activeSection, setActiveSection] = useState(0);
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const gridScrollRef = useRef<HTMLDivElement | null>(null);
 
   const openGrid = () => setGridOpen(true);
   const closeGrid = () => setGridOpen(false);
@@ -51,12 +60,39 @@ export default function PhotoGallery({ images, villaName }: Props) {
     };
   }, [lightboxIndex, gridOpen, prev, next]);
 
+  // Track active section on scroll
+  useEffect(() => {
+    if (!gridOpen || !imageGroups) return;
+    const container = gridScrollRef.current;
+    if (!container) return;
+    const handler = () => {
+      const scrollTop = container.scrollTop;
+      let current = 0;
+      sectionRefs.current.forEach((ref, i) => {
+        if (ref && ref.offsetTop - 120 <= scrollTop) current = i;
+      });
+      setActiveSection(current);
+    };
+    container.addEventListener("scroll", handler);
+    return () => container.removeEventListener("scroll", handler);
+  }, [gridOpen, imageGroups]);
+
+  const scrollToSection = (i: number) => {
+    const ref = sectionRefs.current[i];
+    const container = gridScrollRef.current;
+    if (ref && container) {
+      container.scrollTo({ top: ref.offsetTop - 80, behavior: "smooth" });
+    }
+  };
+
+  // Build a flat index map from grouped images back to the main images array
+  const buildFlatIndex = (src: string) => images.indexOf(src);
+
+  // Touch handling for carousel
   const touchStartX = useRef<number | null>(null);
   const touchStartTime = useRef<number>(0);
-
   const carouselPrev = () => setCarouselIndex((i) => Math.max(i - 1, 0));
   const carouselNext = () => setCarouselIndex((i) => Math.min(i + 1, images.length - 1));
-
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
     touchStartTime.current = Date.now();
@@ -72,22 +108,22 @@ export default function PhotoGallery({ images, villaName }: Props) {
     touchStartX.current = null;
   };
 
-  // Lightbox touch swipe
-  const lbTouchStartX = useRef<number | null>(null);
-  const lbTouchStartTime = useRef<number>(0);
+  // Touch handling for lightbox
+  const lbTouchX = useRef<number | null>(null);
+  const lbTouchTime = useRef<number>(0);
   const handleLbTouchStart = (e: React.TouchEvent) => {
-    lbTouchStartX.current = e.touches[0].clientX;
-    lbTouchStartTime.current = Date.now();
+    lbTouchX.current = e.touches[0].clientX;
+    lbTouchTime.current = Date.now();
   };
   const handleLbTouchEnd = (e: React.TouchEvent) => {
-    if (lbTouchStartX.current === null) return;
-    const dx = lbTouchStartX.current - e.changedTouches[0].clientX;
-    const dt = Date.now() - lbTouchStartTime.current;
+    if (lbTouchX.current === null) return;
+    const dx = lbTouchX.current - e.changedTouches[0].clientX;
+    const dt = Date.now() - lbTouchTime.current;
     if (Math.abs(dx) > 30 || Math.abs(dx) / dt > 0.5) {
       if (dx > 0) next();
       else prev();
     }
-    lbTouchStartX.current = null;
+    lbTouchX.current = null;
   };
 
   return (
@@ -157,30 +193,12 @@ export default function PhotoGallery({ images, villaName }: Props) {
             <Image src={images[0]} alt={`${villaName} — main photo`} fill className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" sizes="50vw" priority />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
           </button>
-          {images[1] && (
-            <button onClick={() => openPhoto(1)} className="relative overflow-hidden group focus:outline-none">
-              <Image src={images[1]} alt={`${villaName} photo 2`} fill className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" sizes="25vw" />
+          {[1, 2, 3, 4].map((idx) => images[idx] && (
+            <button key={idx} onClick={() => openPhoto(idx)} className="relative overflow-hidden group focus:outline-none">
+              <Image src={images[idx]} alt={`${villaName} photo ${idx + 1}`} fill className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" sizes="25vw" />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
             </button>
-          )}
-          {images[2] && (
-            <button onClick={() => openPhoto(2)} className="relative overflow-hidden group focus:outline-none">
-              <Image src={images[2]} alt={`${villaName} photo 3`} fill className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" sizes="25vw" />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
-            </button>
-          )}
-          {images[3] && (
-            <button onClick={() => openPhoto(3)} className="relative overflow-hidden group focus:outline-none">
-              <Image src={images[3]} alt={`${villaName} photo 4`} fill className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" sizes="25vw" />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
-            </button>
-          )}
-          {images[4] && (
-            <button onClick={() => openPhoto(4)} className="relative overflow-hidden group focus:outline-none">
-              <Image src={images[4]} alt={`${villaName} photo 5`} fill className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" sizes="25vw" />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
-            </button>
-          )}
+          ))}
         </div>
 
         <button
@@ -192,43 +210,95 @@ export default function PhotoGallery({ images, villaName }: Props) {
         </button>
       </div>
 
-      {/* ── Photo grid modal ── */}
+      {/* ── Photo grid / tour modal ── */}
       {gridOpen && (
-        <div className="fixed inset-0 z-50 bg-white overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-white flex flex-col">
           {/* Sticky header */}
-          <div className="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-100 z-10">
-            <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-              <button
-                onClick={closeGrid}
-                className="flex items-center gap-2 text-gray-700 hover:text-gray-900 font-medium text-sm transition-colors"
-              >
+          <div className="shrink-0 border-b border-gray-100 bg-white">
+            <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+              <button onClick={closeGrid} className="flex items-center gap-2 text-gray-700 hover:text-gray-900 font-medium text-sm transition-colors">
                 <X className="w-5 h-5" />
                 Close
               </button>
               <span className="text-gray-900 font-semibold">{villaName}</span>
               <span className="text-gray-400 text-sm">{images.length} photos</span>
             </div>
+
+            {/* Section nav tabs (only if groups exist) */}
+            {imageGroups && imageGroups.length > 1 && (
+              <div className="max-w-6xl mx-auto px-6 flex gap-1 pb-0 overflow-x-auto scrollbar-hide">
+                {imageGroups.map((g, i) => (
+                  <button
+                    key={i}
+                    onClick={() => scrollToSection(i)}
+                    className={`shrink-0 px-4 py-2.5 text-sm font-medium border-b-2 transition-colors ${
+                      activeSection === i
+                        ? "border-gray-900 text-gray-900"
+                        : "border-transparent text-gray-500 hover:text-gray-700"
+                    }`}
+                  >
+                    {g.label}
+                    <span className="ml-1.5 text-xs text-gray-400">({g.images.length})</span>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* 2-column grid */}
-          <div className="max-w-5xl mx-auto px-6 py-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {images.map((src, i) => (
-                <button
-                  key={i}
-                  onClick={() => openPhoto(i)}
-                  className="relative overflow-hidden rounded-2xl aspect-[4/3] group block w-full focus:outline-none"
-                >
-                  <Image
-                    src={src}
-                    alt={`${villaName} photo ${i + 1}`}
-                    fill
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-2xl" />
-                </button>
-              ))}
+          {/* Scrollable content */}
+          <div ref={gridScrollRef} className="flex-1 overflow-y-auto">
+            <div className="max-w-6xl mx-auto px-6 py-8 space-y-12">
+              {imageGroups && imageGroups.length > 0 ? (
+                imageGroups.map((group, gi) => (
+                  <div
+                    key={gi}
+                    ref={(el) => { sectionRefs.current[gi] = el; }}
+                  >
+                    <h2 className="text-xl font-bold text-gray-900 mb-4">{group.label}</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {group.images.map((src, pi) => {
+                        const flatIdx = buildFlatIndex(src);
+                        return (
+                          <button
+                            key={pi}
+                            onClick={() => openPhoto(flatIdx >= 0 ? flatIdx : 0)}
+                            className="relative overflow-hidden rounded-2xl aspect-[4/3] group block w-full focus:outline-none"
+                          >
+                            <Image
+                              src={src}
+                              alt={`${villaName} — ${group.label} ${pi + 1}`}
+                              fill
+                              className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                              sizes="(max-width: 640px) 100vw, 50vw"
+                            />
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-2xl" />
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                // Fallback: flat grid if no groups
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {images.map((src, i) => (
+                    <button
+                      key={i}
+                      onClick={() => openPhoto(i)}
+                      className="relative overflow-hidden rounded-2xl aspect-[4/3] group block w-full focus:outline-none"
+                    >
+                      <Image
+                        src={src}
+                        alt={`${villaName} photo ${i + 1}`}
+                        fill
+                        className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                      />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -241,7 +311,6 @@ export default function PhotoGallery({ images, villaName }: Props) {
           onTouchStart={handleLbTouchStart}
           onTouchEnd={handleLbTouchEnd}
         >
-          {/* Header */}
           <div className="flex items-center justify-between px-5 py-4 shrink-0">
             <button
               onClick={closePhoto}
@@ -258,15 +327,10 @@ export default function PhotoGallery({ images, villaName }: Props) {
             </button>
           </div>
 
-          {/* Image */}
           <div className="flex-1 flex items-center justify-center relative min-h-0 px-14 md:px-20">
-            <button
-              onClick={prev}
-              className="absolute left-3 md:left-5 z-10 text-white/60 hover:text-white transition-all hover:scale-110"
-            >
+            <button onClick={prev} className="absolute left-3 md:left-5 z-10 text-white/60 hover:text-white transition-all hover:scale-110">
               <ChevronLeft className="w-8 h-8" />
             </button>
-
             <div className="relative w-full h-full">
               <Image
                 key={lightboxIndex}
@@ -278,16 +342,11 @@ export default function PhotoGallery({ images, villaName }: Props) {
                 priority
               />
             </div>
-
-            <button
-              onClick={next}
-              className="absolute right-3 md:right-5 z-10 text-white/60 hover:text-white transition-all hover:scale-110"
-            >
+            <button onClick={next} className="absolute right-3 md:right-5 z-10 text-white/60 hover:text-white transition-all hover:scale-110">
               <ChevronRight className="w-8 h-8" />
             </button>
           </div>
 
-          {/* Caption */}
           <div className="shrink-0 py-4 text-center">
             <p className="text-white/40 text-xs tracking-wider uppercase">{villaName}</p>
           </div>

@@ -21,6 +21,7 @@ model Villa {
   pricePerNight Float
   cleaningFee   Float    @default(0)
   images        String
+  imageGroups   String?
   amenities     String
   airbnbIcalUrl String?
   createdAt     DateTime @default(now())
