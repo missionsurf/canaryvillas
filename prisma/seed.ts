@@ -5,8 +5,20 @@ import { PrismaLibSql } from "@prisma/adapter-libsql";
 import bcrypt from "bcryptjs";
 import { VILLAS_SEED } from "../src/data/villas";
 
-const dbPath = path.resolve(process.cwd(), "dev.db");
-const adapter = new PrismaLibSql({ url: `file:${dbPath}` });
+function resolveUrl(): { url: string; authToken?: string } {
+  const raw = process.env.DATABASE_URL ?? "";
+  if (raw.startsWith("libsql://") || raw.startsWith("https://")) {
+    return {
+      url: raw.replace(/^libsql:\/\//, "https://"),
+      authToken: process.env.TURSO_AUTH_TOKEN,
+    };
+  }
+  const absPath = path.resolve(process.cwd(), "dev.db");
+  return { url: `file:${absPath}` };
+}
+
+const { url, authToken } = resolveUrl();
+const adapter = new PrismaLibSql({ url, authToken });
 const prisma = new PrismaClient({ adapter } as ConstructorParameters<typeof PrismaClient>[0]);
 
 async function main() {
