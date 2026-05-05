@@ -134,59 +134,104 @@ export default function PhotoGallery({ images, villaName }: Props) {
         </div>
       </div>
 
-      {/* ── Desktop: full-width hero + thumbnail strip ── */}
-      <div className="hidden md:block relative mt-4">
-        {/* Hero */}
-        <button
-          onClick={() => open(0)}
-          className="relative w-full overflow-hidden group focus:outline-none block"
-          style={{ height: "500px" }}
+      {/* ── Desktop: Airbnb-style mosaic (hero + 2×2 grid) ── */}
+      <div
+        className="hidden md:block relative mt-4 mx-4 lg:mx-8 rounded-2xl overflow-hidden"
+        style={{ height: "480px" }}
+      >
+        <div
+          className="grid h-full"
+          style={{
+            gridTemplateColumns: "2fr 1fr 1fr",
+            gridTemplateRows: "1fr 1fr",
+            gap: "4px",
+          }}
         >
-          <Image
-            src={images[0]}
-            alt={`${villaName} — main photo`}
-            fill
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-            sizes="100vw"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
-        </button>
+          {/* Hero — left column, spans both rows */}
+          <button
+            onClick={() => open(0)}
+            className="relative row-span-2 overflow-hidden group focus:outline-none"
+          >
+            <Image
+              src={images[0]}
+              alt={`${villaName} — main photo`}
+              fill
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+              sizes="50vw"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+          </button>
 
-        {/* Thumbnail strip */}
-        <div className="flex gap-[3px] mt-[3px]" style={{ height: "160px" }}>
-          {images.slice(1, 5).map((src, idx) => {
-            const i = idx + 1;
-            const isLast = idx === 3;
-            return (
-              <button
-                key={i}
-                onClick={() => open(i)}
-                className="relative flex-1 overflow-hidden group focus:outline-none"
-              >
-                <Image
-                  src={src}
-                  alt={`${villaName} photo ${i + 1}`}
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.07]"
-                  sizes="25vw"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
-                {isLast && images.length > 5 && (
-                  <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center gap-1 pointer-events-none">
-                    <LayoutGrid className="w-6 h-6 text-white" />
-                    <span className="text-white text-sm font-semibold">+{images.length - 5} more</span>
-                  </div>
-                )}
-              </button>
-            );
-          })}
+          {/* Top-right row: images[1] and images[2] */}
+          {images[1] && (
+            <button
+              onClick={() => open(1)}
+              className="relative overflow-hidden group focus:outline-none"
+            >
+              <Image
+                src={images[1]}
+                alt={`${villaName} photo 2`}
+                fill
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                sizes="25vw"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+            </button>
+          )}
+          {images[2] && (
+            <button
+              onClick={() => open(2)}
+              className="relative overflow-hidden group focus:outline-none"
+            >
+              <Image
+                src={images[2]}
+                alt={`${villaName} photo 3`}
+                fill
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                sizes="25vw"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+            </button>
+          )}
+
+          {/* Bottom-right row: images[3] and images[4] */}
+          {images[3] && (
+            <button
+              onClick={() => open(3)}
+              className="relative overflow-hidden group focus:outline-none"
+            >
+              <Image
+                src={images[3]}
+                alt={`${villaName} photo 4`}
+                fill
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                sizes="25vw"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+            </button>
+          )}
+          {images[4] && (
+            <button
+              onClick={() => open(4)}
+              className="relative overflow-hidden group focus:outline-none"
+            >
+              <Image
+                src={images[4]}
+                alt={`${villaName} photo 5`}
+                fill
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                sizes="25vw"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+            </button>
+          )}
         </div>
 
-        {/* Show all photos pill */}
+        {/* Show all photos — Airbnb-style pill in bottom-right corner */}
         <button
           onClick={() => open(0)}
-          className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm hover:bg-white text-gray-900 text-sm font-semibold px-4 py-2.5 rounded-xl shadow-lg flex items-center gap-2 transition-all hover:shadow-xl border border-white/60"
+          className="absolute bottom-4 right-4 bg-white hover:bg-gray-100 text-gray-900 text-sm font-semibold px-4 py-2.5 rounded-lg shadow-md flex items-center gap-2 transition-colors border border-gray-300"
         >
           <LayoutGrid className="w-4 h-4" />
           Show all {images.length} photos
