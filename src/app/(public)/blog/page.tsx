@@ -12,7 +12,7 @@ alternates: { canonical: "https://canaryvillas.com/blog" },
     title: "Fuerteventura Travel Blog | Canary Villas",
     description: "Expert guides to beaches, watersports, restaurants and day trips in Fuerteventura.",
     url: "https://canaryvillas.com/blog",
-    images: [{ url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&q=80", width: 1200, height: 630 }],
+    images: [{ url: "https://canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg", width: 1200, height: 630 }],
   },
 };
 

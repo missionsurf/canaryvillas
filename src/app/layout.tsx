@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "Canary Villas",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=1200&q=80",
+        url: "https://canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg",
         width: 1200,
         height: 630,
         alt: "Canary Villas — Fuerteventura",

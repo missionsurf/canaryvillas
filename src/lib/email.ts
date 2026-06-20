@@ -167,7 +167,7 @@ export async function sendSpecialOffer(data: SpecialOfferData) {
   const html = `
     <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:600px;margin:0 auto;background:#ffffff;">
       <div style="position:relative;overflow:hidden;border-radius:12px 12px 0 0;">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80" alt="Fuerteventura beach" style="width:100%;height:240px;object-fit:cover;display:block;" />
+        <img src="https://canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg" alt="Fuerteventura beach" style="width:100%;height:240px;object-fit:cover;display:block;" />
         <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(2,132,199,0.3),rgba(3,105,161,0.85));display:flex;flex-direction:column;justify-content:flex-end;padding:28px 36px;">
           <p style="margin:0 0 4px;color:#bae6fd;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;">Canary Villas · Exclusive Offer</p>
           <h1 style="margin:0;color:#ffffff;font-size:26px;font-weight:800;line-height:1.2;">${data.headline}</h1>
