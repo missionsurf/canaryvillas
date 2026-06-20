@@ -5,18 +5,19 @@ export const VILLAS_SEED = [
     shortDesc: "Stunning beachfront villa sleeping up to 6 guests with direct sea access in Corralejo.",
     description: `Wake up to the sound of waves in this stunning beachfront property in Corralejo, Fuerteventura. With panoramic Atlantic ocean views from every room, The Beach House is the ultimate holiday escape for families or groups of friends.
 
-The villa features a spacious open-plan living and dining area that flows directly onto a private terrace overlooking the beach. The fully equipped kitchen has everything you need for self-catering, while two king-size bedrooms and a twin room accommodate up to 6 guests in comfort.
+The villa features a spacious open-plan living and dining area that flows directly onto a private terrace overlooking the beach. The fully equipped kitchen has everything you need for self-catering, with two comfortable bedrooms (and an optional third) accommodating up to 6 guests.
 
 Step straight from the terrace onto the golden sand and crystal-clear waters of one of Fuerteventura's most beautiful beaches. The vibrant town of Corralejo is just a short walk away, with fantastic restaurants, bars, shops, and water sports facilities.`,
     location: "Corralejo, Fuerteventura",
     latitude: 28.7291,
     longitude: -13.8684,
-    bedrooms: 3,
-    bathrooms: 2,
+    bedrooms: 2,
+    bathrooms: 1,
     maxGuests: 6,
     pricePerNight: 180,
     cleaningFee: 75,
     images: [
+      "https://canaryvillas.com/wp-content/uploads/2019/03/back-garden-2.jpg",
       "https://canaryvillas.com/wp-content/uploads/2024/11/full-gallery-image-145.jpg",
       "https://canaryvillas.com/wp-content/uploads/2024/11/full-gallery-image-122.jpg",
       "https://canaryvillas.com/wp-content/uploads/2024/11/full-gallery-image-121.jpg",
@@ -33,7 +34,6 @@ Step straight from the terrace onto the golden sand and crystal-clear waters of 
       "https://canaryvillas.com/wp-content/uploads/2024/11/bed6.jpg",
       "https://canaryvillas.com/wp-content/uploads/2024/11/tv1.jpg",
       "https://canaryvillas.com/wp-content/uploads/2024/11/room4.jpeg",
-      "https://canaryvillas.com/wp-content/uploads/2019/03/back-garden-2.jpg",
       "https://canaryvillas.com/wp-content/uploads/2024/12/20241125_095924.jpg",
       "https://canaryvillas.com/wp-content/uploads/2024/12/Surfing.jpg",
       "https://canaryvillas.com/wp-content/uploads/2024/12/IMG_20240127_1052222.jpg",
