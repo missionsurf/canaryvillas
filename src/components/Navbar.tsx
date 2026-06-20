@@ -16,8 +16,8 @@ export default function Navbar() {
 
   const links = [
     { href: "/villas", label: "Our Villas" },
+    { href: "/blog", label: "Travel Guide" },
     { href: "/#why-fuerteventura", label: "Why Fuerteventura" },
-    { href: "/#activities", label: "Activities" },
     { href: "/contact", label: "Contact" },
   ];
 

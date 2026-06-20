@@ -5,9 +5,15 @@ import VillaCard from "@/components/VillaCard";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Our Holiday Villas in Fuerteventura",
-  description:
-    "Browse our collection of holiday villas in Corralejo, Fuerteventura. Beachfront properties and private bungalows — book direct for the best price.",
+  title: "Holiday Villas to Rent in Fuerteventura — Corralejo | Canary Villas",
+  description: "Browse luxury holiday villas to rent in Corralejo, Fuerteventura. Beachfront villas, private bungalows and self-catering accommodation. Book direct for the best price guaranteed.",
+alternates: { canonical: "https://canaryvillas.com/villas" },
+  openGraph: {
+    title: "Holiday Villas to Rent in Fuerteventura | Canary Villas",
+    description: "Luxury beachfront villas in Corralejo, Fuerteventura — book direct for the best price.",
+    url: "https://canaryvillas.com/villas",
+    images: [{ url: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=1200&q=80", width: 1200, height: 630 }],
+  },
 };
 
 export default async function VillasPage() {

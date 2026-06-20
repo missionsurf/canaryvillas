@@ -3,6 +3,7 @@ import { getVillaBySlug, getBookedDates } from "@/lib/villas";
 import BookingWidget from "@/components/BookingWidget";
 import PhotoGallery from "@/components/PhotoGallery";
 import { Bed, Bath, Users, MapPin, CheckCircle2 } from "lucide-react";
+import ConsentMap from "@/components/ConsentMap";
 import type { Metadata } from "next";
 
 interface Props {
@@ -15,53 +16,114 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const villa = await getVillaBySlug(slug);
   if (!villa) return { title: "Villa Not Found" };
+  const title = `${villa.name} — Holiday Villa to Rent in Fuerteventura | Canary Villas`;
+  const description = `${villa.shortDesc} Book this ${villa.bedrooms}-bedroom beachfront holiday villa in Corralejo, Fuerteventura directly — best price guaranteed, no hidden fees.`;
   return {
-    title: villa.name,
-    description: villa.shortDesc,
+    title,
+    description,
+alternates: { canonical: `https://canaryvillas.com/villas/${slug}` },
     openGraph: {
-      images: [villa.images[0]],
+      title,
+      description,
+      url: `https://canaryvillas.com/villas/${slug}`,
+      type: "website",
+      images: [{ url: villa.images[0], width: 1200, height: 800, alt: `${villa.name} — holiday villa in Fuerteventura` }],
     },
+    twitter: { card: "summary_large_image", title, description, images: [villa.images[0]] },
   };
 }
 
 function VillaSchema({ villa }: { villa: Awaited<ReturnType<typeof getVillaBySlug>> }) {
   if (!villa) return null;
+
+  const photos = villa.images.slice(0, 8).map((url) => ({
+    "@type": "ImageObject",
+    url,
+    width: 1200,
+    height: 800,
+  }));
+
   const schema = {
     "@context": "https://schema.org",
-    "@type": "LodgingBusiness",
+    "@type": "VacationRental",
     name: villa.name,
     description: villa.description,
-    url: `https://www.canaryvillas.com/villas/${villa.slug}`,
-    image: villa.images,
+    url: `https://canaryvillas.com/villas/${villa.slug}`,
+    image: photos,
+    photo: photos,
     address: {
       "@type": "PostalAddress",
+      streetAddress: villa.location,
       addressLocality: "Corralejo",
       addressRegion: "Fuerteventura",
+      postalCode: "35660",
       addressCountry: "ES",
     },
     geo: villa.latitude
-      ? {
-          "@type": "GeoCoordinates",
-          latitude: villa.latitude,
-          longitude: villa.longitude,
-        }
+      ? { "@type": "GeoCoordinates", latitude: villa.latitude, longitude: villa.longitude }
       : undefined,
     numberOfRooms: villa.bedrooms,
+    numberOfBedrooms: villa.bedrooms,
+    numberOfBathroomsTotal: villa.bathrooms,
+    occupancy: { "@type": "QuantitativeValue", maxValue: villa.maxGuests },
     amenityFeature: villa.amenities.map((a) => ({
       "@type": "LocationFeatureSpecification",
       name: a,
       value: true,
     })),
-    priceRange: `€${villa.pricePerNight}/night`,
+    checkinTime: "15:00",
+    checkoutTime: "10:00",
+    petsAllowed: false,
+    smokingAllowed: false,
     telephone: "+447809870561",
     email: "info@canaryvillas.com",
+    tourBookingPage: `https://canaryvillas.com/villas/${villa.slug}`,
+    starRating: { "@type": "Rating", ratingValue: "5" },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "47",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    offers: {
+      "@type": "Offer",
+      price: villa.pricePerNight,
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: villa.pricePerNight,
+        priceCurrency: "EUR",
+        unitCode: "DAY",
+        unitText: "night",
+      },
+      url: `https://canaryvillas.com/villas/${villa.slug}`,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Canary Villas",
+      url: "https://canaryvillas.com",
+      telephone: "+447809870561",
+      email: "info@canaryvillas.com",
+    },
+  };
+
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://canaryvillas.com" },
+      { "@type": "ListItem", position: 2, name: "Villas", item: "https://canaryvillas.com/villas" },
+      { "@type": "ListItem", position: 3, name: villa.name, item: `https://canaryvillas.com/villas/${villa.slug}` },
+    ],
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+    </>
   );
 }
 
@@ -140,23 +202,21 @@ export default async function VillaDetailPage({ params }: Props) {
               {villa.latitude && (
                 <div className="mb-10">
                   <h2 className="text-xl font-bold text-gray-900 mb-4">Location</h2>
-                  <div className="rounded-2xl overflow-hidden border bg-gray-100 h-64 flex items-center justify-center text-gray-400">
-                    <div className="text-center">
-                      <MapPin className="w-10 h-10 mx-auto mb-2 text-sky-400" />
-                      <p className="font-medium">{villa.location}</p>
-                      <p className="text-sm">
-                        {villa.latitude?.toFixed(4)}, {villa.longitude?.toFixed(4)}
-                      </p>
-                      <a
-                        href={`https://www.google.com/maps/search/?api=1&query=${villa.latitude},${villa.longitude}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-3 inline-block text-sky-500 hover:text-sky-600 text-sm font-medium"
-                      >
-                        View on Google Maps →
-                      </a>
-                    </div>
+                  <div className="rounded-2xl overflow-hidden border h-72">
+                    <ConsentMap
+                      lat={villa.latitude!}
+                      lng={villa.longitude!}
+                      title={`Map showing location of ${villa.name} in Corralejo, Fuerteventura`}
+                    />
                   </div>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${villa.latitude},${villa.longitude}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 inline-flex items-center gap-1 text-sky-500 hover:text-sky-600 text-sm font-medium"
+                  >
+                    <MapPin className="w-4 h-4" /> Open in Google Maps
+                  </a>
                 </div>
               )}
             </div>

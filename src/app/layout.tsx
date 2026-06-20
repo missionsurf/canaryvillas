@@ -11,17 +11,18 @@ export const metadata: Metadata = {
   },
   description:
     "Book stunning beachfront holiday villas in Corralejo, Fuerteventura. Direct booking, best price guaranteed. Sea views, private terraces & year-round sunshine.",
-  keywords: [
-    "holiday villas Fuerteventura",
-    "Corralejo villa rental",
-    "beachfront villa Canary Islands",
-    "self catering Fuerteventura",
-    "villa holiday Spain",
-  ],
+  alternates: {
+    canonical: "https://canaryvillas.com",
+    languages: {
+      "en": "https://canaryvillas.com",
+      "de": "https://canaryvillas.com",
+      "x-default": "https://canaryvillas.com",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://www.canaryvillas.com",
+    url: "https://canaryvillas.com",
     siteName: "Canary Villas",
     images: [
       {
@@ -34,10 +35,41 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Canary Villas",
+  url: "https://canaryvillas.com",
+  logo: "https://canaryvillas.com/favicon.ico",
+  telephone: "+447809870561",
+  email: "info@canaryvillas.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Corralejo",
+    addressRegion: "Fuerteventura",
+    addressCountry: "ES",
+  },
+  sameAs: [],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Canary Villas",
+  url: "https://canaryvillas.com",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://canaryvillas.com/villas?q={search_term_string}",
+    "query-input": "required name=search_term_string",
+  },
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.className}>
       <body className="min-h-screen flex flex-col">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
         {children}
       </body>
     </html>

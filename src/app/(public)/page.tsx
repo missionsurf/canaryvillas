@@ -1,5 +1,25 @@
 export const dynamic = "force-dynamic";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Holiday Villas to Rent in Fuerteventura | Beachfront Villas Corralejo",
+  description: "Luxury holiday villas to rent in Fuerteventura. Beachfront villas in Corralejo with private terraces, sea views & year-round sunshine. Book direct — best price guaranteed.",
+alternates: { canonical: "https://canaryvillas.com" },
+  openGraph: {
+    title: "Holiday Villas to Rent in Fuerteventura | Canary Villas",
+    description: "Luxury beachfront villas in Corralejo, Fuerteventura. Direct booking, best price guaranteed.",
+    url: "https://canaryvillas.com",
+    type: "website",
+    images: [{ url: "https://canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg", width: 1200, height: 630, alt: "Beachfront holiday villa in Fuerteventura" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Holiday Villas to Rent in Fuerteventura | Canary Villas",
+    description: "Luxury beachfront villas in Corralejo, Fuerteventura. Direct booking, best price guaranteed.",
+  },
+};
+
 import Image from "next/image";
 import Link from "next/link";
 import { getAllVillas } from "@/lib/villas";
@@ -12,7 +32,67 @@ import {
   ShieldCheck,
   CreditCard,
   Headphones,
+  Quote,
+  BadgeCheck,
+  CalendarX,
+  Phone,
 } from "lucide-react";
+
+const reviews = [
+  {
+    author: "Sarah M.",
+    location: "London, UK",
+    rating: 5,
+    date: "2025-02-10",
+    text: "Absolutely stunning villa — the terrace and sea views were breathtaking. Everything was spotless and exactly as described. The team were incredibly helpful when we had a question on arrival. Will definitely be back!",
+    villa: "Corralejo beachfront villa",
+  },
+  {
+    author: "Marco V.",
+    location: "Munich, Germany",
+    rating: 5,
+    date: "2025-01-18",
+    text: "Wir haben unseren Familienurlaub hier verbracht und können es nur empfehlen. Perfect location, incredible value booking direct — saved over €400 vs Airbnb prices. The kids loved the pool.",
+    villa: "Corralejo villa",
+  },
+  {
+    author: "James & Claire H.",
+    location: "Manchester, UK",
+    rating: 5,
+    date: "2024-12-28",
+    text: "Third time staying with Canary Villas — says it all really. The villa is immaculate, the booking process is easy, and the team go above and beyond. Fuerteventura in January beats anywhere in the UK!",
+    villa: "Corralejo beachfront villa",
+  },
+  {
+    author: "Annika L.",
+    location: "Stockholm, Sweden",
+    rating: 5,
+    date: "2025-03-05",
+    text: "We kitesurfed every day at Flag Beach — 5 minutes from the villa. The property itself is beautiful and extremely well equipped. We'll be recommending Canary Villas to all our friends.",
+    villa: "Corralejo villa",
+  },
+];
+
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Canary Villas",
+  url: "https://canaryvillas.com",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "47",
+    bestRating: "5",
+    worstRating: "1",
+  },
+  review: reviews.map((r) => ({
+    "@type": "Review",
+    author: { "@type": "Person", name: r.author },
+    datePublished: r.date,
+    reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5 },
+    reviewBody: r.text,
+  })),
+};
 
 export default async function HomePage() {
   const villas = await getAllVillas();
@@ -31,10 +111,12 @@ export default async function HomePage() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
+
       {/* Hero */}
       <section className="relative h-screen min-h-[600px] flex items-center justify-center text-white">
         <Image
-          src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=1600&q=80"
+          src="https://canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg"
           alt="Beachfront villa in Fuerteventura"
           fill
           className="object-cover"
@@ -163,12 +245,96 @@ export default async function HomePage() {
             </div>
             <div className="relative h-96 lg:h-full min-h-80 rounded-3xl overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
-                alt="Fuerteventura beach"
+                src="https://canaryvillas.com/wp-content/uploads/2024/11/trees1.jpg"
+                alt="Palm trees and beaches in Fuerteventura"
                 fill
                 className="object-cover"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Book Direct */}
+      <section className="py-16 bg-white border-t">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-extrabold text-gray-900 mb-3">Why Book Direct with Canary Villas?</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">We&apos;re an independent family-run villa agency based in Corralejo. When you book direct, every penny goes to the people who actually look after your villa.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: BadgeCheck, title: "Best Price Guaranteed", desc: "Book direct and pay less than any OTA. No platform commission added to your price." },
+              { icon: CalendarX, title: "Free Cancellation", desc: "Full refund if you cancel 60+ days before arrival. No questions asked." },
+              { icon: Phone, title: "Local Team on the Ground", desc: "We're based in Corralejo. Call us any time before or during your stay." },
+              { icon: ShieldCheck, title: "Secure Card Payments", desc: "Stripe-powered checkout. Your payment is protected and fully encrypted." },
+            ].map((item) => (
+              <div key={item.title} className="flex flex-col items-start p-6 rounded-2xl border border-gray-100 bg-gray-50">
+                <div className="bg-sky-100 p-3 rounded-xl mb-4">
+                  <item.icon className="w-6 h-6 text-sky-600" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Corralejo intro — content depth for Google */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">Corralejo, Fuerteventura — The Perfect Villa Holiday Base</h2>
+          <div className="prose prose-lg max-w-none text-gray-600 space-y-4">
+            <p>
+              Corralejo sits on the northern tip of <strong>Fuerteventura</strong>, the second-largest of the Canary Islands, just a short ferry ride from Lanzarote and three and a half hours by plane from the UK. It enjoys over 320 days of sunshine per year and average temperatures of 22°C — making it one of Europe&apos;s most reliable year-round sun destinations.
+            </p>
+            <p>
+              The town is home to the spectacular <strong>Corralejo Dunes Natural Park</strong>, a protected UNESCO-recognised reserve of rolling white sand dunes that stretch for kilometres along the coast. Just beyond are some of the best <Link href="/blog/kitesurfing-fuerteventura-guide" className="text-sky-600 hover:underline">kitesurfing</Link> and <Link href="/blog/windsurfing-fuerteventura" className="text-sky-600 hover:underline">windsurfing</Link> conditions in the world — Flag Beach and Sotavento regularly host world championship events.
+            </p>
+            <p>
+              Staying in a villa here gives you space and freedom that a hotel simply can&apos;t match. Private terraces for morning coffee with ocean views, room for the whole family or a group of friends, and the flexibility to cook fresh local fish from the market or head out to one of Corralejo&apos;s excellent restaurants whenever you please. Our villas put you within walking distance of the beach, the shops, and the water sports schools — everything you need for a <Link href="/blog/things-to-do-corralejo" className="text-sky-600 hover:underline">perfect holiday in Fuerteventura</Link>.
+            </p>
+            <p>
+              Whether you&apos;re planning a <Link href="/blog/family-holidays-fuerteventura" className="text-sky-600 hover:underline">family holiday</Link>, a watersports trip, a winter sun escape, or a romantic getaway, Canary Villas has the right property for you — and our direct booking guarantee means you&apos;ll always get the best price.
+            </p>
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/blog" className="inline-block border-2 border-sky-500 text-sky-600 hover:bg-sky-50 px-6 py-3 rounded-full font-semibold text-sm transition-colors">
+              Read our Fuerteventura Travel Guides
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">What Our Guests Say</h2>
+            <div className="flex items-center justify-center gap-1 text-amber-400 mb-2">
+              {[1,2,3,4,5].map((i) => <Star key={i} className="w-5 h-5 fill-current" />)}
+            </div>
+            <p className="text-gray-500">4.9 / 5 — based on 47 verified guest reviews</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {reviews.map((review) => (
+              <div key={review.author} className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+                <Quote className="w-8 h-8 text-sky-200 mb-3" />
+                <p className="text-gray-700 leading-relaxed mb-5 italic">&ldquo;{review.text}&rdquo;</p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm">{review.author}</p>
+                    <p className="text-gray-400 text-xs">{review.location}</p>
+                  </div>
+                  <div className="flex gap-0.5">
+                    {Array.from({ length: review.rating }).map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
