@@ -34,7 +34,7 @@ import {
   Headphones,
   Quote,
   BadgeCheck,
-  CalendarX,
+
   Phone,
 } from "lucide-react";
 
@@ -99,7 +99,7 @@ export default async function HomePage() {
 
   const features = [
     { icon: ShieldCheck, title: "Secure Direct Booking", desc: "Book directly with us for the best price. No middleman fees." },
-    { icon: CreditCard, title: "Flexible Payment", desc: "Pay securely online via card. Full refund if cancelled 60+ days out." },
+    { icon: CreditCard, title: "Flexible Payment", desc: "Pay securely online via card. Simple and straightforward." },
     { icon: Headphones, title: "24/7 Support", desc: "Our local team is always on hand before and during your stay." },
   ];
 
@@ -265,7 +265,6 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: BadgeCheck, title: "Best Price Guaranteed", desc: "Book direct and pay less than any OTA. No platform commission added to your price." },
-              { icon: CalendarX, title: "Free Cancellation", desc: "Full refund if you cancel 60+ days before arrival. No questions asked." },
               { icon: Phone, title: "Local Team on the Ground", desc: "We're based in Corralejo. Call us any time before or during your stay." },
               { icon: ShieldCheck, title: "Secure Card Payments", desc: "Stripe-powered checkout. Your payment is protected and fully encrypted." },
             ].map((item) => (
