@@ -5,7 +5,7 @@ import type { Villa } from "@/types";
 
 export default function VillaCard({ villa }: { villa: Villa }) {
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+    <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group flex flex-col">
       <div className="relative h-64 overflow-hidden">
         <Image
           src={villa.images[0]}
@@ -19,7 +19,7 @@ export default function VillaCard({ villa }: { villa: Villa }) {
         </div>
       </div>
 
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-1">
         <div className="flex items-start justify-between mb-2">
           <h3 className="text-xl font-bold text-gray-900">{villa.name}</h3>
           <div className="flex items-center gap-1 text-amber-400">
@@ -43,12 +43,14 @@ export default function VillaCard({ villa }: { villa: Villa }) {
           </span>
         </div>
 
-        <Link
-          href={`/villas/${villa.slug}`}
-          className="block w-full bg-sky-500 hover:bg-sky-400 text-white text-center py-4 rounded-xl font-bold text-lg tracking-wide transition-all shadow-lg shadow-sky-500/25 hover:shadow-xl hover:shadow-sky-500/30 hover:-translate-y-0.5"
-        >
-          View Villa & Book
-        </Link>
+        <div className="mt-auto">
+          <Link
+            href={`/villas/${villa.slug}`}
+            className="block w-full bg-sky-500 hover:bg-sky-400 text-white text-center py-4 rounded-xl font-bold text-lg tracking-wide transition-all shadow-lg shadow-sky-500/25 hover:shadow-xl hover:shadow-sky-500/30 hover:-translate-y-0.5"
+          >
+            View Villa & Book
+          </Link>
+        </div>
       </div>
     </div>
   );
