@@ -45,7 +45,7 @@ export default function VillaCard({ villa }: { villa: Villa }) {
 
         <Link
           href={`/villas/${villa.slug}`}
-          className="block w-full bg-sky-500 hover:bg-sky-600 text-white text-center py-3 rounded-xl font-semibold transition-colors"
+          className="block w-full bg-sky-500 hover:bg-sky-400 text-white text-center py-4 rounded-xl font-bold text-lg tracking-wide transition-all shadow-lg shadow-sky-500/25 hover:shadow-xl hover:shadow-sky-500/30 hover:-translate-y-0.5"
         >
           View Villa & Book
         </Link>
