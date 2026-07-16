@@ -3,6 +3,7 @@ import { getAdminSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { Home, RefreshCw, ExternalLink } from "lucide-react";
 import AdminSyncButton from "@/components/AdminSyncButton";
+import VillaIcalSettings from "@/components/VillaIcalSettings";
 
 export const dynamic = "force-dynamic";
 
@@ -40,28 +41,16 @@ export default async function PropertiesPage() {
             <AdminSyncButton />
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             {villas.map((v) => (
-              <div key={v.id} className="flex items-center justify-between py-3 border-b last:border-0 text-sm">
-                <div>
-                  <p className="font-semibold text-gray-900">{v.name}</p>
-                  <p className="text-gray-400 text-xs">{v.location}</p>
-                </div>
-                <div className="flex items-center gap-4">
-                  {v.airbnbIcalUrl ? (
-                    <span className="text-green-600 text-xs font-semibold">iCal connected</span>
-                  ) : (
-                    <span className="text-gray-400 text-xs">No iCal URL</span>
-                  )}
-                  <a
-                    href={`/api/ical?slug=${v.slug}`}
-                    target="_blank"
-                    className="text-sky-600 hover:text-sky-700 text-xs flex items-center gap-1"
-                  >
-                    Export iCal <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
-              </div>
+              <VillaIcalSettings
+                key={v.id}
+                villaId={v.id}
+                villaName={v.name}
+                villaSlug={v.slug}
+                airbnbIcalUrl={v.airbnbIcalUrl}
+                baseUrl={process.env.NEXT_PUBLIC_BASE_URL || "https://canaryvillas.vercel.app"}
+              />
             ))}
           </div>
         </div>

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe";
 import { prisma } from "@/lib/prisma";
 import { sendBookingConfirmation, sendBalancePaidConfirmation } from "@/lib/email";
+import { syncAirbnbCalendar } from "@/lib/ical-sync";
 import Stripe from "stripe";
 
 export const dynamic = "force-dynamic";
@@ -57,6 +58,14 @@ export async function POST(req: NextRequest) {
           },
           include: { villa: true },
         });
+        // Re-sync Airbnb calendar so new booking blocks dates there too
+        try {
+          const villa = await prisma.villa.findUnique({ where: { id: booking.villaId }, select: { airbnbIcalUrl: true } });
+          if (villa?.airbnbIcalUrl) await syncAirbnbCalendar(booking.villaId, villa.airbnbIcalUrl);
+        } catch (syncErr) {
+          console.error("Post-booking sync failed:", syncErr);
+        }
+
         try {
           await sendBookingConfirmation({
             guestName: booking.guestName,
