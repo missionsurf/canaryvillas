@@ -34,9 +34,9 @@ model Villa {
 }
 
 model Booking {
-  id              String   @id @default(cuid())
+  id              String    @id @default(cuid())
   villaId         String
-  villa           Villa    @relation(fields: [villaId], references: [id])
+  villa           Villa     @relation(fields: [villaId], references: [id])
   guestName       String
   guestEmail      String
   guestPhone      String?
@@ -47,13 +47,20 @@ model Booking {
   pricePerNight   Float
   cleaningFee     Float
   totalPrice      Float
-  status          String   @default("pending")
+  depositAmount   Float?
+  depositPaid     Boolean   @default(false)
+  balanceAmount   Float?
+  balancePaid     Boolean   @default(false)
+  balanceDueDate  DateTime?
+  paymentMethod   String    @default("stripe")
+  status          String    @default("pending")
   stripePaymentId String?
   stripeSessionId String?
-  source          String   @default("direct")
+  paypalOrderId   String?
+  source          String    @default("direct")
   notes           String?
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
 
   @@map("bookings")
 }

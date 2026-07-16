@@ -17,6 +17,10 @@ export interface BookingEmailData {
   nights: number;
   guests: number;
   totalPrice: number;
+  depositAmount?: number;
+  balanceAmount?: number;
+  balanceDueDate?: Date | null;
+  paymentMethod?: string;
   bookingId: string;
 }
 
@@ -35,6 +39,12 @@ const baseClose = `
 `;
 
 function bookingTable(data: BookingEmailData) {
+  const depositRow = data.depositAmount
+    ? `<tr><td style="padding:10px 14px;color:#64748b;font-weight:600;">Deposit paid</td><td style="padding:10px 14px;color:#16a34a;font-weight:700;">€${data.depositAmount.toFixed(2)} ✓</td></tr>`
+    : "";
+  const balanceRow = data.balanceAmount && data.balanceDueDate
+    ? `<tr style="background:#fef9c3;"><td style="padding:10px 14px;color:#854d0e;font-weight:600;">Balance due</td><td style="padding:10px 14px;color:#92400e;font-weight:700;">€${data.balanceAmount.toFixed(2)} by ${format(data.balanceDueDate, "d MMMM yyyy")}</td></tr>`
+    : "";
   return `
     <table style="width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;">
       <tr style="background:#f8fafc;"><td style="padding:10px 14px;color:#64748b;font-weight:600;">Property</td><td style="padding:10px 14px;color:#1e293b;font-weight:700;">${data.villaName}</td></tr>
@@ -42,7 +52,9 @@ function bookingTable(data: BookingEmailData) {
       <tr style="background:#f8fafc;"><td style="padding:10px 14px;color:#64748b;font-weight:600;">Check-out</td><td style="padding:10px 14px;color:#1e293b;">${format(data.checkOut, "EEEE, d MMMM yyyy")}</td></tr>
       <tr><td style="padding:10px 14px;color:#64748b;font-weight:600;">Duration</td><td style="padding:10px 14px;color:#1e293b;">${data.nights} night${data.nights > 1 ? "s" : ""}</td></tr>
       <tr style="background:#f8fafc;"><td style="padding:10px 14px;color:#64748b;font-weight:600;">Guests</td><td style="padding:10px 14px;color:#1e293b;">${data.guests}</td></tr>
-      <tr style="border-top:2px solid #0284c7;"><td style="padding:10px 14px;color:#0284c7;font-weight:700;font-size:15px;">Total Paid</td><td style="padding:10px 14px;color:#0284c7;font-weight:700;font-size:15px;">€${data.totalPrice.toFixed(2)}</td></tr>
+      <tr style="border-top:1px solid #e2e8f0;"><td style="padding:10px 14px;color:#64748b;font-weight:600;">Total cost</td><td style="padding:10px 14px;color:#1e293b;font-weight:700;">€${data.totalPrice.toFixed(2)}</td></tr>
+      ${depositRow}
+      ${balanceRow}
     </table>
     <p style="font-size:12px;color:#94a3b8;margin-top:0;">Booking reference: <strong style="color:#475569;">${data.bookingId.slice(-8).toUpperCase()}</strong></p>
   `;
@@ -69,6 +81,143 @@ export async function sendBookingConfirmation(data: BookingEmailData) {
     to: data.guestEmail,
     bcc: process.env.ADMIN_EMAIL,
     subject: `✓ Booking Confirmed — ${data.villaName} | Canary Villas`,
+    html,
+  });
+}
+
+export interface BankTransferEmailData {
+  guestName: string;
+  guestEmail: string;
+  villaName: string;
+  checkIn: Date;
+  checkOut: Date;
+  nights: number;
+  guests: number;
+  totalPrice: number;
+  depositAmount: number;
+  balanceAmount: number;
+  balanceDueDate: Date;
+  bookingId: string;
+}
+
+export async function sendBankTransferInstructions(data: BankTransferEmailData) {
+  const bankName = process.env.BANK_NAME || "";
+  const bankAccountName = process.env.BANK_ACCOUNT_NAME || "Villas de Corralejho 2023";
+  const bankIban = process.env.BANK_IBAN || "";
+  const bankBic = process.env.BANK_BIC || "";
+  const bankSortCode = process.env.BANK_SORT_CODE || "";
+  const bankAccountNumber = process.env.BANK_ACCOUNT_NUMBER || "";
+
+  const bankRows = [
+    bankName ? `<tr><td style="padding:8px 12px;color:#64748b;">Bank</td><td style="padding:8px 12px;font-weight:600;color:#1e293b;">${bankName}</td></tr>` : "",
+    `<tr style="background:#f8fafc;"><td style="padding:8px 12px;color:#64748b;">Account name</td><td style="padding:8px 12px;font-weight:600;color:#1e293b;">${bankAccountName}</td></tr>`,
+    bankIban ? `<tr><td style="padding:8px 12px;color:#64748b;">IBAN</td><td style="padding:8px 12px;font-family:monospace;font-weight:600;color:#1e293b;">${bankIban}</td></tr>` : "",
+    bankBic ? `<tr style="background:#f8fafc;"><td style="padding:8px 12px;color:#64748b;">BIC/SWIFT</td><td style="padding:8px 12px;font-family:monospace;font-weight:600;color:#1e293b;">${bankBic}</td></tr>` : "",
+    bankSortCode ? `<tr><td style="padding:8px 12px;color:#64748b;">Sort code</td><td style="padding:8px 12px;font-family:monospace;font-weight:600;color:#1e293b;">${bankSortCode}</td></tr>` : "",
+    bankAccountNumber ? `<tr style="background:#f8fafc;"><td style="padding:8px 12px;color:#64748b;">Account number</td><td style="padding:8px 12px;font-family:monospace;font-weight:600;color:#1e293b;">${bankAccountNumber}</td></tr>` : "",
+    `<tr style="border-top:2px solid #0284c7;"><td style="padding:8px 12px;color:#0284c7;font-weight:700;">Payment reference</td><td style="padding:8px 12px;font-weight:700;color:#0284c7;font-family:monospace;">${data.bookingId.slice(-8).toUpperCase()}</td></tr>`,
+  ].filter(Boolean).join("");
+
+  const html = baseStyle + `
+    <div style="display:inline-block;background:#fef9c3;border-radius:50px;padding:8px 16px;margin-bottom:20px;">
+      <span style="color:#854d0e;font-weight:700;font-size:14px;">⏳ Dates Reserved — Deposit Required</span>
+    </div>
+    <h2 style="margin:0 0 8px;color:#1e293b;font-size:22px;">Almost there, ${data.guestName}!</h2>
+    <p style="color:#64748b;margin:0 0 24px;">Your dates are held for 48 hours. Please transfer your 50% deposit to confirm your booking.</p>
+
+    <table style="width:100%;border-collapse:collapse;margin:0 0 24px;font-size:14px;">
+      <tr style="background:#f8fafc;"><td style="padding:10px 14px;color:#64748b;font-weight:600;">Property</td><td style="padding:10px 14px;color:#1e293b;font-weight:700;">${data.villaName}</td></tr>
+      <tr><td style="padding:10px 14px;color:#64748b;font-weight:600;">Check-in</td><td style="padding:10px 14px;color:#1e293b;">${format(data.checkIn, "EEEE, d MMMM yyyy")}</td></tr>
+      <tr style="background:#f8fafc;"><td style="padding:10px 14px;color:#64748b;font-weight:600;">Check-out</td><td style="padding:10px 14px;color:#1e293b;">${format(data.checkOut, "EEEE, d MMMM yyyy")}</td></tr>
+      <tr><td style="padding:10px 14px;color:#64748b;font-weight:600;">Total cost</td><td style="padding:10px 14px;color:#1e293b;">€${data.totalPrice.toFixed(2)}</td></tr>
+      <tr style="background:#dcfce7;"><td style="padding:10px 14px;color:#166534;font-weight:700;font-size:15px;">50% deposit now</td><td style="padding:10px 14px;color:#166534;font-weight:700;font-size:15px;">€${data.depositAmount.toFixed(2)}</td></tr>
+      <tr style="background:#fef9c3;"><td style="padding:10px 14px;color:#854d0e;font-weight:600;">Balance due</td><td style="padding:10px 14px;color:#92400e;">€${data.balanceAmount.toFixed(2)} by ${format(data.balanceDueDate, "d MMMM yyyy")}</td></tr>
+    </table>
+
+    <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;padding:20px 24px;margin:0 0 24px;">
+      <p style="margin:0 0 12px;font-weight:700;color:#0369a1;font-size:15px;">Bank Transfer Details</p>
+      <table style="width:100%;border-collapse:collapse;font-size:14px;">${bankRows}</table>
+    </div>
+
+    <div style="background:#fef2f2;border-left:4px solid #ef4444;padding:12px 16px;border-radius:0 8px 8px 0;margin:0 0 24px;">
+      <p style="margin:0;color:#991b1b;font-size:13px;"><strong>Important:</strong> Please include your reference number <strong>${data.bookingId.slice(-8).toUpperCase()}</strong> with your transfer. Your dates will be released after 48 hours if we don't receive payment.</p>
+    </div>
+
+    <p style="color:#64748b;font-size:14px;">Questions? Reply to this email or call us on <a href="tel:+447809870561" style="color:#0284c7;">+44 7809 870561</a>.</p>
+  ` + baseClose;
+
+  await transporter.sendMail({
+    from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
+    to: data.guestEmail,
+    bcc: process.env.ADMIN_EMAIL,
+    subject: `Dates Reserved — Please Transfer Deposit | ${data.villaName} | Canary Villas`,
+    html,
+  });
+}
+
+export interface BalanceReminderData {
+  guestName: string;
+  guestEmail: string;
+  villaName: string;
+  checkIn: Date;
+  checkOut: Date;
+  nights: number;
+  guests: number;
+  totalPrice: number;
+  balanceAmount: number;
+  balanceDueDate: Date;
+  payUrl: string;
+  bookingId: string;
+}
+
+export async function sendBalanceReminder(data: BalanceReminderData) {
+  const html = baseStyle + `
+    <div style="display:inline-block;background:#fef9c3;border-radius:50px;padding:8px 16px;margin-bottom:20px;">
+      <span style="color:#854d0e;font-weight:700;font-size:14px;">💳 Balance Payment Due</span>
+    </div>
+    <h2 style="margin:0 0 8px;color:#1e293b;font-size:22px;">Your balance is due, ${data.guestName}</h2>
+    <p style="color:#64748b;margin:0 0 24px;">Your holiday balance for <strong>${data.villaName}</strong> is due by <strong>${format(data.balanceDueDate, "d MMMM yyyy")}</strong>.</p>
+
+    <table style="width:100%;border-collapse:collapse;margin:0 0 24px;font-size:14px;">
+      <tr style="background:#f8fafc;"><td style="padding:10px 14px;color:#64748b;font-weight:600;">Property</td><td style="padding:10px 14px;color:#1e293b;font-weight:700;">${data.villaName}</td></tr>
+      <tr><td style="padding:10px 14px;color:#64748b;font-weight:600;">Check-in</td><td style="padding:10px 14px;color:#1e293b;">${format(data.checkIn, "EEEE, d MMMM yyyy")}</td></tr>
+      <tr style="background:#f8fafc;"><td style="padding:10px 14px;color:#64748b;font-weight:600;">Check-out</td><td style="padding:10px 14px;color:#1e293b;">${format(data.checkOut, "EEEE, d MMMM yyyy")}</td></tr>
+      <tr style="border-top:2px solid #ef4444;"><td style="padding:10px 14px;color:#dc2626;font-weight:700;font-size:15px;">Balance due</td><td style="padding:10px 14px;color:#dc2626;font-weight:700;font-size:15px;">€${data.balanceAmount.toFixed(2)}</td></tr>
+    </table>
+
+    <div style="text-align:center;margin:28px 0;">
+      <a href="${data.payUrl}" style="display:inline-block;background:linear-gradient(135deg,#0284c7,#0369a1);color:#ffffff;text-decoration:none;font-weight:700;font-size:16px;padding:16px 40px;border-radius:50px;box-shadow:0 4px 14px rgba(2,132,199,0.3);">Pay Balance Now →</a>
+    </div>
+
+    <p style="color:#64748b;font-size:14px;">Questions? Reply to this email or call us on <a href="tel:+447809870561" style="color:#0284c7;">+44 7809 870561</a>.</p>
+    <p style="color:#64748b;font-size:14px;">We can't wait to welcome you to Fuerteventura! 🌊</p>
+  ` + baseClose;
+
+  await transporter.sendMail({
+    from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
+    to: data.guestEmail,
+    bcc: process.env.ADMIN_EMAIL,
+    subject: `Balance Due — ${data.villaName} | Canary Villas`,
+    html,
+  });
+}
+
+export async function sendBalancePaidConfirmation(data: BookingEmailData) {
+  const html = baseStyle + `
+    <div style="display:inline-block;background:#dcfce7;border-radius:50px;padding:8px 16px;margin-bottom:20px;">
+      <span style="color:#16a34a;font-weight:700;font-size:14px;">✓ Balance Received — You're All Set!</span>
+    </div>
+    <h2 style="margin:0 0 8px;color:#1e293b;font-size:22px;">All paid — see you in Fuerteventura!</h2>
+    <p style="color:#64748b;margin:0 0 24px;">Dear ${data.guestName}, we've received your final balance payment. Your holiday is fully paid and confirmed.</p>
+    ${bookingTable(data)}
+    <p style="color:#64748b;font-size:14px;">See you in Fuerteventura! 🏖️</p>
+  ` + baseClose;
+
+  await transporter.sendMail({
+    from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
+    to: data.guestEmail,
+    bcc: process.env.ADMIN_EMAIL,
+    subject: `Balance Received — ${data.villaName} Fully Confirmed | Canary Villas`,
     html,
   });
 }

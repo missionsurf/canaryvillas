@@ -21,8 +21,29 @@ const { url, authToken } = resolveUrl();
 const adapter = new PrismaLibSql({ url, authToken });
 const prisma = new PrismaClient({ adapter } as ConstructorParameters<typeof PrismaClient>[0]);
 
+async function migrateSchema() {
+  const newColumns = [
+    `ALTER TABLE bookings ADD COLUMN paymentMethod TEXT NOT NULL DEFAULT 'stripe'`,
+    `ALTER TABLE bookings ADD COLUMN depositAmount REAL`,
+    `ALTER TABLE bookings ADD COLUMN depositPaid INTEGER NOT NULL DEFAULT 0`,
+    `ALTER TABLE bookings ADD COLUMN balanceAmount REAL`,
+    `ALTER TABLE bookings ADD COLUMN balancePaid INTEGER NOT NULL DEFAULT 0`,
+    `ALTER TABLE bookings ADD COLUMN balanceDueDate DATETIME`,
+    `ALTER TABLE bookings ADD COLUMN paypalOrderId TEXT`,
+    `ALTER TABLE villas ADD COLUMN imageGroups TEXT`,
+  ];
+  for (const sql of newColumns) {
+    try {
+      await prisma.$executeRawUnsafe(sql);
+    } catch {
+      // Column already exists
+    }
+  }
+}
+
 async function main() {
   console.log("Seeding database...");
+  await migrateSchema();
 
   for (const villa of VILLAS_SEED) {
     await prisma.villa.upsert({

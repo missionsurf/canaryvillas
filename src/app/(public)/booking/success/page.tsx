@@ -49,12 +49,33 @@ export default async function BookingSuccessPage({ searchParams }: Props) {
                 <span>{booking.guestEmail}</span>
               </div>
             </div>
-            <div className="border-t mt-4 pt-4 flex justify-between font-bold text-gray-900">
-              <span>Total paid</span>
-              <span>€{booking.totalPrice.toFixed(2)}</span>
+            <div className="border-t mt-4 pt-4 space-y-2 text-sm">
+              <div className="flex justify-between text-gray-600">
+                <span>Total holiday cost</span>
+                <span>€{booking.totalPrice.toFixed(2)}</span>
+              </div>
+              {booking.depositAmount ? (
+                <>
+                  <div className="flex justify-between font-bold text-green-700">
+                    <span>Deposit paid ✓</span>
+                    <span>€{booking.depositAmount.toFixed(2)}</span>
+                  </div>
+                  {booking.balanceAmount && booking.balanceDueDate && !booking.balancePaid && (
+                    <div className="flex justify-between text-amber-700 font-semibold">
+                      <span>Balance due {format(booking.balanceDueDate, "d MMM yyyy")}</span>
+                      <span>€{booking.balanceAmount.toFixed(2)}</span>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div className="flex justify-between font-bold text-gray-900">
+                  <span>Total paid</span>
+                  <span>€{booking.totalPrice.toFixed(2)}</span>
+                </div>
+              )}
             </div>
-            <p className="text-xs text-gray-400 mt-2">
-              Booking ref: {booking.id.toUpperCase()}
+            <p className="text-xs text-gray-400 mt-3">
+              Booking ref: {booking.id.slice(-8).toUpperCase()}
             </p>
           </div>
         )}

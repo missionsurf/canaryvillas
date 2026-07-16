@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { DayPicker, DateRange } from "react-day-picker";
-import { differenceInDays, format, isBefore, startOfDay } from "date-fns";
-import { Users, Calendar, ArrowRight, Loader2 } from "lucide-react";
+import { differenceInDays, format } from "date-fns";
+import { Users, Calendar, ArrowRight, Loader2, CreditCard, Building2 } from "lucide-react";
 import "react-day-picker/dist/style.css";
 
 interface Props {
@@ -14,6 +14,8 @@ interface Props {
   maxGuests: number;
   bookedDates: string[];
 }
+
+type PaymentMethod = "stripe" | "paypal" | "bank_transfer";
 
 export default function BookingWidget({
   villaId,
@@ -26,33 +28,101 @@ export default function BookingWidget({
   const [range, setRange] = useState<DateRange | undefined>();
   const [guests, setGuests] = useState(2);
   const [loading, setLoading] = useState(false);
-  const [step, setStep] = useState<"dates" | "details" | "confirm">("dates");
+  const [step, setStep] = useState<"dates" | "details" | "payment">("dates");
   const [form, setForm] = useState({ name: "", email: "", phone: "", notes: "" });
+  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("bank_transfer");
   const [error, setError] = useState("");
+  const paypalRef = useRef<HTMLDivElement>(null);
+  const paypalRendered = useRef(false);
 
   const disabledDays = [
     { before: new Date() },
     ...bookedDates.map((d) => new Date(d)),
   ];
 
-  const nights =
-    range?.from && range?.to ? differenceInDays(range.to, range.from) : 0;
+  const nights = range?.from && range?.to ? differenceInDays(range.to, range.from) : 0;
   const subtotal = nights * pricePerNight;
   const total = subtotal + (nights > 0 ? cleaningFee : 0);
+  const deposit = Math.round(total / 2 * 100) / 100;
+  const balance = Math.round((total - deposit) * 100) / 100;
 
-  async function handleBook() {
-    if (!range?.from || !range?.to || nights < 1) {
-      setError("Please select check-in and check-out dates.");
+  // Load PayPal SDK and render buttons when payment step + paypal selected
+  useEffect(() => {
+    if (step !== "payment" || paymentMethod !== "paypal") return;
+    if (paypalRendered.current) return;
+
+    const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
+    if (!clientId) return;
+
+    const existingScript = document.getElementById("paypal-sdk");
+    if (existingScript) {
+      renderPayPalButtons();
       return;
     }
-    if (!form.name || !form.email) {
-      setError("Please fill in your name and email.");
-      return;
-    }
 
+    const script = document.createElement("script");
+    script.id = "paypal-sdk";
+    script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=EUR`;
+    script.onload = renderPayPalButtons;
+    document.head.appendChild(script);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [step, paymentMethod]);
+
+  function renderPayPalButtons() {
+    if (!paypalRef.current || paypalRendered.current) return;
+    paypalRendered.current = true;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const paypal = (window as any).paypal;
+    if (!paypal) return;
+
+    paypal.Buttons({
+      createOrder: async () => {
+        setError("");
+        const res = await fetch("/api/bookings/create-paypal-order", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            villaId,
+            guestName: form.name,
+            guestEmail: form.email,
+            guestPhone: form.phone,
+            checkIn: range?.from?.toISOString(),
+            checkOut: range?.to?.toISOString(),
+            guests,
+            notes: form.notes,
+          }),
+        });
+        const data = await res.json();
+        if (!data.paypalOrderId) throw new Error(data.error || "Failed to create order");
+        // Store bookingId for capture step
+        sessionStorage.setItem("pendingBookingId", data.bookingId);
+        return data.paypalOrderId;
+      },
+      onApprove: async (data: { orderID: string }) => {
+        setLoading(true);
+        const bookingId = sessionStorage.getItem("pendingBookingId");
+        const res = await fetch("/api/bookings/capture-paypal-order", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ bookingId, paypalOrderId: data.orderID }),
+        });
+        const result = await res.json();
+        if (result.success) {
+          window.location.href = `/booking/success?bookingId=${result.bookingId}`;
+        } else {
+          setError(result.error || "Payment failed. Please try again.");
+          setLoading(false);
+        }
+      },
+      onError: () => {
+        setError("PayPal payment failed. Please try another payment method.");
+      },
+    }).render(paypalRef.current);
+  }
+
+  async function handleStripeBook() {
     setLoading(true);
     setError("");
-
     try {
       const res = await fetch("/api/bookings/create-checkout", {
         method: "POST",
@@ -62,8 +132,8 @@ export default function BookingWidget({
           guestName: form.name,
           guestEmail: form.email,
           guestPhone: form.phone,
-          checkIn: range.from.toISOString(),
-          checkOut: range.to.toISOString(),
+          checkIn: range?.from?.toISOString(),
+          checkOut: range?.to?.toISOString(),
           guests,
           notes: form.notes,
         }),
@@ -81,6 +151,43 @@ export default function BookingWidget({
     }
   }
 
+  async function handleBankTransfer() {
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/bookings/bank-transfer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          villaId,
+          guestName: form.name,
+          guestEmail: form.email,
+          guestPhone: form.phone,
+          checkIn: range?.from?.toISOString(),
+          checkOut: range?.to?.toISOString(),
+          guests,
+          notes: form.notes,
+        }),
+      });
+      const data = await res.json();
+      if (data.bookingId) {
+        window.location.href = `/booking/bank-transfer?bookingId=${data.bookingId}`;
+      } else {
+        setError(data.error || "Something went wrong. Please try again.");
+      }
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function handleConfirm() {
+    if (paymentMethod === "stripe") handleStripeBook();
+    else if (paymentMethod === "bank_transfer") handleBankTransfer();
+    // PayPal is handled by the PayPal button click
+  }
+
   return (
     <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden sticky top-24">
       <div className="bg-sky-500 text-white px-6 py-5">
@@ -93,9 +200,7 @@ export default function BookingWidget({
 
       <div className="p-6">
         {error && (
-          <div className="bg-red-50 text-red-600 rounded-lg p-3 text-sm mb-4">
-            {error}
-          </div>
+          <div className="bg-red-50 text-red-600 rounded-lg p-3 text-sm mb-4">{error}</div>
         )}
 
         {step === "dates" && (
@@ -144,6 +249,10 @@ export default function BookingWidget({
                 <div className="flex justify-between font-bold text-gray-900 text-base border-t pt-2 mt-2">
                   <span>Total</span>
                   <span>€{total}</span>
+                </div>
+                <div className="flex justify-between text-sky-600 font-semibold">
+                  <span>50% deposit today</span>
+                  <span>€{deposit.toFixed(2)}</span>
                 </div>
               </div>
             )}
@@ -213,19 +322,132 @@ export default function BookingWidget({
                 Back
               </button>
               <button
-                onClick={handleBook}
-                disabled={loading}
-                className="flex-2 flex-grow bg-sky-500 hover:bg-sky-600 disabled:bg-sky-300 text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-colors"
+                onClick={() => {
+                  if (!form.name || !form.email) {
+                    setError("Please fill in your name and email.");
+                    return;
+                  }
+                  setError("");
+                  paypalRendered.current = false;
+                  setStep("payment");
+                }}
+                className="flex-grow bg-sky-500 hover:bg-sky-600 text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-colors"
               >
-                {loading ? (
-                  <><Loader2 className="w-5 h-5 animate-spin" /> Processing…</>
-                ) : (
-                  "Pay & Confirm →"
+                Choose Payment <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </>
+        )}
+
+        {step === "payment" && (
+          <>
+            <div className="bg-sky-50 rounded-xl p-4 mb-5 text-sm text-gray-700">
+              <p className="font-semibold">
+                {range?.from && format(range.from, "d MMM yyyy")} —{" "}
+                {range?.to && format(range.to, "d MMM yyyy")}
+              </p>
+              <p>{nights} nights · {guests} guest{guests > 1 ? "s" : ""}</p>
+              <div className="flex justify-between mt-2 pt-2 border-t">
+                <span className="font-bold">50% deposit due now</span>
+                <span className="font-bold text-sky-700">€{deposit.toFixed(2)}</span>
+              </div>
+              <div className="flex justify-between text-xs text-gray-500 mt-1">
+                <span>Balance (6 weeks before arrival)</span>
+                <span>€{balance.toFixed(2)}</span>
+              </div>
+            </div>
+
+            <p className="text-sm font-semibold text-gray-700 mb-3">How would you like to pay?</p>
+
+            <div className="space-y-2 mb-5">
+              {/* Bank Transfer */}
+              <button
+                onClick={() => setPaymentMethod("bank_transfer")}
+                className={`w-full flex items-center gap-3 p-4 rounded-xl border-2 text-left transition-all ${
+                  paymentMethod === "bank_transfer"
+                    ? "border-sky-500 bg-sky-50"
+                    : "border-gray-200 hover:border-gray-300"
+                }`}
+              >
+                <Building2 className={`w-5 h-5 shrink-0 ${paymentMethod === "bank_transfer" ? "text-sky-500" : "text-gray-400"}`} />
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">Bank Transfer</p>
+                  <p className="text-xs text-gray-500">Preferred · No fees · We&apos;ll hold your dates for 48h</p>
+                </div>
+                {paymentMethod === "bank_transfer" && (
+                  <span className="ml-auto text-xs bg-sky-500 text-white px-2 py-0.5 rounded-full">Selected</span>
+                )}
+              </button>
+
+              {/* Credit/Debit Card */}
+              <button
+                onClick={() => setPaymentMethod("stripe")}
+                className={`w-full flex items-center gap-3 p-4 rounded-xl border-2 text-left transition-all ${
+                  paymentMethod === "stripe"
+                    ? "border-sky-500 bg-sky-50"
+                    : "border-gray-200 hover:border-gray-300"
+                }`}
+              >
+                <CreditCard className={`w-5 h-5 shrink-0 ${paymentMethod === "stripe" ? "text-sky-500" : "text-gray-400"}`} />
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">Credit / Debit Card</p>
+                  <p className="text-xs text-gray-500">Instant confirmation via Stripe</p>
+                </div>
+                {paymentMethod === "stripe" && (
+                  <span className="ml-auto text-xs bg-sky-500 text-white px-2 py-0.5 rounded-full">Selected</span>
+                )}
+              </button>
+
+              {/* PayPal */}
+              <button
+                onClick={() => setPaymentMethod("paypal")}
+                className={`w-full flex items-center gap-3 p-4 rounded-xl border-2 text-left transition-all ${
+                  paymentMethod === "paypal"
+                    ? "border-sky-500 bg-sky-50"
+                    : "border-gray-200 hover:border-gray-300"
+                }`}
+              >
+                <span className={`text-lg font-black leading-none ${paymentMethod === "paypal" ? "text-sky-500" : "text-gray-400"}`}>P</span>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">PayPal</p>
+                  <p className="text-xs text-gray-500">Pay securely with your PayPal account</p>
+                </div>
+                {paymentMethod === "paypal" && (
+                  <span className="ml-auto text-xs bg-sky-500 text-white px-2 py-0.5 rounded-full">Selected</span>
                 )}
               </button>
             </div>
-            <p className="text-xs text-gray-400 text-center mt-3">
-              Secure payment via Stripe. You won&apos;t be charged until the next step.
+
+            {/* PayPal button container */}
+            {paymentMethod === "paypal" && (
+              <div ref={paypalRef} className="mb-4" />
+            )}
+
+            {paymentMethod !== "paypal" && (
+              <button
+                onClick={handleConfirm}
+                disabled={loading}
+                className="w-full bg-sky-500 hover:bg-sky-600 disabled:bg-sky-300 text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-colors mb-3"
+              >
+                {loading ? (
+                  <><Loader2 className="w-5 h-5 animate-spin" /> Processing…</>
+                ) : paymentMethod === "bank_transfer" ? (
+                  <><Building2 className="w-5 h-5" /> Reserve with Bank Transfer</>
+                ) : (
+                  <><CreditCard className="w-5 h-5" /> Pay €{deposit.toFixed(2)} Deposit</>
+                )}
+              </button>
+            )}
+
+            <button
+              onClick={() => setStep("details")}
+              className="w-full text-gray-500 text-sm py-2 hover:text-gray-700"
+            >
+              ← Back
+            </button>
+
+            <p className="text-xs text-gray-400 text-center mt-2">
+              50% deposit secures your booking. Balance due 6 weeks before arrival.
             </p>
           </>
         )}

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe";
 import { prisma } from "@/lib/prisma";
-import { sendBookingConfirmation } from "@/lib/email";
+import { sendBookingConfirmation, sendBalancePaidConfirmation } from "@/lib/email";
 import Stripe from "stripe";
 
 export const dynamic = "force-dynamic";
@@ -23,32 +23,59 @@ export async function POST(req: NextRequest) {
   if (event.type === "checkout.session.completed") {
     const session = event.data.object as Stripe.Checkout.Session;
     const bookingId = session.metadata?.bookingId;
+    const paymentType = session.metadata?.paymentType ?? "deposit";
 
     if (bookingId) {
-      const booking = await prisma.booking.update({
-        where: { id: bookingId },
-        data: {
-          status: "confirmed",
-          stripePaymentId: session.payment_intent as string,
-        },
-        include: { villa: true },
-      });
-
-      // Send confirmation email
-      try {
-        await sendBookingConfirmation({
-          guestName: booking.guestName,
-          guestEmail: booking.guestEmail,
-          villaName: booking.villa.name,
-          checkIn: booking.checkIn,
-          checkOut: booking.checkOut,
-          nights: booking.nights,
-          guests: booking.guests,
-          totalPrice: booking.totalPrice,
-          bookingId: booking.id,
+      if (paymentType === "balance") {
+        const booking = await prisma.booking.update({
+          where: { id: bookingId },
+          data: { balancePaid: true },
+          include: { villa: true },
         });
-      } catch (emailErr) {
-        console.error("Email send failed:", emailErr);
+        try {
+          await sendBalancePaidConfirmation({
+            guestName: booking.guestName,
+            guestEmail: booking.guestEmail,
+            villaName: booking.villa.name,
+            checkIn: booking.checkIn,
+            checkOut: booking.checkOut,
+            nights: booking.nights,
+            guests: booking.guests,
+            totalPrice: booking.totalPrice,
+            bookingId: booking.id,
+          });
+        } catch (err) {
+          console.error("Balance confirmation email failed:", err);
+        }
+      } else {
+        const booking = await prisma.booking.update({
+          where: { id: bookingId },
+          data: {
+            status: "confirmed",
+            depositPaid: true,
+            stripePaymentId: session.payment_intent as string,
+          },
+          include: { villa: true },
+        });
+        try {
+          await sendBookingConfirmation({
+            guestName: booking.guestName,
+            guestEmail: booking.guestEmail,
+            villaName: booking.villa.name,
+            checkIn: booking.checkIn,
+            checkOut: booking.checkOut,
+            nights: booking.nights,
+            guests: booking.guests,
+            totalPrice: booking.totalPrice,
+            depositAmount: booking.depositAmount ?? booking.totalPrice,
+            balanceAmount: booking.balanceAmount ?? 0,
+            balanceDueDate: booking.balanceDueDate,
+            paymentMethod: "stripe",
+            bookingId: booking.id,
+          });
+        } catch (emailErr) {
+          console.error("Email send failed:", emailErr);
+        }
       }
     }
   }

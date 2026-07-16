@@ -1,7 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { stripe } from "@/lib/stripe";
 import { differenceInDays, parseISO, subWeeks } from "date-fns";
+
+async function getPayPalAccessToken() {
+  const clientId = process.env.PAYPAL_CLIENT_ID!;
+  const clientSecret = process.env.PAYPAL_CLIENT_SECRET!;
+  const base = process.env.PAYPAL_MODE === "live"
+    ? "https://api-m.paypal.com"
+    : "https://api-m.sandbox.paypal.com";
+
+  const res = await fetch(`${base}/v1/oauth2/token`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      Authorization: `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString("base64")}`,
+    },
+    body: "grant_type=client_credentials",
+  });
+  const data = await res.json();
+  return { accessToken: data.access_token as string, base };
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -23,14 +41,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Minimum stay is 1 night" }, { status: 400 });
     }
 
-    // Check for conflicts
     const conflicting = await prisma.booking.findFirst({
       where: {
         villaId,
         status: { in: ["pending", "confirmed"] },
-        OR: [
-          { checkIn: { lt: checkOutDate }, checkOut: { gt: checkInDate } },
-        ],
+        OR: [{ checkIn: { lt: checkOutDate }, checkOut: { gt: checkInDate } }],
       },
     });
     if (conflicting) {
@@ -44,7 +59,6 @@ export async function POST(req: NextRequest) {
     const balanceAmount = Math.round((totalPrice - depositAmount) * 100) / 100;
     const balanceDueDate = subWeeks(checkInDate, 6);
 
-    // Create a pending booking record
     const booking = await prisma.booking.create({
       data: {
         villaId,
@@ -61,47 +75,46 @@ export async function POST(req: NextRequest) {
         depositAmount,
         balanceAmount,
         balanceDueDate,
-        paymentMethod: "stripe",
+        paymentMethod: "paypal",
         notes: notes || null,
         status: "pending",
         source: "direct",
       },
     });
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    const { accessToken, base } = await getPayPalAccessToken();
 
-    // Create Stripe Checkout Session for 50% deposit
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
-      mode: "payment",
-      customer_email: guestEmail,
-      line_items: [
-        {
-          price_data: {
-            currency: "eur",
-            product_data: {
-              name: `${villa.name} — 50% Deposit (${nights} night${nights > 1 ? "s" : ""})`,
-              description: `Check-in: ${checkIn.split("T")[0]} · Check-out: ${checkOut.split("T")[0]} · Balance of €${balanceAmount.toFixed(2)} due 6 weeks before arrival`,
-              images: [JSON.parse(villa.images)[0]],
+    const orderRes = await fetch(`${base}/v2/checkout/orders`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({
+        intent: "CAPTURE",
+        purchase_units: [
+          {
+            reference_id: booking.id,
+            description: `${villa.name} — 50% deposit (${nights} nights)`,
+            amount: {
+              currency_code: "EUR",
+              value: depositAmount.toFixed(2),
             },
-            unit_amount: Math.round(depositAmount * 100),
           },
-          quantity: 1,
-        },
-      ],
-      metadata: { bookingId: booking.id, paymentType: "deposit" },
-      success_url: `${baseUrl}/booking/success?bookingId=${booking.id}`,
-      cancel_url: `${baseUrl}/villas/${villa.slug}?cancelled=true`,
+        ],
+      }),
     });
+
+    const order = await orderRes.json();
 
     await prisma.booking.update({
       where: { id: booking.id },
-      data: { stripeSessionId: session.id },
+      data: { paypalOrderId: order.id },
     });
 
-    return NextResponse.json({ url: session.url });
+    return NextResponse.json({ bookingId: booking.id, paypalOrderId: order.id });
   } catch (err) {
-    console.error("Checkout error:", err);
+    console.error("PayPal order creation error:", err);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
