@@ -30,7 +30,26 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-.rdp {
+.rdp-root {
   --rdp-accent-color: #0ea5e9;
-  --rdp-background-color: #e0f2fe;
+  --rdp-accent-background-color: #e0f2fe;
+}
+
+/* Available future dates — green */
+.rdp-day:not(.rdp-disabled):not(.rdp-outside):not(.rdp-selected):not(.rdp-range_start):not(.rdp-range_end):not(.rdp-range_middle) .rdp-day_button {
+  background-color: #dcfce7;
+  color: #15803d;
+  font-weight: 600;
+}
+.rdp-day:not(.rdp-disabled):not(.rdp-outside):not(.rdp-selected):not(.rdp-range_start):not(.rdp-range_end):not(.rdp-range_middle) .rdp-day_button:hover {
+  background-color: #bbf7d0 !important;
+}
+
+/* Booked / unavailable dates — red */
+.rdp-booked .rdp-day_button {
+  background-color: #fee2e2 !important;
+  color: #dc2626 !important;
+  opacity: 1 !important;
+  cursor: not-allowed !important;
+  font-weight: 600;
 }
