@@ -37,19 +37,53 @@ export const metadata: Metadata = {
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "LodgingBusiness"],
   name: "Canary Villas",
   url: "https://canaryvillas.com",
-  logo: "https://canaryvillas.com/favicon.ico",
+  logo: "https://canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg",
   telephone: "+447809870561",
   email: "info@canaryvillas.com",
+  priceRange: "€€",
+  currenciesAccepted: "EUR, GBP",
+  paymentAccepted: "Credit Card, Bank Transfer, PayPal",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Corralejo",
     addressRegion: "Fuerteventura",
+    postalCode: "35660",
     addressCountry: "ES",
   },
-  sameAs: [],
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 28.7291,
+    longitude: -13.8684,
+  },
+  areaServed: {
+    "@type": "City",
+    name: "Corralejo",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+447809870561",
+    email: "info@canaryvillas.com",
+    contactType: "customer service",
+    availableLanguage: ["English"],
+    hoursAvailable: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      opens: "08:00",
+      closes: "21:00",
+    },
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    opens: "08:00",
+    closes: "21:00",
+  },
+  sameAs: [
+    "https://canaryvillas.com",
+  ],
 };
 
 const websiteSchema = {

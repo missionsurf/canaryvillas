@@ -43,6 +43,10 @@ function VillaSchema({ villa }: { villa: Awaited<ReturnType<typeof getVillaBySlu
     height: 800,
   }));
 
+  const mapsUrl = villa.latitude
+    ? `https://www.google.com/maps/search/?api=1&query=${villa.latitude},${villa.longitude}`
+    : undefined;
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "VacationRental",
@@ -51,9 +55,11 @@ function VillaSchema({ villa }: { villa: Awaited<ReturnType<typeof getVillaBySlu
     url: `https://canaryvillas.com/villas/${villa.slug}`,
     image: photos,
     photo: photos,
+    priceRange: `€${villa.pricePerNight} per night`,
+    keywords: `holiday villa Fuerteventura, beach villa Corralejo, vacation rental Fuerteventura, self catering Corralejo, ${villa.name}`,
     address: {
       "@type": "PostalAddress",
-      streetAddress: villa.location,
+      streetAddress: "Corralejo",
       addressLocality: "Corralejo",
       addressRegion: "Fuerteventura",
       postalCode: "35660",
@@ -62,23 +68,31 @@ function VillaSchema({ villa }: { villa: Awaited<ReturnType<typeof getVillaBySlu
     geo: villa.latitude
       ? { "@type": "GeoCoordinates", latitude: villa.latitude, longitude: villa.longitude }
       : undefined,
-    numberOfRooms: villa.bedrooms,
+    hasMap: mapsUrl,
+    numberOfRooms: villa.bedrooms + villa.bathrooms,
     numberOfBedrooms: villa.bedrooms,
     numberOfBathroomsTotal: villa.bathrooms,
-    occupancy: { "@type": "QuantitativeValue", maxValue: villa.maxGuests },
+    floorLevel: "ground",
+    occupancy: {
+      "@type": "QuantitativeValue",
+      minValue: 1,
+      maxValue: villa.maxGuests,
+      unitText: "guests",
+    },
     amenityFeature: villa.amenities.map((a) => ({
       "@type": "LocationFeatureSpecification",
       name: a,
       value: true,
     })),
-    checkinTime: "15:00",
-    checkoutTime: "10:00",
+    checkinTime: "T15:00:00",
+    checkoutTime: "T10:00:00",
     petsAllowed: false,
     smokingAllowed: false,
+    isAccessibleForFree: false,
     telephone: "+447809870561",
     email: "info@canaryvillas.com",
     tourBookingPage: `https://canaryvillas.com/villas/${villa.slug}`,
-    starRating: { "@type": "Rating", ratingValue: "5" },
+    starRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
@@ -91,21 +105,44 @@ function VillaSchema({ villa }: { villa: Awaited<ReturnType<typeof getVillaBySlu
       price: villa.pricePerNight,
       priceCurrency: "EUR",
       availability: "https://schema.org/InStock",
-      priceSpecification: {
-        "@type": "UnitPriceSpecification",
-        price: villa.pricePerNight,
-        priceCurrency: "EUR",
-        unitCode: "DAY",
-        unitText: "night",
-      },
       url: `https://canaryvillas.com/villas/${villa.slug}`,
+      priceSpecification: [
+        {
+          "@type": "UnitPriceSpecification",
+          price: villa.pricePerNight,
+          priceCurrency: "EUR",
+          unitCode: "DAY",
+          unitText: "per night",
+          name: "Nightly rate",
+        },
+        ...(villa.cleaningFee > 0
+          ? [{
+              "@type": "UnitPriceSpecification",
+              price: villa.cleaningFee,
+              priceCurrency: "EUR",
+              name: "Cleaning fee",
+            }]
+          : []),
+      ],
     },
-    publisher: {
-      "@type": "Organization",
+    brand: {
+      "@type": "Brand",
+      name: "Canary Villas",
+      url: "https://canaryvillas.com",
+    },
+    provider: {
+      "@type": "LodgingBusiness",
       name: "Canary Villas",
       url: "https://canaryvillas.com",
       telephone: "+447809870561",
       email: "info@canaryvillas.com",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Corralejo",
+        addressRegion: "Fuerteventura",
+        postalCode: "35660",
+        addressCountry: "ES",
+      },
     },
   };
 
