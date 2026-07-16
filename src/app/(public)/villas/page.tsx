@@ -24,11 +24,16 @@ export default async function VillasPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-14">
           <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
-            Our Holiday Villas
+            Holiday Villas to Rent in Fuerteventura
           </h1>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-500 text-lg max-w-2xl mx-auto mb-6">
             All properties are in Corralejo, Fuerteventura — with direct booking,
             no fees, and flexible cancellation.
+          </p>
+          <p className="text-gray-500 text-base max-w-3xl mx-auto">
+            Browse our hand-picked selection of beachfront villas and private bungalows in Corralejo.
+            Each villa is self-catering, sleeping 2–8 guests, with private terraces, sea views, and
+            year-round sunshine. Book direct for the best price — no Airbnb fees, no hidden charges.
           </p>
         </div>
 

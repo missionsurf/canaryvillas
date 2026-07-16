@@ -129,7 +129,7 @@ export default async function HomePage() {
             Corralejo, Fuerteventura
           </p>
           <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg">
-            Your Perfect Canary Islands Escape
+            Luxury Beachfront Villas in Fuerteventura
           </h1>
           <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed">
             Stunning beachfront villas with sea views, private terraces, and
