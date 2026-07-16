@@ -30,6 +30,7 @@ export default function BookingWidget({
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState<"dates" | "details" | "payment">("dates");
   const [form, setForm] = useState({ name: "", email: "", phone: "", notes: "" });
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("bank_transfer");
   const [error, setError] = useState("");
   const paypalRef = useRef<HTMLDivElement>(null);
@@ -182,6 +183,20 @@ export default function BookingWidget({
     }
   }
 
+  function validateDetails() {
+    const errors: Record<string, string> = {};
+    if (!form.name.trim()) errors.name = "Full name is required";
+    else if (form.name.trim().length < 2) errors.name = "Please enter your full name";
+
+    if (!form.email.trim()) errors.email = "Email address is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errors.email = "Please enter a valid email address";
+
+    if (form.phone.trim() && !/^[+\d\s\-().]{7,20}$/.test(form.phone.trim())) {
+      errors.phone = "Please enter a valid phone number";
+    }
+    return errors;
+  }
+
   function handleConfirm() {
     if (paymentMethod === "stripe") handleStripeBook();
     else if (paymentMethod === "bank_transfer") handleBankTransfer();
@@ -285,27 +300,45 @@ export default function BookingWidget({
             </div>
 
             <div className="space-y-3 mb-5">
-              <input
-                type="text"
-                placeholder="Full name *"
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-400"
-              />
-              <input
-                type="email"
-                placeholder="Email address *"
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-400"
-              />
-              <input
-                type="tel"
-                placeholder="Phone number"
-                value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-400"
-              />
+              <div>
+                <input
+                  type="text"
+                  placeholder="Full name *"
+                  value={form.name}
+                  onChange={(e) => {
+                    setForm({ ...form, name: e.target.value });
+                    if (fieldErrors.name) setFieldErrors((p) => ({ ...p, name: "" }));
+                  }}
+                  className={`w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-400 ${fieldErrors.name ? "border-red-400 bg-red-50" : "border-gray-300"}`}
+                />
+                {fieldErrors.name && <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.name}</p>}
+              </div>
+              <div>
+                <input
+                  type="email"
+                  placeholder="Email address *"
+                  value={form.email}
+                  onChange={(e) => {
+                    setForm({ ...form, email: e.target.value });
+                    if (fieldErrors.email) setFieldErrors((p) => ({ ...p, email: "" }));
+                  }}
+                  className={`w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-400 ${fieldErrors.email ? "border-red-400 bg-red-50" : "border-gray-300"}`}
+                />
+                {fieldErrors.email && <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.email}</p>}
+              </div>
+              <div>
+                <input
+                  type="tel"
+                  placeholder="Phone number"
+                  value={form.phone}
+                  onChange={(e) => {
+                    setForm({ ...form, phone: e.target.value });
+                    if (fieldErrors.phone) setFieldErrors((p) => ({ ...p, phone: "" }));
+                  }}
+                  className={`w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-400 ${fieldErrors.phone ? "border-red-400 bg-red-50" : "border-gray-300"}`}
+                />
+                {fieldErrors.phone && <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.phone}</p>}
+              </div>
               <textarea
                 placeholder="Special requests or notes (optional)"
                 value={form.notes}
@@ -324,10 +357,12 @@ export default function BookingWidget({
               </button>
               <button
                 onClick={() => {
-                  if (!form.name || !form.email) {
-                    setError("Please fill in your name and email.");
+                  const errors = validateDetails();
+                  if (Object.keys(errors).length > 0) {
+                    setFieldErrors(errors);
                     return;
                   }
+                  setFieldErrors({});
                   setError("");
                   paypalRendered.current = false;
                   setStep("payment");
