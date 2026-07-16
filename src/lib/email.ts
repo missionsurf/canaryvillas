@@ -101,22 +101,36 @@ export interface BankTransferEmailData {
 }
 
 export async function sendBankTransferInstructions(data: BankTransferEmailData) {
-  const bankName = process.env.BANK_NAME || "";
-  const bankAccountName = process.env.BANK_ACCOUNT_NAME || "Villas de Corralejho 2023";
-  const bankIban = process.env.BANK_IBAN || "";
-  const bankBic = process.env.BANK_BIC || "";
-  const bankSortCode = process.env.BANK_SORT_CODE || "";
-  const bankAccountNumber = process.env.BANK_ACCOUNT_NUMBER || "";
+  // EUR account
+  const eurBank = process.env.BANK_NAME || "";
+  const eurAccountName = process.env.BANK_ACCOUNT_NAME || "Villas de Corralejho 2023";
+  const eurIban = process.env.BANK_IBAN || "";
+  const eurBic = process.env.BANK_BIC || "";
+  // GBP account
+  const gbpBank = process.env.BANK_GBP_NAME || "";
+  const gbpAccountName = process.env.BANK_GBP_ACCOUNT_NAME || "Villas de Corralejho 2023";
+  const gbpSortCode = process.env.BANK_GBP_SORT_CODE || "";
+  const gbpAccountNumber = process.env.BANK_GBP_ACCOUNT_NUMBER || "";
 
-  const bankRows = [
-    bankName ? `<tr><td style="padding:8px 12px;color:#64748b;">Bank</td><td style="padding:8px 12px;font-weight:600;color:#1e293b;">${bankName}</td></tr>` : "",
-    `<tr style="background:#f8fafc;"><td style="padding:8px 12px;color:#64748b;">Account name</td><td style="padding:8px 12px;font-weight:600;color:#1e293b;">${bankAccountName}</td></tr>`,
-    bankIban ? `<tr><td style="padding:8px 12px;color:#64748b;">IBAN</td><td style="padding:8px 12px;font-family:monospace;font-weight:600;color:#1e293b;">${bankIban}</td></tr>` : "",
-    bankBic ? `<tr style="background:#f8fafc;"><td style="padding:8px 12px;color:#64748b;">BIC/SWIFT</td><td style="padding:8px 12px;font-family:monospace;font-weight:600;color:#1e293b;">${bankBic}</td></tr>` : "",
-    bankSortCode ? `<tr><td style="padding:8px 12px;color:#64748b;">Sort code</td><td style="padding:8px 12px;font-family:monospace;font-weight:600;color:#1e293b;">${bankSortCode}</td></tr>` : "",
-    bankAccountNumber ? `<tr style="background:#f8fafc;"><td style="padding:8px 12px;color:#64748b;">Account number</td><td style="padding:8px 12px;font-family:monospace;font-weight:600;color:#1e293b;">${bankAccountNumber}</td></tr>` : "",
-    `<tr style="border-top:2px solid #0284c7;"><td style="padding:8px 12px;color:#0284c7;font-weight:700;">Payment reference</td><td style="padding:8px 12px;font-weight:700;color:#0284c7;font-family:monospace;">${data.bookingId.slice(-8).toUpperCase()}</td></tr>`,
-  ].filter(Boolean).join("");
+  const ref = data.bookingId.slice(-8).toUpperCase();
+
+  function accountTable(rows: string[], refRow: string) {
+    return `<table style="width:100%;border-collapse:collapse;font-size:13px;">${rows.filter(Boolean).join("")}${refRow}</table>`;
+  }
+
+  const eurRows = [
+    eurBank ? `<tr><td style="padding:7px 10px;color:#64748b;">Bank</td><td style="padding:7px 10px;font-weight:600;color:#1e293b;">${eurBank}</td></tr>` : "",
+    `<tr style="background:#f8fafc;"><td style="padding:7px 10px;color:#64748b;">Account name</td><td style="padding:7px 10px;font-weight:600;color:#1e293b;">${eurAccountName}</td></tr>`,
+    eurIban ? `<tr><td style="padding:7px 10px;color:#64748b;">IBAN</td><td style="padding:7px 10px;font-family:monospace;font-weight:600;color:#1e293b;font-size:12px;">${eurIban}</td></tr>` : "",
+    eurBic ? `<tr style="background:#f8fafc;"><td style="padding:7px 10px;color:#64748b;">BIC/SWIFT</td><td style="padding:7px 10px;font-family:monospace;font-weight:600;color:#1e293b;">${eurBic}</td></tr>` : "",
+  ];
+  const gbpRows = [
+    gbpBank ? `<tr><td style="padding:7px 10px;color:#64748b;">Bank</td><td style="padding:7px 10px;font-weight:600;color:#1e293b;">${gbpBank}</td></tr>` : "",
+    `<tr style="background:#f8fafc;"><td style="padding:7px 10px;color:#64748b;">Account name</td><td style="padding:7px 10px;font-weight:600;color:#1e293b;">${gbpAccountName}</td></tr>`,
+    gbpSortCode ? `<tr><td style="padding:7px 10px;color:#64748b;">Sort code</td><td style="padding:7px 10px;font-family:monospace;font-weight:600;color:#1e293b;">${gbpSortCode}</td></tr>` : "",
+    gbpAccountNumber ? `<tr style="background:#f8fafc;"><td style="padding:7px 10px;color:#64748b;">Account no.</td><td style="padding:7px 10px;font-family:monospace;font-weight:600;color:#1e293b;">${gbpAccountNumber}</td></tr>` : "",
+  ];
+  const refRow = `<tr style="border-top:2px solid #0284c7;"><td style="padding:7px 10px;color:#0284c7;font-weight:700;">Reference</td><td style="padding:7px 10px;font-weight:700;color:#0284c7;font-family:monospace;">${ref}</td></tr>`;
 
   const html = baseStyle + `
     <div style="display:inline-block;background:#fef9c3;border-radius:50px;padding:8px 16px;margin-bottom:20px;">
@@ -134,10 +148,16 @@ export async function sendBankTransferInstructions(data: BankTransferEmailData) 
       <tr style="background:#fef9c3;"><td style="padding:10px 14px;color:#854d0e;font-weight:600;">Balance due</td><td style="padding:10px 14px;color:#92400e;">€${data.balanceAmount.toFixed(2)} by ${format(data.balanceDueDate, "d MMMM yyyy")}</td></tr>
     </table>
 
-    <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;padding:20px 24px;margin:0 0 24px;">
-      <p style="margin:0 0 12px;font-weight:700;color:#0369a1;font-size:15px;">Bank Transfer Details</p>
-      <table style="width:100%;border-collapse:collapse;font-size:14px;">${bankRows}</table>
+    <p style="font-weight:700;color:#1e293b;margin:0 0 10px;">Transfer to either account — choose the currency that suits you:</p>
+    <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;padding:16px 20px;margin:0 0 12px;">
+      <p style="margin:0 0 10px;font-weight:700;color:#0369a1;font-size:14px;">🇪🇺 Euro account — €${data.depositAmount.toFixed(2)}</p>
+      ${accountTable(eurRows, refRow)}
     </div>
+    <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:16px 20px;margin:0 0 12px;">
+      <p style="margin:0 0 10px;font-weight:700;color:#1e293b;font-size:14px;">🇬🇧 UK Sterling account</p>
+      ${accountTable(gbpRows, refRow)}
+    </div>
+    <p style="font-size:12px;color:#94a3b8;margin:0 0 20px;">If paying in £, transfer the £ equivalent of €${data.depositAmount.toFixed(2)} at your bank's exchange rate. Always quote your reference <strong>${ref}</strong>.</p>
 
     <div style="background:#fef2f2;border-left:4px solid #ef4444;padding:12px 16px;border-radius:0 8px 8px 0;margin:0 0 24px;">
       <p style="margin:0;color:#991b1b;font-size:13px;"><strong>Important:</strong> Please include your reference number <strong>${data.bookingId.slice(-8).toUpperCase()}</strong> with your transfer. Your dates will be released after 48 hours if we don't receive payment.</p>

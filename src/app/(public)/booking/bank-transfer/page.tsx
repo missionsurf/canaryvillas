@@ -7,6 +7,48 @@ interface Props {
   searchParams: Promise<{ bookingId?: string }>;
 }
 
+function BankAccountCard({
+  flag,
+  currency,
+  label,
+  amount,
+  rows,
+  reference,
+}: {
+  flag: string;
+  currency: string;
+  label: string;
+  amount?: string;
+  rows: { label: string; value: string }[];
+  reference?: string;
+}) {
+  return (
+    <div className="bg-sky-50 rounded-2xl p-5">
+      <div className="flex items-center gap-2 mb-4">
+        <span className="text-2xl">{flag}</span>
+        <div>
+          <p className="font-bold text-gray-900 text-sm">{label}</p>
+          {amount && <p className="text-sky-700 font-semibold text-sm">{currency}{amount}</p>}
+        </div>
+      </div>
+      <div className="space-y-2 text-sm">
+        {rows.map((row) => (
+          <div key={row.label} className="flex justify-between gap-4">
+            <span className="text-gray-500 shrink-0">{row.label}</span>
+            <span className="font-mono font-medium text-gray-900 text-right text-xs">{row.value}</span>
+          </div>
+        ))}
+        {reference && (
+          <div className="flex justify-between border-t pt-2 mt-2">
+            <span className="text-gray-500">Reference</span>
+            <span className="font-bold text-gray-900 font-mono">{reference}</span>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default async function BankTransferPage({ searchParams }: Props) {
   const { bookingId } = await searchParams;
 
@@ -17,12 +59,34 @@ export default async function BankTransferPage({ searchParams }: Props) {
       })
     : null;
 
-  const bankName = process.env.BANK_NAME || "Your bank";
-  const bankAccountName = process.env.BANK_ACCOUNT_NAME || "Villas de Corralejho 2023";
-  const bankIban = process.env.BANK_IBAN || "Please contact us for bank details";
-  const bankBic = process.env.BANK_BIC || "";
-  const bankSortCode = process.env.BANK_SORT_CODE || "";
-  const bankAccountNumber = process.env.BANK_ACCOUNT_NUMBER || "";
+  const depositAmount = booking?.depositAmount ?? (booking ? booking.totalPrice / 2 : 0);
+  const ref = booking?.id.slice(-8).toUpperCase() ?? "";
+
+  // EUR account (Spanish/EU bank)
+  const eurBank = process.env.BANK_NAME || "";
+  const eurAccountName = process.env.BANK_ACCOUNT_NAME || "Villas de Corralejho 2023";
+  const eurIban = process.env.BANK_IBAN || "";
+  const eurBic = process.env.BANK_BIC || "";
+
+  // GBP account (UK bank)
+  const gbpBank = process.env.BANK_GBP_NAME || "";
+  const gbpAccountName = process.env.BANK_GBP_ACCOUNT_NAME || "Villas de Corralejho 2023";
+  const gbpSortCode = process.env.BANK_GBP_SORT_CODE || "";
+  const gbpAccountNumber = process.env.BANK_GBP_ACCOUNT_NUMBER || "";
+
+  const eurRows = [
+    ...(eurBank ? [{ label: "Bank", value: eurBank }] : []),
+    { label: "Account name", value: eurAccountName },
+    ...(eurIban ? [{ label: "IBAN", value: eurIban }] : []),
+    ...(eurBic ? [{ label: "BIC/SWIFT", value: eurBic }] : []),
+  ];
+
+  const gbpRows = [
+    ...(gbpBank ? [{ label: "Bank", value: gbpBank }] : []),
+    { label: "Account name", value: gbpAccountName },
+    ...(gbpSortCode ? [{ label: "Sort code", value: gbpSortCode }] : []),
+    ...(gbpAccountNumber ? [{ label: "Account number", value: gbpAccountNumber }] : []),
+  ];
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50 flex items-center justify-center p-4">
@@ -45,12 +109,10 @@ export default async function BankTransferPage({ searchParams }: Props) {
 
         {booking && (
           <div className="bg-gray-50 rounded-2xl p-6 mb-6">
-            <h2 className="font-bold text-gray-900 mb-4">{booking.villa.name}</h2>
-            <div className="space-y-2 text-sm text-gray-600 mb-4">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-sky-500" />
-                <span>{format(booking.checkIn, "d MMM yyyy")} → {format(booking.checkOut, "d MMM yyyy")} ({booking.nights} nights)</span>
-              </div>
+            <h2 className="font-bold text-gray-900 mb-3">{booking.villa.name}</h2>
+            <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
+              <Calendar className="w-4 h-4 text-sky-500" />
+              <span>{format(booking.checkIn, "d MMM yyyy")} → {format(booking.checkOut, "d MMM yyyy")} ({booking.nights} nights)</span>
             </div>
             <div className="border-t pt-4 space-y-2 text-sm">
               <div className="flex justify-between text-gray-600">
@@ -59,7 +121,7 @@ export default async function BankTransferPage({ searchParams }: Props) {
               </div>
               <div className="flex justify-between font-bold text-sky-700 text-base">
                 <span>50% deposit due now</span>
-                <span>€{(booking.depositAmount ?? booking.totalPrice / 2).toFixed(2)}</span>
+                <span>€{depositAmount.toFixed(2)}</span>
               </div>
               {booking.balanceDueDate && (
                 <div className="flex justify-between text-gray-500 text-xs">
@@ -67,56 +129,37 @@ export default async function BankTransferPage({ searchParams }: Props) {
                   <span>€{(booking.balanceAmount ?? booking.totalPrice / 2).toFixed(2)} by {format(booking.balanceDueDate, "d MMM yyyy")}</span>
                 </div>
               )}
-              <p className="text-xs text-gray-400 mt-2">Ref: {booking.id.slice(-8).toUpperCase()}</p>
+              <p className="text-xs text-gray-400 mt-1">Ref: {ref}</p>
             </div>
           </div>
         )}
 
-        <div className="bg-sky-50 rounded-2xl p-6 mb-6">
-          <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <Building2 className="w-5 h-5 text-sky-500" /> Bank Transfer Details
-          </h3>
-          <div className="space-y-3 text-sm">
-            <div className="flex justify-between">
-              <span className="text-gray-500">Bank</span>
-              <span className="font-medium text-gray-900">{bankName}</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-500">Account name</span>
-              <span className="font-medium text-gray-900">{bankAccountName}</span>
-            </div>
-            {bankIban && (
-              <div className="flex justify-between">
-                <span className="text-gray-500">IBAN</span>
-                <span className="font-mono font-medium text-gray-900 text-xs">{bankIban}</span>
-              </div>
-            )}
-            {bankBic && (
-              <div className="flex justify-between">
-                <span className="text-gray-500">BIC/SWIFT</span>
-                <span className="font-mono font-medium text-gray-900">{bankBic}</span>
-              </div>
-            )}
-            {bankSortCode && (
-              <div className="flex justify-between">
-                <span className="text-gray-500">Sort code</span>
-                <span className="font-mono font-medium text-gray-900">{bankSortCode}</span>
-              </div>
-            )}
-            {bankAccountNumber && (
-              <div className="flex justify-between">
-                <span className="text-gray-500">Account number</span>
-                <span className="font-mono font-medium text-gray-900">{bankAccountNumber}</span>
-              </div>
-            )}
-            {booking && (
-              <div className="flex justify-between border-t pt-3">
-                <span className="text-gray-500">Reference</span>
-                <span className="font-bold text-gray-900">{booking.id.slice(-8).toUpperCase()}</span>
-              </div>
-            )}
-          </div>
+        <p className="text-sm font-semibold text-gray-700 mb-3">
+          Transfer to either account — choose the currency that suits you:
+        </p>
+
+        <div className="space-y-3 mb-6">
+          <BankAccountCard
+            flag="🇪🇺"
+            currency="€"
+            label="Euro account (recommended)"
+            amount={booking ? depositAmount.toFixed(2) : undefined}
+            rows={eurRows}
+            reference={ref || undefined}
+          />
+          <BankAccountCard
+            flag="🇬🇧"
+            currency="£"
+            label="UK Sterling account"
+            amount={undefined}
+            rows={gbpRows}
+            reference={ref || undefined}
+          />
         </div>
+
+        <p className="text-xs text-gray-400 mb-6 text-center">
+          If paying in £, please transfer the £ equivalent of €{booking ? depositAmount.toFixed(2) : "the deposit amount"} at your bank&apos;s exchange rate. Always include your reference number.
+        </p>
 
         <div className="bg-gray-50 rounded-2xl p-5 mb-6 text-sm text-gray-600 space-y-2">
           <p className="font-semibold text-gray-800">What happens next?</p>
