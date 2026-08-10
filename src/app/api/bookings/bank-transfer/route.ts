@@ -64,7 +64,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    await sendBankTransferInstructions({
+    try { await sendBankTransferInstructions({
       guestName,
       guestEmail,
       villaName: villa.name,
@@ -77,7 +77,7 @@ export async function POST(req: NextRequest) {
       balanceAmount,
       balanceDueDate,
       bookingId: booking.id,
-    });
+    }); } catch (emailErr) { console.error("Bank transfer email failed:", emailErr); }
 
     return NextResponse.json({ bookingId: booking.id });
   } catch (err) {
