@@ -5,6 +5,7 @@ import { DayPicker, DateRange } from "react-day-picker";
 import { differenceInDays, format } from "date-fns";
 import { Users, Calendar, ArrowRight, Loader2, CreditCard, Building2 } from "lucide-react";
 import "react-day-picker/dist/style.css";
+import { useCurrency } from "@/context/CurrencyContext";
 
 interface Props {
   villaId: string;
@@ -25,6 +26,7 @@ export default function BookingWidget({
   maxGuests,
   bookedDates,
 }: Props) {
+  const { currency, convert, format: fmtPrice, symbol } = useCurrency();
   const [range, setRange] = useState<DateRange | undefined>();
   const [guests, setGuests] = useState(2);
   const [loading, setLoading] = useState(false);
@@ -207,7 +209,7 @@ export default function BookingWidget({
     <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden sticky top-24">
       <div className="bg-sky-500 text-white px-6 py-5">
         <div className="flex items-baseline gap-1">
-          <span className="text-3xl font-extrabold">€{pricePerNight}</span>
+          <span className="text-3xl font-extrabold">{fmtPrice(pricePerNight)}</span>
           <span className="text-sky-100">/night</span>
         </div>
         <p className="text-sky-100 text-sm mt-1">{villaName}</p>
@@ -255,20 +257,20 @@ export default function BookingWidget({
             {nights > 0 && (
               <div className="border-t pt-4 mb-5 space-y-2 text-sm text-gray-600">
                 <div className="flex justify-between">
-                  <span>€{pricePerNight} × {nights} nights</span>
-                  <span>€{subtotal}</span>
+                  <span>{fmtPrice(pricePerNight)} × {nights} nights</span>
+                  <span>{fmtPrice(subtotal)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Cleaning fee</span>
-                  <span>€{cleaningFee}</span>
+                  <span>{fmtPrice(cleaningFee)}</span>
                 </div>
                 <div className="flex justify-between font-bold text-gray-900 text-base border-t pt-2 mt-2">
                   <span>Total</span>
-                  <span>€{total}</span>
+                  <span>{fmtPrice(total)}</span>
                 </div>
                 <div className="flex justify-between text-sky-600 font-semibold">
                   <span>50% deposit today</span>
-                  <span>€{deposit.toFixed(2)}</span>
+                  <span>{fmtPrice(deposit)}</span>
                 </div>
               </div>
             )}
@@ -296,7 +298,7 @@ export default function BookingWidget({
                 {range?.from && format(range.from, "d MMM yyyy")} —{" "}
                 {range?.to && format(range.to, "d MMM yyyy")}
               </p>
-              <p>{nights} nights · {guests} guest{guests > 1 ? "s" : ""} · <strong>€{total} total</strong></p>
+              <p>{nights} nights · {guests} guest{guests > 1 ? "s" : ""} · <strong>{fmtPrice(total)} total</strong></p>
             </div>
 
             <div className="space-y-3 mb-5">
@@ -385,11 +387,11 @@ export default function BookingWidget({
               <p>{nights} nights · {guests} guest{guests > 1 ? "s" : ""}</p>
               <div className="flex justify-between mt-2 pt-2 border-t">
                 <span className="font-bold">50% deposit due now</span>
-                <span className="font-bold text-sky-700">€{deposit.toFixed(2)}</span>
+                <span className="font-bold text-sky-700">{fmtPrice(deposit)}</span>
               </div>
               <div className="flex justify-between text-xs text-gray-500 mt-1">
                 <span>Balance (6 weeks before arrival)</span>
-                <span>€{balance.toFixed(2)}</span>
+                <span>{fmtPrice(balance)}</span>
               </div>
             </div>
 
@@ -470,7 +472,7 @@ export default function BookingWidget({
                 ) : paymentMethod === "bank_transfer" ? (
                   <><Building2 className="w-5 h-5" /> Reserve with Bank Transfer</>
                 ) : (
-                  <><CreditCard className="w-5 h-5" /> Pay €{deposit.toFixed(2)} Deposit</>
+                  <><CreditCard className="w-5 h-5" /> Pay {fmtPrice(deposit)} Deposit</>
                 )}
               </button>
             )}

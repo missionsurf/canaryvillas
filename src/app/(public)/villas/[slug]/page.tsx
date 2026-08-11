@@ -4,6 +4,7 @@ import BookingWidget from "@/components/BookingWidget";
 import PhotoGallery from "@/components/PhotoGallery";
 import { Bed, Bath, Users, MapPin, CheckCircle2 } from "lucide-react";
 import ConsentMap from "@/components/ConsentMap";
+import PriceDisplay from "@/components/PriceDisplay";
 import type { Metadata } from "next";
 
 interface Props {
@@ -193,9 +194,7 @@ export default async function VillaDetailPage({ params }: Props) {
                   </p>
                 </div>
                 <div className="text-right">
-                  <span className="text-3xl font-extrabold text-sky-600">
-                    €{villa.pricePerNight}
-                  </span>
+                  <PriceDisplay eurAmount={villa.pricePerNight} className="text-3xl font-extrabold text-sky-600" />
                   <span className="text-gray-500">/night</span>
                 </div>
               </div>

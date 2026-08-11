@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X, Palmtree, Phone } from "lucide-react";
+import { useCurrency } from "@/context/CurrencyContext";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { currency, setCurrency } = useCurrency();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -51,6 +53,20 @@ export default function Navbar() {
               <Phone className="w-4 h-4" />
               +44 7809 870561
             </a>
+            <div className="flex items-center rounded-full border border-gray-200 overflow-hidden text-sm font-semibold">
+              <button
+                onClick={() => setCurrency("EUR")}
+                className={`px-3 py-1.5 transition-colors ${currency === "EUR" ? "bg-sky-500 text-white" : "text-gray-600 hover:bg-gray-100"}`}
+              >
+                € EUR
+              </button>
+              <button
+                onClick={() => setCurrency("GBP")}
+                className={`px-3 py-1.5 transition-colors ${currency === "GBP" ? "bg-sky-500 text-white" : "text-gray-600 hover:bg-gray-100"}`}
+              >
+                £ GBP
+              </button>
+            </div>
             <Link
               href="/villas"
               className="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors"

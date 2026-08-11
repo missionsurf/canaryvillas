@@ -1,9 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Bed, Bath, Users, Star } from "lucide-react";
 import type { Villa } from "@/types";
+import { useCurrency } from "@/context/CurrencyContext";
 
 export default function VillaCard({ villa }: { villa: Villa }) {
+  const { format } = useCurrency();
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group flex flex-col">
       <div className="relative h-64 overflow-hidden">
@@ -15,7 +19,7 @@ export default function VillaCard({ villa }: { villa: Villa }) {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute top-4 left-4 bg-sky-500 text-white text-sm font-semibold px-3 py-1 rounded-full">
-          From €{villa.pricePerNight}/night
+          From {format(villa.pricePerNight)}/night
         </div>
       </div>
 
