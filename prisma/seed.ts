@@ -31,6 +31,14 @@ async function migrateSchema() {
     `ALTER TABLE bookings ADD COLUMN balanceDueDate DATETIME`,
     `ALTER TABLE bookings ADD COLUMN paypalOrderId TEXT`,
     `ALTER TABLE villas ADD COLUMN imageGroups TEXT`,
+    `CREATE TABLE IF NOT EXISTS guest_tokens (
+      id TEXT NOT NULL PRIMARY KEY,
+      email TEXT NOT NULL,
+      token TEXT NOT NULL,
+      expiresAt DATETIME NOT NULL,
+      createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    )`,
+    `CREATE INDEX IF NOT EXISTS guest_tokens_email_idx ON guest_tokens(email)`,
   ];
   for (const sql of newColumns) {
     try {
