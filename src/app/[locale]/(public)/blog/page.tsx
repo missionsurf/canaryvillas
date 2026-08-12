@@ -4,6 +4,13 @@ import { blogPosts, categories } from "@/lib/blog";
 import type { Metadata } from "next";
 import { Clock, Tag } from "lucide-react";
 import { getTranslations } from "next-intl/server";
+import de from "@/lib/blog-translations-de";
+import nl from "@/lib/blog-translations-nl";
+import fr from "@/lib/blog-translations-fr";
+import it from "@/lib/blog-translations-it";
+import es from "@/lib/blog-translations-es";
+
+const blogTranslations: Record<string, Record<string, { title: string; excerpt: string }>> = { de, nl, fr, it, es };
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -80,7 +87,9 @@ export default async function BlogIndexPage({ params, searchParams }: Props) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filtered.map((post) => (
+            {filtered.map((post) => {
+              const tr = blogTranslations[locale]?.[post.slug];
+              return (
               <Link
                 key={post.slug}
                 href={`${prefix}/blog/${post.slug}`}
@@ -99,8 +108,8 @@ export default async function BlogIndexPage({ params, searchParams }: Props) {
                     </span>
                     <span>{new Date(post.date).toLocaleDateString(locale === "en" ? "en-GB" : locale, { day: "numeric", month: "short", year: "numeric" })}</span>
                   </div>
-                  <h2 className="font-bold text-gray-900 mb-2 leading-snug group-hover:text-sky-600 transition-colors">{post.title}</h2>
-                  <p className="text-gray-500 text-sm leading-relaxed line-clamp-3">{post.excerpt}</p>
+                  <h2 className="font-bold text-gray-900 mb-2 leading-snug group-hover:text-sky-600 transition-colors">{tr?.title ?? post.title}</h2>
+                  <p className="text-gray-500 text-sm leading-relaxed line-clamp-3">{tr?.excerpt ?? post.excerpt}</p>
                   <div className="mt-4 flex flex-wrap gap-1">
                     {post.tags.slice(0, 3).map((tag) => (
                       <span key={tag} className="inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">
@@ -110,7 +119,8 @@ export default async function BlogIndexPage({ params, searchParams }: Props) {
                   </div>
                 </div>
               </Link>
-            ))}
+              );
+            })}
           </div>
 
           {filtered.length === 0 && (

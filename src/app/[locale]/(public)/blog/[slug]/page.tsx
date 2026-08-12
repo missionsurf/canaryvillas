@@ -6,6 +6,14 @@ import type { Metadata } from "next";
 import { Clock, Tag, ChevronRight, ArrowRight } from "lucide-react";
 
 import { getTranslations } from "next-intl/server";
+import de from "@/lib/blog-translations-de";
+import nl from "@/lib/blog-translations-nl";
+import fr from "@/lib/blog-translations-fr";
+import it from "@/lib/blog-translations-it";
+import es from "@/lib/blog-translations-es";
+
+type BlogTranslation = { title: string; metaTitle: string; metaDescription: string; excerpt: string; content: string; faqs?: { q: string; a: string }[] };
+const blogTranslations: Record<string, Record<string, BlogTranslation>> = { de, nl, fr, it, es };
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -16,16 +24,19 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const post = getPostBySlug(slug);
   if (!post) return { title: "Post Not Found" };
+  const tr = blogTranslations[locale]?.[slug];
+  const metaTitle = tr?.metaTitle ?? post.metaTitle;
+  const metaDescription = tr?.metaDescription ?? post.metaDescription;
   return {
-    title: post.metaTitle,
-    description: post.metaDescription,
+    title: metaTitle,
+    description: metaDescription,
     alternates: { canonical: `https://canaryvillas.com/blog/${slug}` },
     openGraph: {
-      title: post.metaTitle,
-      description: post.metaDescription,
+      title: metaTitle,
+      description: metaDescription,
       url: `https://canaryvillas.com/blog/${slug}`,
       type: "article",
       publishedTime: post.date,
@@ -42,6 +53,9 @@ export default async function BlogPostPage({ params }: Props) {
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
+  const tr = blogTranslations[locale]?.[slug];
+  const localPost = tr ? { ...post, title: tr.title, metaTitle: tr.metaTitle, metaDescription: tr.metaDescription, excerpt: tr.excerpt, content: tr.content, faqs: tr.faqs ?? post.faqs } : post;
+
   const related = blogPosts
     .filter((p) => p.slug !== slug && (p.category === post.category || p.tags.some((t) => post.tags.includes(t))))
     .slice(0, 3);
@@ -49,8 +63,8 @@ export default async function BlogPostPage({ params }: Props) {
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: post.title,
-    description: post.metaDescription,
+    headline: localPost.title,
+    description: localPost.metaDescription,
     image: post.heroImage,
     datePublished: post.date,
     dateModified: post.date,
@@ -69,15 +83,15 @@ export default async function BlogPostPage({ params }: Props) {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://canaryvillas.com" },
       { "@type": "ListItem", position: 2, name: "Blog", item: "https://canaryvillas.com/blog" },
-      { "@type": "ListItem", position: 3, name: post.title, item: `https://canaryvillas.com/blog/${slug}` },
+      { "@type": "ListItem", position: 3, name: localPost.title, item: `https://canaryvillas.com/blog/${slug}` },
     ],
   };
 
-  const faqSchema = post.faqs && post.faqs.length > 0
+  const faqSchema = localPost.faqs && localPost.faqs.length > 0
     ? {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: post.faqs.map((f) => ({
+        mainEntity: localPost.faqs.map((f) => ({
           "@type": "Question",
           name: f.q,
           acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -110,7 +124,7 @@ export default async function BlogPostPage({ params }: Props) {
               {post.category}
             </span>
             <h1 className="text-2xl md:text-4xl font-extrabold text-white leading-tight">
-              {post.title}
+              {localPost.title}
             </h1>
             <div className="flex items-center gap-4 mt-3 text-sm text-gray-300">
               <span className="flex items-center gap-1.5">
@@ -128,12 +142,12 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Main content */}
             <article className="lg:col-span-2">
               <p className="text-lg text-gray-600 leading-relaxed mb-8 font-medium border-l-4 border-sky-400 pl-4">
-                {post.excerpt}
+                {localPost.excerpt}
               </p>
 
               <div
                 className="prose prose-lg max-w-none prose-headings:font-extrabold prose-headings:text-gray-900 prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-gray-600 prose-p:leading-relaxed prose-li:text-gray-600 prose-strong:text-gray-800 prose-a:text-sky-600 prose-a:no-underline hover:prose-a:underline"
-                dangerouslySetInnerHTML={{ __html: post.content }}
+                dangerouslySetInnerHTML={{ __html: localPost.content }}
               />
 
               {/* Tags */}
@@ -146,11 +160,11 @@ export default async function BlogPostPage({ params }: Props) {
               </div>
 
               {/* FAQ Section */}
-              {post.faqs && post.faqs.length > 0 && (
+              {localPost.faqs && localPost.faqs.length > 0 && (
                 <div className="mt-12">
                   <h2 className="text-2xl font-extrabold text-gray-900 mb-6">{t("faq")}</h2>
                   <div className="space-y-4">
-                    {post.faqs.map((faq, i) => (
+                    {localPost.faqs.map((faq, i) => (
                       <details key={i} className="group bg-white border border-gray-200 rounded-xl overflow-hidden">
                         <summary className="flex items-center justify-between p-5 cursor-pointer font-semibold text-gray-900 hover:text-sky-600">
                           {faq.q}
