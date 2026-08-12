@@ -158,5 +158,26 @@
       "description": "Dit charmante privé bungalowappartement biedt het perfecte toevluchtsoord voor koppels of kleine gezinnen. Gelegen in een rustige woonwijk van Corralejo, geniet u van het beste van twee werelden: een vredige haven om te ontspannen, met de drukte van de stad op slechts enkele minuten afstand.\n\nHet appartement beschikt over een privéingang, een comfortabele kingsize slaapkamer en een volledig uitgeruste kitchenette. Ontspan in de privéjacuzzi op het zonnige terras terwijl u geniet van het prachtige uitzicht over Fuerteventura's dramatische vulkanische landschap.\n\nHotelkwaliteit matrassen en vers kwaliteitslinnen zorgen voor een goede nachtrust, terwijl het stijlvolle interieur een gastvrij thuisgevoel creëert.",
       "shortDesc": "Privé bungalowappartement met jacuzzi en geweldig uitzicht voor 2–4 gasten."
     }
+  },
+  "blog": {
+    "title": "Fuerteventura reisblog",
+    "subtitle": "Expertgidsen, insidertips en alles wat u nodig heeft voor de perfecte Canarische Eilanden vakantie.",
+    "featured": "Uitgelicht",
+    "minRead": "{n} min lezen",
+    "noPostsCategory": "Nog geen berichten in deze categorie.",
+    "ctaHeading": "Klaar om Fuerteventura te bezoeken?",
+    "ctaDesc": "Bekijk onze handpicked vakantievilla's in Corralejo en boek direct voor de beste prijs — geen kosten, flexibele annulering.",
+    "ctaBtn": "Vakantievilla's bekijken",
+    "all": "Alle",
+    "stayHeading": "Verblijf op Fuerteventura",
+    "stayDesc": "Boek een van onze handpicked vakantievilla's in Corralejo. Direct boeken, beste prijs gegarandeerd — geen verborgen kosten.",
+    "viewVillas": "Onze villa's bekijken",
+    "askQuestion": "Stel een vraag",
+    "relatedArticles": "Gerelateerde artikelen",
+    "browseCategory": "Bladeren op categorie",
+    "allPosts": "Alle berichten",
+    "faq": "Veelgestelde vragen",
+    "backToBlog": "Terug naar blog",
+    "readMore": "Lees meer"
   }
 }

@@ -158,5 +158,26 @@
       "description": "This charming private bungalow apartment offers the perfect retreat for couples or small families. Located in a quiet residential area of Corralejo, you'll enjoy the best of both worlds: a peaceful haven to relax in, with the buzz of the town just minutes away.\n\nThe apartment features a private entrance, a comfortable king-size bedroom, and a fully equipped kitchenette. Unwind in the private jacuzzi on the sunny terrace while soaking in beautiful views across Fuerteventura's dramatic volcanic landscape.\n\nHotel-grade mattresses and crisp quality linens ensure a great night's sleep, while the stylish interiors create a welcoming home-away-from-home feel. The property includes its own dedicated parking space and is close to local bus routes for easy island exploration.",
       "shortDesc": "Private bungalow apartment with jacuzzi and amazing views, sleeping 2–4 guests."
     }
+  },
+  "blog": {
+    "title": "Fuerteventura Travel Blog",
+    "subtitle": "Expert guides, insider tips and everything you need for the perfect Canary Islands holiday.",
+    "featured": "Featured",
+    "minRead": "{n} min read",
+    "noPostsCategory": "No posts in this category yet.",
+    "ctaHeading": "Ready to Visit Fuerteventura?",
+    "ctaDesc": "Browse our hand-picked holiday villas in Corralejo and book direct for the best price — no fees, flexible cancellation.",
+    "ctaBtn": "Browse Holiday Villas",
+    "all": "All",
+    "stayHeading": "Stay in Fuerteventura",
+    "stayDesc": "Book one of our hand-picked holiday villas in Corralejo. Direct booking, best price guaranteed — no hidden fees.",
+    "viewVillas": "View Our Villas",
+    "askQuestion": "Ask a Question",
+    "relatedArticles": "Related Articles",
+    "browseCategory": "Browse by Category",
+    "allPosts": "All Posts",
+    "faq": "Frequently Asked Questions",
+    "backToBlog": "Back to Blog",
+    "readMore": "Read more"
   }
 }

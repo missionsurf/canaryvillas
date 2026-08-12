@@ -5,8 +5,10 @@ import { blogPosts, getPostBySlug } from "@/lib/blog";
 import type { Metadata } from "next";
 import { Clock, Tag, ChevronRight, ArrowRight } from "lucide-react";
 
+import { getTranslations } from "next-intl/server";
+
 interface Props {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 }
 
 export async function generateStaticParams() {
@@ -34,7 +36,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
+  const t = await getTranslations({ locale, namespace: "blog" });
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
@@ -96,9 +100,9 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 max-w-4xl mx-auto">
             <nav className="flex items-center gap-1 text-xs text-gray-300 mb-3">
-              <Link href="/" className="hover:text-white">Home</Link>
+              <Link href={`${prefix}/`} className="hover:text-white">Home</Link>
               <ChevronRight className="w-3 h-3" />
-              <Link href="/blog" className="hover:text-white">Blog</Link>
+              <Link href={`${prefix}/blog`} className="hover:text-white">Blog</Link>
               <ChevronRight className="w-3 h-3" />
               <span className="text-white">{post.category}</span>
             </nav>
@@ -110,10 +114,10 @@ export default async function BlogPostPage({ params }: Props) {
             </h1>
             <div className="flex items-center gap-4 mt-3 text-sm text-gray-300">
               <span className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4" /> {post.readTime} min read
+                <Clock className="w-4 h-4" /> {t("minRead", { n: post.readTime })}
               </span>
               <span>
-                {new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
+                {new Date(post.date).toLocaleDateString(locale === "en" ? "en-GB" : locale, { day: "numeric", month: "long", year: "numeric" })}
               </span>
             </div>
           </div>
@@ -144,7 +148,7 @@ export default async function BlogPostPage({ params }: Props) {
               {/* FAQ Section */}
               {post.faqs && post.faqs.length > 0 && (
                 <div className="mt-12">
-                  <h2 className="text-2xl font-extrabold text-gray-900 mb-6">Frequently Asked Questions</h2>
+                  <h2 className="text-2xl font-extrabold text-gray-900 mb-6">{t("faq")}</h2>
                   <div className="space-y-4">
                     {post.faqs.map((faq, i) => (
                       <details key={i} className="group bg-white border border-gray-200 rounded-xl overflow-hidden">
@@ -166,33 +170,31 @@ export default async function BlogPostPage({ params }: Props) {
             <aside className="space-y-6">
               {/* Villa CTA */}
               <div className="bg-sky-600 rounded-2xl p-6 text-white sticky top-20">
-                <h3 className="text-xl font-extrabold mb-2">Stay in Fuerteventura</h3>
-                <p className="text-sky-100 text-sm mb-4 leading-relaxed">
-                  Book one of our hand-picked holiday villas in Corralejo. Direct booking, best price guaranteed — no hidden fees.
-                </p>
+                <h3 className="text-xl font-extrabold mb-2">{t("stayHeading")}</h3>
+                <p className="text-sky-100 text-sm mb-4 leading-relaxed">{t("stayDesc")}</p>
                 <Link
-                  href="/villas"
+                  href={`${prefix}/villas`}
                   className="flex items-center justify-center gap-2 bg-white text-sky-600 font-bold px-5 py-3 rounded-full hover:bg-sky-50 transition-colors w-full text-sm"
                 >
-                  View Our Villas <ArrowRight className="w-4 h-4" />
+                  {t("viewVillas")} <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
-                  href="/contact"
+                  href={`${prefix}/contact`}
                   className="flex items-center justify-center gap-2 border border-sky-400 text-white font-medium px-5 py-2.5 rounded-full hover:bg-sky-700 transition-colors w-full text-sm mt-2"
                 >
-                  Ask a Question
+                  {t("askQuestion")}
                 </Link>
               </div>
 
               {/* Related posts */}
               {related.length > 0 && (
                 <div>
-                  <h3 className="font-bold text-gray-900 mb-4">Related Articles</h3>
+                  <h3 className="font-bold text-gray-900 mb-4">{t("relatedArticles")}</h3>
                   <div className="space-y-4">
                     {related.map((rp) => (
                       <Link
                         key={rp.slug}
-                        href={`/blog/${rp.slug}`}
+                        href={`${prefix}/blog/${rp.slug}`}
                         className="flex gap-3 group"
                       >
                         <div className="relative w-20 h-16 rounded-xl overflow-hidden shrink-0">
@@ -203,7 +205,7 @@ export default async function BlogPostPage({ params }: Props) {
                           <p className="text-sm font-semibold text-gray-800 group-hover:text-sky-600 transition-colors leading-snug line-clamp-2">
                             {rp.title}
                           </p>
-                          <p className="text-xs text-gray-400 mt-1">{rp.readTime} min read</p>
+                          <p className="text-xs text-gray-400 mt-1">{t("minRead", { n: rp.readTime })}</p>
                         </div>
                       </Link>
                     ))}
@@ -213,15 +215,15 @@ export default async function BlogPostPage({ params }: Props) {
 
               {/* All categories */}
               <div className="bg-white border border-gray-100 rounded-2xl p-5">
-                <h3 className="font-bold text-gray-900 mb-3">Browse by Category</h3>
+                <h3 className="font-bold text-gray-900 mb-3">{t("browseCategory")}</h3>
                 <div className="flex flex-wrap gap-2">
-                  <Link href="/blog" className="text-xs bg-gray-100 hover:bg-sky-100 hover:text-sky-700 text-gray-600 px-3 py-1.5 rounded-full transition-colors">
-                    All Posts
+                  <Link href={`${prefix}/blog`} className="text-xs bg-gray-100 hover:bg-sky-100 hover:text-sky-700 text-gray-600 px-3 py-1.5 rounded-full transition-colors">
+                    {t("allPosts")}
                   </Link>
                   {["Watersports", "Beaches", "Travel Guide", "Food & Drink", "Nature", "Activities"].map((cat) => (
                     <Link
                       key={cat}
-                      href={`/blog?category=${encodeURIComponent(cat)}`}
+                      href={`${prefix}/blog?category=${encodeURIComponent(cat)}`}
                       className="text-xs bg-gray-100 hover:bg-sky-100 hover:text-sky-700 text-gray-600 px-3 py-1.5 rounded-full transition-colors"
                     >
                       {cat}

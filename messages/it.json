@@ -158,5 +158,26 @@
       "description": "Questo affascinante appartamento bungalow privato offre il rifugio perfetto per coppie o piccole famiglie. Situato in una tranquilla zona residenziale di Corralejo, godrai del meglio di due mondi: un porto di pace per rilassarsi, con l'animazione della città a pochi minuti.\n\nL'appartamento dispone di ingresso privato, una confortevole camera da letto matrimoniale e un angolo cottura completamente attrezzato. Rilassati nella vasca idromassaggio privata sulla terrazza soleggiata mentre ammiri le bellissime viste sul drammatico paesaggio vulcanico di Fuerteventura.\n\nMaterassi di qualità alberghiera e biancheria di qualità garantiscono un ottimo sonno notturno, mentre gli interni eleganti creano un accogliente senso di casa lontano da casa.",
       "shortDesc": "Appartamento bungalow privato con vasca idromassaggio e viste incredibili per 2–4 ospiti."
     }
+  },
+  "blog": {
+    "title": "Blog di viaggio Fuerteventura",
+    "subtitle": "Guide di esperti, consigli locali e tutto il necessario per una vacanza perfetta nelle Isole Canarie.",
+    "featured": "In evidenza",
+    "minRead": "{n} min di lettura",
+    "noPostsCategory": "Nessun articolo in questa categoria.",
+    "ctaHeading": "Pronti a visitare Fuerteventura?",
+    "ctaDesc": "Sfoglia le nostre ville vacanze a Corralejo e prenota direttamente al miglior prezzo — nessuna tariffa, cancellazione flessibile.",
+    "ctaBtn": "Vedi le ville",
+    "all": "Tutti",
+    "stayHeading": "Soggiorna a Fuerteventura",
+    "stayDesc": "Prenota una delle nostre ville vacanze a Corralejo. Prenotazione diretta, miglior prezzo garantito — nessuna tariffa nascosta.",
+    "viewVillas": "Vedi le nostre ville",
+    "askQuestion": "Fai una domanda",
+    "relatedArticles": "Articoli correlati",
+    "browseCategory": "Sfoglia per categoria",
+    "allPosts": "Tutti gli articoli",
+    "faq": "Domande frequenti",
+    "backToBlog": "Torna al blog",
+    "readMore": "Leggi di più"
   }
 }

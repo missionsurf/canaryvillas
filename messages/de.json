@@ -158,5 +158,26 @@
       "description": "Dieses charmante private Bungalow-Apartment bietet den perfekten Rückzugsort für Paare oder kleine Familien. In einem ruhigen Wohngebiet von Corralejo gelegen, genießen Sie das Beste aus zwei Welten: eine friedliche Oase zum Entspannen, mit dem Trubel der Stadt nur wenige Minuten entfernt.\n\nDas Apartment verfügt über einen privaten Eingang, ein komfortables Kingsize-Schlafzimmer und eine voll ausgestattete Küchenzeile. Entspannen Sie im privaten Whirlpool auf der sonnigen Terrasse und genießen Sie den wunderschönen Blick auf Fuerteventuras dramatische Vulkanlandschaft.\n\nHotelqualität-Matratzen und knackig frische Qualitätsbettwäsche sorgen für einen erholsamen Schlaf, während das stilvolle Interieur ein einladendes Zuhause-auf-Zeit-Gefühl schafft.",
       "shortDesc": "Privates Bungalow-Apartment mit Whirlpool und traumhaftem Ausblick für 2–4 Gäste."
     }
+  },
+  "blog": {
+    "title": "Fuerteventura Reiseblog",
+    "subtitle": "Expertenratschläge, Insidertipps und alles, was Sie für den perfekten Kanarischen Inselurlaub brauchen.",
+    "featured": "Empfohlen",
+    "minRead": "{n} Min. Lesezeit",
+    "noPostsCategory": "Noch keine Beiträge in dieser Kategorie.",
+    "ctaHeading": "Bereit für Fuerteventura?",
+    "ctaDesc": "Entdecken Sie unsere handverlesenen Ferienvillen in Corralejo und buchen Sie direkt zum besten Preis — keine Gebühren, flexible Stornierung.",
+    "ctaBtn": "Villen entdecken",
+    "all": "Alle",
+    "stayHeading": "Urlaub auf Fuerteventura",
+    "stayDesc": "Buchen Sie eine unserer handverlesenen Ferienvillen in Corralejo. Direktbuchung, Bestpreisgarantie — keine versteckten Gebühren.",
+    "viewVillas": "Unsere Villen ansehen",
+    "askQuestion": "Frage stellen",
+    "relatedArticles": "Ähnliche Artikel",
+    "browseCategory": "Nach Kategorie stöbern",
+    "allPosts": "Alle Beiträge",
+    "faq": "Häufig gestellte Fragen",
+    "backToBlog": "Zurück zum Blog",
+    "readMore": "Mehr lesen"
   }
 }
