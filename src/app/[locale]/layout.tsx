@@ -75,10 +75,10 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!routing.locales.includes(locale as Locale)) notFound();
 
-  const messages = await getMessages();
+  const messages = await getMessages({ locale } as { locale: string });
 
   return (
-    <NextIntlClientProvider messages={messages}>
+    <NextIntlClientProvider locale={locale} messages={messages}>
       {children}
     </NextIntlClientProvider>
   );

@@ -12,8 +12,9 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("home.hero");
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "home.hero" });
   return {
     title: "Holiday Villas to Rent in Fuerteventura | Beachfront Villas Corralejo",
     description: t("sub"),
@@ -47,7 +48,7 @@ const reviewSchema = {
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const villas = await getAllVillas();
-  const t = await getTranslations("home");
+  const t = await getTranslations({ locale, namespace: "home" });
   const prefix = locale === routing.defaultLocale ? "" : `/${locale}`;
 
   const features = [

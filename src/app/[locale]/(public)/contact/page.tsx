@@ -2,16 +2,18 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("contact");
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "contact" });
   return {
     title: t("heading"),
     description: "Get in touch with Canary Villas for bookings, questions, or more information about our properties in Fuerteventura.",
   };
 }
 
-export default async function ContactPage() {
-  const t = await getTranslations("contact");
+export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "contact" });
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">

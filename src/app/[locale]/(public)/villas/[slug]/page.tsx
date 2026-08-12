@@ -12,6 +12,7 @@ interface Props {
   params: Promise<{ slug: string; locale: string }>;
 }
 
+
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -167,8 +168,8 @@ function VillaSchema({ villa }: { villa: Awaited<ReturnType<typeof getVillaBySlu
 }
 
 export default async function VillaDetailPage({ params }: Props) {
-  const { slug } = await params;
-  const t = await getTranslations("villa");
+  const { slug, locale } = await params;
+  const t = await getTranslations({ locale, namespace: "villa" });
   const villa = await getVillaBySlug(slug);
   if (!villa) notFound();
 

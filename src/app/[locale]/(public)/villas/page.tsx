@@ -17,9 +17,10 @@ alternates: { canonical: "https://canaryvillas.com/villas" },
   },
 };
 
-export default async function VillasPage() {
+export default async function VillasPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const villas = await getAllVillas();
-  const t = await getTranslations("villas");
+  const t = await getTranslations({ locale, namespace: "villas" });
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
