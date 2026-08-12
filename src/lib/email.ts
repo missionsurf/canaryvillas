@@ -8,6 +8,8 @@ const transporter = nodemailer.createTransport({
   auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
 });
 
+const BOOKINGS_BCC = [process.env.ADMIN_EMAIL, "bookings@canaryvillas.com"].filter(Boolean).join(",");
+
 export interface BookingEmailData {
   guestName: string;
   guestEmail: string;
@@ -82,7 +84,7 @@ export async function sendBookingConfirmation(data: BookingEmailData) {
   await transporter.sendMail({
     from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
     to: data.guestEmail,
-    bcc: process.env.ADMIN_EMAIL,
+    bcc: BOOKINGS_BCC,
     subject: `✓ Booking Confirmed — ${data.villaName} | Canary Villas`,
     html,
   });
@@ -175,7 +177,7 @@ export async function sendBankTransferInstructions(data: BankTransferEmailData) 
   await transporter.sendMail({
     from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
     to: data.guestEmail,
-    bcc: process.env.ADMIN_EMAIL,
+    bcc: BOOKINGS_BCC,
     subject: `Dates Reserved — Please Transfer Deposit | ${data.villaName} | Canary Villas`,
     html,
   });
@@ -225,7 +227,7 @@ export async function sendBalanceReminder(data: BalanceReminderData) {
   await transporter.sendMail({
     from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
     to: data.guestEmail,
-    bcc: process.env.ADMIN_EMAIL,
+    bcc: BOOKINGS_BCC,
     subject: `Balance Due — ${data.villaName} | Canary Villas`,
     html,
   });
@@ -248,7 +250,7 @@ export async function sendBalancePaidConfirmation(data: BookingEmailData) {
   await transporter.sendMail({
     from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
     to: data.guestEmail,
-    bcc: process.env.ADMIN_EMAIL,
+    bcc: BOOKINGS_BCC,
     subject: `Balance Received — ${data.villaName} Fully Confirmed | Canary Villas`,
     html,
   });
