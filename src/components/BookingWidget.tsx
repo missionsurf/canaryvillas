@@ -6,6 +6,7 @@ import { differenceInDays, format } from "date-fns";
 import { Users, Calendar, ArrowRight, Loader2, CreditCard, Building2 } from "lucide-react";
 import "react-day-picker/dist/style.css";
 import { useCurrency } from "@/context/CurrencyContext";
+import { useTranslations } from "next-intl";
 
 interface Props {
   villaId: string;
@@ -27,6 +28,7 @@ export default function BookingWidget({
   bookedDates,
 }: Props) {
   const { currency, convert, format: fmtPrice, symbol } = useCurrency();
+  const t = useTranslations("booking");
   const [range, setRange] = useState<DateRange | undefined>();
   const [guests, setGuests] = useState(2);
   const [loading, setLoading] = useState(false);
@@ -224,7 +226,7 @@ export default function BookingWidget({
           <>
             <div className="mb-4">
               <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
-                <Calendar className="w-4 h-4" /> Select Dates
+                <Calendar className="w-4 h-4" /> {t("selectDates")}
               </label>
               <div className="border rounded-xl overflow-hidden">
                 <DayPicker
@@ -241,7 +243,7 @@ export default function BookingWidget({
 
             <div className="mb-5">
               <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
-                <Users className="w-4 h-4" /> Guests
+                <Users className="w-4 h-4" /> {t("guests")}
               </label>
               <select
                 value={guests}
@@ -261,15 +263,15 @@ export default function BookingWidget({
                   <span>{fmtPrice(subtotal)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Cleaning fee</span>
+                  <span>{t("cleaningFee")}</span>
                   <span>{fmtPrice(cleaningFee)}</span>
                 </div>
                 <div className="flex justify-between font-bold text-gray-900 text-base border-t pt-2 mt-2">
-                  <span>Total</span>
+                  <span>{t("total")}</span>
                   <span>{fmtPrice(total)}</span>
                 </div>
                 <div className="flex justify-between text-sky-600 font-semibold">
-                  <span>50% deposit today</span>
+                  <span>{t("depositToday")}</span>
                   <span>{fmtPrice(deposit)}</span>
                 </div>
               </div>
@@ -286,7 +288,7 @@ export default function BookingWidget({
               }}
               className="w-full bg-sky-500 hover:bg-sky-600 text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-colors"
             >
-              Continue <ArrowRight className="w-5 h-5" />
+              {t("continue")} <ArrowRight className="w-5 h-5" />
             </button>
           </>
         )}
@@ -305,7 +307,7 @@ export default function BookingWidget({
               <div>
                 <input
                   type="text"
-                  placeholder="Full name *"
+                  placeholder={t("fullName")}
                   value={form.name}
                   onChange={(e) => {
                     setForm({ ...form, name: e.target.value });
@@ -318,7 +320,7 @@ export default function BookingWidget({
               <div>
                 <input
                   type="email"
-                  placeholder="Email address *"
+                  placeholder={t("email")}
                   value={form.email}
                   onChange={(e) => {
                     setForm({ ...form, email: e.target.value });
@@ -331,7 +333,7 @@ export default function BookingWidget({
               <div>
                 <input
                   type="tel"
-                  placeholder="Phone number"
+                  placeholder={t("phone")}
                   value={form.phone}
                   onChange={(e) => {
                     setForm({ ...form, phone: e.target.value });
@@ -342,7 +344,7 @@ export default function BookingWidget({
                 {fieldErrors.phone && <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.phone}</p>}
               </div>
               <textarea
-                placeholder="Special requests or notes (optional)"
+                placeholder={t("message")}
                 value={form.notes}
                 onChange={(e) => setForm({ ...form, notes: e.target.value })}
                 rows={3}
@@ -355,7 +357,7 @@ export default function BookingWidget({
                 onClick={() => setStep("dates")}
                 className="flex-1 border border-gray-300 text-gray-600 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
               >
-                Back
+                {t("back")}
               </button>
               <button
                 onClick={() => {
@@ -371,7 +373,7 @@ export default function BookingWidget({
                 }}
                 className="flex-grow bg-sky-500 hover:bg-sky-600 text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-colors"
               >
-                Choose Payment <ArrowRight className="w-4 h-4" />
+                {t("choosePayment")} <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </>
@@ -386,16 +388,16 @@ export default function BookingWidget({
               </p>
               <p>{nights} nights · {guests} guest{guests > 1 ? "s" : ""}</p>
               <div className="flex justify-between mt-2 pt-2 border-t">
-                <span className="font-bold">50% deposit due now</span>
+                <span className="font-bold">{t("depositDueNow")}</span>
                 <span className="font-bold text-sky-700">{fmtPrice(deposit)}</span>
               </div>
               <div className="flex justify-between text-xs text-gray-500 mt-1">
-                <span>Balance (6 weeks before arrival)</span>
+                <span>{t("balanceDue")}</span>
                 <span>{fmtPrice(balance)}</span>
               </div>
             </div>
 
-            <p className="text-sm font-semibold text-gray-700 mb-3">How would you like to pay?</p>
+            <p className="text-sm font-semibold text-gray-700 mb-3">{t("howToPay")}</p>
 
             <div className="space-y-2 mb-5">
               {/* Bank Transfer */}
@@ -409,11 +411,11 @@ export default function BookingWidget({
               >
                 <Building2 className={`w-5 h-5 shrink-0 ${paymentMethod === "bank_transfer" ? "text-sky-500" : "text-gray-400"}`} />
                 <div>
-                  <p className="font-semibold text-gray-900 text-sm">Bank Transfer</p>
-                  <p className="text-xs text-gray-500">Preferred · No fees · We&apos;ll hold your dates for 48h</p>
+                  <p className="font-semibold text-gray-900 text-sm">{t("bankTransfer")}</p>
+                  <p className="text-xs text-gray-500">{t("bankTransferDesc")}</p>
                 </div>
                 {paymentMethod === "bank_transfer" && (
-                  <span className="ml-auto text-xs bg-sky-500 text-white px-2 py-0.5 rounded-full">Selected</span>
+                  <span className="ml-auto text-xs bg-sky-500 text-white px-2 py-0.5 rounded-full">{t("selected")}</span>
                 )}
               </button>
 
@@ -428,11 +430,11 @@ export default function BookingWidget({
               >
                 <CreditCard className={`w-5 h-5 shrink-0 ${paymentMethod === "stripe" ? "text-sky-500" : "text-gray-400"}`} />
                 <div>
-                  <p className="font-semibold text-gray-900 text-sm">Credit / Debit Card</p>
-                  <p className="text-xs text-gray-500">Instant confirmation via Stripe</p>
+                  <p className="font-semibold text-gray-900 text-sm">{t("card")}</p>
+                  <p className="text-xs text-gray-500">{t("cardDesc")}</p>
                 </div>
                 {paymentMethod === "stripe" && (
-                  <span className="ml-auto text-xs bg-sky-500 text-white px-2 py-0.5 rounded-full">Selected</span>
+                  <span className="ml-auto text-xs bg-sky-500 text-white px-2 py-0.5 rounded-full">{t("selected")}</span>
                 )}
               </button>
 
@@ -447,11 +449,11 @@ export default function BookingWidget({
               >
                 <span className={`text-lg font-black leading-none ${paymentMethod === "paypal" ? "text-sky-500" : "text-gray-400"}`}>P</span>
                 <div>
-                  <p className="font-semibold text-gray-900 text-sm">PayPal</p>
-                  <p className="text-xs text-gray-500">Pay securely with your PayPal account</p>
+                  <p className="font-semibold text-gray-900 text-sm">{t("paypal")}</p>
+                  <p className="text-xs text-gray-500">{t("paypalDesc")}</p>
                 </div>
                 {paymentMethod === "paypal" && (
-                  <span className="ml-auto text-xs bg-sky-500 text-white px-2 py-0.5 rounded-full">Selected</span>
+                  <span className="ml-auto text-xs bg-sky-500 text-white px-2 py-0.5 rounded-full">{t("selected")}</span>
                 )}
               </button>
             </div>
@@ -468,11 +470,11 @@ export default function BookingWidget({
                 className="w-full bg-sky-500 hover:bg-sky-600 disabled:bg-sky-300 text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-colors mb-3"
               >
                 {loading ? (
-                  <><Loader2 className="w-5 h-5 animate-spin" /> Processing…</>
+                  <><Loader2 className="w-5 h-5 animate-spin" /> {t("processing")}</>
                 ) : paymentMethod === "bank_transfer" ? (
-                  <><Building2 className="w-5 h-5" /> Reserve with Bank Transfer</>
+                  <><Building2 className="w-5 h-5" /> {t("reserveBank")}</>
                 ) : (
-                  <><CreditCard className="w-5 h-5" /> Pay {fmtPrice(deposit)} Deposit</>
+                  <><CreditCard className="w-5 h-5" /> {t("payDeposit", { amount: fmtPrice(deposit) })}</>
                 )}
               </button>
             )}
@@ -481,11 +483,11 @@ export default function BookingWidget({
               onClick={() => setStep("details")}
               className="w-full text-gray-500 text-sm py-2 hover:text-gray-700"
             >
-              ← Back
+              ← {t("back")}
             </button>
 
             <p className="text-xs text-gray-400 text-center mt-2">
-              50% deposit secures your booking. Balance due 6 weeks before arrival.
+              {t("depositNote")}
             </p>
           </>
         )}

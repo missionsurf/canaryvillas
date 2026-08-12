@@ -6,9 +6,10 @@ import { Bed, Bath, Users, MapPin, CheckCircle2 } from "lucide-react";
 import ConsentMap from "@/components/ConsentMap";
 import PriceDisplay from "@/components/PriceDisplay";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 interface Props {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 }
 
 export const dynamic = "force-dynamic";
@@ -167,6 +168,7 @@ function VillaSchema({ villa }: { villa: Awaited<ReturnType<typeof getVillaBySlu
 
 export default async function VillaDetailPage({ params }: Props) {
   const { slug } = await params;
+  const t = await getTranslations("villa");
   const villa = await getVillaBySlug(slug);
   if (!villa) notFound();
 
@@ -195,7 +197,7 @@ export default async function VillaDetailPage({ params }: Props) {
                 </div>
                 <div className="text-right">
                   <PriceDisplay eurAmount={villa.pricePerNight} className="text-3xl font-extrabold text-sky-600" />
-                  <span className="text-gray-500">/night</span>
+                  <span className="text-gray-500">{t("perNight")}</span>
                 </div>
               </div>
 
@@ -215,7 +217,7 @@ export default async function VillaDetailPage({ params }: Props) {
               </div>
 
               <div className="mb-10">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">About this villa</h2>
+                <h2 className="text-xl font-bold text-gray-900 mb-4">{t("about")}</h2>
                 <div className="text-gray-600 leading-relaxed space-y-4">
                   {villa.description.split("\n\n").map((para, i) => (
                     <p key={i}>{para}</p>
@@ -224,7 +226,7 @@ export default async function VillaDetailPage({ params }: Props) {
               </div>
 
               <div className="mb-10">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">Amenities</h2>
+                <h2 className="text-xl font-bold text-gray-900 mb-4">{t("amenities")}</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {villa.amenities.map((a) => (
                     <div key={a} className="flex items-center gap-3 text-gray-600">
@@ -237,7 +239,7 @@ export default async function VillaDetailPage({ params }: Props) {
 
               {villa.latitude && (
                 <div className="mb-10">
-                  <h2 className="text-xl font-bold text-gray-900 mb-4">Location</h2>
+                  <h2 className="text-xl font-bold text-gray-900 mb-4">{t("location")}</h2>
                   <div className="rounded-2xl overflow-hidden border h-72">
                     <ConsentMap
                       lat={villa.latitude!}
@@ -251,7 +253,7 @@ export default async function VillaDetailPage({ params }: Props) {
                     rel="noopener noreferrer"
                     className="mt-2 inline-flex items-center gap-1 text-sky-500 hover:text-sky-600 text-sm font-medium"
                   >
-                    <MapPin className="w-4 h-4" /> Open in Google Maps
+                    <MapPin className="w-4 h-4" /> {t("openMaps")}
                   </a>
                 </div>
               )}
