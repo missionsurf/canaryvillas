@@ -215,6 +215,9 @@ export async function sendBalanceReminder(data: BalanceReminderData) {
       <a href="${data.payUrl}" style="display:inline-block;background:linear-gradient(135deg,#0284c7,#0369a1);color:#ffffff;text-decoration:none;font-weight:700;font-size:16px;padding:16px 40px;border-radius:50px;box-shadow:0 4px 14px rgba(2,132,199,0.3);">Pay Balance Now →</a>
     </div>
 
+    <div style="text-align:center;margin:24px 0;">
+      <a href="${process.env.NEXT_PUBLIC_BASE_URL}/account" style="display:inline-block;background:#0284c7;color:#ffffff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 28px;border-radius:50px;">View your booking portal →</a>
+    </div>
     <p style="color:#64748b;font-size:14px;">Questions? Reply to this email or call us on <a href="tel:+447809870561" style="color:#0284c7;">+44 7809 870561</a>.</p>
     <p style="color:#64748b;font-size:14px;">We can't wait to welcome you to Fuerteventura! 🌊</p>
   ` + baseClose;
@@ -236,6 +239,9 @@ export async function sendBalancePaidConfirmation(data: BookingEmailData) {
     <h2 style="margin:0 0 8px;color:#1e293b;font-size:22px;">All paid — see you in Fuerteventura!</h2>
     <p style="color:#64748b;margin:0 0 24px;">Dear ${data.guestName}, we've received your final balance payment. Your holiday is fully paid and confirmed.</p>
     ${bookingTable(data)}
+    <div style="text-align:center;margin:24px 0;">
+      <a href="${process.env.NEXT_PUBLIC_BASE_URL}/account" style="display:inline-block;background:#0284c7;color:#ffffff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 28px;border-radius:50px;">View your booking portal →</a>
+    </div>
     <p style="color:#64748b;font-size:14px;">See you in Fuerteventura! 🏖️</p>
   ` + baseClose;
 
@@ -313,6 +319,9 @@ export async function sendArrivalInstructions(data: ArrivalData) {
       <p style="margin:0 0 8px;font-weight:700;color:#854d0e;">Additional Information</p>
       <p style="margin:0;color:#713f12;font-size:14px;white-space:pre-line;">${data.extraNotes}</p>
     </div>` : ""}
+    <div style="text-align:center;margin:24px 0;">
+      <a href="${process.env.NEXT_PUBLIC_BASE_URL}/account" style="display:inline-block;background:#0284c7;color:#ffffff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 28px;border-radius:50px;">View your booking portal →</a>
+    </div>
     <p style="color:#64748b;font-size:14px;">Questions on arrival? Call or WhatsApp us: <a href="tel:+447809870561" style="color:#0284c7;">+44 7809 870561</a></p>
     <p style="color:#64748b;font-size:14px;">Enjoy your stay! 🏖️</p>
   ` + baseClose;
