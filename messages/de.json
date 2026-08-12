@@ -148,5 +148,15 @@
     "phone": "Telefon",
     "emailLabel": "E-Mail",
     "address": "Adresse"
+  },
+  "villas_content": {
+    "beach-house": {
+      "description": "Wachen Sie beim Rauschen der Wellen auf in diesem atemberaubenden Strandanwesen in Corralejo, Fuerteventura. Mit Panoramablick auf den Atlantik aus jedem Zimmer ist The Beach House der ultimative Urlaubsort für Familien oder Freundesgruppen.\n\nDie Villa verfügt über einen geräumigen offenen Wohn- und Essbereich, der direkt auf eine private Terrasse mit Blick auf den Strand übergeht. Die voll ausgestattete Küche bietet alles für die Selbstverpflegung, mit zwei komfortablen Schlafzimmern (und einem optionalen dritten) für bis zu 6 Gäste.\n\nGehen Sie direkt von der Terrasse auf den goldenen Sand und das kristallklare Wasser eines der schönsten Strände Fuerteventuras. Die lebhafte Stadt Corralejo ist nur einen kurzen Spaziergang entfernt, mit fantastischen Restaurants, Bars, Geschäften und Wassersportmöglichkeiten.",
+      "shortDesc": "Atemberaubende Strandvilla für bis zu 6 Gäste mit direktem Meereszugang in Corralejo."
+    },
+    "bungalow-apartment": {
+      "description": "Dieses charmante private Bungalow-Apartment bietet den perfekten Rückzugsort für Paare oder kleine Familien. In einem ruhigen Wohngebiet von Corralejo gelegen, genießen Sie das Beste aus zwei Welten: eine friedliche Oase zum Entspannen, mit dem Trubel der Stadt nur wenige Minuten entfernt.\n\nDas Apartment verfügt über einen privaten Eingang, ein komfortables Kingsize-Schlafzimmer und eine voll ausgestattete Küchenzeile. Entspannen Sie im privaten Whirlpool auf der sonnigen Terrasse und genießen Sie den wunderschönen Blick auf Fuerteventuras dramatische Vulkanlandschaft.\n\nHotelqualität-Matratzen und knackig frische Qualitätsbettwäsche sorgen für einen erholsamen Schlaf, während das stilvolle Interieur ein einladendes Zuhause-auf-Zeit-Gefühl schafft.",
+      "shortDesc": "Privates Bungalow-Apartment mit Whirlpool und traumhaftem Ausblick für 2–4 Gäste."
+    }
   }
 }

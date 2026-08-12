@@ -148,5 +148,15 @@
     "phone": "Telefoon",
     "emailLabel": "E-mail",
     "address": "Adres"
+  },
+  "villas_content": {
+    "beach-house": {
+      "description": "Word wakker bij het geluid van de golven in dit prachtige strandhuis in Corralejo, Fuerteventura. Met panoramisch uitzicht op de Atlantische Oceaan vanuit elke kamer is The Beach House de ultieme vakantiebestemming voor gezinnen of vriendengroepen.\n\nDe villa beschikt over een ruime open woon- en eetruimte die direct uitkomt op een privéterras met uitzicht op het strand. De volledig uitgeruste keuken heeft alles wat u nodig heeft voor zelfverzorging, met twee comfortabele slaapkamers (en een optionele derde) voor maximaal 6 gasten.\n\nStap direct van het terras op het goudkleurige zand en het kristalheldere water van een van de mooiste stranden van Fuerteventura. Het levendige stadje Corralejo is op loopafstand, met fantastische restaurants, bars, winkels en watersportfaciliteiten.",
+      "shortDesc": "Prachtige strandvilla voor maximaal 6 gasten met directe toegang tot zee in Corralejo."
+    },
+    "bungalow-apartment": {
+      "description": "Dit charmante privé bungalowappartement biedt het perfecte toevluchtsoord voor koppels of kleine gezinnen. Gelegen in een rustige woonwijk van Corralejo, geniet u van het beste van twee werelden: een vredige haven om te ontspannen, met de drukte van de stad op slechts enkele minuten afstand.\n\nHet appartement beschikt over een privéingang, een comfortabele kingsize slaapkamer en een volledig uitgeruste kitchenette. Ontspan in de privéjacuzzi op het zonnige terras terwijl u geniet van het prachtige uitzicht over Fuerteventura's dramatische vulkanische landschap.\n\nHotelkwaliteit matrassen en vers kwaliteitslinnen zorgen voor een goede nachtrust, terwijl het stijlvolle interieur een gastvrij thuisgevoel creëert.",
+      "shortDesc": "Privé bungalowappartement met jacuzzi en geweldig uitzicht voor 2–4 gasten."
+    }
   }
 }

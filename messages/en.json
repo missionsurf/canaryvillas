@@ -148,5 +148,15 @@
     "phone": "Phone",
     "emailLabel": "Email",
     "address": "Address"
+  },
+  "villas_content": {
+    "beach-house": {
+      "description": "Wake up to the sound of waves in this stunning beachfront property in Corralejo, Fuerteventura. With panoramic Atlantic ocean views from every room, The Beach House is the ultimate holiday escape for families or groups of friends.\n\nThe villa features a spacious open-plan living and dining area that flows directly onto a private terrace overlooking the beach. The fully equipped kitchen has everything you need for self-catering, with two comfortable bedrooms (and an optional third) accommodating up to 6 guests.\n\nStep straight from the terrace onto the golden sand and crystal-clear waters of one of Fuerteventura's most beautiful beaches. The vibrant town of Corralejo is just a short walk away, with fantastic restaurants, bars, shops, and water sports facilities.",
+      "shortDesc": "Stunning beachfront villa sleeping up to 6 guests with direct sea access in Corralejo."
+    },
+    "bungalow-apartment": {
+      "description": "This charming private bungalow apartment offers the perfect retreat for couples or small families. Located in a quiet residential area of Corralejo, you'll enjoy the best of both worlds: a peaceful haven to relax in, with the buzz of the town just minutes away.\n\nThe apartment features a private entrance, a comfortable king-size bedroom, and a fully equipped kitchenette. Unwind in the private jacuzzi on the sunny terrace while soaking in beautiful views across Fuerteventura's dramatic volcanic landscape.\n\nHotel-grade mattresses and crisp quality linens ensure a great night's sleep, while the stylish interiors create a welcoming home-away-from-home feel. The property includes its own dedicated parking space and is close to local bus routes for easy island exploration.",
+      "shortDesc": "Private bungalow apartment with jacuzzi and amazing views, sleeping 2–4 guests."
+    }
   }
 }

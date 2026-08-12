@@ -170,6 +170,7 @@ function VillaSchema({ villa }: { villa: Awaited<ReturnType<typeof getVillaBySlu
 export default async function VillaDetailPage({ params }: Props) {
   const { slug, locale } = await params;
   const t = await getTranslations({ locale, namespace: "villa" });
+  const tContent = await getTranslations({ locale, namespace: `villas_content.${slug}` });
   const villa = await getVillaBySlug(slug);
   if (!villa) notFound();
 
@@ -205,22 +206,22 @@ export default async function VillaDetailPage({ params }: Props) {
               <div className="flex items-center gap-6 text-gray-600 pb-6 border-b mb-8">
                 <span className="flex items-center gap-2">
                   <Bed className="w-5 h-5 text-sky-500" />
-                  {villa.bedrooms} bedroom{villa.bedrooms > 1 ? "s" : ""}
+                  {t("bedrooms", { n: villa.bedrooms })}
                 </span>
                 <span className="flex items-center gap-2">
                   <Bath className="w-5 h-5 text-sky-500" />
-                  {villa.bathrooms} bathroom{villa.bathrooms > 1 ? "s" : ""}
+                  {t("bathrooms", { n: villa.bathrooms })}
                 </span>
                 <span className="flex items-center gap-2">
                   <Users className="w-5 h-5 text-sky-500" />
-                  Up to {villa.maxGuests} guests
+                  {t("guests", { n: villa.maxGuests })}
                 </span>
               </div>
 
               <div className="mb-10">
                 <h2 className="text-xl font-bold text-gray-900 mb-4">{t("about")}</h2>
                 <div className="text-gray-600 leading-relaxed space-y-4">
-                  {villa.description.split("\n\n").map((para, i) => (
+                  {tContent("description").split("\n\n").map((para, i) => (
                     <p key={i}>{para}</p>
                   ))}
                 </div>

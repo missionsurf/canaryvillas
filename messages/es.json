@@ -148,5 +148,15 @@
     "phone": "Teléfono",
     "emailLabel": "Correo",
     "address": "Dirección"
+  },
+  "villas_content": {
+    "beach-house": {
+      "description": "Despierte al sonido de las olas en esta impresionante propiedad frente al mar en Corralejo, Fuerteventura. Con vistas panorámicas al océano Atlántico desde cada habitación, The Beach House es el escape vacacional definitivo para familias o grupos de amigos.\n\nLa villa cuenta con una amplia zona de estar y comedor de planta abierta que da directamente a una terraza privada con vistas a la playa. La cocina totalmente equipada tiene todo lo que necesita para el autoservicio, con dos cómodas habitaciones (y una tercera opcional) para hasta 6 huéspedes.\n\nSalga directamente desde la terraza a la arena dorada y las aguas cristalinas de una de las playas más hermosas de Fuerteventura. La animada ciudad de Corralejo está a poca distancia a pie, con fantásticos restaurantes, bares, tiendas e instalaciones de deportes acuáticos.",
+      "shortDesc": "Impresionante villa frente al mar para hasta 6 huéspedes con acceso directo al mar en Corralejo."
+    },
+    "bungalow-apartment": {
+      "description": "Este encantador apartamento bungalow privado ofrece el retiro perfecto para parejas o familias pequeñas. Ubicado en una tranquila zona residencial de Corralejo, disfrutará de lo mejor de dos mundos: un refugio tranquilo para relajarse, con el bullicio de la ciudad a pocos minutos.\n\nEl apartamento cuenta con entrada privada, un cómodo dormitorio de cama doble y una cocina americana totalmente equipada. Relájese en el jacuzzi privado en la soleada terraza mientras disfruta de las hermosas vistas del dramático paisaje volcánico de Fuerteventura.\n\nColchones de calidad hotelera y ropa de cama de calidad garantizan un sueño reparador, mientras que los interiores elegantes crean una acogedora sensación de hogar lejos del hogar.",
+      "shortDesc": "Apartamento bungalow privado con jacuzzi y vistas increíbles para 2–4 huéspedes."
+    }
   }
 }

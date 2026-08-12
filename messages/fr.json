@@ -148,5 +148,15 @@
     "phone": "Téléphone",
     "emailLabel": "E-mail",
     "address": "Adresse"
+  },
+  "villas_content": {
+    "beach-house": {
+      "description": "Réveillez-vous au bruit des vagues dans cette superbe propriété en bord de mer à Corralejo, Fuerteventura. Avec des vues panoramiques sur l'océan Atlantique depuis chaque pièce, The Beach House est l'escapade de vacances ultime pour les familles ou les groupes d'amis.\n\nLa villa dispose d'un vaste espace de vie et de salle à manger en open space qui donne directement sur une terrasse privée avec vue sur la plage. La cuisine entièrement équipée a tout ce dont vous avez besoin pour l'auto-restauration, avec deux chambres confortables (et une troisième optionnelle) pouvant accueillir jusqu'à 6 personnes.\n\nMontez directement depuis la terrasse sur le sable doré et les eaux cristallines de l'une des plus belles plages de Fuerteventura. La ville animée de Corralejo est à quelques pas, avec de fantastiques restaurants, bars, boutiques et installations de sports nautiques.",
+      "shortDesc": "Superbe villa en bord de mer pour jusqu'à 6 personnes avec accès direct à la mer à Corralejo."
+    },
+    "bungalow-apartment": {
+      "description": "Ce charmant appartement bungalow privé offre la retraite parfaite pour les couples ou les petites familles. Situé dans un quartier résidentiel calme de Corralejo, vous profiterez du meilleur des deux mondes : un havre de paix pour se détendre, avec l'animation de la ville à quelques minutes.\n\nL'appartement dispose d'une entrée privée, d'une chambre confortable avec lit king-size et d'une kitchenette entièrement équipée. Détendez-vous dans le jacuzzi privé sur la terrasse ensoleillée tout en profitant des belles vues sur le dramatique paysage volcanique de Fuerteventura.\n\nDes matelas de qualité hôtelière et un linge de lit de qualité garantissent une excellente nuit de sommeil, tandis que les intérieurs élégants créent un sentiment accueillant de chez-soi loin de chez soi.",
+      "shortDesc": "Appartement bungalow privé avec jacuzzi et vues incroyables pour 2 à 4 personnes."
+    }
   }
 }
