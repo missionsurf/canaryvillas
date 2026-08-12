@@ -166,6 +166,9 @@ export async function sendBankTransferInstructions(data: BankTransferEmailData) 
       <p style="margin:0;color:#991b1b;font-size:13px;"><strong>Important:</strong> Please include your reference number <strong>${data.bookingId.slice(-8).toUpperCase()}</strong> with your transfer. Your dates will be released after 48 hours if we don't receive payment.</p>
     </div>
 
+    <div style="text-align:center;margin:24px 0;">
+      <a href="${process.env.NEXT_PUBLIC_BASE_URL}/account" style="display:inline-block;background:#0284c7;color:#ffffff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 28px;border-radius:50px;">View your booking portal →</a>
+    </div>
     <p style="color:#64748b;font-size:14px;">Questions? Reply to this email or call us on <a href="tel:+447809870561" style="color:#0284c7;">+44 7809 870561</a>.</p>
   ` + baseClose;
 
