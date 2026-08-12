@@ -43,6 +43,7 @@ export default function Navbar() {
   }, []);
 
   function switchLocale(newLocale: string) {
+    document.cookie = `NEXT_LOCALE=${newLocale};path=/;max-age=31536000;SameSite=Lax`;
     const locales = routing.locales as readonly string[];
     let path = pathname;
     for (const loc of locales) {
