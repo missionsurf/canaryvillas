@@ -137,6 +137,12 @@ export default function Navbar() {
             </div>
 
             <Link
+              href={localizedHref("/account")}
+              className="text-sm font-medium text-gray-500 hover:text-sky-500 transition-colors"
+            >
+              My booking
+            </Link>
+            <Link
               href={localizedHref("/villas")}
               className="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors"
             >

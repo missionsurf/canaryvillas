@@ -72,6 +72,9 @@ export async function sendBookingConfirmation(data: BookingEmailData) {
       <p style="margin:0 0 8px;font-weight:700;color:#0369a1;">What happens next?</p>
       <p style="margin:0;color:#0369a1;font-size:14px;">Our team will send you full arrival instructions — including property access, WiFi details and local tips — closer to your check-in date.</p>
     </div>
+    <div style="text-align:center;margin:24px 0;">
+      <a href="${process.env.NEXT_PUBLIC_BASE_URL}/account" style="display:inline-block;background:#0284c7;color:#ffffff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 28px;border-radius:50px;">View your booking portal →</a>
+    </div>
     <p style="color:#64748b;font-size:14px;">Questions? Reply to this email or call us on <a href="tel:+447809870561" style="color:#0284c7;">+44 7809 870561</a>.</p>
     <p style="color:#64748b;font-size:14px;">See you in Fuerteventura! 🌊</p>
   ` + baseClose;
@@ -368,6 +371,27 @@ export async function sendSpecialOffer(data: SpecialOfferData) {
     from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
     to: data.guestEmail,
     subject: data.subject,
+    html,
+  });
+}
+
+export async function sendGuestOtp(email: string, otp: string) {
+  const html = baseStyle + `
+    <h2 style="margin:0 0 8px;color:#1e293b;font-size:22px;">Your login code</h2>
+    <p style="color:#64748b;margin:0 0 28px;">Use this code to access your Canary Villas booking portal. It expires in 15 minutes.</p>
+    <div style="text-align:center;margin:0 0 28px;">
+      <div style="display:inline-block;background:#f0f9ff;border:2px dashed #0284c7;border-radius:16px;padding:24px 40px;">
+        <p style="margin:0 0 4px;font-size:12px;color:#0369a1;font-weight:600;text-transform:uppercase;letter-spacing:1px;">Login code</p>
+        <p style="margin:0;font-size:40px;font-weight:800;color:#0284c7;letter-spacing:8px;font-family:monospace;">${otp}</p>
+      </div>
+    </div>
+    <p style="color:#94a3b8;font-size:13px;text-align:center;">If you didn't request this, you can safely ignore this email.</p>
+  ` + baseClose;
+
+  await transporter.sendMail({
+    from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
+    to: email,
+    subject: `${otp} — your Canary Villas login code`,
     html,
   });
 }

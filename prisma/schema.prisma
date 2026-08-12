@@ -86,6 +86,17 @@ model Admin {
   @@map("admins")
 }
 
+model GuestToken {
+  id        String   @id @default(cuid())
+  email     String
+  token     String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([email])
+  @@map("guest_tokens")
+}
+
 model Guest {
   id             String   @id @default(cuid())
   email          String   @unique
