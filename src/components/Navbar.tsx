@@ -43,7 +43,6 @@ export default function Navbar() {
   }, []);
 
   function switchLocale(newLocale: string) {
-    // Strip current locale prefix from path, then add new one
     const locales = routing.locales as readonly string[];
     let path = pathname;
     for (const loc of locales) {
@@ -51,7 +50,7 @@ export default function Navbar() {
       if (path === `/${loc}`) { path = "/"; break; }
     }
     const newPath = newLocale === routing.defaultLocale ? path : `/${newLocale}${path}`;
-    router.push(newPath);
+    window.location.href = newPath;
     setLangOpen(false);
   }
 
