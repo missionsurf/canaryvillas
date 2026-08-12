@@ -30,6 +30,7 @@
     "lucide-react": "^1.14.0",
     "next": "16.2.4",
     "next-auth": "^4.24.14",
+    "next-intl": "^4.13.6",
     "node-ical": "^0.26.1",
     "nodemailer": "^7.0.13",
     "prisma": "^7.8.0",

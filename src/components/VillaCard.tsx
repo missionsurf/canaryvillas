@@ -5,9 +5,14 @@ import Image from "next/image";
 import { Bed, Bath, Users, Star } from "lucide-react";
 import type { Villa } from "@/types";
 import { useCurrency } from "@/context/CurrencyContext";
+import { useTranslations, useLocale } from "next-intl";
+import { routing } from "@/i18n/routing";
 
 export default function VillaCard({ villa }: { villa: Villa }) {
   const { format } = useCurrency();
+  const t = useTranslations("villas");
+  const locale = useLocale();
+  const prefix = locale === routing.defaultLocale ? "" : `/${locale}`;
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group flex flex-col">
       <div className="relative h-64 overflow-hidden">
@@ -19,7 +24,7 @@ export default function VillaCard({ villa }: { villa: Villa }) {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute top-4 left-4 bg-sky-500 text-white text-sm font-semibold px-3 py-1 rounded-full">
-          From {format(villa.pricePerNight)}/night
+          {t("fromPerNight", { price: format(villa.pricePerNight) })}
         </div>
       </div>
 
@@ -49,10 +54,10 @@ export default function VillaCard({ villa }: { villa: Villa }) {
 
         <div className="mt-auto">
           <Link
-            href={`/villas/${villa.slug}`}
+            href={`${prefix}/villas/${villa.slug}`}
             className="block w-full bg-sky-500 hover:bg-sky-400 text-white text-center py-4 rounded-xl font-bold text-lg tracking-wide transition-all shadow-lg shadow-sky-500/25 hover:shadow-xl hover:shadow-sky-500/30 hover:-translate-y-0.5"
           >
-            View Villa & Book
+            {t("viewBook")}
           </Link>
         </div>
       </div>

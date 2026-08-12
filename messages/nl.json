@@ -1,0 +1,152 @@
+{
+  "nav": {
+    "villas": "Onze Villa's",
+    "blog": "Reisgids",
+    "why": "Waarom Fuerteventura",
+    "contact": "Contact",
+    "bookNow": "Nu Boeken"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Corralejo, Fuerteventura",
+      "h1": "Luxe Strandvilla's op Fuerteventura",
+      "sub": "Prachtige strandvilla's met zeezicht, privéterrassen en directe strandingang. Boek direct voor de beste prijs.",
+      "browseVillas": "Bekijk Villa's",
+      "learnMore": "Meer informatie",
+      "rated": "5,0 — Uitstekend beoordeeld"
+    },
+    "features": {
+      "secureBooking": "Veilig Direct Boeken",
+      "secureBookingDesc": "Boek direct bij ons voor de beste prijs. Geen tussenkomst van derden.",
+      "flexPayment": "Flexibele Betaling",
+      "flexPaymentDesc": "50% aanbetaling om uw datums vast te leggen, restbedrag 6 weken voor aankomst.",
+      "support": "24/7 Ondersteuning",
+      "supportDesc": "Ons lokale team staat altijd voor u klaar voor en tijdens uw verblijf."
+    },
+    "villas": {
+      "heading": "Onze Vakantievilla's",
+      "sub": "Zorgvuldig geselecteerde accommodaties op de beste locaties in Corralejo, van strandvilla's tot charmante privébungalows.",
+      "viewAll": "Alle accommodaties bekijken"
+    },
+    "why": {
+      "island": "Het Eiland",
+      "heading": "Waarom Fuerteventura?",
+      "p1": "Fuerteventura is een parel van de Canarische Eilanden, bekend om zijn kilometers witte zandstranden, kristalhelder Atlantisch water en zon vrijwel het hele jaar door.",
+      "p2": "Corralejo, onze uitvalsbasis, is een levendige stad met een authentieke lokale sfeer — geweldige restaurants, bruisende bars, boetiekjes en een ontspannen sfeer die gasten jaar na jaar laat terugkeren.",
+      "p3": "Met het hele jaar door warm water is het een wereldklasse bestemming voor watersport zoals surfen, windsurfen, wing foiling en kitesurfen — maar ook gewoon ontspannen op enkele van de mooiste stranden van Europa.",
+      "sunny": "Zonnige dagen per jaar",
+      "avgTemp": "Gemiddelde temperatuur",
+      "guestRated": "Gastenbeoordelingen"
+    },
+    "direct": {
+      "heading": "Waarom direct boeken bij Canary Villas?",
+      "sub": "Wij zijn een onafhankelijk familiebedrijf gevestigd in Corralejo. Bij direct boeken gaat elke euro naar de mensen die echt voor uw villa zorgen.",
+      "bestPrice": "Beste Prijs Gegarandeerd",
+      "bestPriceDesc": "Boek direct en betaal minder dan via welk boekingsplatform dan ook. Geen commissie.",
+      "local": "Lokaal Team ter Plaatse",
+      "localDesc": "Wij zijn gevestigd in Corralejo. Bel ons altijd voor of tijdens uw verblijf.",
+      "secure": "Veilige Kaartbetalingen",
+      "secureDesc": "Stripe-betaling. Uw betaling is beveiligd en volledig versleuteld."
+    },
+    "reviews": {
+      "heading": "Wat onze gasten zeggen",
+      "based": "gebaseerd op 47 geverifieerde gastbeoordelingen"
+    },
+    "activities": {
+      "heading": "Activiteiten",
+      "sub": "Of u nu op zoek bent naar avontuur of ontspanning, Fuerteventura heeft het allemaal.",
+      "surf": "Surfen & Windsurfen",
+      "surfDesc": "Wereldklasse omstandigheden bij Corralejo en Flag Beach.",
+      "kite": "Kitesurfen",
+      "kiteDesc": "Fuerteventura is een van de topbestemmingen voor kitesurfen in Europa.",
+      "beach": "Strand & Ontspanning",
+      "beachDesc": "Kilometers witte zandstranden met het hele jaar door zon."
+    },
+    "cta": {
+      "heading": "Klaar om uw droomvakantie te boeken?",
+      "sub": "Boek direct en bespaar. Geen boekingskosten, flexibele annulering en de beste tarieven gegarandeerd.",
+      "checkAvail": "Beschikbaarheid controleren",
+      "contactUs": "Neem contact op"
+    }
+  },
+  "villas": {
+    "heading": "Vakantievilla's te Huur op Fuerteventura",
+    "sub": "Alle accommodaties zijn in Corralejo, Fuerteventura — met direct boeken, geen kosten en flexibele annulering.",
+    "intro": "Bekijk ons zorgvuldig geselecteerde aanbod van strandvilla's en privébungalows in Corralejo. Elke villa is geschikt voor zelfverzorging voor 2–8 gasten, met privéterrassen, zeezicht en het hele jaar door zon.",
+    "viewBook": "Villa Bekijken & Boeken",
+    "fromPerNight": "Vanaf {price}/nacht",
+    "beds": "{n} slaapk.",
+    "baths": "{n} badk.",
+    "upTo": "Tot {n} pers.",
+    "noVillas": "Momenteel geen villa's beschikbaar.",
+    "checkBack": "Kom binnenkort terug of neem direct contact met ons op."
+  },
+  "villa": {
+    "perNight": "/nacht",
+    "bedrooms": "{n} slaapkamer",
+    "bathrooms": "{n} badkamer",
+    "guests": "Tot {n} gasten",
+    "about": "Over deze villa",
+    "amenities": "Voorzieningen",
+    "location": "Locatie",
+    "openMaps": "Openen in Google Maps"
+  },
+  "booking": {
+    "selectDates": "Datums Selecteren",
+    "guests": "Gasten",
+    "guestOption": "{n} gast",
+    "continue": "Doorgaan",
+    "back": "Terug",
+    "nights": "{n} nachten",
+    "cleaningFee": "Schoonmaakkosten",
+    "total": "Totaal",
+    "depositToday": "50% aanbetaling vandaag",
+    "fullName": "Volledige naam *",
+    "email": "E-mailadres *",
+    "phone": "Telefoonnummer",
+    "message": "Speciale verzoeken of vragen",
+    "choosePayment": "Betaalmethode Kiezen",
+    "howToPay": "Hoe wilt u betalen?",
+    "bankTransfer": "Bankoverschrijving",
+    "bankTransferDesc": "Voorkeur · Geen kosten · Wij houden uw datums 48u vrij",
+    "card": "Creditcard / Debetkaart",
+    "cardDesc": "Directe bevestiging via Stripe",
+    "paypal": "PayPal",
+    "paypalDesc": "Veilig betalen met uw PayPal-account",
+    "reserveBank": "Reserveren via Bankoverschrijving",
+    "payDeposit": "Aanbetaling van {amount} Betalen",
+    "depositNote": "50% aanbetaling bevestigt uw boeking. Restbedrag 6 weken voor aankomst.",
+    "depositDueNow": "50% aanbetaling nu",
+    "balanceDue": "Restbedrag (6 weken voor aankomst)",
+    "processing": "Verwerken…",
+    "errorDates": "Selecteer eerst uw datums.",
+    "errorDetails": "Vul uw naam en e-mailadres in.",
+    "errorDatesRequired": "Selecteer check-in en check-out datums.",
+    "unavailable": "De geselecteerde datums zijn niet beschikbaar",
+    "serverError": "Interne serverfout",
+    "selected": "Geselecteerd"
+  },
+  "footer": {
+    "desc": "Luxe vakantievilla's op Fuerteventura, Canarische Eilanden. Beleef het strandleven met kilometers goudkleurig zand voor de deur.",
+    "villas": "Onze Villa's",
+    "info": "Informatie",
+    "privacy": "Privacybeleid",
+    "terms": "Algemene Voorwaarden",
+    "contact": "Contact",
+    "blog": "Reisgids",
+    "rights": "© {year} Canary Villas. Alle rechten voorbehouden."
+  },
+  "contact": {
+    "heading": "Neem Contact Op",
+    "sub": "Heeft u een vraag over een van onze villa's of wilt u de beschikbaarheid controleren? We horen graag van u.",
+    "name": "Uw naam",
+    "email": "E-mailadres",
+    "message": "Uw bericht",
+    "send": "Bericht Versturen",
+    "sending": "Verzenden…",
+    "success": "Bedankt! We nemen spoedig contact met u op.",
+    "phone": "Telefoon",
+    "emailLabel": "E-mail",
+    "address": "Adres"
+  }
+}

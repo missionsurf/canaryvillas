@@ -1,0 +1,152 @@
+{
+  "nav": {
+    "villas": "Unsere Villen",
+    "blog": "Reiseführer",
+    "why": "Warum Fuerteventura",
+    "contact": "Kontakt",
+    "bookNow": "Jetzt buchen"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Corralejo, Fuerteventura",
+      "h1": "Luxuriöse Strandvillen auf Fuerteventura",
+      "sub": "Atemberaubende Strandvillen mit Meerblick, privaten Terrassen und direktem Strandzugang. Direkt buchen zum besten Preis.",
+      "browseVillas": "Villen entdecken",
+      "learnMore": "Mehr erfahren",
+      "rated": "5,0 — Ausgezeichnet bewertet"
+    },
+    "features": {
+      "secureBooking": "Sichere Direktbuchung",
+      "secureBookingDesc": "Buchen Sie direkt bei uns zum besten Preis. Keine Vermittlungsgebühren.",
+      "flexPayment": "Flexible Zahlung",
+      "flexPaymentDesc": "50 % Anzahlung zur Datumssicherung, Restbetrag 6 Wochen vor Anreise.",
+      "support": "24/7 Support",
+      "supportDesc": "Unser lokales Team steht Ihnen vor und während Ihres Aufenthalts zur Verfügung."
+    },
+    "villas": {
+      "heading": "Unsere Ferienvillen",
+      "sub": "Handverlesene Immobilien in den besten Lagen von Corralejo — von Strandvillen bis zu charmanten privaten Bungalows.",
+      "viewAll": "Alle Immobilien anzeigen"
+    },
+    "why": {
+      "island": "Die Insel",
+      "heading": "Warum Fuerteventura?",
+      "p1": "Fuerteventura ist ein Juwel der Kanarischen Inseln, bekannt für seine kilometerlangen weißen Sandstrände, kristallklares Atlantikwasser und Sonnenschein an fast jedem Tag des Jahres.",
+      "p2": "Corralejo, unser Standort, ist eine lebhafte Stadt mit authentischem Flair — tolle Restaurants, lebendige Bars, Boutiquen und eine entspannte Atmosphäre, die Gäste Jahr für Jahr zurückkehren lässt.",
+      "p3": "Mit ganzjährig warmen Wassertemperaturen ist es ein Weltklasse-Ziel für Wassersport wie Surfen, Windsurfen, Wing Foiling und Kitesurfen — sowie einfach Entspannen an einigen der schönsten Strände Europas.",
+      "sunny": "Sonnentage pro Jahr",
+      "avgTemp": "Durchschnittstemperatur",
+      "guestRated": "Gästebewertung"
+    },
+    "direct": {
+      "heading": "Warum direkt bei Canary Villas buchen?",
+      "sub": "Wir sind eine unabhängige, familiengeführte Villagenagentur mit Sitz in Corralejo. Bei Direktbuchung kommt jeder Cent den Menschen zugute, die sich wirklich um Ihre Villa kümmern.",
+      "bestPrice": "Bestpreis-Garantie",
+      "bestPriceDesc": "Direkt buchen und weniger zahlen als auf jeder OTA-Plattform. Keine Provisionsaufschläge.",
+      "local": "Lokales Team vor Ort",
+      "localDesc": "Wir sind in Corralejo ansässig. Rufen Sie uns jederzeit vor oder während Ihres Aufenthalts an.",
+      "secure": "Sichere Kartenzahlungen",
+      "secureDesc": "Stripe-gesicherter Checkout. Ihre Zahlung ist geschützt und vollständig verschlüsselt."
+    },
+    "reviews": {
+      "heading": "Was unsere Gäste sagen",
+      "based": "basierend auf 47 verifizierten Gästebewertungen"
+    },
+    "activities": {
+      "heading": "Aktivitäten",
+      "sub": "Ob Adrenalinjunkie oder Erholungssuchender — Fuerteventura hat für jeden etwas.",
+      "surf": "Surfen & Windsurfen",
+      "surfDesc": "Weltklasse-Bedingungen in Corralejo und am Flag Beach.",
+      "kite": "Kitesurfen",
+      "kiteDesc": "Fuerteventura ist eines der Top-Kitesurfziele Europas.",
+      "beach": "Strand & Erholung",
+      "beachDesc": "Kilometerlange weiße Sandstrände mit ganzjährigem Sonnenschein."
+    },
+    "cta": {
+      "heading": "Bereit für Ihren Traumurlaub?",
+      "sub": "Direkt buchen und sparen. Keine Buchungsgebühren, flexible Stornierung und die besten Preise garantiert.",
+      "checkAvail": "Verfügbarkeit prüfen",
+      "contactUs": "Kontakt aufnehmen"
+    }
+  },
+  "villas": {
+    "heading": "Ferienvillen zur Miete auf Fuerteventura",
+    "sub": "Alle Immobilien befinden sich in Corralejo, Fuerteventura — mit Direktbuchung, ohne Gebühren und mit flexibler Stornierung.",
+    "intro": "Entdecken Sie unsere handverlesene Auswahl an Strandvillen und privaten Bungalows in Corralejo. Jede Villa bietet Selbstverpflegung für 2–8 Gäste, private Terrassen, Meerblick und ganzjährigen Sonnenschein.",
+    "viewBook": "Villa ansehen & buchen",
+    "fromPerNight": "Ab {price}/Nacht",
+    "beds": "{n} Schlafzimmer",
+    "baths": "{n} Bad",
+    "upTo": "Bis zu {n} Pers.",
+    "noVillas": "Derzeit keine Villen verfügbar.",
+    "checkBack": "Bitte schauen Sie bald wieder vorbei oder kontaktieren Sie uns direkt."
+  },
+  "villa": {
+    "perNight": "/Nacht",
+    "bedrooms": "{n} Schlafzimmer",
+    "bathrooms": "{n} Bad",
+    "guests": "Bis zu {n} Gäste",
+    "about": "Über diese Villa",
+    "amenities": "Ausstattung",
+    "location": "Lage",
+    "openMaps": "In Google Maps öffnen"
+  },
+  "booking": {
+    "selectDates": "Reisedaten wählen",
+    "guests": "Gäste",
+    "guestOption": "{n} Gast",
+    "continue": "Weiter",
+    "back": "Zurück",
+    "nights": "{n} Nächte",
+    "cleaningFee": "Reinigungsgebühr",
+    "total": "Gesamt",
+    "depositToday": "50 % Anzahlung heute",
+    "fullName": "Vollständiger Name *",
+    "email": "E-Mail-Adresse *",
+    "phone": "Telefonnummer",
+    "message": "Sonderwünsche oder Fragen",
+    "choosePayment": "Zahlungsmethode wählen",
+    "howToPay": "Wie möchten Sie zahlen?",
+    "bankTransfer": "Banküberweisung",
+    "bankTransferDesc": "Bevorzugt · Keine Gebühren · Wir halten Ihre Daten 48 Std. frei",
+    "card": "Kredit- / Debitkarte",
+    "cardDesc": "Sofortige Bestätigung via Stripe",
+    "paypal": "PayPal",
+    "paypalDesc": "Sicher mit Ihrem PayPal-Konto zahlen",
+    "reserveBank": "Per Banküberweisung reservieren",
+    "payDeposit": "{amount} Anzahlung zahlen",
+    "depositNote": "50 % Anzahlung sichert Ihre Buchung. Restbetrag 6 Wochen vor Anreise fällig.",
+    "depositDueNow": "50 % Anzahlung jetzt fällig",
+    "balanceDue": "Restbetrag (6 Wochen vor Anreise)",
+    "processing": "Wird verarbeitet…",
+    "errorDates": "Bitte wählen Sie zuerst Ihre Reisedaten.",
+    "errorDetails": "Bitte geben Sie Ihren Namen und Ihre E-Mail-Adresse ein.",
+    "errorDatesRequired": "Bitte wählen Sie An- und Abreisedatum.",
+    "unavailable": "Die gewählten Daten sind nicht verfügbar",
+    "serverError": "Interner Serverfehler",
+    "selected": "Ausgewählt"
+  },
+  "footer": {
+    "desc": "Luxuriöse Ferienvillen auf Fuerteventura, Kanarische Inseln. Erleben Sie das Leben am Strand mit kilometerlangem goldenen Sand vor der Tür.",
+    "villas": "Unsere Villen",
+    "info": "Informationen",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "contact": "Kontakt",
+    "blog": "Reiseführer",
+    "rights": "© {year} Canary Villas. Alle Rechte vorbehalten."
+  },
+  "contact": {
+    "heading": "Kontaktieren Sie uns",
+    "sub": "Haben Sie Fragen zu einer unserer Villen oder möchten Sie die Verfügbarkeit prüfen? Wir freuen uns von Ihnen zu hören.",
+    "name": "Ihr Name",
+    "email": "E-Mail-Adresse",
+    "message": "Ihre Nachricht",
+    "send": "Nachricht senden",
+    "sending": "Wird gesendet…",
+    "success": "Danke! Wir melden uns in Kürze bei Ihnen.",
+    "phone": "Telefon",
+    "emailLabel": "E-Mail",
+    "address": "Adresse"
+  }
+}

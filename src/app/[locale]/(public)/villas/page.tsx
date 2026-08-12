@@ -3,6 +3,7 @@ export const dynamic = "force-dynamic";
 import { getAllVillas } from "@/lib/villas";
 import VillaCard from "@/components/VillaCard";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Holiday Villas to Rent in Fuerteventura — Corralejo | Canary Villas",
@@ -18,23 +19,15 @@ alternates: { canonical: "https://canaryvillas.com/villas" },
 
 export default async function VillasPage() {
   const villas = await getAllVillas();
+  const t = await getTranslations("villas");
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-14">
-          <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
-            Holiday Villas to Rent in Fuerteventura
-          </h1>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto mb-6">
-            All properties are in Corralejo, Fuerteventura — with direct booking,
-            no fees, and flexible cancellation.
-          </p>
-          <p className="text-gray-500 text-base max-w-3xl mx-auto">
-            Browse our hand-picked selection of beachfront villas and private bungalows in Corralejo.
-            Each villa is self-catering, sleeping 2–8 guests, with private terraces, sea views, and
-            year-round sunshine. Book direct for the best price — no Airbnb fees, no hidden charges.
-          </p>
+          <h1 className="text-4xl font-extrabold text-gray-900 mb-4">{t("heading")}</h1>
+          <p className="text-gray-500 text-lg max-w-2xl mx-auto mb-6">{t("sub")}</p>
+          <p className="text-gray-500 text-base max-w-3xl mx-auto">{t("intro")}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -45,8 +38,8 @@ export default async function VillasPage() {
 
         {villas.length === 0 && (
           <div className="text-center py-20 text-gray-400">
-            <p className="text-xl">No villas available at the moment.</p>
-            <p className="mt-2">Please check back soon or contact us directly.</p>
+            <p className="text-xl">{t("noVillas")}</p>
+            <p className="mt-2">{t("checkBack")}</p>
           </div>
         )}
       </div>

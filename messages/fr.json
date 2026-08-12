@@ -1,0 +1,152 @@
+{
+  "nav": {
+    "villas": "Nos Villas",
+    "blog": "Guide de Voyage",
+    "why": "Pourquoi Fuerteventura",
+    "contact": "Contact",
+    "bookNow": "Réserver"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Corralejo, Fuerteventura",
+      "h1": "Villas de Luxe en Bord de Mer à Fuerteventura",
+      "sub": "Superbes villas en bord de mer avec vue sur l'océan, terrasses privées et accès direct à la plage. Réservez directement au meilleur prix.",
+      "browseVillas": "Voir les Villas",
+      "learnMore": "En savoir plus",
+      "rated": "5,0 — Excellente évaluation"
+    },
+    "features": {
+      "secureBooking": "Réservation Directe Sécurisée",
+      "secureBookingDesc": "Réservez directement chez nous au meilleur prix. Sans frais d'intermédiaire.",
+      "flexPayment": "Paiement Flexible",
+      "flexPaymentDesc": "50 % d'acompte pour sécuriser vos dates, solde 6 semaines avant l'arrivée.",
+      "support": "Assistance 24h/24",
+      "supportDesc": "Notre équipe locale est toujours disponible avant et pendant votre séjour."
+    },
+    "villas": {
+      "heading": "Nos Villas de Vacances",
+      "sub": "Des propriétés soigneusement sélectionnées dans les meilleurs endroits de Corralejo, des villas en bord de mer aux charmants bungalows privés.",
+      "viewAll": "Voir toutes les propriétés"
+    },
+    "why": {
+      "island": "L'Île",
+      "heading": "Pourquoi Fuerteventura ?",
+      "p1": "Fuerteventura est un joyau des Îles Canaries, réputée pour ses kilomètres de plages de sable blanc immaculé, ses eaux atlantiques cristallines et son soleil pratiquement toute l'année.",
+      "p2": "Corralejo, notre base, est une ville animée avec une atmosphère locale authentique — d'excellents restaurants, des bars vivants, des boutiques et une ambiance détendue qui fait revenir les clients année après année.",
+      "p3": "Avec des températures d'eau chaudes toute l'année, c'est une destination de classe mondiale pour les sports nautiques, notamment le surf, le windsurf, le wing foiling et le kitesurf, ainsi que pour se détendre sur certaines des plus belles plages d'Europe.",
+      "sunny": "Jours de soleil par an",
+      "avgTemp": "Température moyenne",
+      "guestRated": "Évaluation des clients"
+    },
+    "direct": {
+      "heading": "Pourquoi réserver directement avec Canary Villas ?",
+      "sub": "Nous sommes une agence de villas familiale et indépendante basée à Corralejo. En réservant directement, chaque centime va aux personnes qui s'occupent réellement de votre villa.",
+      "bestPrice": "Meilleur Prix Garanti",
+      "bestPriceDesc": "Réservez directement et payez moins que sur n'importe quelle OTA. Aucune commission de plateforme ajoutée.",
+      "local": "Équipe Locale sur Place",
+      "localDesc": "Nous sommes basés à Corralejo. Appelez-nous à tout moment avant ou pendant votre séjour.",
+      "secure": "Paiements par Carte Sécurisés",
+      "secureDesc": "Paiement sécurisé par Stripe. Votre paiement est protégé et entièrement crypté."
+    },
+    "reviews": {
+      "heading": "Ce que disent nos clients",
+      "based": "basé sur 47 avis clients vérifiés"
+    },
+    "activities": {
+      "heading": "Que Faire",
+      "sub": "Que vous recherchiez de l'adrénaline ou de la détente, Fuerteventura a tout ce qu'il vous faut.",
+      "surf": "Surf et Windsurf",
+      "surfDesc": "Des conditions de niveau mondial à Corralejo et Flag Beach.",
+      "kite": "Kitesurf",
+      "kiteDesc": "Fuerteventura est l'une des meilleures destinations de kitesurf en Europe.",
+      "beach": "Plage et Détente",
+      "beachDesc": "Des kilomètres de plages de sable blanc avec du soleil toute l'année."
+    },
+    "cta": {
+      "heading": "Prêt à réserver vos vacances de rêve ?",
+      "sub": "Réservez directement et économisez. Sans frais de réservation, annulation flexible et les meilleurs tarifs garantis.",
+      "checkAvail": "Vérifier la disponibilité",
+      "contactUs": "Nous contacter"
+    }
+  },
+  "villas": {
+    "heading": "Villas de Vacances à Louer à Fuerteventura",
+    "sub": "Toutes les propriétés sont situées à Corralejo, Fuerteventura — avec réservation directe, sans frais et annulation flexible.",
+    "intro": "Parcourez notre sélection de villas en bord de mer et de bungalows privés à Corralejo. Chaque villa est en libre-service pour 2 à 8 personnes, avec terrasses privées, vue sur la mer et soleil toute l'année.",
+    "viewBook": "Voir la Villa et Réserver",
+    "fromPerNight": "À partir de {price}/nuit",
+    "beds": "{n} ch.",
+    "baths": "{n} sdb",
+    "upTo": "Jusqu'à {n} pers.",
+    "noVillas": "Aucune villa disponible pour le moment.",
+    "checkBack": "Revenez bientôt ou contactez-nous directement."
+  },
+  "villa": {
+    "perNight": "/nuit",
+    "bedrooms": "{n} chambre",
+    "bathrooms": "{n} salle de bain",
+    "guests": "Jusqu'à {n} personnes",
+    "about": "À propos de cette villa",
+    "amenities": "Équipements",
+    "location": "Emplacement",
+    "openMaps": "Ouvrir dans Google Maps"
+  },
+  "booking": {
+    "selectDates": "Sélectionner les Dates",
+    "guests": "Voyageurs",
+    "guestOption": "{n} voyageur",
+    "continue": "Continuer",
+    "back": "Retour",
+    "nights": "{n} nuits",
+    "cleaningFee": "Frais de ménage",
+    "total": "Total",
+    "depositToday": "50 % d'acompte aujourd'hui",
+    "fullName": "Nom complet *",
+    "email": "Adresse e-mail *",
+    "phone": "Numéro de téléphone",
+    "message": "Demandes spéciales ou questions",
+    "choosePayment": "Choisir le Mode de Paiement",
+    "howToPay": "Comment souhaitez-vous payer ?",
+    "bankTransfer": "Virement Bancaire",
+    "bankTransferDesc": "Préféré · Sans frais · Nous retenons vos dates 48 h",
+    "card": "Carte de Crédit / Débit",
+    "cardDesc": "Confirmation immédiate via Stripe",
+    "paypal": "PayPal",
+    "paypalDesc": "Payez en toute sécurité avec votre compte PayPal",
+    "reserveBank": "Réserver par Virement Bancaire",
+    "payDeposit": "Payer l'Acompte de {amount}",
+    "depositNote": "Un acompte de 50 % sécurise votre réservation. Le solde est dû 6 semaines avant l'arrivée.",
+    "depositDueNow": "50 % d'acompte maintenant",
+    "balanceDue": "Solde (6 semaines avant l'arrivée)",
+    "processing": "Traitement en cours…",
+    "errorDates": "Veuillez d'abord sélectionner vos dates.",
+    "errorDetails": "Veuillez renseigner votre nom et votre adresse e-mail.",
+    "errorDatesRequired": "Veuillez sélectionner les dates d'arrivée et de départ.",
+    "unavailable": "Les dates sélectionnées ne sont pas disponibles",
+    "serverError": "Erreur interne du serveur",
+    "selected": "Sélectionné"
+  },
+  "footer": {
+    "desc": "Villas de vacances de luxe à Fuerteventura, Îles Canaries. Vivez la vie en bord de mer avec des kilomètres de sable doré à votre porte.",
+    "villas": "Nos Villas",
+    "info": "Informations",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions Générales",
+    "contact": "Contact",
+    "blog": "Guide de Voyage",
+    "rights": "© {year} Canary Villas. Tous droits réservés."
+  },
+  "contact": {
+    "heading": "Contactez-Nous",
+    "sub": "Vous avez une question sur l'une de nos villas ou souhaitez vérifier la disponibilité ? Nous serions ravis de vous entendre.",
+    "name": "Votre nom",
+    "email": "Adresse e-mail",
+    "message": "Votre message",
+    "send": "Envoyer le Message",
+    "sending": "Envoi en cours…",
+    "success": "Merci ! Nous vous répondrons rapidement.",
+    "phone": "Téléphone",
+    "emailLabel": "E-mail",
+    "address": "Adresse"
+  }
+}

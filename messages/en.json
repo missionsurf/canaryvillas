@@ -1,0 +1,152 @@
+{
+  "nav": {
+    "villas": "Our Villas",
+    "blog": "Travel Guide",
+    "why": "Why Fuerteventura",
+    "contact": "Contact",
+    "bookNow": "Book Now"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Corralejo, Fuerteventura",
+      "h1": "Luxury Beachfront Villas in Fuerteventura",
+      "sub": "Stunning beachfront villas with sea views, private terraces, and direct beach access. Book direct for the best price.",
+      "browseVillas": "Browse Villas",
+      "learnMore": "Learn More",
+      "rated": "5.0 — Rated Excellent"
+    },
+    "features": {
+      "secureBooking": "Secure Direct Booking",
+      "secureBookingDesc": "Book directly with us for the best price. No middleman fees.",
+      "flexPayment": "Flexible Payment",
+      "flexPaymentDesc": "50% deposit to secure your dates, balance 6 weeks before arrival.",
+      "support": "24/7 Support",
+      "supportDesc": "Our local team is always on hand before and during your stay."
+    },
+    "villas": {
+      "heading": "Our Holiday Villas",
+      "sub": "Hand-picked properties in the best locations in Corralejo, from beachfront villas to charming private bungalows.",
+      "viewAll": "View All Properties"
+    },
+    "why": {
+      "island": "The Island",
+      "heading": "Why Fuerteventura?",
+      "p1": "Fuerteventura is a gem of the Canary Islands, famed for its miles of pristine white sandy beaches, crystal-clear Atlantic waters, and sunshine virtually every day of the year.",
+      "p2": "Corralejo, our base, is a vibrant town with an authentic local feel — great restaurants, lively bars, boutique shops, and a relaxed atmosphere that keeps guests returning year after year.",
+      "p3": "With warm water temperatures year-round, it's a world-class destination for water sports including surfing, windsurfing, wing foiling and kite surfing — as well as simply unwinding on some of Europe's finest beaches.",
+      "sunny": "Sunny days per year",
+      "avgTemp": "Average temperature",
+      "guestRated": "Guest rated"
+    },
+    "direct": {
+      "heading": "Why Book Direct with Canary Villas?",
+      "sub": "We're an independent family-run villa agency based in Corralejo. When you book direct, every penny goes to the people who actually look after your villa.",
+      "bestPrice": "Best Price Guaranteed",
+      "bestPriceDesc": "Book direct and pay less than any OTA. No platform commission added to your price.",
+      "local": "Local Team on the Ground",
+      "localDesc": "We're based in Corralejo. Call us any time before or during your stay.",
+      "secure": "Secure Card Payments",
+      "secureDesc": "Stripe-powered checkout. Your payment is protected and fully encrypted."
+    },
+    "reviews": {
+      "heading": "What Our Guests Say",
+      "based": "based on 47 verified guest reviews"
+    },
+    "activities": {
+      "heading": "Things to Do",
+      "sub": "Whether you're an adrenaline seeker or prefer to relax, Fuerteventura has it all.",
+      "surf": "Surfing & Windsurfing",
+      "surfDesc": "World-class conditions at Corralejo and Flag Beach.",
+      "kite": "Kite Surfing",
+      "kiteDesc": "Fuerteventura is one of Europe's top kite surfing destinations.",
+      "beach": "Beach & Relaxation",
+      "beachDesc": "Miles of pristine white sandy beaches with year-round sunshine."
+    },
+    "cta": {
+      "heading": "Ready to Book Your Dream Holiday?",
+      "sub": "Book direct and save. No booking fees, flexible cancellation, and the best rates guaranteed.",
+      "checkAvail": "Check Availability",
+      "contactUs": "Contact Us"
+    }
+  },
+  "villas": {
+    "heading": "Holiday Villas to Rent in Fuerteventura",
+    "sub": "All properties are in Corralejo, Fuerteventura — with direct booking, no fees, and flexible cancellation.",
+    "intro": "Browse our hand-picked selection of beachfront villas and private bungalows in Corralejo. Each villa is self-catering, sleeping 2–8 guests, with private terraces, sea views, and year-round sunshine. Book direct for the best price — no Airbnb fees, no hidden charges.",
+    "viewBook": "View Villa & Book",
+    "fromPerNight": "From {price}/night",
+    "beds": "{n} bed",
+    "baths": "{n} bath",
+    "upTo": "Up to {n}",
+    "noVillas": "No villas available at the moment.",
+    "checkBack": "Please check back soon or contact us directly."
+  },
+  "villa": {
+    "perNight": "/night",
+    "bedrooms": "{n} bedroom",
+    "bathrooms": "{n} bathroom",
+    "guests": "Up to {n} guests",
+    "about": "About this villa",
+    "amenities": "Amenities",
+    "location": "Location",
+    "openMaps": "Open in Google Maps"
+  },
+  "booking": {
+    "selectDates": "Select Dates",
+    "guests": "Guests",
+    "guestOption": "{n} guest",
+    "continue": "Continue",
+    "back": "Back",
+    "nights": "{n} nights",
+    "cleaningFee": "Cleaning fee",
+    "total": "Total",
+    "depositToday": "50% deposit today",
+    "fullName": "Full name *",
+    "email": "Email address *",
+    "phone": "Phone number",
+    "message": "Special requests or questions",
+    "choosePayment": "Choose Payment",
+    "howToPay": "How would you like to pay?",
+    "bankTransfer": "Bank Transfer",
+    "bankTransferDesc": "Preferred · No fees · We'll hold your dates for 48h",
+    "card": "Credit / Debit Card",
+    "cardDesc": "Instant confirmation via Stripe",
+    "paypal": "PayPal",
+    "paypalDesc": "Pay securely with your PayPal account",
+    "reserveBank": "Reserve with Bank Transfer",
+    "payDeposit": "Pay {amount} Deposit",
+    "depositNote": "50% deposit secures your booking. Balance due 6 weeks before arrival.",
+    "depositDueNow": "50% deposit due now",
+    "balanceDue": "Balance (6 weeks before arrival)",
+    "processing": "Processing…",
+    "errorDates": "Please select your dates first.",
+    "errorDetails": "Please fill in your name and email.",
+    "errorDatesRequired": "Please select check-in and check-out dates.",
+    "unavailable": "Selected dates are not available",
+    "serverError": "Internal server error",
+    "selected": "Selected"
+  },
+  "footer": {
+    "desc": "Luxury holiday villas in Fuerteventura, Canary Islands. Experience beachfront living with miles of golden sand on your doorstep.",
+    "villas": "Our Villas",
+    "info": "Information",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "contact": "Contact Us",
+    "blog": "Travel Guide",
+    "rights": "© {year} Canary Villas. All rights reserved."
+  },
+  "contact": {
+    "heading": "Get in Touch",
+    "sub": "Have a question about one of our villas or want to check availability? We'd love to hear from you.",
+    "name": "Your name",
+    "email": "Email address",
+    "message": "Your message",
+    "send": "Send Message",
+    "sending": "Sending…",
+    "success": "Thanks! We'll be in touch shortly.",
+    "phone": "Phone",
+    "emailLabel": "Email",
+    "address": "Address"
+  }
+}
