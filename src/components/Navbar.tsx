@@ -150,12 +150,36 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <button
-            className="md:hidden text-gray-700 hover:text-sky-500 p-1"
-            onClick={() => setOpen(!open)}
-          >
-            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <div className="relative">
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-sky-500 border border-gray-200 rounded-full px-2.5 py-1.5"
+              >
+                <Globe className="w-4 h-4" />
+                {localeFlags[locale]}
+              </button>
+              {langOpen && (
+                <div className="absolute right-0 top-full mt-2 bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden z-50 min-w-[130px]">
+                  {routing.locales.map((loc) => (
+                    <button
+                      key={loc}
+                      onClick={() => switchLocale(loc)}
+                      className={`w-full text-left px-4 py-2 text-sm flex items-center gap-2 hover:bg-sky-50 ${locale === loc ? "bg-sky-50 text-sky-600 font-semibold" : "text-gray-700"}`}
+                    >
+                      {localeFlags[loc]} {localeLabels[loc]}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            <button
+              className="text-gray-700 hover:text-sky-500 p-1"
+              onClick={() => setOpen(!open)}
+            >
+              {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
