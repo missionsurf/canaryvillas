@@ -33,7 +33,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: metaTitle,
     description: metaDescription,
-    alternates: { canonical: `https://canaryvillas.com/blog/${slug}` },
+    alternates: {
+      canonical: `https://canaryvillas.com/blog/${slug}`,
+      languages: {
+        en: `https://canaryvillas.com/blog/${slug}`,
+        de: `https://canaryvillas.com/de/blog/${slug}`,
+        es: `https://canaryvillas.com/es/blog/${slug}`,
+        fr: `https://canaryvillas.com/fr/blog/${slug}`,
+        nl: `https://canaryvillas.com/nl/blog/${slug}`,
+        it: `https://canaryvillas.com/it/blog/${slug}`,
+        "x-default": `https://canaryvillas.com/blog/${slug}`,
+      },
+    },
     openGraph: {
       title: metaTitle,
       description: metaDescription,
