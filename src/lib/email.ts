@@ -258,22 +258,32 @@ export async function sendBalancePaidConfirmation(data: BookingEmailData) {
 
 export async function sendBookingNotification(data: BookingEmailData) {
   const html = `
-    <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">
-      <h2 style="color:#0284c7;">New Booking Received</h2>
-      <p><strong>${data.guestName}</strong> (${data.guestEmail}) has booked <strong>${data.villaName}</strong>.</p>
-      <table style="border-collapse:collapse;width:100%;">
-        <tr><td style="padding:8px;border:1px solid #e2e8f0;">Dates</td><td style="padding:8px;border:1px solid #e2e8f0;">${format(data.checkIn, "d MMM yyyy")} → ${format(data.checkOut, "d MMM yyyy")} (${data.nights} nights)</td></tr>
-        <tr><td style="padding:8px;border:1px solid #e2e8f0;">Guests</td><td style="padding:8px;border:1px solid #e2e8f0;">${data.guests}</td></tr>
-        <tr><td style="padding:8px;border:1px solid #e2e8f0;">Total</td><td style="padding:8px;border:1px solid #e2e8f0;">€${data.totalPrice.toFixed(2)}</td></tr>
-        <tr><td style="padding:8px;border:1px solid #e2e8f0;">Booking ID</td><td style="padding:8px;border:1px solid #e2e8f0;">${data.bookingId}</td></tr>
-      </table>
-      <p><a href="${process.env.NEXT_PUBLIC_BASE_URL}/admin/bookings/${data.bookingId}">View in admin →</a></p>
+    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:600px;margin:0 auto;background:#ffffff;">
+      <div style="background:#dc2626;padding:20px 32px;border-radius:12px 12px 0 0;display:flex;align-items:center;gap:12px;">
+        <div style="width:14px;height:14px;background:#ffffff;border-radius:50%;display:inline-block;flex-shrink:0;"></div>
+        <span style="color:#ffffff;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;">New Booking Enquiry</span>
+      </div>
+      <div style="padding:28px 32px;border:1px solid #e2e8f0;border-top:none;border-radius:0 0 12px 12px;">
+        <h2 style="margin:0 0 4px;color:#1e293b;font-size:20px;font-weight:700;">${data.guestName}</h2>
+        <p style="margin:0 0 20px;color:#64748b;font-size:14px;">${data.guestEmail}</p>
+        <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:20px;">
+          <tr style="background:#f8fafc;"><td style="padding:10px 14px;color:#64748b;font-weight:600;">Property</td><td style="padding:10px 14px;color:#1e293b;font-weight:700;">${data.villaName}</td></tr>
+          <tr><td style="padding:10px 14px;color:#64748b;font-weight:600;">Check-in</td><td style="padding:10px 14px;color:#1e293b;">${format(data.checkIn, "EEE d MMM yyyy")}</td></tr>
+          <tr style="background:#f8fafc;"><td style="padding:10px 14px;color:#64748b;font-weight:600;">Check-out</td><td style="padding:10px 14px;color:#1e293b;">${format(data.checkOut, "EEE d MMM yyyy")}</td></tr>
+          <tr><td style="padding:10px 14px;color:#64748b;font-weight:600;">Nights</td><td style="padding:10px 14px;color:#1e293b;">${data.nights}</td></tr>
+          <tr style="background:#f8fafc;"><td style="padding:10px 14px;color:#64748b;font-weight:600;">Guests</td><td style="padding:10px 14px;color:#1e293b;">${data.guests}</td></tr>
+          <tr style="border-top:2px solid #dc2626;"><td style="padding:10px 14px;color:#dc2626;font-weight:700;font-size:15px;">Total</td><td style="padding:10px 14px;color:#dc2626;font-weight:700;font-size:15px;">€${data.totalPrice.toFixed(2)}</td></tr>
+        </table>
+        <p style="margin:0 0 16px;font-size:12px;color:#94a3b8;">Ref: ${data.bookingId.slice(-8).toUpperCase()}</p>
+        <a href="${process.env.NEXT_PUBLIC_BASE_URL}/admin/bookings/${data.bookingId}" style="display:inline-block;background:#dc2626;color:#ffffff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 24px;border-radius:8px;">View booking in admin →</a>
+      </div>
     </div>
   `;
   await transporter.sendMail({
     from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
-    to: process.env.ADMIN_EMAIL,
-    subject: `New Booking: ${data.villaName} — ${format(data.checkIn, "d MMM")} to ${format(data.checkOut, "d MMM yyyy")}`,
+    to: "bookings@canaryvillas.com",
+    bcc: process.env.ADMIN_EMAIL,
+    subject: `🔴 New Booking Enquiry — ${data.villaName} | ${format(data.checkIn, "d MMM")}–${format(data.checkOut, "d MMM yyyy")}`,
     html,
   });
 }
