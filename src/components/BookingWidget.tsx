@@ -195,9 +195,8 @@ export default function BookingWidget({
     if (!form.email.trim()) errors.email = "Email address is required";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errors.email = "Please enter a valid email address";
 
-    if (form.phone.trim() && !/^[+\d\s\-().]{7,20}$/.test(form.phone.trim())) {
-      errors.phone = "Please enter a valid phone number";
-    }
+    if (!form.phone.trim()) errors.phone = "Phone number is required";
+    else if (!/^[+\d\s\-().]{7,20}$/.test(form.phone.trim())) errors.phone = "Please enter a valid phone number";
     return errors;
   }
 
