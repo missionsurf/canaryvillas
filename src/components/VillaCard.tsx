@@ -15,7 +15,7 @@ export default function VillaCard({ villa }: { villa: Villa }) {
   const prefix = locale === routing.defaultLocale ? "" : `/${locale}`;
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group flex flex-col">
-      <div className="relative h-64 overflow-hidden">
+      <Link href={`${prefix}/villas/${villa.slug}`} className="relative h-64 overflow-hidden block">
         <Image
           src={villa.images[0]}
           alt={villa.name}
@@ -26,7 +26,7 @@ export default function VillaCard({ villa }: { villa: Villa }) {
         <div className="absolute top-4 left-4 bg-sky-500 text-white text-sm font-semibold px-3 py-1 rounded-full">
           {t("fromPerNight", { price: format(villa.pricePerNight) })}
         </div>
-      </div>
+      </Link>
 
       <div className="p-6 flex flex-col flex-1">
         <div className="flex items-start justify-between mb-2">
