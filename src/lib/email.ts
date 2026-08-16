@@ -256,6 +256,62 @@ export async function sendBalancePaidConfirmation(data: BookingEmailData) {
   });
 }
 
+export async function sendEnquiryReceived(data: BookingEmailData) {
+  const html = baseStyle + `
+    <div style="display:inline-block;background:#fef9c3;border-radius:50px;padding:8px 16px;margin-bottom:20px;">
+      <span style="color:#854d0e;font-weight:700;font-size:14px;">⏳ Enquiry Received</span>
+    </div>
+    <h2 style="margin:0 0 8px;color:#1e293b;font-size:22px;">Thanks for your enquiry, ${data.guestName}!</h2>
+    <p style="color:#64748b;margin:0 0 24px;font-size:15px;line-height:1.6;">We've received your request to book <strong>${data.villaName}</strong> and we're checking availability for your dates. We'll be in touch within 24 hours to confirm your booking and send you a payment link.</p>
+    ${bookingTable(data)}
+    <div style="background:#f0f9ff;border-left:4px solid #0284c7;padding:16px 20px;border-radius:0 8px 8px 0;margin:0 0 28px;">
+      <p style="margin:0;color:#0369a1;font-size:14px;font-weight:600;">What happens next?</p>
+      <ol style="margin:8px 0 0;padding-left:20px;color:#0369a1;font-size:14px;line-height:1.8;">
+        <li>We confirm your dates are available (within 24 hours)</li>
+        <li>You receive a secure payment link for your 50% deposit</li>
+        <li>Your booking is secured once the deposit is paid</li>
+      </ol>
+    </div>
+    <p style="color:#64748b;font-size:14px;">Questions in the meantime? Call or WhatsApp us: <a href="tel:+447809870561" style="color:#0284c7;">+44 7809 870561</a></p>
+  ` + baseClose;
+
+  await transporter.sendMail({
+    from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
+    to: data.guestEmail,
+    bcc: BOOKINGS_BCC,
+    subject: `Enquiry Received — ${data.villaName} | Canary Villas`,
+    html,
+  });
+}
+
+export async function sendPaymentRequest(data: BookingEmailData & { stripeUrl: string }) {
+  const depositAmount = data.depositAmount ?? Math.round(data.totalPrice / 2 * 100) / 100;
+  const html = baseStyle + `
+    <div style="display:inline-block;background:#dcfce7;border-radius:50px;padding:8px 16px;margin-bottom:20px;">
+      <span style="color:#16a34a;font-weight:700;font-size:14px;">✓ Dates Confirmed — Payment Required</span>
+    </div>
+    <h2 style="margin:0 0 8px;color:#1e293b;font-size:22px;">Great news, ${data.guestName}!</h2>
+    <p style="color:#64748b;margin:0 0 24px;font-size:15px;line-height:1.6;">Your dates are available at <strong>${data.villaName}</strong>. To secure your booking, please pay the 50% deposit using the button below. The remaining balance is due 6 weeks before arrival.</p>
+    ${bookingTable(data)}
+    <div style="text-align:center;margin:28px 0;">
+      <a href="${data.stripeUrl}" style="display:inline-block;background:#16a34a;color:#ffffff;text-decoration:none;font-weight:700;font-size:16px;padding:16px 36px;border-radius:50px;box-shadow:0 4px 14px rgba(22,163,74,0.3);">Pay Deposit — €${depositAmount.toFixed(2)} →</a>
+      <p style="margin:12px 0 0;color:#94a3b8;font-size:12px;">Secure payment via Stripe · Card payments accepted</p>
+    </div>
+    <div style="background:#fefce8;border-left:4px solid #eab308;padding:16px 20px;border-radius:0 8px 8px 0;margin:0 0 24px;">
+      <p style="margin:0;color:#854d0e;font-size:14px;">This payment link expires in <strong>24 hours</strong>. If it expires, just reply to this email and we'll send a new one.</p>
+    </div>
+    <p style="color:#64748b;font-size:14px;">Questions? Call or WhatsApp us: <a href="tel:+447809870561" style="color:#0284c7;">+44 7809 870561</a></p>
+  ` + baseClose;
+
+  await transporter.sendMail({
+    from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
+    to: data.guestEmail,
+    bcc: BOOKINGS_BCC,
+    subject: `Your Dates are Confirmed — Pay Deposit to Secure | Canary Villas`,
+    html,
+  });
+}
+
 export async function sendBookingNotification(data: BookingEmailData) {
   const html = `
     <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:600px;margin:0 auto;background:#ffffff;">

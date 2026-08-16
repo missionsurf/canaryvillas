@@ -125,11 +125,11 @@ export default function BookingWidget({
     }).render(paypalRef.current);
   }
 
-  async function handleStripeBook() {
+  async function handleEnquiry() {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch("/api/bookings/create-checkout", {
+      const res = await fetch("/api/bookings/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -141,42 +141,12 @@ export default function BookingWidget({
           checkOut: range?.to?.toISOString(),
           guests,
           notes: form.notes,
-        }),
-      });
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        setError(data.error || "Something went wrong. Please try again.");
-      }
-    } catch {
-      setError("Network error. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  async function handleBankTransfer() {
-    setLoading(true);
-    setError("");
-    try {
-      const res = await fetch("/api/bookings/bank-transfer", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          villaId,
-          guestName: form.name,
-          guestEmail: form.email,
-          guestPhone: form.phone,
-          checkIn: range?.from?.toISOString(),
-          checkOut: range?.to?.toISOString(),
-          guests,
-          notes: form.notes,
+          paymentMethod,
         }),
       });
       const data = await res.json();
       if (data.bookingId) {
-        window.location.href = `/booking/bank-transfer?bookingId=${data.bookingId}`;
+        window.location.href = `/booking/enquiry?bookingId=${data.bookingId}`;
       } else {
         setError(data.error || "Something went wrong. Please try again.");
       }
@@ -201,9 +171,7 @@ export default function BookingWidget({
   }
 
   function handleConfirm() {
-    if (paymentMethod === "stripe") handleStripeBook();
-    else if (paymentMethod === "bank_transfer") handleBankTransfer();
-    // PayPal is handled by the PayPal button click
+    handleEnquiry();
   }
 
   return (
@@ -396,7 +364,8 @@ export default function BookingWidget({
               </div>
             </div>
 
-            <p className="text-sm font-semibold text-gray-700 mb-3">{t("howToPay")}</p>
+            <p className="text-sm font-semibold text-gray-700 mb-1">{t("howToPay")}</p>
+            <p className="text-xs text-gray-400 mb-3">Choose your preferred payment method — we'll confirm availability first, then send you a payment link.</p>
 
             <div className="space-y-2 mb-5">
               {/* Bank Transfer */}
@@ -457,26 +426,17 @@ export default function BookingWidget({
               </button>
             </div>
 
-            {/* PayPal button container */}
-            {paymentMethod === "paypal" && (
-              <div ref={paypalRef} className="mb-4" />
-            )}
-
-            {paymentMethod !== "paypal" && (
-              <button
-                onClick={handleConfirm}
-                disabled={loading}
-                className="w-full bg-sky-500 hover:bg-sky-600 disabled:bg-sky-300 text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-colors mb-3"
-              >
-                {loading ? (
-                  <><Loader2 className="w-5 h-5 animate-spin" /> {t("processing")}</>
-                ) : paymentMethod === "bank_transfer" ? (
-                  <><Building2 className="w-5 h-5" /> {t("reserveBank")}</>
-                ) : (
-                  <><CreditCard className="w-5 h-5" /> {t("payDeposit", { amount: fmtPrice(deposit) })}</>
-                )}
-              </button>
-            )}
+            <button
+              onClick={handleConfirm}
+              disabled={loading}
+              className="w-full bg-sky-500 hover:bg-sky-600 disabled:bg-sky-300 text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-colors mb-3"
+            >
+              {loading ? (
+                <><Loader2 className="w-5 h-5 animate-spin" /> {t("processing")}</>
+              ) : (
+                <>Request to Book <ArrowRight className="w-5 h-5" /></>
+              )}
+            </button>
 
             <button
               onClick={() => setStep("details")}
