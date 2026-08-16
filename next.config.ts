@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "canaryvillas.com",
       },
+      {
+        protocol: "https",
+        hostname: "canaryvillas.co.uk",
+      },
     ],
   },
   serverExternalPackages: [
