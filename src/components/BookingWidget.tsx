@@ -202,6 +202,7 @@ export default function BookingWidget({
                   onSelect={setRange}
                   disabled={disabledDays}
                   modifiers={{ booked: bookedDates.map((d) => new Date(d)) }}
+                  modifiersClassNames={{ booked: "!bg-red-100 !text-red-500 !line-through" }}
                   numberOfMonths={1}
                   className="!p-2"
                 />
