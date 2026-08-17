@@ -9,8 +9,8 @@ The villa features a spacious open-plan living and dining area that flows direct
 
 Step straight from the terrace onto the golden sand and crystal-clear waters of one of Fuerteventura's most beautiful beaches. The vibrant town of Corralejo is just a short walk away, with fantastic restaurants, bars, shops, and water sports facilities.`,
     location: "Corralejo, Fuerteventura",
-    latitude: 28.7257,
-    longitude: -13.8514,
+    latitude: 28.7322,
+    longitude: -13.8644,
     bedrooms: 2,
     bathrooms: 1,
     maxGuests: 6,
