@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin", "/api/"],
       },
     ],
-    sitemap: "https://canaryvillas.com/sitemap.xml",
-    host: "https://canaryvillas.com",
+    sitemap: "https://www.canaryvillas.com/sitemap.xml",
+    host: "https://www.canaryvillas.com",
   };
 }

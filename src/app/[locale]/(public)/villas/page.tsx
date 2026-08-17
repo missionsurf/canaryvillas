@@ -8,12 +8,23 @@ import { getTranslations } from "next-intl/server";
 export const metadata: Metadata = {
   title: "Holiday Villas to Rent in Fuerteventura — Corralejo | Canary Villas",
   description: "Browse luxury holiday villas to rent in Corralejo, Fuerteventura. Beachfront villas, private bungalows and self-catering accommodation. Book direct for the best price guaranteed.",
-alternates: { canonical: "https://canaryvillas.com/villas" },
+  alternates: {
+    canonical: "https://www.canaryvillas.com/villas",
+    languages: {
+      en: "https://www.canaryvillas.com/villas",
+      de: "https://www.canaryvillas.com/de/villas",
+      es: "https://www.canaryvillas.com/es/villas",
+      fr: "https://www.canaryvillas.com/fr/villas",
+      nl: "https://www.canaryvillas.com/nl/villas",
+      it: "https://www.canaryvillas.com/it/villas",
+      "x-default": "https://www.canaryvillas.com/villas",
+    },
+  },
   openGraph: {
     title: "Holiday Villas to Rent in Fuerteventura | Canary Villas",
     description: "Luxury beachfront villas in Corralejo, Fuerteventura — book direct for the best price.",
-    url: "https://canaryvillas.com/villas",
-    images: [{ url: "https://canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg", width: 1200, height: 630 }],
+    url: "https://www.canaryvillas.com/villas",
+    images: [{ url: "https://www.canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg", width: 1200, height: 630 }],
   },
 };
 

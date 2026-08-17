@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getAllVillas } from "@/lib/villas";
 import { blogPosts } from "@/lib/blog";
 
-const BASE = "https://canaryvillas.com";
+const BASE = "https://www.canaryvillas.com";
 const LOCALES = ["de", "es", "fr", "nl", "it"];
 
 const SITE_LAUNCH = new Date("2025-01-01");

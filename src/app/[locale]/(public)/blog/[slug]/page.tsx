@@ -34,21 +34,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: metaTitle,
     description: metaDescription,
     alternates: {
-      canonical: `https://canaryvillas.com/blog/${slug}`,
+      canonical: `https://www.canaryvillas.com/blog/${slug}`,
       languages: {
-        en: `https://canaryvillas.com/blog/${slug}`,
-        de: `https://canaryvillas.com/de/blog/${slug}`,
-        es: `https://canaryvillas.com/es/blog/${slug}`,
-        fr: `https://canaryvillas.com/fr/blog/${slug}`,
-        nl: `https://canaryvillas.com/nl/blog/${slug}`,
-        it: `https://canaryvillas.com/it/blog/${slug}`,
-        "x-default": `https://canaryvillas.com/blog/${slug}`,
+        en: `https://www.canaryvillas.com/blog/${slug}`,
+        de: `https://www.canaryvillas.com/de/blog/${slug}`,
+        es: `https://www.canaryvillas.com/es/blog/${slug}`,
+        fr: `https://www.canaryvillas.com/fr/blog/${slug}`,
+        nl: `https://www.canaryvillas.com/nl/blog/${slug}`,
+        it: `https://www.canaryvillas.com/it/blog/${slug}`,
+        "x-default": `https://www.canaryvillas.com/blog/${slug}`,
       },
     },
     openGraph: {
       title: metaTitle,
       description: metaDescription,
-      url: `https://canaryvillas.com/blog/${slug}`,
+      url: `https://www.canaryvillas.com/blog/${slug}`,
       type: "article",
       publishedTime: post.date,
       images: [{ url: post.heroImage, width: 1200, height: 800, alt: post.heroAlt }],
@@ -79,22 +79,22 @@ export default async function BlogPostPage({ params }: Props) {
     image: post.heroImage,
     datePublished: post.date,
     dateModified: post.date,
-    author: { "@type": "Organization", name: "Canary Villas", url: "https://canaryvillas.com" },
+    author: { "@type": "Organization", name: "Canary Villas", url: "https://www.canaryvillas.com" },
     publisher: {
       "@type": "Organization",
       name: "Canary Villas",
-      logo: { "@type": "ImageObject", url: "https://canaryvillas.com/favicon.ico" },
+      logo: { "@type": "ImageObject", url: "https://www.canaryvillas.com/favicon.ico" },
     },
-    mainEntityOfPage: { "@type": "WebPage", "@id": `https://canaryvillas.com/blog/${slug}` },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://www.canaryvillas.com/blog/${slug}` },
   };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://canaryvillas.com" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://canaryvillas.com/blog" },
-      { "@type": "ListItem", position: 3, name: localPost.title, item: `https://canaryvillas.com/blog/${slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.canaryvillas.com" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.canaryvillas.com/blog" },
+      { "@type": "ListItem", position: 3, name: localPost.title, item: `https://www.canaryvillas.com/blog/${slug}` },
     ],
   };
 

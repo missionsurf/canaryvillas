@@ -18,13 +18,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: "Holiday Villas to Rent in Fuerteventura | Beachfront Villas Corralejo",
     description: t("sub"),
-    alternates: { canonical: "https://canaryvillas.com" },
+    alternates: { canonical: "https://www.canaryvillas.com" },
     openGraph: {
       title: "Holiday Villas to Rent in Fuerteventura | Canary Villas",
       description: t("sub"),
-      url: "https://canaryvillas.com",
+      url: "https://www.canaryvillas.com",
       type: "website",
-      images: [{ url: "https://canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg", width: 1200, height: 630 }],
+      images: [{ url: "https://www.canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg", width: 1200, height: 630 }],
     },
   };
 }
@@ -40,7 +40,7 @@ const reviewSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Canary Villas",
-  url: "https://canaryvillas.com",
+  url: "https://www.canaryvillas.com",
   aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "47", bestRating: "5", worstRating: "1" },
   review: reviews.map((r) => ({ "@type": "Review", author: { "@type": "Person", name: r.author }, datePublished: r.date, reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5 }, reviewBody: r.text })),
 };
@@ -69,7 +69,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       {/* Hero */}
       <section className="relative h-screen min-h-[600px] flex items-center justify-center text-white">
-        <Image src="https://canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg" alt="Beachfront villa in Fuerteventura" fill className="object-cover" priority />
+        <Image src="https://www.canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg" alt="Beachfront villa in Fuerteventura" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <p className="text-sky-300 text-sm font-semibold uppercase tracking-widest mb-4">{t("hero.tagline")}</p>
@@ -143,7 +143,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               </div>
             </div>
             <div className="relative h-96 lg:h-full min-h-80 rounded-3xl overflow-hidden">
-              <Image src="https://canaryvillas.com/wp-content/uploads/2024/11/trees1.jpg" alt="Palm trees and beaches in Fuerteventura" fill className="object-cover" />
+              <Image src="https://www.canaryvillas.com/wp-content/uploads/2024/11/trees1.jpg" alt="Palm trees and beaches in Fuerteventura" fill className="object-cover" />
             </div>
           </div>
         </div>

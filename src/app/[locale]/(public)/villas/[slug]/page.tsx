@@ -24,11 +24,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
-alternates: { canonical: `https://canaryvillas.com/villas/${slug}` },
+    alternates: {
+      canonical: `https://www.canaryvillas.com/villas/${slug}`,
+      languages: {
+        en: `https://www.canaryvillas.com/villas/${slug}`,
+        de: `https://www.canaryvillas.com/de/villas/${slug}`,
+        es: `https://www.canaryvillas.com/es/villas/${slug}`,
+        fr: `https://www.canaryvillas.com/fr/villas/${slug}`,
+        nl: `https://www.canaryvillas.com/nl/villas/${slug}`,
+        it: `https://www.canaryvillas.com/it/villas/${slug}`,
+        "x-default": `https://www.canaryvillas.com/villas/${slug}`,
+      },
+    },
     openGraph: {
       title,
       description,
-      url: `https://canaryvillas.com/villas/${slug}`,
+      url: `https://www.canaryvillas.com/villas/${slug}`,
       type: "website",
       images: [{ url: villa.images[0], width: 1200, height: 800, alt: `${villa.name} — holiday villa in Fuerteventura` }],
     },
@@ -55,7 +66,7 @@ function VillaSchema({ villa }: { villa: Awaited<ReturnType<typeof getVillaBySlu
     "@type": "VacationRental",
     name: villa.name,
     description: villa.description,
-    url: `https://canaryvillas.com/villas/${villa.slug}`,
+    url: `https://www.canaryvillas.com/villas/${villa.slug}`,
     image: photos,
     photo: photos,
     priceRange: `€${villa.pricePerNight} per night`,
@@ -94,7 +105,7 @@ function VillaSchema({ villa }: { villa: Awaited<ReturnType<typeof getVillaBySlu
     isAccessibleForFree: false,
     telephone: "+447809870561",
     email: "info@canaryvillas.com",
-    tourBookingPage: `https://canaryvillas.com/villas/${villa.slug}`,
+    tourBookingPage: `https://www.canaryvillas.com/villas/${villa.slug}`,
     starRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
     aggregateRating: {
       "@type": "AggregateRating",
@@ -108,7 +119,7 @@ function VillaSchema({ villa }: { villa: Awaited<ReturnType<typeof getVillaBySlu
       price: villa.pricePerNight,
       priceCurrency: "EUR",
       availability: "https://schema.org/InStock",
-      url: `https://canaryvillas.com/villas/${villa.slug}`,
+      url: `https://www.canaryvillas.com/villas/${villa.slug}`,
       priceSpecification: [
         {
           "@type": "UnitPriceSpecification",
@@ -131,12 +142,12 @@ function VillaSchema({ villa }: { villa: Awaited<ReturnType<typeof getVillaBySlu
     brand: {
       "@type": "Brand",
       name: "Canary Villas",
-      url: "https://canaryvillas.com",
+      url: "https://www.canaryvillas.com",
     },
     provider: {
       "@type": "LodgingBusiness",
       name: "Canary Villas",
-      url: "https://canaryvillas.com",
+      url: "https://www.canaryvillas.com",
       telephone: "+447809870561",
       email: "info@canaryvillas.com",
       address: {
@@ -153,9 +164,9 @@ function VillaSchema({ villa }: { villa: Awaited<ReturnType<typeof getVillaBySlu
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://canaryvillas.com" },
-      { "@type": "ListItem", position: 2, name: "Villas", item: "https://canaryvillas.com/villas" },
-      { "@type": "ListItem", position: 3, name: villa.name, item: `https://canaryvillas.com/villas/${villa.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.canaryvillas.com" },
+      { "@type": "ListItem", position: 2, name: "Villas", item: "https://www.canaryvillas.com/villas" },
+      { "@type": "ListItem", position: 3, name: villa.name, item: `https://www.canaryvillas.com/villas/${villa.slug}` },
     ],
   };
 

@@ -23,12 +23,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${t("title")} | Canary Villas`,
     description: t("subtitle"),
-    alternates: { canonical: "https://canaryvillas.com/blog" },
+    alternates: { canonical: "https://www.canaryvillas.com/blog" },
     openGraph: {
       title: `${t("title")} | Canary Villas`,
       description: t("subtitle"),
-      url: "https://canaryvillas.com/blog",
-      images: [{ url: "https://canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg", width: 1200, height: 630 }],
+      url: "https://www.canaryvillas.com/blog",
+      images: [{ url: "https://www.canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg", width: 1200, height: 630 }],
     },
   };
 }
@@ -37,9 +37,9 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "Blog",
   name: "Canary Villas — Fuerteventura Travel Blog",
-  url: "https://canaryvillas.com/blog",
+  url: "https://www.canaryvillas.com/blog",
   description: "Expert travel guides to Fuerteventura, Corralejo and the Canary Islands",
-  publisher: { "@type": "Organization", name: "Canary Villas", url: "https://canaryvillas.com" },
+  publisher: { "@type": "Organization", name: "Canary Villas", url: "https://www.canaryvillas.com" },
 };
 
 export default async function BlogIndexPage({ params, searchParams }: Props) {
