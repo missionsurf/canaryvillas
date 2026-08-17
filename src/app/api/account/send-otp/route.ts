@@ -24,7 +24,8 @@ export async function POST(req: NextRequest) {
     await sendGuestOtp(normalised, otp);
 
     return NextResponse.json({ ok: true });
-  } catch {
+  } catch (err) {
+    console.error("send-otp error:", err);
     return NextResponse.json({ error: "Failed to send code" }, { status: 500 });
   }
 }
