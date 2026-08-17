@@ -1,13 +1,20 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import { format } from "date-fns";
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT) || 587,
-  secure: Number(process.env.SMTP_PORT) === 465,
-  requireTLS: Number(process.env.SMTP_PORT) === 587,
-  auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+async function sendMail({ from, to, subject, html, bcc }: {
+  from: string; to: string | string[]; subject: string; html: string; bcc?: string;
+}) {
+  const { error } = await resend.emails.send({
+    from,
+    to: Array.isArray(to) ? to : [to],
+    bcc: bcc ? bcc.split(",").map(e => e.trim()).filter(Boolean) : undefined,
+    subject,
+    html,
+  });
+  if (error) throw new Error(error.message);
+}
 
 const BOOKINGS_BCC = [process.env.ADMIN_EMAIL, "bookings@canaryvillas.com"].filter(Boolean).join(",");
 
@@ -82,7 +89,7 @@ export async function sendBookingConfirmation(data: BookingEmailData) {
     <p style="color:#64748b;font-size:14px;">See you in Fuerteventura! 🌊</p>
   ` + baseClose;
 
-  await transporter.sendMail({
+  await sendMail({
     from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
     to: data.guestEmail,
     bcc: BOOKINGS_BCC,
@@ -175,7 +182,7 @@ export async function sendBankTransferInstructions(data: BankTransferEmailData) 
     <p style="color:#64748b;font-size:14px;">Questions? Reply to this email or call us on <a href="tel:+447809870561" style="color:#0284c7;">+44 7809 870561</a>.</p>
   ` + baseClose;
 
-  await transporter.sendMail({
+  await sendMail({
     from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
     to: data.guestEmail,
     bcc: BOOKINGS_BCC,
@@ -225,7 +232,7 @@ export async function sendBalanceReminder(data: BalanceReminderData) {
     <p style="color:#64748b;font-size:14px;">We can't wait to welcome you to Fuerteventura! 🌊</p>
   ` + baseClose;
 
-  await transporter.sendMail({
+  await sendMail({
     from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
     to: data.guestEmail,
     bcc: BOOKINGS_BCC,
@@ -248,7 +255,7 @@ export async function sendBalancePaidConfirmation(data: BookingEmailData) {
     <p style="color:#64748b;font-size:14px;">See you in Fuerteventura! 🏖️</p>
   ` + baseClose;
 
-  await transporter.sendMail({
+  await sendMail({
     from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
     to: data.guestEmail,
     bcc: BOOKINGS_BCC,
@@ -276,7 +283,7 @@ export async function sendEnquiryReceived(data: BookingEmailData) {
     <p style="color:#64748b;font-size:14px;">Questions in the meantime? Call or WhatsApp us: <a href="tel:+447809870561" style="color:#0284c7;">+44 7809 870561</a></p>
   ` + baseClose;
 
-  await transporter.sendMail({
+  await sendMail({
     from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
     to: data.guestEmail,
     bcc: BOOKINGS_BCC,
@@ -304,7 +311,7 @@ export async function sendPaymentRequest(data: BookingEmailData & { stripeUrl: s
     <p style="color:#64748b;font-size:14px;">Questions? Call or WhatsApp us: <a href="tel:+447809870561" style="color:#0284c7;">+44 7809 870561</a></p>
   ` + baseClose;
 
-  await transporter.sendMail({
+  await sendMail({
     from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
     to: data.guestEmail,
     bcc: BOOKINGS_BCC,
@@ -336,7 +343,7 @@ export async function sendBookingNotification(data: BookingEmailData) {
       </div>
     </div>
   `;
-  await transporter.sendMail({
+  await sendMail({
     from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
     to: "bookings@canaryvillas.com",
     bcc: process.env.ADMIN_EMAIL,
@@ -395,7 +402,7 @@ export async function sendArrivalInstructions(data: ArrivalData) {
     <p style="color:#64748b;font-size:14px;">Enjoy your stay! 🏖️</p>
   ` + baseClose;
 
-  await transporter.sendMail({
+  await sendMail({
     from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
     to: data.guestEmail,
     subject: `Your Arrival Instructions — ${data.villaName} | Canary Villas`,
@@ -448,7 +455,7 @@ export async function sendSpecialOffer(data: SpecialOfferData) {
     </div>
   `;
 
-  await transporter.sendMail({
+  await sendMail({
     from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
     to: data.guestEmail,
     subject: data.subject,
@@ -469,7 +476,7 @@ export async function sendGuestOtp(email: string, otp: string) {
     <p style="color:#94a3b8;font-size:13px;text-align:center;">If you didn't request this, you can safely ignore this email.</p>
   ` + baseClose;
 
-  await transporter.sendMail({
+  await sendMail({
     from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
     to: email,
     subject: `${otp} — your Canary Villas login code`,
@@ -487,7 +494,7 @@ export async function sendCustomEmail(to: string, guestName: string, subject: st
     </div>
   ` + baseClose;
 
-  await transporter.sendMail({
+  await sendMail({
     from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
     to,
     subject,
