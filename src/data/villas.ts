@@ -111,8 +111,8 @@ The apartment features a private entrance, a comfortable king-size bedroom, and 
 
 Hotel-grade mattresses and crisp quality linens ensure a great night's sleep, while the stylish interiors create a welcoming home-away-from-home feel. The property includes its own dedicated parking space and is close to local bus routes for easy island exploration.`,
     location: "Corralejo, Fuerteventura",
-    latitude: 28.7310,
-    longitude: -13.8670,
+    latitude: 28.7327,
+    longitude: -13.8681,
     bedrooms: 1,
     bathrooms: 1,
     maxGuests: 4,
