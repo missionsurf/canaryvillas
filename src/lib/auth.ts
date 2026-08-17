@@ -15,7 +15,7 @@ export async function getAdminSession() {
   const token = cookieStore.get("admin_token");
   if (!token) return null;
 
-  const admin = await prisma.admin.findUnique({
+  const admin = await prisma.admin.findFirst({
     where: { email: token.value },
     select: { id: true, email: true, name: true },
   });

@@ -76,15 +76,21 @@ async function main() {
   const adminPassword = process.env.ADMIN_PASSWORD || "changeme123";
   const hashedPassword = await bcrypt.hash(adminPassword, 12);
 
-  await prisma.admin.upsert({
-    where: { email: adminEmail },
-    update: { password: hashedPassword },
-    create: {
-      email: adminEmail,
-      password: hashedPassword,
-      name: "Canary Villas Admin",
-    },
-  });
+  // Use raw SQL to avoid Prisma/Turso upsert creating duplicate rows
+  const existingAdmin = await prisma.admin.findFirst({ where: { email: adminEmail } });
+  if (existingAdmin) {
+    await prisma.admin.updateMany({ where: { email: adminEmail }, data: { password: hashedPassword } });
+    // Remove any extra duplicates, keeping only the oldest
+    await prisma.$executeRawUnsafe(
+      `DELETE FROM admins WHERE email = ? AND id != ?`,
+      adminEmail,
+      existingAdmin.id
+    );
+  } else {
+    await prisma.admin.create({
+      data: { email: adminEmail, password: hashedPassword, name: "Canary Villas Admin" },
+    });
+  }
   console.log(`  ✓ Admin: ${adminEmail}`);
   console.log("Seed complete!");
 }
