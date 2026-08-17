@@ -3,8 +3,9 @@ import { format } from "date-fns";
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT),
+  port: Number(process.env.SMTP_PORT) || 587,
   secure: Number(process.env.SMTP_PORT) === 465,
+  requireTLS: Number(process.env.SMTP_PORT) === 587,
   auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
 });
 
