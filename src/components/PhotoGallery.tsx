@@ -140,7 +140,7 @@ export default function PhotoGallery({ images, villaName, imageGroups }: Props) 
           <div
             className="flex h-full"
             style={{
-              transform: `translateX(-${carouselIndex * 100}%)`,
+              transform: `translateX(-${carouselIndex * (100 / images.length)}%)`,
               transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
               width: `${images.length * 100}%`,
             }}
