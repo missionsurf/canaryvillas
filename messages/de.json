@@ -124,7 +124,19 @@
     "errorDatesRequired": "Bitte wählen Sie An- und Abreisedatum.",
     "unavailable": "Die gewählten Daten sind nicht verfügbar",
     "serverError": "Interner Serverfehler",
-    "selected": "Ausgewählt"
+    "selected": "Ausgewählt",
+    "requestToBook": "Buchung anfragen",
+    "paymentMethodNote": "Wählen Sie Ihre bevorzugte Zahlungsmethode – wir bestätigen zuerst die Verfügbarkeit und senden Ihnen dann einen Zahlungslink.",
+    "nightsCount": "{n} Nächte",
+    "guestCount": "{n} Gast",
+    "guestsCount": "{n} Gäste",
+    "errorNameRequired": "Vollständiger Name ist erforderlich",
+    "errorNameShort": "Bitte geben Sie Ihren vollständigen Namen ein",
+    "errorEmailRequired": "E-Mail-Adresse ist erforderlich",
+    "errorEmailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "errorPhoneRequired": "Telefonnummer ist erforderlich",
+    "errorPhoneInvalid": "Bitte geben Sie eine gültige Telefonnummer ein",
+    "perNight": "/Nacht"
   },
   "footer": {
     "desc": "Luxuriöse Ferienvillen auf Fuerteventura, Kanarische Inseln. Erleben Sie das Leben am Strand mit kilometerlangem goldenen Sand vor der Tür.",

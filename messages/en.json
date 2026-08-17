@@ -124,7 +124,19 @@
     "errorDatesRequired": "Please select check-in and check-out dates.",
     "unavailable": "Selected dates are not available",
     "serverError": "Internal server error",
-    "selected": "Selected"
+    "selected": "Selected",
+    "requestToBook": "Request to Book",
+    "paymentMethodNote": "Choose your preferred payment method — we'll confirm availability first, then send you a payment link.",
+    "nightsCount": "{n} nights",
+    "guestCount": "{n} guest",
+    "guestsCount": "{n} guests",
+    "errorNameRequired": "Full name is required",
+    "errorNameShort": "Please enter your full name",
+    "errorEmailRequired": "Email address is required",
+    "errorEmailInvalid": "Please enter a valid email address",
+    "errorPhoneRequired": "Phone number is required",
+    "errorPhoneInvalid": "Please enter a valid phone number",
+    "perNight": "/night"
   },
   "footer": {
     "desc": "Luxury holiday villas in Fuerteventura, Canary Islands. Experience beachfront living with miles of golden sand on your doorstep.",

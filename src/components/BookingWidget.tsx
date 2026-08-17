@@ -159,14 +159,14 @@ export default function BookingWidget({
 
   function validateDetails() {
     const errors: Record<string, string> = {};
-    if (!form.name.trim()) errors.name = "Full name is required";
-    else if (form.name.trim().length < 2) errors.name = "Please enter your full name";
+    if (!form.name.trim()) errors.name = t("errorNameRequired");
+    else if (form.name.trim().length < 2) errors.name = t("errorNameShort");
 
-    if (!form.email.trim()) errors.email = "Email address is required";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errors.email = "Please enter a valid email address";
+    if (!form.email.trim()) errors.email = t("errorEmailRequired");
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errors.email = t("errorEmailInvalid");
 
-    if (!form.phone.trim()) errors.phone = "Phone number is required";
-    else if (!/^[+\d\s\-().]{7,20}$/.test(form.phone.trim())) errors.phone = "Please enter a valid phone number";
+    if (!form.phone.trim()) errors.phone = t("errorPhoneRequired");
+    else if (!/^[+\d\s\-().]{7,20}$/.test(form.phone.trim())) errors.phone = t("errorPhoneInvalid");
     return errors;
   }
 
@@ -179,7 +179,7 @@ export default function BookingWidget({
       <div className="bg-sky-500 text-white px-6 py-5">
         <div className="flex items-baseline gap-1">
           <span className="text-3xl font-extrabold">{fmtPrice(pricePerNight)}</span>
-          <span className="text-sky-100">/night</span>
+          <span className="text-sky-100">{t("perNight")}</span>
         </div>
         <p className="text-sky-100 text-sm mt-1">{villaName}</p>
       </div>
@@ -219,7 +219,7 @@ export default function BookingWidget({
                 className="w-full border border-gray-300 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-sky-400"
               >
                 {Array.from({ length: maxGuests }, (_, i) => i + 1).map((n) => (
-                  <option key={n} value={n}>{n} guest{n > 1 ? "s" : ""}</option>
+                  <option key={n} value={n}>{n > 1 ? t("guestsCount", { n }) : t("guestCount", { n })}</option>
                 ))}
               </select>
             </div>
@@ -227,7 +227,7 @@ export default function BookingWidget({
             {nights > 0 && (
               <div className="border-t pt-4 mb-5 space-y-2 text-sm text-gray-600">
                 <div className="flex justify-between">
-                  <span>{fmtPrice(pricePerNight)} × {nights} nights</span>
+                  <span>{fmtPrice(pricePerNight)} × {t("nightsCount", { n: nights })}</span>
                   <span>{fmtPrice(subtotal)}</span>
                 </div>
                 <div className="flex justify-between">
@@ -248,7 +248,7 @@ export default function BookingWidget({
             <button
               onClick={() => {
                 if (!range?.from || !range?.to) {
-                  setError("Please select your dates first.");
+                  setError(t("errorDates"));
                   return;
                 }
                 setError("");
@@ -268,7 +268,7 @@ export default function BookingWidget({
                 {range?.from && format(range.from, "d MMM yyyy")} —{" "}
                 {range?.to && format(range.to, "d MMM yyyy")}
               </p>
-              <p>{nights} nights · {guests} guest{guests > 1 ? "s" : ""} · <strong>{fmtPrice(total)} total</strong></p>
+              <p>{t("nightsCount", { n: nights })} · {guests > 1 ? t("guestsCount", { n: guests }) : t("guestCount", { n: guests })} · <strong>{fmtPrice(total)} {t("total")}</strong></p>
             </div>
 
             <div className="space-y-3 mb-5">
@@ -354,7 +354,7 @@ export default function BookingWidget({
                 {range?.from && format(range.from, "d MMM yyyy")} —{" "}
                 {range?.to && format(range.to, "d MMM yyyy")}
               </p>
-              <p>{nights} nights · {guests} guest{guests > 1 ? "s" : ""}</p>
+              <p>{t("nightsCount", { n: nights })} · {guests > 1 ? t("guestsCount", { n: guests }) : t("guestCount", { n: guests })}</p>
               <div className="flex justify-between mt-2 pt-2 border-t">
                 <span className="font-bold">{t("depositDueNow")}</span>
                 <span className="font-bold text-sky-700">{fmtPrice(deposit)}</span>
@@ -366,7 +366,7 @@ export default function BookingWidget({
             </div>
 
             <p className="text-sm font-semibold text-gray-700 mb-1">{t("howToPay")}</p>
-            <p className="text-xs text-gray-400 mb-3">Choose your preferred payment method — we'll confirm availability first, then send you a payment link.</p>
+            <p className="text-xs text-gray-400 mb-3">{t("paymentMethodNote")}</p>
 
             <div className="space-y-2 mb-5">
               {/* Bank Transfer */}
@@ -435,7 +435,7 @@ export default function BookingWidget({
               {loading ? (
                 <><Loader2 className="w-5 h-5 animate-spin" /> {t("processing")}</>
               ) : (
-                <>Request to Book <ArrowRight className="w-5 h-5" /></>
+                <>{t("requestToBook")} <ArrowRight className="w-5 h-5" /></>
               )}
             </button>
 

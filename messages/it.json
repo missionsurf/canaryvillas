@@ -124,7 +124,19 @@
     "errorDatesRequired": "Seleziona le date di check-in e check-out.",
     "unavailable": "Le date selezionate non sono disponibili",
     "serverError": "Errore interno del server",
-    "selected": "Selezionato"
+    "selected": "Selezionato",
+    "requestToBook": "Richiedi prenotazione",
+    "paymentMethodNote": "Scegli il tuo metodo di pagamento preferito — prima confermeremo la disponibilità, poi ti invieremo un link di pagamento.",
+    "nightsCount": "{n} notti",
+    "guestCount": "{n} ospite",
+    "guestsCount": "{n} ospiti",
+    "errorNameRequired": "Il nome completo è obbligatorio",
+    "errorNameShort": "Inserisci il tuo nome completo",
+    "errorEmailRequired": "L'indirizzo email è obbligatorio",
+    "errorEmailInvalid": "Inserisci un indirizzo email valido",
+    "errorPhoneRequired": "Il numero di telefono è obbligatorio",
+    "errorPhoneInvalid": "Inserisci un numero di telefono valido",
+    "perNight": "/notte"
   },
   "footer": {
     "desc": "Ville vacanze di lusso a Fuerteventura, Isole Canarie. Vivete la vita in riva al mare con chilometri di sabbia dorata a portata di mano.",

@@ -124,7 +124,19 @@
     "errorDatesRequired": "Selecteer check-in en check-out datums.",
     "unavailable": "De geselecteerde datums zijn niet beschikbaar",
     "serverError": "Interne serverfout",
-    "selected": "Geselecteerd"
+    "selected": "Geselecteerd",
+    "requestToBook": "Boekingsverzoek indienen",
+    "paymentMethodNote": "Kies uw gewenste betaalmethode — we bevestigen eerst de beschikbaarheid en sturen u vervolgens een betaallink.",
+    "nightsCount": "{n} nachten",
+    "guestCount": "{n} gast",
+    "guestsCount": "{n} gasten",
+    "errorNameRequired": "Volledige naam is vereist",
+    "errorNameShort": "Vul uw volledige naam in",
+    "errorEmailRequired": "E-mailadres is vereist",
+    "errorEmailInvalid": "Vul een geldig e-mailadres in",
+    "errorPhoneRequired": "Telefoonnummer is vereist",
+    "errorPhoneInvalid": "Vul een geldig telefoonnummer in",
+    "perNight": "/nacht"
   },
   "footer": {
     "desc": "Luxe vakantievilla's op Fuerteventura, Canarische Eilanden. Beleef het strandleven met kilometers goudkleurig zand voor de deur.",

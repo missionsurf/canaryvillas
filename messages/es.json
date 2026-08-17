@@ -124,7 +124,19 @@
     "errorDatesRequired": "Por favor, seleccione las fechas de entrada y salida.",
     "unavailable": "Las fechas seleccionadas no están disponibles",
     "serverError": "Error interno del servidor",
-    "selected": "Seleccionado"
+    "selected": "Seleccionado",
+    "requestToBook": "Solicitar reserva",
+    "paymentMethodNote": "Elija su método de pago preferido — primero confirmaremos la disponibilidad y luego le enviaremos un enlace de pago.",
+    "nightsCount": "{n} noches",
+    "guestCount": "{n} huésped",
+    "guestsCount": "{n} huéspedes",
+    "errorNameRequired": "El nombre completo es obligatorio",
+    "errorNameShort": "Por favor, introduzca su nombre completo",
+    "errorEmailRequired": "La dirección de correo electrónico es obligatoria",
+    "errorEmailInvalid": "Por favor, introduzca una dirección de correo válida",
+    "errorPhoneRequired": "El número de teléfono es obligatorio",
+    "errorPhoneInvalid": "Por favor, introduzca un número de teléfono válido",
+    "perNight": "/noche"
   },
   "footer": {
     "desc": "Villas vacacionales de lujo en Fuerteventura, Islas Canarias. Experimente la vida en la playa con kilómetros de arena dorada a su puerta.",
