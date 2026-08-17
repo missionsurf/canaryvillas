@@ -18,7 +18,7 @@ export default function VillaIcalSettings({ villaId, villaName, villaSlug, airbn
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState("");
 
-  const exportUrl = `${baseUrl}/api/ical?slug=${villaSlug}`;
+  const exportUrl = `${baseUrl}/api/ical/${villaSlug}.ics`;
 
   async function save() {
     setSaving(true);
