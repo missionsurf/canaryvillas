@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
-export async function GET() {
+export async function DELETE() {
   const cookieStore = await cookies();
   cookieStore.delete("admin_token");
-  return NextResponse.redirect(new URL("/admin", process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"));
+  return NextResponse.json({ success: true });
 }

@@ -82,12 +82,15 @@ export default function AdminSidebar({ userName }: Props) {
       <div className="border-t border-gray-800 px-5 py-4">
         <p className="text-gray-400 text-xs mb-0.5">Signed in as</p>
         <p className="text-white text-sm font-semibold truncate mb-3">{userName}</p>
-        <Link
-          href="/api/admin/logout"
+        <button
+          onClick={async () => {
+            await fetch("/api/admin/logout", { method: "DELETE" });
+            window.location.href = "/admin";
+          }}
           className="flex items-center gap-2 text-gray-400 hover:text-white text-sm transition-colors"
         >
           <LogOut className="w-4 h-4" /> Sign out
-        </Link>
+        </button>
       </div>
     </aside>
   );
