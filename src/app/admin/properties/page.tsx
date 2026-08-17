@@ -49,7 +49,7 @@ export default async function PropertiesPage() {
                 villaName={v.name}
                 villaSlug={v.slug}
                 airbnbIcalUrl={v.airbnbIcalUrl}
-                baseUrl={process.env.NEXT_PUBLIC_BASE_URL || "https://canaryvillas.vercel.app"}
+                baseUrl={process.env.NEXT_PUBLIC_BASE_URL || "https://www.canaryvillas.com"}
               />
             ))}
           </div>

@@ -17,8 +17,7 @@ export async function GET(_req: NextRequest, { params }: { params: Promise<{ slu
   return new NextResponse(icalStr, {
     headers: {
       "Content-Type": "text/calendar; charset=utf-8",
-      "Content-Disposition": `attachment; filename="${slug}.ics"`,
-      "Cache-Control": "no-cache",
+      "Cache-Control": "no-cache, no-store",
     },
   });
 }
