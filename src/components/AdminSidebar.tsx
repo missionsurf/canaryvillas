@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  LayoutDashboard, Calendar, Users, Home, RefreshCw,
-  LogOut, TreePalm, Plus, ChevronRight
+  LayoutDashboard, Calendar, Users, Home,
+  LogOut, TreePalm, Plus, ChevronRight, Settings
 } from "lucide-react";
 
 interface Props {
@@ -16,6 +16,7 @@ const nav = [
   { label: "Bookings", href: "/admin/bookings", icon: Calendar },
   { label: "Guests", href: "/admin/guests", icon: Users },
   { label: "Properties", href: "/admin/properties", icon: Home },
+  { label: "Settings", href: "/admin/settings", icon: Settings },
 ];
 
 export default function AdminSidebar({ userName }: Props) {
