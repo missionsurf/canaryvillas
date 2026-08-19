@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 import {
   LayoutDashboard, Calendar, Users, Home,
-  LogOut, TreePalm, Plus, ChevronRight, Settings
+  LogOut, TreePalm, Plus, ChevronRight, Settings, Menu, X
 } from "lucide-react";
 
 interface Props {
@@ -21,17 +22,21 @@ const nav = [
 
 export default function AdminSidebar({ userName }: Props) {
   const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Close on route change
+  useEffect(() => { setMobileOpen(false); }, [pathname]);
 
   function isActive(href: string) {
     if (href === "/admin/dashboard") return pathname === href;
     return pathname.startsWith(href);
   }
 
-  return (
-    <aside className="w-60 shrink-0 bg-gray-950 flex flex-col h-screen">
+  const sidebarContent = (onLinkClick?: () => void) => (
+    <>
       {/* Logo */}
-      <div className="px-5 py-5 border-b border-gray-800">
-        <Link href="/admin/dashboard" className="flex items-center gap-2.5">
+      <div className="px-5 py-5 border-b border-gray-800 flex items-center justify-between">
+        <Link href="/admin/dashboard" className="flex items-center gap-2.5" onClick={onLinkClick}>
           <div className="bg-sky-500 rounded-lg p-1.5">
             <TreePalm className="w-4 h-4 text-white" />
           </div>
@@ -40,6 +45,11 @@ export default function AdminSidebar({ userName }: Props) {
             <p className="text-gray-500 text-xs mt-0.5">Admin Panel</p>
           </div>
         </Link>
+        {onLinkClick && (
+          <button onClick={onLinkClick} className="text-gray-400 hover:text-white md:hidden">
+            <X className="w-5 h-5" />
+          </button>
+        )}
       </div>
 
       {/* Nav */}
@@ -48,6 +58,7 @@ export default function AdminSidebar({ userName }: Props) {
           <Link
             key={href}
             href={href}
+            onClick={onLinkClick}
             className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
               isActive(href)
                 ? "bg-sky-600 text-white"
@@ -65,6 +76,7 @@ export default function AdminSidebar({ userName }: Props) {
         </div>
         <Link
           href="/admin/bookings/new"
+          onClick={onLinkClick}
           className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
         >
           <Plus className="w-4 h-4 shrink-0" />
@@ -72,6 +84,7 @@ export default function AdminSidebar({ userName }: Props) {
         </Link>
         <Link
           href="/admin/guests/new"
+          onClick={onLinkClick}
           className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
         >
           <Plus className="w-4 h-4 shrink-0" />
@@ -93,6 +106,40 @@ export default function AdminSidebar({ userName }: Props) {
           <LogOut className="w-4 h-4" /> Sign out
         </button>
       </div>
-    </aside>
+    </>
+  );
+
+  return (
+    <>
+      {/* Desktop sidebar */}
+      <aside className="hidden md:flex w-60 shrink-0 bg-gray-950 flex-col h-screen">
+        {sidebarContent()}
+      </aside>
+
+      {/* Mobile top bar */}
+      <div className="md:hidden fixed top-0 left-0 right-0 z-40 bg-gray-950 border-b border-gray-800 flex items-center justify-between px-4 h-14">
+        <Link href="/admin/dashboard" className="flex items-center gap-2">
+          <div className="bg-sky-500 rounded-lg p-1.5">
+            <TreePalm className="w-4 h-4 text-white" />
+          </div>
+          <p className="text-white font-bold text-sm">Canary Villas</p>
+        </Link>
+        <button onClick={() => setMobileOpen(true)} className="text-gray-400 hover:text-white p-1">
+          <Menu className="w-6 h-6" />
+        </button>
+      </div>
+
+      {/* Mobile drawer overlay */}
+      {mobileOpen && (
+        <div className="md:hidden fixed inset-0 z-50 flex">
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/60" onClick={() => setMobileOpen(false)} />
+          {/* Drawer */}
+          <aside className="relative w-72 bg-gray-950 flex flex-col h-full shadow-2xl">
+            {sidebarContent(() => setMobileOpen(false))}
+          </aside>
+        </div>
+      )}
+    </>
   );
 }
