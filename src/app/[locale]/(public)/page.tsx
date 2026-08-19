@@ -69,7 +69,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       {/* Hero */}
       <section className="relative h-screen min-h-[600px] flex items-center justify-center text-white">
-        <Image src="https://www.canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg" alt="Beachfront villa in Fuerteventura" fill className="object-cover" priority />
+        <Image src="https://www.canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg" alt="Beachfront villa in Fuerteventura" fill className="object-cover" priority sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <p className="text-sky-300 text-sm font-semibold uppercase tracking-widest mb-4">{t("hero.tagline")}</p>

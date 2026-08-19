@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "www.canaryvillas.com",
+      },
+      {
+        protocol: "https",
         hostname: "pnkxfbsjd3gpupqs.public.blob.vercel-storage.com",
       },
     ],
