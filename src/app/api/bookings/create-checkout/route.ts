@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { stripe } from "@/lib/stripe";
-import { differenceInDays, parseISO, subWeeks } from "date-fns";
+import { parseISO, subWeeks } from "date-fns";
+import { getEffectivePriceForStay } from "@/lib/pricing";
 
 export async function POST(req: NextRequest) {
   try {
@@ -17,29 +18,26 @@ export async function POST(req: NextRequest) {
 
     const checkInDate = parseISO(checkIn);
     const checkOutDate = parseISO(checkOut);
-    const nights = differenceInDays(checkOutDate, checkInDate);
-
-    if (nights < 1) {
-      return NextResponse.json({ error: "Minimum stay is 1 night" }, { status: 400 });
-    }
 
     // Check for conflicts
     const conflicting = await prisma.booking.findFirst({
       where: {
         villaId,
         status: { in: ["pending", "confirmed"] },
-        OR: [
-          { checkIn: { lt: checkOutDate }, checkOut: { gt: checkInDate } },
-        ],
+        OR: [{ checkIn: { lt: checkOutDate }, checkOut: { gt: checkInDate } }],
       },
     });
     if (conflicting) {
       return NextResponse.json({ error: "Selected dates are not available" }, { status: 409 });
     }
 
-    const pricePerNight = villa.pricePerNight;
-    const cleaningFee = villa.cleaningFee;
-    const totalPrice = nights * pricePerNight + cleaningFee;
+    const pricing = await getEffectivePriceForStay(villaId, checkInDate, checkOutDate);
+    const { pricePerNight, cleaningFee, totalPrice, nights } = pricing;
+
+    if (nights < 1) {
+      return NextResponse.json({ error: "Minimum stay is 1 night" }, { status: 400 });
+    }
+
     const depositAmount = Math.round(totalPrice / 2 * 100) / 100;
     const balanceAmount = Math.round((totalPrice - depositAmount) * 100) / 100;
     const balanceDueDate = subWeeks(checkInDate, 6);

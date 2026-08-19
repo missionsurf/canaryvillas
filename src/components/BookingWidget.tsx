@@ -45,8 +45,22 @@ export default function BookingWidget({
     ...bookedDates.map((d) => new Date(d)),
   ];
 
+  const [effectivePrice, setEffectivePrice] = useState<number>(pricePerNight);
+  const [priceFetching, setPriceFetching] = useState(false);
+
+  useEffect(() => {
+    if (!range?.from || !range?.to) { setEffectivePrice(pricePerNight); return; }
+    const checkIn = format(range.from, "yyyy-MM-dd");
+    const checkOut = format(range.to, "yyyy-MM-dd");
+    setPriceFetching(true);
+    fetch(`/api/villas/${villaId}/price-check?checkIn=${checkIn}&checkOut=${checkOut}`)
+      .then(r => r.json())
+      .then(d => { if (d.pricePerNight) setEffectivePrice(d.pricePerNight); })
+      .finally(() => setPriceFetching(false));
+  }, [range, villaId, pricePerNight]);
+
   const nights = range?.from && range?.to ? differenceInDays(range.to, range.from) : 0;
-  const subtotal = nights * pricePerNight;
+  const subtotal = nights * effectivePrice;
   const total = subtotal + (nights > 0 ? cleaningFee : 0);
   const deposit = Math.round(total / 2 * 100) / 100;
   const balance = Math.round((total - deposit) * 100) / 100;
@@ -178,8 +192,9 @@ export default function BookingWidget({
     <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden sticky top-24">
       <div className="bg-sky-500 text-white px-6 py-5">
         <div className="flex items-baseline gap-1">
-          <span className="text-3xl font-extrabold">{fmtPrice(pricePerNight)}</span>
+          <span className="text-3xl font-extrabold">{fmtPrice(effectivePrice)}</span>
           <span className="text-sky-100">{t("perNight")}</span>
+          {priceFetching && <span className="text-sky-200 text-xs ml-1">…</span>}
         </div>
         <p className="text-sky-100 text-sm mt-1">{villaName}</p>
       </div>
@@ -227,7 +242,7 @@ export default function BookingWidget({
             {nights > 0 && (
               <div className="border-t pt-4 mb-5 space-y-2 text-sm text-gray-600">
                 <div className="flex justify-between">
-                  <span>{fmtPrice(pricePerNight)} × {t("nightsCount", { n: nights })}</span>
+                  <span>{fmtPrice(effectivePrice)} × {t("nightsCount", { n: nights })}</span>
                   <span>{fmtPrice(subtotal)}</span>
                 </div>
                 <div className="flex justify-between">

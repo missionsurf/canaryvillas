@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getAdminSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { differenceInDays } from "date-fns";
+import { getEffectivePriceForStay } from "@/lib/pricing";
 
 export async function POST(req: NextRequest) {
   const session = await getAdminSession();
@@ -34,9 +35,7 @@ export async function POST(req: NextRequest) {
   });
   if (conflict) return NextResponse.json({ error: "Dates conflict with an existing booking" }, { status: 409 });
 
-  const pricePerNight = villa.pricePerNight;
-  const cleaningFee = villa.cleaningFee;
-  const totalPrice = pricePerNight * nights + cleaningFee;
+  const { pricePerNight, cleaningFee, totalPrice } = await getEffectivePriceForStay(villaId, checkInDate, checkOutDate);
 
   const booking = await prisma.booking.create({
     data: {

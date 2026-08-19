@@ -1,13 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Settings, DollarSign, Users, Eye, EyeOff, Trash2, Plus, Save, CheckCircle } from "lucide-react";
+import { Settings, DollarSign, Users, Eye, EyeOff, Trash2, Plus, Save, CheckCircle, Tag } from "lucide-react";
+import { format } from "date-fns";
 
 interface Villa {
   id: string;
   name: string;
   pricePerNight: number;
   cleaningFee: number;
+}
+
+interface SeasonalRate {
+  id: string;
+  name: string;
+  startDate: string;
+  endDate: string;
+  pricePerNight: number;
 }
 
 interface AdminUser {
@@ -19,6 +28,8 @@ interface AdminUser {
 
 type Tab = "pricing" | "admins";
 
+const emptyRate = { name: "", startDate: "", endDate: "", pricePerNight: "" };
+
 export default function SettingsPage() {
   const [tab, setTab] = useState<Tab>("pricing");
   const [villas, setVillas] = useState<Villa[]>([]);
@@ -28,6 +39,12 @@ export default function SettingsPage() {
   const [pricingSaving, setPricingSaving] = useState<Record<string, boolean>>({});
   const [pricingSaved, setPricingSaved] = useState<Record<string, boolean>>({});
   const [pricingError, setPricingError] = useState<Record<string, string>>({});
+
+  // Seasonal rates per villa
+  const [rates, setRates] = useState<Record<string, SeasonalRate[]>>({});
+  const [newRate, setNewRate] = useState<Record<string, typeof emptyRate>>({});
+  const [rateSaving, setRateSaving] = useState<Record<string, boolean>>({});
+  const [rateMsg, setRateMsg] = useState<Record<string, { ok: boolean; text: string }>>({});
 
   // Password change
   const [pwCurrent, setPwCurrent] = useState("");
@@ -49,11 +66,18 @@ export default function SettingsPage() {
     fetch("/api/admin/villas").then(r => r.json()).then((data: Villa[]) => {
       setVillas(data);
       const draft: Record<string, { pricePerNight: string; cleaningFee: string }> = {};
-      data.forEach(v => { draft[v.id] = { pricePerNight: String(v.pricePerNight), cleaningFee: String(v.cleaningFee) }; });
+      const nr: Record<string, typeof emptyRate> = {};
+      data.forEach(v => {
+        draft[v.id] = { pricePerNight: String(v.pricePerNight), cleaningFee: String(v.cleaningFee) };
+        nr[v.id] = { ...emptyRate };
+        fetch(`/api/admin/villas/${v.id}/rates`).then(r => r.json()).then((rs: SeasonalRate[]) => {
+          setRates(prev => ({ ...prev, [v.id]: rs }));
+        });
+      });
       setPricingDraft(draft);
+      setNewRate(nr);
     });
     fetch("/api/admin/admins").then(r => r.json()).then((data: AdminUser[]) => setAdmins(data));
-    // Get current admin id from session
     fetch("/api/admin/me").then(r => r.json()).then((d: { id: string }) => setCurrentAdminId(d.id)).catch(() => {});
   }, []);
 
@@ -62,8 +86,7 @@ export default function SettingsPage() {
     const pricePerNight = parseFloat(draft.pricePerNight);
     const cleaningFee = parseFloat(draft.cleaningFee);
     if (isNaN(pricePerNight) || isNaN(cleaningFee) || pricePerNight <= 0 || cleaningFee < 0) {
-      setPricingError(e => ({ ...e, [villaId]: "Please enter valid prices" }));
-      return;
+      setPricingError(e => ({ ...e, [villaId]: "Please enter valid prices" })); return;
     }
     setPricingError(e => ({ ...e, [villaId]: "" }));
     setPricingSaving(s => ({ ...s, [villaId]: true }));
@@ -83,6 +106,36 @@ export default function SettingsPage() {
     }
   }
 
+  async function addRate(villaId: string) {
+    const r = newRate[villaId];
+    const price = parseFloat(r.pricePerNight);
+    if (!r.name || !r.startDate || !r.endDate || isNaN(price) || price <= 0) {
+      setRateMsg(m => ({ ...m, [villaId]: { ok: false, text: "All fields required" } })); return;
+    }
+    setRateSaving(s => ({ ...s, [villaId]: true }));
+    const res = await fetch(`/api/admin/villas/${villaId}/rates`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: r.name, startDate: r.startDate, endDate: r.endDate, pricePerNight: price }),
+    });
+    const d = await res.json();
+    setRateSaving(s => ({ ...s, [villaId]: false }));
+    if (res.ok) {
+      setRates(prev => ({ ...prev, [villaId]: [...(prev[villaId] ?? []), d] }));
+      setNewRate(nr => ({ ...nr, [villaId]: { ...emptyRate } }));
+      setRateMsg(m => ({ ...m, [villaId]: { ok: true, text: "Rate added" } }));
+      setTimeout(() => setRateMsg(m => { const n = { ...m }; delete n[villaId]; return n; }), 2000);
+    } else {
+      setRateMsg(m => ({ ...m, [villaId]: { ok: false, text: d.error ?? "Failed" } }));
+    }
+  }
+
+  async function deleteRate(villaId: string, rateId: string) {
+    if (!confirm("Delete this seasonal rate?")) return;
+    const res = await fetch(`/api/admin/villas/${villaId}/rates/${rateId}`, { method: "DELETE" });
+    if (res.ok) setRates(prev => ({ ...prev, [villaId]: prev[villaId].filter(r => r.id !== rateId) }));
+  }
+
   async function changePassword() {
     if (pwNew !== pwConfirm) { setPwMsg({ ok: false, text: "New passwords do not match" }); return; }
     setPwSaving(true); setPwMsg(null);
@@ -93,8 +146,8 @@ export default function SettingsPage() {
     });
     const d = await res.json();
     setPwSaving(false);
-    if (res.ok) { setPwMsg({ ok: true, text: "Password changed successfully" }); setPwCurrent(""); setPwNew(""); setPwConfirm(""); }
-    else { setPwMsg({ ok: false, text: d.error ?? "Failed" }); }
+    if (res.ok) { setPwMsg({ ok: true, text: "Password changed" }); setPwCurrent(""); setPwNew(""); setPwConfirm(""); }
+    else setPwMsg({ ok: false, text: d.error ?? "Failed" });
   }
 
   async function addAdmin() {
@@ -111,9 +164,7 @@ export default function SettingsPage() {
       setAdmins(a => [...a, d]);
       setNewName(""); setNewEmail(""); setNewPassword("");
       setAddMsg({ ok: true, text: "Admin added" });
-    } else {
-      setAddMsg({ ok: false, text: d.error ?? "Failed" });
-    }
+    } else setAddMsg({ ok: false, text: d.error ?? "Failed" });
   }
 
   async function deleteAdmin(id: string) {
@@ -122,6 +173,8 @@ export default function SettingsPage() {
     if (res.ok) setAdmins(a => a.filter(x => x.id !== id));
     else { const d = await res.json(); alert(d.error ?? "Failed"); }
   }
+
+  const fmtDate = (d: string) => format(new Date(d), "d MMM yyyy");
 
   return (
     <div className="p-6 max-w-3xl mx-auto">
@@ -145,55 +198,136 @@ export default function SettingsPage() {
 
       {/* Pricing tab */}
       {tab === "pricing" && (
-        <div className="space-y-6">
+        <div className="space-y-8">
           {villas.map(villa => (
-            <div key={villa.id} className="bg-white rounded-2xl border border-gray-200 p-6">
-              <h2 className="font-bold text-gray-900 text-lg mb-5">{villa.name}</h2>
-              <div className="grid grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">Price per night (€)</label>
-                  <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 font-medium">€</span>
-                    <input
-                      type="number"
-                      min="1"
-                      step="1"
-                      value={pricingDraft[villa.id]?.pricePerNight ?? ""}
-                      onChange={e => setPricingDraft(d => ({ ...d, [villa.id]: { ...d[villa.id], pricePerNight: e.target.value } }))}
-                      className="w-full pl-7 pr-3 py-2.5 border border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-sky-500"
-                    />
+            <div key={villa.id} className="bg-white rounded-2xl border border-gray-200 p-6 space-y-6">
+              <h2 className="font-bold text-gray-900 text-lg">{villa.name}</h2>
+
+              {/* Base price */}
+              <div>
+                <h3 className="text-sm font-semibold text-gray-700 mb-3">Base / Default Price</h3>
+                <div className="grid grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-600 mb-1.5">Price per night (€)</label>
+                    <div className="relative">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 font-medium">€</span>
+                      <input
+                        type="number" min="1" step="1"
+                        value={pricingDraft[villa.id]?.pricePerNight ?? ""}
+                        onChange={e => setPricingDraft(d => ({ ...d, [villa.id]: { ...d[villa.id], pricePerNight: e.target.value } }))}
+                        className="w-full pl-7 pr-3 py-2.5 border border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-600 mb-1.5">Cleaning fee (€)</label>
+                    <div className="relative">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 font-medium">€</span>
+                      <input
+                        type="number" min="0" step="1"
+                        value={pricingDraft[villa.id]?.cleaningFee ?? ""}
+                        onChange={e => setPricingDraft(d => ({ ...d, [villa.id]: { ...d[villa.id], cleaningFee: e.target.value } }))}
+                        className="w-full pl-7 pr-3 py-2.5 border border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                      />
+                    </div>
                   </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">Cleaning fee (€)</label>
-                  <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 font-medium">€</span>
-                    <input
-                      type="number"
-                      min="0"
-                      step="1"
-                      value={pricingDraft[villa.id]?.cleaningFee ?? ""}
-                      onChange={e => setPricingDraft(d => ({ ...d, [villa.id]: { ...d[villa.id], cleaningFee: e.target.value } }))}
-                      className="w-full pl-7 pr-3 py-2.5 border border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-sky-500"
-                    />
-                  </div>
+                {pricingError[villa.id] && <p className="text-red-500 text-sm mb-3">{pricingError[villa.id]}</p>}
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => savePricing(villa.id)}
+                    disabled={pricingSaving[villa.id]}
+                    className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 disabled:opacity-50 text-white px-5 py-2 rounded-xl text-sm font-semibold transition-colors"
+                  >
+                    <Save className="w-4 h-4" />
+                    {pricingSaving[villa.id] ? "Saving…" : "Save Base Price"}
+                  </button>
+                  {pricingSaved[villa.id] && (
+                    <span className="flex items-center gap-1.5 text-green-600 text-sm font-medium">
+                      <CheckCircle className="w-4 h-4" /> Saved
+                    </span>
+                  )}
                 </div>
               </div>
-              {pricingError[villa.id] && <p className="text-red-500 text-sm mb-3">{pricingError[villa.id]}</p>}
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={() => savePricing(villa.id)}
-                  disabled={pricingSaving[villa.id]}
-                  className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 disabled:opacity-50 text-white px-5 py-2 rounded-xl text-sm font-semibold transition-colors"
-                >
-                  <Save className="w-4 h-4" />
-                  {pricingSaving[villa.id] ? "Saving…" : "Save Prices"}
-                </button>
-                {pricingSaved[villa.id] && (
-                  <span className="flex items-center gap-1.5 text-green-600 text-sm font-medium">
-                    <CheckCircle className="w-4 h-4" /> Saved
-                  </span>
+
+              {/* Seasonal rates */}
+              <div className="border-t border-gray-100 pt-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <Tag className="w-4 h-4 text-gray-400" />
+                  <h3 className="text-sm font-semibold text-gray-700">Seasonal Rates</h3>
+                </div>
+                <p className="text-xs text-gray-500 mb-4">Override the nightly price for specific date ranges — e.g. peak summer, Christmas, Easter.</p>
+
+                {/* Existing rates */}
+                {(rates[villa.id] ?? []).length > 0 && (
+                  <div className="space-y-2 mb-4">
+                    {(rates[villa.id] ?? []).map(r => (
+                      <div key={r.id} className="flex items-center justify-between bg-gray-50 rounded-xl px-4 py-3">
+                        <div>
+                          <p className="text-sm font-semibold text-gray-800">{r.name}</p>
+                          <p className="text-xs text-gray-500">{fmtDate(r.startDate)} → {fmtDate(r.endDate)}</p>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <span className="text-sm font-bold text-sky-600">€{r.pricePerNight}/night</span>
+                          <button onClick={() => deleteRate(villa.id, r.id)} className="text-gray-400 hover:text-red-500 transition-colors">
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 )}
+
+                {/* Add new rate */}
+                <div className="bg-gray-50 rounded-xl p-4 space-y-3">
+                  <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Add rate</p>
+                  <div className="grid grid-cols-2 gap-3">
+                    <input
+                      placeholder="Name (e.g. Summer 2025)"
+                      value={newRate[villa.id]?.name ?? ""}
+                      onChange={e => setNewRate(nr => ({ ...nr, [villa.id]: { ...nr[villa.id], name: e.target.value } }))}
+                      className="col-span-2 px-3 py-2.5 border border-gray-200 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-sky-500"
+                    />
+                    <div>
+                      <label className="block text-xs text-gray-500 mb-1">From</label>
+                      <input
+                        type="date"
+                        value={newRate[villa.id]?.startDate ?? ""}
+                        onChange={e => setNewRate(nr => ({ ...nr, [villa.id]: { ...nr[villa.id], startDate: e.target.value } }))}
+                        className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-sky-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-gray-500 mb-1">To</label>
+                      <input
+                        type="date"
+                        value={newRate[villa.id]?.endDate ?? ""}
+                        onChange={e => setNewRate(nr => ({ ...nr, [villa.id]: { ...nr[villa.id], endDate: e.target.value } }))}
+                        className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-sky-500"
+                      />
+                    </div>
+                    <div className="relative">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">€</span>
+                      <input
+                        type="number" min="1" step="1" placeholder="Price/night"
+                        value={newRate[villa.id]?.pricePerNight ?? ""}
+                        onChange={e => setNewRate(nr => ({ ...nr, [villa.id]: { ...nr[villa.id], pricePerNight: e.target.value } }))}
+                        className="w-full pl-7 pr-3 py-2.5 border border-gray-200 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-sky-500"
+                      />
+                    </div>
+                    <button
+                      onClick={() => addRate(villa.id)}
+                      disabled={rateSaving[villa.id]}
+                      className="flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-700 disabled:opacity-50 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors"
+                    >
+                      <Plus className="w-4 h-4" />
+                      {rateSaving[villa.id] ? "Adding…" : "Add Rate"}
+                    </button>
+                  </div>
+                  {rateMsg[villa.id] && (
+                    <p className={`text-sm font-medium ${rateMsg[villa.id].ok ? "text-green-600" : "text-red-500"}`}>{rateMsg[villa.id].text}</p>
+                  )}
+                </div>
               </div>
             </div>
           ))}
@@ -203,8 +337,6 @@ export default function SettingsPage() {
       {/* Admins tab */}
       {tab === "admins" && (
         <div className="space-y-6">
-
-          {/* Change password */}
           <div className="bg-white rounded-2xl border border-gray-200 p-6">
             <h2 className="font-bold text-gray-900 text-lg mb-5">Change Your Password</h2>
             <div className="space-y-3 max-w-sm">
@@ -212,8 +344,7 @@ export default function SettingsPage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">Current password</label>
                 <div className="relative">
                   <input
-                    type={pwShow ? "text" : "password"}
-                    value={pwCurrent}
+                    type={pwShow ? "text" : "password"} value={pwCurrent}
                     onChange={e => setPwCurrent(e.target.value)}
                     className="w-full pr-10 px-3 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500"
                   />
@@ -224,35 +355,22 @@ export default function SettingsPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">New password</label>
-                <input
-                  type={pwShow ? "text" : "password"}
-                  value={pwNew}
-                  onChange={e => setPwNew(e.target.value)}
-                  className="w-full px-3 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500"
-                />
+                <input type={pwShow ? "text" : "password"} value={pwNew} onChange={e => setPwNew(e.target.value)}
+                  className="w-full px-3 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">Confirm new password</label>
-                <input
-                  type={pwShow ? "text" : "password"}
-                  value={pwConfirm}
-                  onChange={e => setPwConfirm(e.target.value)}
-                  className="w-full px-3 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500"
-                />
+                <input type={pwShow ? "text" : "password"} value={pwConfirm} onChange={e => setPwConfirm(e.target.value)}
+                  className="w-full px-3 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500" />
               </div>
               {pwMsg && <p className={`text-sm font-medium ${pwMsg.ok ? "text-green-600" : "text-red-500"}`}>{pwMsg.text}</p>}
-              <button
-                onClick={changePassword}
-                disabled={pwSaving || !pwCurrent || !pwNew || !pwConfirm}
-                className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 disabled:opacity-50 text-white px-5 py-2 rounded-xl text-sm font-semibold transition-colors"
-              >
-                <Save className="w-4 h-4" />
-                {pwSaving ? "Saving…" : "Update Password"}
+              <button onClick={changePassword} disabled={pwSaving || !pwCurrent || !pwNew || !pwConfirm}
+                className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 disabled:opacity-50 text-white px-5 py-2 rounded-xl text-sm font-semibold transition-colors">
+                <Save className="w-4 h-4" />{pwSaving ? "Saving…" : "Update Password"}
               </button>
             </div>
           </div>
 
-          {/* Admin list */}
           <div className="bg-white rounded-2xl border border-gray-200 p-6">
             <h2 className="font-bold text-gray-900 text-lg mb-5">Admin Users</h2>
             <div className="space-y-3 mb-6">
@@ -273,42 +391,22 @@ export default function SettingsPage() {
                 </div>
               ))}
             </div>
-
-            {/* Add new admin */}
             <h3 className="font-semibold text-gray-800 text-sm mb-3">Add New Admin</h3>
             <div className="grid grid-cols-2 gap-3 max-w-lg">
-              <input
-                placeholder="Full name"
-                value={newName}
-                onChange={e => setNewName(e.target.value)}
-                className="px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
-              />
-              <input
-                placeholder="Email address"
-                type="email"
-                value={newEmail}
-                onChange={e => setNewEmail(e.target.value)}
-                className="px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
-              />
+              <input placeholder="Full name" value={newName} onChange={e => setNewName(e.target.value)}
+                className="px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sky-500" />
+              <input placeholder="Email address" type="email" value={newEmail} onChange={e => setNewEmail(e.target.value)}
+                className="px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sky-500" />
               <div className="relative">
-                <input
-                  placeholder="Password (min 8 chars)"
-                  type={newPwShow ? "text" : "password"}
-                  value={newPassword}
-                  onChange={e => setNewPassword(e.target.value)}
-                  className="w-full pr-10 px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
-                />
+                <input placeholder="Password (min 8 chars)" type={newPwShow ? "text" : "password"} value={newPassword} onChange={e => setNewPassword(e.target.value)}
+                  className="w-full pr-10 px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sky-500" />
                 <button onClick={() => setNewPwShow(s => !s)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
                   {newPwShow ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
-              <button
-                onClick={addAdmin}
-                disabled={addSaving}
-                className="flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-700 disabled:opacity-50 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors"
-              >
-                <Plus className="w-4 h-4" />
-                {addSaving ? "Adding…" : "Add Admin"}
+              <button onClick={addAdmin} disabled={addSaving}
+                className="flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-700 disabled:opacity-50 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors">
+                <Plus className="w-4 h-4" />{addSaving ? "Adding…" : "Add Admin"}
               </button>
             </div>
             {addMsg && <p className={`text-sm font-medium mt-3 ${addMsg.ok ? "text-green-600" : "text-red-500"}`}>{addMsg.text}</p>}
