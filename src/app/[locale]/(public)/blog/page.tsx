@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${t("title")} | Canary Villas`,
       description: t("subtitle"),
       url: "https://www.canaryvillas.com/blog",
-      images: [{ url: "https://www.canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg", width: 1200, height: 630 }],
+      images: [{ url: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg", width: 1200, height: 630 }],
     },
   };
 }

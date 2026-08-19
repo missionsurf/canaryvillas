@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "Holiday Villas to Rent in Fuerteventura | Canary Villas",
     description: "Luxury beachfront villas in Corralejo, Fuerteventura — book direct for the best price.",
     url: "https://www.canaryvillas.com/villas",
-    images: [{ url: "https://www.canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg", width: 1200, height: 630 }],
+    images: [{ url: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg", width: 1200, height: 630 }],
   },
 };
 

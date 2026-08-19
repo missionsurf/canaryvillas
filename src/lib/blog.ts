@@ -422,7 +422,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "The deep waters around Fuerteventura are home to over 30 species of whale and dolphin year-round. Here's how to make the most of one of the Atlantic's great wildlife spectacles.",
     date: "2025-04-05",
     category: "Wildlife",
-    heroImage: "https://canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg",
+    heroImage: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg",
     heroAlt: "Ocean and coastline views from Fuerteventura",
     readTime: 6,
     tags: ["whale watching", "dolphins", "wildlife", "Fuerteventura", "boat trips"],

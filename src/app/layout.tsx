@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "Canary Villas",
     images: [
       {
-        url: "https://canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg",
+        url: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg",
         width: 1200,
         height: 630,
         alt: "Canary Villas — Fuerteventura",
@@ -40,7 +40,7 @@ const organizationSchema = {
   "@type": ["Organization", "LodgingBusiness"],
   name: "Canary Villas",
   url: "https://canaryvillas.com",
-  logo: "https://canaryvillas.com/wp-content/uploads/2024/11/header-1.jpg",
+  logo: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg",
   telephone: "+447809870561",
   email: "info@canaryvillas.com",
   priceRange: "€€",
