@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "home.hero" });
   return {
-    title: "Holiday Villas to Rent in Fuerteventura | Beachfront Villas Corralejo",
-    description: t("sub"),
+    title: "Holiday Villas to Rent in Fuerteventura | Canary Villas Corralejo",
+    description: "Holiday villas to rent in Fuerteventura from €95/night. Stunning beachfront villas in Corralejo with sea views, private terraces and direct beach access. Book direct — best price guaranteed.",
     alternates: { canonical: "https://www.canaryvillas.com" },
     openGraph: {
       title: "Holiday Villas to Rent in Fuerteventura | Canary Villas",

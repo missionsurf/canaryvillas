@@ -820,6 +820,137 @@ export const blogPosts: BlogPost[] = [
 <p>Our Corralejo villas are a 5-minute walk from the harbour and all the SUP hire operators. <a href="/villas">Book your stay →</a></p>
     `,
   },
+  {
+    slug: "holiday-villas-to-rent-fuerteventura",
+    title: "Holiday Villas to Rent in Fuerteventura — Complete Guide 2025",
+    metaTitle: "Holiday Villas to Rent in Fuerteventura 2025 | Canary Villas",
+    metaDescription: "Everything you need to know about renting a holiday villa in Fuerteventura. Types of villa, best areas, what to look for, and why booking direct saves you money.",
+    excerpt: "Thinking of renting a holiday villa in Fuerteventura? Here's everything you need to know — from choosing the right area to what to look for and how to get the best deal.",
+    date: "2025-05-10",
+    category: "Travel Tips",
+    heroImage: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg",
+    heroAlt: "Beachfront holiday villa to rent in Fuerteventura",
+    readTime: 9,
+    tags: ["holiday villas", "fuerteventura", "villa rental", "corralejo", "self-catering"],
+    faqs: [
+      {
+        q: "How much does it cost to rent a holiday villa in Fuerteventura?",
+        a: "Holiday villa prices in Fuerteventura typically range from €80–€150 per night for a one or two-bedroom property, up to €200–€400+ per night for larger beachfront villas sleeping 6–8 guests. Booking direct (rather than through Airbnb or Booking.com) usually saves 10–20% as you avoid platform commission fees.",
+      },
+      {
+        q: "What is the best area to rent a villa in Fuerteventura?",
+        a: "Corralejo in the north is the most popular area for villa rentals — it has the best beaches, great restaurants and bars, and excellent watersports. El Cotillo is quieter and suits couples. Costa Calma in the south is good for families and wind sports.",
+      },
+      {
+        q: "What's the best time of year to rent a villa in Fuerteventura?",
+        a: "Fuerteventura has good weather year-round with average temperatures of 20–28°C. July and August are the hottest and most expensive months. April–June and September–October offer the best combination of good weather and lower prices. Even winter (November–February) is mild at around 18–20°C.",
+      },
+      {
+        q: "Is it cheaper to book a Fuerteventura villa direct or through Airbnb?",
+        a: "Booking direct is almost always cheaper. Airbnb adds a 12–18% service fee on top of the advertised price, plus the host is typically charged a 3% host fee which they factor into their rates. Booking direct with the villa owner or a local agency like Canary Villas removes both fees.",
+      },
+      {
+        q: "Do Fuerteventura villas include pool access?",
+        a: "Many villas in Fuerteventura have private or communal pools. Beachfront villas near Corralejo often have direct beach access as an alternative. Always check the villa listing carefully — a 'sea view' villa is not necessarily on the beach.",
+      },
+    ],
+    content: `
+<p>Fuerteventura is one of the most popular Canary Islands for self-catering holidays — and for good reason. The combination of year-round sunshine, world-class beaches, and a relaxed atmosphere makes it perfect for a villa holiday. But with so many options, how do you find the right villa, in the right area, at the right price?</p>
+
+<p>This guide covers everything you need to know about renting a holiday villa in Fuerteventura — from choosing where to stay, to what to look for in a property, to how to avoid paying over the odds.</p>
+
+<h2>Why Rent a Villa in Fuerteventura?</h2>
+
+<p>Hotels and all-inclusive resorts are fine, but a self-catering villa holiday is a different experience entirely. Here's why so many families and couples choose to rent a villa:</p>
+
+<ul>
+  <li><strong>Space and privacy</strong> — your own terrace, living room, and kitchen rather than shared hotel facilities</li>
+  <li><strong>Better value for groups</strong> — a 3-bedroom villa split between 6 guests often works out cheaper per person than hotel rooms</li>
+  <li><strong>Freedom</strong> — eat when you want, come and go as you please, no check-in queues</li>
+  <li><strong>Home comforts</strong> — cook your own breakfast, do your laundry, keep the kids to their own routine</li>
+  <li><strong>Local experience</strong> — staying in a residential area gives you a much more authentic feel for the island</li>
+</ul>
+
+<h2>Best Areas to Rent a Holiday Villa in Fuerteventura</h2>
+
+<h3>Corralejo (North)</h3>
+<p>Corralejo is the most popular destination for villa holidays in Fuerteventura, and it's easy to see why. The town sits on the northern tip of the island with direct access to the stunning <strong>Corralejo Natural Park</strong> — 10km of protected white sand dunes and crystal-clear Atlantic water.</p>
+<p>The town itself is lively without being overwhelming — great restaurants, bars, a harbour, weekly markets, and excellent watersports including kitesurfing, windsurfing, surfing, and diving. Ferries to Lanzarote leave from here daily.</p>
+<p><strong>Best for:</strong> Families, couples, watersports enthusiasts, anyone who wants the best beaches and a bit of nightlife.</p>
+
+<h3>El Cotillo (Northwest)</h3>
+<p>About 20 minutes west of Corralejo, El Cotillo is a small fishing village with a gorgeous lagoon beach — sheltered, calm water, and far quieter than Corralejo. Great for young children who need safe swimming. The village has a handful of good restaurants and a very relaxed feel.</p>
+<p><strong>Best for:</strong> Couples and young families wanting peace and quiet.</p>
+
+<h3>Costa Calma & Jandia (South)</h3>
+<p>The south of Fuerteventura is home to the long Sotavento beach — legendary among windsurfers and kitesurfers. Costa Calma and the Jandia peninsula are more resort-like than the north, with larger hotel complexes alongside villas. The beaches are excellent and the water is generally calmer than the north.</p>
+<p><strong>Best for:</strong> Windsurfers, kitesurfers, those who prefer a more traditional resort feel.</p>
+
+<h2>What to Look for in a Fuerteventura Villa Rental</h2>
+
+<p>Not all villas are equal. Here's what to check before you book:</p>
+
+<ul>
+  <li><strong>Location relative to the beach</strong> — "sea views" doesn't mean beachfront. Check the map carefully and look for walking distance to the beach stated clearly</li>
+  <li><strong>Air conditioning</strong> — essential in July and August when temperatures hit 30°C+</li>
+  <li><strong>Parking</strong> — important if you're hiring a car, which we'd recommend for exploring the island</li>
+  <li><strong>Pool vs beach</strong> — some beachfront properties don't have pools because they have direct beach access; others have communal pools in a complex</li>
+  <li><strong>Cleaning fee</strong> — always check what's included; a low nightly rate sometimes hides a large cleaning fee</li>
+  <li><strong>Cancellation policy</strong> — Fuerteventura is a year-round destination but weather can affect travel; make sure you understand the cancellation terms before booking</li>
+</ul>
+
+<h2>How Much Does It Cost to Rent a Villa in Fuerteventura?</h2>
+
+<p>Villa rental prices vary significantly depending on size, location, and time of year:</p>
+
+<ul>
+  <li><strong>Studio / 1-bed</strong>: €60–€100/night</li>
+  <li><strong>2-bedroom villa</strong>: €90–€160/night</li>
+  <li><strong>3-bedroom beachfront</strong>: €180–€300/night</li>
+  <li><strong>Large luxury villa (4–5 bed)</strong>: €300–€600+/night</li>
+</ul>
+
+<p>Peak season (July, August, Christmas, Easter) commands a 20–40% premium over shoulder season prices. The shoulder months of April–June and September–October offer the best value while still delivering excellent weather.</p>
+
+<h2>Book Direct and Save Money</h2>
+
+<p>One of the biggest tips we can offer: <strong>book your Fuerteventura villa direct with the owner or a local agency, not through a platform like Airbnb or Booking.com.</strong></p>
+
+<p>Here's why it matters financially. Airbnb adds a guest service fee of 12–18% on top of every booking. On a €1,500 holiday that's an extra €180–€270 in fees — money that goes to a tech company in San Francisco rather than into your villa experience.</p>
+
+<p>Booking direct also means:</p>
+<ul>
+  <li>You can speak to someone local who actually knows the property</li>
+  <li>Easier to arrange extras like early check-in, airport transfers, or baby equipment</li>
+  <li>Disputes (rare, but they happen) are resolved by a real person rather than a platform algorithm</li>
+  <li>Flexible payment options — bank transfer, card, or instalments</li>
+</ul>
+
+<h2>Renting a Villa in Corralejo — Our Properties</h2>
+
+<p>At Canary Villas, we manage two hand-picked properties in Corralejo, both available for direct booking:</p>
+
+<p><strong>The Beach House</strong> is a stunning beachfront villa sleeping up to 6 guests with panoramic Atlantic views and direct access to one of Fuerteventura's finest beaches. From €180/night.</p>
+
+<p><strong>The Bungalow Apartment</strong> is a charming private bungalow with a fully fitted kitchen, secluded garden, and UK TV channels — perfect for couples or small families. From €95/night.</p>
+
+<p>Both properties are available to book direct — no Airbnb fees, flexible payment, and a local team on the ground in Corralejo if you need anything during your stay.</p>
+
+<p><a href="/villas">View our holiday villas to rent in Fuerteventura →</a></p>
+
+<h2>Practical Tips for Your Fuerteventura Villa Holiday</h2>
+
+<ul>
+  <li><strong>Hire a car</strong> — public transport is limited and a car opens up the whole island. Book in advance in summer as availability gets tight</li>
+  <li><strong>Stock up at Mercadona</strong> — the local supermarket chain has everything you need at reasonable prices; there's one in Corralejo town</li>
+  <li><strong>Cash and card</strong> — most restaurants and shops accept card but a small amount of cash is useful for markets and smaller vendors</li>
+  <li><strong>Sun protection</strong> — the UV index in Fuerteventura is high even on cloudy days; factor 50 is recommended especially for children</li>
+  <li><strong>Wind</strong> — Fuerteventura is known for its wind (the name literally means "strong wind"). Pack a light layer for evenings even in summer</li>
+</ul>
+
+<p>Ready to start planning your Fuerteventura villa holiday? <a href="/villas">Browse our available villas</a> or <a href="/contact">get in touch</a> with any questions — we're based in Corralejo and happy to help.</p>
+    `,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
