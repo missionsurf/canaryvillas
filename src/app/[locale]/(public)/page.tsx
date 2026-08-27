@@ -143,7 +143,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               </div>
             </div>
             <div className="relative h-96 lg:h-full min-h-80 rounded-3xl overflow-hidden">
-              <Image src="https://www.canaryvillas.com/wp-content/uploads/2024/11/trees1.jpg" alt="Palm trees and beaches in Fuerteventura" fill className="object-cover" />
+              <Image src="https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/trees1.jpg" alt="Palm trees and beaches in Fuerteventura" fill className="object-cover" />
             </div>
           </div>
         </div>

@@ -600,7 +600,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "With 340 days of sunshine per year and year-round mild temperatures, Fuerteventura is genuinely a holiday destination for every month. But when is the absolute best time to go?",
     date: "2025-04-25",
     category: "Travel Guide",
-    heroImage: "https://canaryvillas.com/wp-content/uploads/2024/11/trees1.jpg",
+    heroImage: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/trees1.jpg",
     heroAlt: "Palm trees and sunshine in Fuerteventura",
     readTime: 7,
     tags: ["weather", "best time to visit", "Fuerteventura", "travel tips"],
