@@ -6,8 +6,8 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
-  title: "Holiday Villas to Rent in Fuerteventura — Corralejo | Canary Villas",
-  description: "Browse luxury holiday villas to rent in Corralejo, Fuerteventura. Beachfront villas, private bungalows and self-catering accommodation. Book direct for the best price guaranteed.",
+  title: "Beachfront Villas to Rent in Corralejo, Fuerteventura | Canary Villas",
+  description: "Beachfront holiday villas to rent in Corralejo, Fuerteventura from €95/night. Direct beach access, sea views, private terraces. Book direct — best price guaranteed, no hidden fees.",
   alternates: {
     canonical: "https://www.canaryvillas.com/villas",
     languages: {

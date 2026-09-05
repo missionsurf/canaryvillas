@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const villa = await getVillaBySlug(slug);
   if (!villa) return { title: "Villa Not Found" };
-  const title = `${villa.name} — Holiday Villa to Rent in Fuerteventura | Canary Villas`;
-  const description = `${villa.shortDesc} Book this ${villa.bedrooms}-bedroom beachfront holiday villa in Corralejo, Fuerteventura directly — best price guaranteed, no hidden fees.`;
+  const title = `${villa.name} — Beachfront Villa to Rent in Corralejo, Fuerteventura | Canary Villas`;
+  const description = `${villa.shortDesc} Book this ${villa.bedrooms}-bedroom beachfront villa to rent in Corralejo, Fuerteventura — direct booking, best price guaranteed, no hidden fees.`;
   return {
     title,
     description,

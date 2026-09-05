@@ -821,6 +821,119 @@ export const blogPosts: BlogPost[] = [
     `,
   },
   {
+    slug: "beachfront-villa-corralejo",
+    title: "Beachfront Villas in Corralejo — The Complete Guide",
+    metaTitle: "Beachfront Villa Corralejo Fuerteventura — Rent Direct & Save",
+    metaDescription: "Looking for a beachfront villa in Corralejo, Fuerteventura? Find out what makes Corralejo the best base, what to expect from a beachfront villa, and how to book direct for the best price.",
+    excerpt: "Corralejo is Fuerteventura's most popular resort town — and its beachfront villas are some of the most sought-after holiday rentals in the Canary Islands. Here's everything you need to know.",
+    date: "2025-06-15",
+    category: "Travel Tips",
+    heroImage: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg",
+    heroAlt: "Beachfront villa in Corralejo, Fuerteventura",
+    readTime: 8,
+    tags: ["beachfront villa", "corralejo", "fuerteventura", "villa rental", "self-catering"],
+    faqs: [
+      {
+        q: "Are there beachfront villas to rent in Corralejo?",
+        a: "Yes — Corralejo has a number of beachfront and near-beach villas available for self-catering holiday rental. The most sought-after properties sit directly on or within a 2-minute walk of the beach, with sea views and private terraces. Availability is limited so early booking is recommended, especially for July and August.",
+      },
+      {
+        q: "How much does a beachfront villa in Corralejo cost per night?",
+        a: "Beachfront villa prices in Corralejo typically start from around €150–€180 per night for a 2-bedroom property and can rise to €300+ per night for larger villas sleeping 6 or more. Prices are higher in July, August, Christmas, and Easter. Booking direct with the villa owner or a local agency rather than through Airbnb or Booking.com saves 10–18% in platform fees.",
+      },
+      {
+        q: "What beaches are near Corralejo?",
+        a: "Corralejo is bordered by the Corralejo Natural Park — 10km of protected white sand dunes and turquoise water, consistently rated among the best beaches in Europe. Grandes Playas (Flag Beach) is the most famous stretch, popular with kitesurfers and windsurfers. Closer to town, the Tres Islas beach is calmer and suits families with young children.",
+      },
+      {
+        q: "Is Corralejo good for families?",
+        a: "Yes — Corralejo is one of the best destinations in Fuerteventura for families. The beaches are stunning, the town has excellent restaurants and a relaxed atmosphere, and there are plenty of activities including boat trips, water parks, and quad biking. A beachfront villa gives families more space and flexibility than a hotel room.",
+      },
+      {
+        q: "Can I walk to the beach from a Corralejo villa?",
+        a: "It depends on the villa location. Some properties are directly on the beach with immediate access; others are a short walk (2–10 minutes) into town or to the Natural Park beaches. Always check the distance to the beach carefully in the villa listing before booking.",
+      },
+    ],
+    content: `
+<p>Corralejo sits at the northern tip of Fuerteventura, looking out across the Atlantic towards Lanzarote. It's long been the most popular destination on the island for a reason: the beaches here are genuinely world-class, the town has real character, and the combination of sunshine, watersports, and great restaurants is hard to beat anywhere in Europe.</p>
+
+<p>And for many visitors, nothing beats experiencing it from a beachfront villa — your own private space with the sea a few steps away.</p>
+
+<h2>Why Corralejo is the Best Base in Fuerteventura</h2>
+
+<p>Fuerteventura has several resort areas, but Corralejo consistently stands out for villa holidays. Here's why:</p>
+
+<ul>
+  <li><strong>The beaches</strong> — the Corralejo Natural Park protects 10km of white sand dunes and clear turquoise water, running south from the town. These aren't hotel-pool beaches; they're genuinely wild and beautiful.</li>
+  <li><strong>The town</strong> — Corralejo has evolved from a small fishing village into a lively resort without losing its soul. You'll find local tapas bars alongside tourist restaurants, a working harbour with ferries to Lanzarote, weekly markets, and independent shops.</li>
+  <li><strong>Watersports</strong> — Flag Beach (Grandes Playas) is one of Europe's top kitesurfing and windsurfing spots. There's also excellent surfing, diving, snorkelling, and SUP. If you're into water sports, Corralejo is the place.</li>
+  <li><strong>Connections</strong> — direct flights from most UK airports, a ferry link to Lanzarote, and easy car hire make Corralejo very accessible. The airport is 40 minutes south.</li>
+</ul>
+
+<h2>What to Expect from a Beachfront Villa in Corralejo</h2>
+
+<p>The term "beachfront" gets used loosely in villa listings, so it's worth understanding what you're actually getting:</p>
+
+<h3>Directly on the beach</h3>
+<p>A small number of properties in Corralejo sit right on the sand — step off the terrace and you're on the beach. These are rare, highly sought-after, and priced accordingly. They typically have panoramic sea views from multiple rooms and large terraces designed for outdoor living.</p>
+
+<h3>Near-beach (2–5 min walk)</h3>
+<p>The majority of "beachfront" villas are within a very short walk of the beach — close enough that you can see the sea from the terrace, hear the waves at night, and be on the sand in 2–5 minutes. These offer excellent value compared to the premium directly-on-the-beach properties.</p>
+
+<h3>Sea view villas</h3>
+<p>Some villas have sea views but are a longer walk from the beach — perhaps 10–15 minutes. These are typically cheaper and still offer the visual appeal of a sea view, but you won't have the convenience of being steps from the water.</p>
+
+<p><strong>Always check the exact distance to the beach before booking, and look at the map rather than relying on the listing description alone.</strong></p>
+
+<h2>Beachfront Villa vs Hotel in Corralejo</h2>
+
+<p>Hotels in Corralejo range from basic to good — but very few offer the experience of a self-catering beachfront villa. Here's how they compare:</p>
+
+<table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;">
+  <tr style="background:#f0f9ff;"><th style="text-align:left;padding:10px;border:1px solid #e2e8f0;">Feature</th><th style="padding:10px;border:1px solid #e2e8f0;text-align:center;">Beachfront Villa</th><th style="padding:10px;border:1px solid #e2e8f0;text-align:center;">Hotel</th></tr>
+  <tr><td style="padding:10px;border:1px solid #e2e8f0;">Privacy</td><td style="padding:10px;border:1px solid #e2e8f0;text-align:center;">✓ Your own space</td><td style="padding:10px;border:1px solid #e2e8f0;text-align:center;">Shared facilities</td></tr>
+  <tr style="background:#f8fafc;"><td style="padding:10px;border:1px solid #e2e8f0;">Kitchen</td><td style="padding:10px;border:1px solid #e2e8f0;text-align:center;">✓ Fully equipped</td><td style="padding:10px;border:1px solid #e2e8f0;text-align:center;">Restaurant only</td></tr>
+  <tr><td style="padding:10px;border:1px solid #e2e8f0;">Value for groups</td><td style="padding:10px;border:1px solid #e2e8f0;text-align:center;">✓ Much better</td><td style="padding:10px;border:1px solid #e2e8f0;text-align:center;">Multiple rooms add up</td></tr>
+  <tr style="background:#f8fafc;"><td style="padding:10px;border:1px solid #e2e8f0;">Flexibility</td><td style="padding:10px;border:1px solid #e2e8f0;text-align:center;">✓ Eat when you like</td><td style="padding:10px;border:1px solid #e2e8f0;text-align:center;">Meal times fixed</td></tr>
+  <tr><td style="padding:10px;border:1px solid #e2e8f0;">Local support</td><td style="padding:10px;border:1px solid #e2e8f0;text-align:center;">✓ (with good agency)</td><td style="padding:10px;border:1px solid #e2e8f0;text-align:center;">✓ On-site staff</td></tr>
+</table>
+
+<h2>Our Beachfront Villa in Corralejo</h2>
+
+<p>At Canary Villas, our flagship property is <strong>The Beach House</strong> — a genuine beachfront villa in Corralejo sleeping up to 6 guests. It sits directly on one of Corralejo's finest beaches with panoramic Atlantic views from the terrace and living areas.</p>
+
+<p>The villa features:</p>
+<ul>
+  <li>Direct beach access — step from the terrace onto the sand</li>
+  <li>Panoramic sea views from the main living area and terrace</li>
+  <li>3 bedrooms sleeping up to 6 guests</li>
+  <li>Fully equipped kitchen for self-catering</li>
+  <li>Private terrace and outdoor dining</li>
+  <li>Air conditioning throughout</li>
+  <li>UK TV channels</li>
+  <li>Private parking</li>
+</ul>
+
+<p>We also have <strong>The Bungalow Apartment</strong> — a charming private bungalow with secluded front and rear garden, fully fitted kitchen, and a short walk from the beach. Perfect for couples or small families looking for a quieter retreat in Corralejo.</p>
+
+<p>Both properties are available to book direct — no Airbnb fees, flexible payment options, and a local team based in Corralejo to help before and during your stay.</p>
+
+<p><a href="/villas">View available dates and prices →</a></p>
+
+<h2>Tips for Booking a Beachfront Villa in Corralejo</h2>
+
+<ul>
+  <li><strong>Book early for summer</strong> — the best beachfront properties in Corralejo get booked months in advance for July and August. If you're travelling in peak season, start looking in January or February.</li>
+  <li><strong>Book direct</strong> — avoiding Airbnb and Booking.com saves you 12–18% in platform fees. Use that money for a nicer meal out instead.</li>
+  <li><strong>Hire a car</strong> — Corralejo is compact and walkable, but a hire car lets you explore the rest of the island easily. The Corralejo Natural Park, El Cotillo, and Betancuria are all worth a day trip.</li>
+  <li><strong>Check the orientation</strong> — east-facing terraces get the morning sun; west-facing ones are better for sunsets. If you care about this, ask before you book.</li>
+  <li><strong>Pack for wind</strong> — Fuerteventura is famously windy (it's literally in the name). Most beachfront villas have sheltered terraces, but you'll want a light layer for evenings on the beach.</li>
+</ul>
+
+<p>Questions about any of our Corralejo beachfront villas? <a href="/contact">Get in touch</a> — we're based in Corralejo and happy to help you find the right property for your holiday.</p>
+    `,
+  },
+  {
     slug: "holiday-villas-to-rent-fuerteventura",
     title: "Holiday Villas to Rent in Fuerteventura — Complete Guide 2025",
     metaTitle: "Holiday Villas to Rent in Fuerteventura 2025 | Canary Villas",
