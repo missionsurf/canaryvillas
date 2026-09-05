@@ -38,6 +38,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...LOCALES.map((loc) => ({ url: `${BASE}/${loc}/villas`, lastModified: VILLAS_UPDATED, changeFrequency: "daily" as const, priority: 0.85 })),
     { url: `${BASE}/blog`, lastModified: new Date("2025-03-01"), changeFrequency: "weekly", priority: 0.8 },
     ...LOCALES.map((loc) => ({ url: `${BASE}/${loc}/blog`, lastModified: new Date("2025-03-01"), changeFrequency: "weekly" as const, priority: 0.75 })),
+    { url: `${BASE}/villas/beachfront-villas-fuerteventura`, lastModified: VILLAS_UPDATED, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/contact`, lastModified: SITE_LAUNCH, changeFrequency: "monthly", priority: 0.5 },
     ...villaUrls,
     ...blogUrls,
