@@ -680,5 +680,130 @@ const fr: Record<string, { title: string; metaTitle: string; metaDescription: st
       },
     ],
   },
+
+  "beachfront-villa-corralejo": {
+    title: "Villas en Bord de Mer à Corralejo — Guide Complet",
+    metaTitle: "Villa en Bord de Mer Corralejo Fuerteventura — Réservez en Direct et Économisez",
+    metaDescription: "Vous cherchez une villa en bord de mer à Corralejo, Fuerteventura ? Découvrez ce qui fait de Corralejo la meilleure base, ce qu'offre une villa face à la mer et comment réserver directement au meilleur prix.",
+    excerpt: "Corralejo est la station la plus prisée de Fuerteventura — et ses villas en bord de mer comptent parmi les locations de vacances les plus recherchées des îles Canaries.",
+    content: `<p>Corralejo est située à la pointe nord de Fuerteventura, avec vue sur l'Atlantique en direction de Lanzarote. C'est depuis longtemps la destination la plus populaire de l'île : les plages y sont vraiment de classe mondiale, la ville a un vrai caractère, et la combinaison soleil, sports nautiques et excellents restaurants est difficile à égaler en Europe.</p>
+<h2>Pourquoi Corralejo est la meilleure base à Fuerteventura</h2>
+<ul>
+<li><strong>Les plages</strong> — le Parc Naturel de Corralejo protège 10 km de dunes de sable blanc et d'eaux turquoise. De vraies plages sauvages et belles, pas des plages de piscine d'hôtel.</li>
+<li><strong>La ville</strong> — Corralejo a évolué de petit village de pêcheurs en station animée sans perdre son âme. Bars à tapas locaux, port actif avec ferries vers Lanzarote, marchés hebdomadaires et boutiques indépendantes.</li>
+<li><strong>Sports nautiques</strong> — Flag Beach (Grandes Playas) est l'un des meilleurs spots de kitesurf et de windsurf d'Europe.</li>
+<li><strong>Connexions</strong> — vols directs depuis les principaux aéroports français et européens, ferry vers Lanzarote et location de voiture facile.</li>
+</ul>
+<h2>Notre Villa en Bord de Mer à Corralejo</h2>
+<p>Chez Canary Villas, notre propriété phare est <strong>The Beach House</strong> — une authentique villa en bord de mer à Corralejo pour jusqu'à 6 personnes. Elle est directement sur l'une des plus belles plages de Corralejo avec des vues panoramiques sur l'Atlantique depuis la terrasse.</p>
+<p>Nous avons également <strong>le Bungalow Apartment</strong> — un charmant bungalow privé avec jardin privé, cuisine entièrement équipée et à quelques minutes à pied de la plage.</p>
+<p>Les deux propriétés sont disponibles en réservation directe — sans frais Airbnb, options de paiement flexibles et équipe locale à Corralejo.</p>
+<p><a href="/villas">Voir les disponibilités et tarifs →</a></p>`,
+    faqs: [
+      { q: "Y a-t-il des villas en bord de mer à louer à Corralejo ?", a: "Oui — Corralejo dispose de plusieurs villas en bord de mer et à proximité de la plage pour la location de vacances. Les propriétés les plus recherchées sont directement sur la plage ou à 2 minutes à pied, avec vue sur la mer et terrasses privées." },
+      { q: "Combien coûte une villa en bord de mer à Corralejo par nuit ?", a: "Les prix des villas en bord de mer à Corralejo commencent à environ 150–180 €/nuit pour une propriété de 2 chambres et peuvent atteindre 300 €+ pour de grandes villas. Réserver directement économise 10–18 % de frais de plateforme." },
+      { q: "Quelles plages se trouvent près de Corralejo ?", a: "Corralejo borde le Parc Naturel de Corralejo — 10 km de dunes de sable blanc protégées et d'eau turquoise, régulièrement classées parmi les meilleures plages d'Europe." },
+      { q: "Corralejo est-il bon pour les familles ?", a: "Oui — Corralejo est l'une des meilleures destinations à Fuerteventura pour les familles. Les plages sont magnifiques, la ville dispose d'excellents restaurants et d'une atmosphère détendue, et il y a de nombreuses activités." },
+    ],
+  },
+
+  "beachfront-villas-corralejo": {
+    title: "Villas en Bord de Mer à Corralejo — Accès Direct aux Meilleures Plages",
+    metaTitle: "Villas en Bord de Mer à Corralejo Fuerteventura | Accès Direct à la Plage 2025",
+    metaDescription: "Vous cherchez une villa en bord de mer à Corralejo, Fuerteventura ? Découvrez les meilleures propriétés avec accès direct à la mer, ce qu'il faut attendre et comment réserver en direct pour économiser.",
+    excerpt: "Corralejo possède certaines des plus belles villas en bord de mer de Fuerteventura. Tout ce que vous devez savoir pour choisir et réserver — et pourquoi la réservation directe économise toujours de l'argent.",
+    content: `<p>Corralejo est la destination la plus prisée de Fuerteventura pour des vacances en villa en bord de mer. Située à la pointe nord de l'île, elle jouxte le Parc Naturel de Corralejo — 10 km d'impressionnantes dunes de sable blanc, protégées de l'urbanisation, avec des eaux cristallines de l'Atlantique.</p>
+<p>Une villa en bord de mer ici ne signifie pas seulement une belle vue. Cela signifie se réveiller au son des vagues, sortir directement de sa terrasse sur le sable et regarder le coucher de soleil sur l'Atlantique depuis son propre espace privé.</p>
+<h2>The Beach House — La Propriété Phare de Canary Villas</h2>
+<p>The Beach House est une authentique villa en bord de mer à Corralejo pour jusqu'à 6 personnes. La terrasse s'ouvre directement sur la plage — prenez votre café du matin avec l'Atlantique devant vous et soyez dans l'eau en quelques secondes.</p>
+<p>La villa offre des vues panoramiques sur la mer depuis chaque pièce, une piscine privée, une cuisine entièrement équipée, deux chambres (avec une troisième optionnelle) et un grand salon ouvert.</p>
+<p>À partir de 180 €/nuit en réservation directe — sans frais Airbnb, pas de frais cachés, options de paiement flexibles incluant virement bancaire.</p>
+<p><a href="/villas/beach-house">Voir The Beach House et vérifier la disponibilité →</a></p>
+<h2>Quand visiter Corralejo pour des vacances en villa en bord de mer ?</h2>
+<ul>
+<li><strong>Avril–Juin</strong> : chaud (24–27 °C), plus calme, bonne disponibilité, excellent rapport qualité-prix</li>
+<li><strong>Juillet–Août</strong> : plus chaud (28–32 °C), plus fréquenté, tarifs premium. Réserver 4–6 mois à l'avance</li>
+<li><strong>Septembre–Octobre</strong> : encore chaud (26–28 °C), température de la mer à son maximum, moins de monde</li>
+<li><strong>Novembre–Mars</strong> : doux (18–22 °C), tranquille, tarifs les plus bas</li>
+</ul>`,
+    faqs: [
+      { q: "Quelle zone de Fuerteventura possède les meilleures villas en bord de mer ?", a: "Corralejo dans le nord de Fuerteventura est largement considéré comme la meilleure zone pour les villas en bord de mer. Elle jouxte le Parc Naturel de Corralejo avec 10 km de dunes de sable blanc protégées et des eaux cristallines." },
+      { q: "Que signifie 'bord de mer' pour une villa à Corralejo ?", a: "Une vraie villa en bord de mer à Corralejo signifie que vous pouvez aller directement de la propriété à la plage — sans traverser de routes. The Beach House de Canary Villas est une propriété authentiquement en bord de mer." },
+      { q: "Les villas en bord de mer à Corralejo conviennent-elles aux familles ?", a: "Oui — les villas en bord de mer à Corralejo sont idéales pour les familles. Les plages autour de Corralejo sont sûres et relativement abritées. L'accès direct à la plage signifie que les enfants peuvent jouer sur le sable en toute sécurité." },
+      { q: "Combien coûte une villa en bord de mer à Corralejo par nuit ?", a: "Les villas en bord de mer à Corralejo coûtent généralement 150–300 €+ par nuit selon la taille et la saison. The Beach House accueille jusqu'à 6 personnes et commence à 180 €/nuit en réservation directe." },
+    ],
+  },
+
+  "where-to-stay-fuerteventura": {
+    title: "Où Séjourner à Fuerteventura : Corralejo vs Caleta de Fuste vs Morro Jable",
+    metaTitle: "Où Séjourner à Fuerteventura 2025 — Corralejo vs Caleta de Fuste vs Morro Jable",
+    metaDescription: "Vous hésitez sur l'endroit où séjourner à Fuerteventura ? Comparez les trois principales zones — Corralejo, Caleta de Fuste et Morro Jable — pour trouver la meilleure base pour vos vacances en villa.",
+    excerpt: "Vous ne savez pas où séjourner à Fuerteventura ? Nous comparons les trois principales zones — Corralejo, Caleta de Fuste et Morro Jable — pour vous aider à choisir la meilleure base pour vos vacances.",
+    content: `<p>Fuerteventura est une grande île — 100 km de long — et le choix de votre base fait une grande différence pour vos vacances. Les trois principales zones pour les vacances en villa sont Corralejo au nord, Caleta de Fuste au centre-est et Morro Jable/Costa Calma au sud.</p>
+<h2>Corralejo (Nord de Fuerteventura)</h2>
+<p>Corralejo est notre base — et nous pensons que c'est le meilleur endroit pour séjourner à Fuerteventura pour la plupart des vacanciers en villa.</p>
+<p><strong>Les plages :</strong> Corralejo jouxte le Parc Naturel de Corralejo avec 10 km de dunes de sable blanc protégées et des eaux cristallines de l'Atlantique. Ces plages comptent parmi les plus belles d'Europe et, étant protégées, ne peuvent pas être surdéveloppées.</p>
+<p><strong>La ville :</strong> Corralejo a une vraie atmosphère de ville — restaurants indépendants, bars, un port, marchés hebdomadaires, boutiques et une atmosphère détendue mais conviviale.</p>
+<p><strong>Sports nautiques :</strong> Corralejo est un hub de sports nautiques de classe mondiale. Flag Beach au sud de la ville est l'un des meilleurs spots de kitesurf et windsurf d'Europe.</p>
+<p><strong>Idéal pour :</strong> Couples, familles, passionnés de sports nautiques, ceux qui veulent les meilleures plages combinées à une vraie expérience de ville.</p>
+<h2>Caleta de Fuste (Centre-Est de Fuerteventura)</h2>
+<p>Caleta de Fuste est une station balnéaire planifiée à environ 15 minutes au sud de l'aéroport. Plus calme, plus abritée et avec une atmosphère très différente de Corralejo.</p>
+<p><strong>Idéal pour :</strong> Familles avec de très jeunes enfants. Ceux qui privilégient la commodité sur le caractère et souhaitent un accès facile depuis l'aéroport.</p>
+<h2>Morro Jable & Costa Calma (Sud de Fuerteventura)</h2>
+<p>L'extrémité sud de Fuerteventura est dominée par la péninsule de Jandía et la longue plage de Sotavento — sans doute le tronçon de sable le plus spectaculaire de l'île. Le Championnat du Monde PWA de Planche à Voile et de Kitesurf se tient ici chaque année.</p>
+<p><strong>Idéal pour :</strong> Windsurfeurs et kitesurfeurs sérieux. Ceux qui veulent des plages très paisibles et sans foule.</p>
+<h2>Notre Verdict</h2>
+<p>Pour la plupart des personnes cherchant une villa de vacances à Fuerteventura — <strong>Corralejo est le bon choix</strong>. Elle offre la meilleure combinaison de qualité de plage, d'atmosphère de ville, de sports nautiques et d'options de villa.</p>
+<p>Prêt à réserver votre villa à Corralejo ? <a href="/villas">Voir nos propriétés disponibles</a> ou <a href="/contact">contacter notre équipe locale</a>.</p>`,
+    faqs: [
+      { q: "Qu'est-ce qui est mieux pour des vacances en villa — Corralejo ou Caleta de Fuste ?", a: "Corralejo est mieux pour la plupart des vacanciers en villa, surtout ceux qui veulent de belles plages, des sports nautiques et une atmosphère de ville animée. Caleta de Fuste est plus abritée et familiale mais manque de la qualité de plage et du caractère de ville de Corralejo." },
+      { q: "Corralejo est-il bon pour les familles ?", a: "Oui — Corralejo est excellent pour les familles. Les plages sont sûres et relativement abritées par endroits, il y a beaucoup d'activités familiales et la ville est facile à naviguer à pied." },
+      { q: "Vaut-il la peine de louer une voiture à Fuerteventura ?", a: "Oui, absolument. Les transports en commun sont limités et une voiture de location ouvre toute l'île. Les coûts sont raisonnables — généralement 25–50 €/jour en été. Réserver à l'avance pour juillet et août." },
+    ],
+  },
+
+  "holiday-villas-to-rent-fuerteventura": {
+    title: "Villas de Vacances à Louer à Fuerteventura — Guide Complet 2025",
+    metaTitle: "Villas de Vacances à Louer à Fuerteventura 2025 | Canary Villas",
+    metaDescription: "Tout ce que vous devez savoir sur la location d'une villa de vacances à Fuerteventura. Types de villa, meilleures zones, quoi chercher et pourquoi réserver en direct économise de l'argent.",
+    excerpt: "Vous envisagez de louer une villa de vacances à Fuerteventura ? Tout ce que vous devez savoir — du choix de la bonne zone à ce qu'il faut chercher et comment obtenir la meilleure offre.",
+    content: `<p>Fuerteventura est l'une des îles Canaries les plus populaires pour les séjours en self-catering — et pour une bonne raison. La combinaison soleil toute l'année, plages de classe mondiale et atmosphère détendue en fait la destination parfaite pour des vacances en villa.</p>
+<h2>Pourquoi louer une villa à Fuerteventura ?</h2>
+<ul>
+<li><strong>Espace et intimité</strong> — votre propre terrasse, salon et cuisine plutôt que des installations hôtelières partagées</li>
+<li><strong>Meilleur rapport qualité-prix pour les groupes</strong> — une villa de 3 chambres partagée entre 6 personnes revient souvent moins cher par personne que des chambres d'hôtel</li>
+<li><strong>Liberté</strong> — mangez quand vous voulez, allez et venez à votre guise</li>
+<li><strong>Conforts du foyer</strong> — préparez votre propre petit-déjeuner, faites votre lessive, maintenez la routine des enfants</li>
+<li><strong>Expérience locale</strong> — séjourner dans un quartier résidentiel vous donne un sentiment beaucoup plus authentique de l'île</li>
+</ul>
+<h2>Meilleures Zones pour Louer une Villa de Vacances à Fuerteventura</h2>
+<h3>Corralejo (Nord)</h3>
+<p>Corralejo est la destination la plus populaire pour les vacances en villa à Fuerteventura. La ville se trouve à la pointe nord de l'île avec accès direct au Parc Naturel de Corralejo — 10 km de dunes de sable blanc protégées et d'eaux cristallines de l'Atlantique.</p>
+<p><strong>Idéal pour :</strong> Familles, couples, passionnés de sports nautiques.</p>
+<h3>El Cotillo (Nord-Ouest)</h3>
+<p>À environ 20 minutes à l'ouest de Corralejo, El Cotillo est un petit village de pêcheurs avec un magnifique lagon — eaux abritées et calmes, bien plus tranquille que Corralejo.</p>
+<h3>Costa Calma & Jandía (Sud)</h3>
+<p>Le sud de Fuerteventura abrite la longue plage de Sotavento — légendaire parmi les windsurfeurs et kitesurfeurs.</p>
+<h2>Combien Coûte la Location d'une Villa à Fuerteventura ?</h2>
+<ul>
+<li><strong>Studio / 1 chambre :</strong> 60–100 €/nuit</li>
+<li><strong>Villa 2 chambres :</strong> 90–160 €/nuit</li>
+<li><strong>Bord de mer 3 chambres :</strong> 180–300 €/nuit</li>
+<li><strong>Grande villa de luxe (4–5 ch.) :</strong> 300–600 €+/nuit</li>
+</ul>
+<h2>Réservez en Direct et Économisez</h2>
+<p>L'un des conseils les plus importants : <strong>réservez votre villa à Fuerteventura directement auprès du propriétaire ou d'une agence locale, pas via des plateformes comme Airbnb ou Booking.com.</strong> Airbnb ajoute des frais de service de 12–18 % à chaque réservation.</p>
+<h2>Nos Propriétés à Corralejo</h2>
+<p><strong>The Beach House</strong> est une superbe villa en bord de mer pour jusqu'à 6 personnes avec vues panoramiques sur l'Atlantique et accès direct à l'une des plus belles plages de Fuerteventura. À partir de 180 €/nuit.</p>
+<p><strong>Le Bungalow Apartment</strong> est un charmant bungalow privé avec cuisine entièrement équipée et jardin privé — parfait pour les couples ou les petites familles. À partir de 95 €/nuit.</p>
+<p><a href="/villas">Voir nos villas de vacances à louer à Fuerteventura →</a></p>`,
+    faqs: [
+      { q: "Combien coûte la location d'une villa de vacances à Fuerteventura ?", a: "Les prix des villas de vacances à Fuerteventura vont généralement de 80–150 €/nuit pour une ou deux chambres, jusqu'à 200–400 €+/nuit pour de grandes villas en bord de mer. La réservation directe permet généralement d'économiser 10–20 % en évitant les frais de plateforme." },
+      { q: "Quelle est la meilleure zone pour louer une villa à Fuerteventura ?", a: "Corralejo au nord est la zone la plus populaire pour les locations de villa — elle a les meilleures plages, d'excellents restaurants et bars et des sports nautiques exceptionnels." },
+      { q: "Quelle est la meilleure période pour louer une villa à Fuerteventura ?", a: "Fuerteventura bénéficie d'un beau temps toute l'année avec des températures moyennes de 20–28 °C. Juillet et août sont les mois les plus chauds et les plus chers. Avril–Juin et Septembre–Octobre offrent la meilleure combinaison de beau temps et de prix plus bas." },
+      { q: "Est-il moins cher de réserver une villa à Fuerteventura en direct ou via Airbnb ?", a: "La réservation directe est presque toujours moins chère. Airbnb ajoute des frais de service de 12–18 % au-dessus du prix affiché. Réserver directement avec le propriétaire de la villa ou une agence locale comme Canary Villas élimine ces frais." },
+      { q: "Les villas de Fuerteventura incluent-elles l'accès à une piscine ?", a: "De nombreuses villas à Fuerteventura ont des piscines privées ou communes. Les villas en bord de mer près de Corralejo ont souvent un accès direct à la plage comme alternative. Vérifiez toujours attentivement l'annonce de la villa." },
+    ],
+  },
 };
 export default fr;

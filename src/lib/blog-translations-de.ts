@@ -706,5 +706,174 @@ const de: Record<string, { title: string; metaTitle: string; metaDescription: st
       },
     ],
   },
+
+  "beachfront-villa-corralejo": {
+    title: "Strandvillen in Corralejo — Der komplette Leitfaden",
+    metaTitle: "Strandvilla Corralejo Fuerteventura — Direkt buchen & sparen",
+    metaDescription: "Auf der Suche nach einer Strandvilla in Corralejo, Fuerteventura? Entdecken Sie, was Corralejo zur besten Basis macht, was Sie von einer Strandvilla erwarten können und wie Sie direkt zum besten Preis buchen.",
+    excerpt: "Corralejo ist Fuerteventuras beliebtester Ferienort – und seine Strandvillen gehören zu den gefragtesten Ferienunterkünften auf den Kanarischen Inseln. Alles, was Sie wissen müssen.",
+    content: `<p>Corralejo liegt an der nördlichen Spitze Fuerteventuras mit Blick auf den Atlantik in Richtung Lanzarote. Die Stadt ist seit Langem die beliebteste Destination der Insel – und das aus gutem Grund: Die Strände hier sind von Weltklasse, die Stadt hat echten Charakter, und die Kombination aus Sonne, Wassersport und hervorragenden Restaurants ist in Europa kaum zu übertreffen.</p>
+<p>Und für viele Besucher ist das Erlebnis in einer Strandvilla – dem eigenen privaten Rückzugsort mit dem Meer nur wenige Schritte entfernt – einfach unschlagbar.</p>
+<h2>Warum Corralejo die beste Basis in Fuerteventura ist</h2>
+<ul>
+<li><strong>Die Strände</strong> — der Naturpark Corralejo schützt 10 km weiße Sanddünen und klares, türkisblaues Wasser südlich der Stadt. Echte Naturstrände, keine Hotelpoolstrände.</li>
+<li><strong>Die Stadt</strong> — Corralejo hat sich vom kleinen Fischerdorf zum lebhaften Ferienort entwickelt, ohne seine Seele zu verlieren. Lokale Tapas-Bars neben Touristenrestaurants, ein funktionierender Hafen mit Fähren nach Lanzarote, Wochenmärkte und unabhängige Läden.</li>
+<li><strong>Wassersport</strong> — Flag Beach (Grandes Playas) ist einer der Top-Kitesurf- und Windsurfspots Europas. Dazu exzellentes Surfen, Tauchen, Schnorcheln und SUP.</li>
+<li><strong>Erreichbarkeit</strong> — Direktflüge von den meisten deutschen Flughäfen, Fährverbindung nach Lanzarote und einfache Autovermietung. Der Flughafen liegt 40 Minuten südlich.</li>
+</ul>
+<h2>Was Sie von einer Strandvilla in Corralejo erwarten können</h2>
+<h3>Direkt am Strand</h3>
+<p>Eine kleine Anzahl von Immobilien in Corralejo liegt direkt im Sand – von der Terrasse treten Sie unmittelbar auf den Strand. Diese sind selten, sehr begehrt und entsprechend teuer. Sie haben typischerweise Panorama-Meerblick aus mehreren Zimmern und große Außenterrassen.</p>
+<h3>Strandnah (2–5 Min. Fußweg)</h3>
+<p>Die meisten „Strand"-Villen liegen innerhalb eines kurzen Fußwegs vom Meer – nah genug, um die See von der Terrasse zu sehen, nachts die Wellen zu hören und in 2–5 Minuten am Strand zu sein. Sehr gutes Preis-Leistungs-Verhältnis im Vergleich zu direkt am Meer gelegenen Immobilien.</p>
+<h3>Villen mit Meerblick</h3>
+<p>Manche Villen haben Meerblick, liegen aber weiter vom Strand entfernt – vielleicht 10–15 Gehminuten. In der Regel günstiger, aber ohne den Komfort, direkt am Wasser zu sein.</p>
+<p><strong>Prüfen Sie immer die genaue Entfernung zum Strand vor der Buchung und schauen Sie auf die Karte statt nur auf die Beschreibung.</strong></p>
+<h2>Strandvilla vs. Hotel in Corralejo</h2>
+<p>Hotels in Corralejo reichen von einfach bis gut – aber kaum eines bietet das Erlebnis einer Selbstverpflegungs-Strandvilla. Unsere Flaggschiff-Immobilie ist <strong>The Beach House</strong> – eine echte Strandvilla in Corralejo für bis zu 6 Gäste mit direktem Strandzugang, Panoramablick auf den Atlantik und voll ausgestatteter Küche.</p>
+<p>Wir haben auch <strong>das Bungalow Apartment</strong> – ein charmanter privater Bungalow mit verborgenem Garten, voll ausgestatteter Küche und einem kurzen Fußweg zum Strand. Ideal für Paare oder kleine Familien.</p>
+<p>Beide Immobilien können direkt gebucht werden – ohne Airbnb-Gebühren, mit flexiblen Zahlungsoptionen und einem lokalen Team in Corralejo, das vor und während Ihres Aufenthalts hilft.</p>
+<p><a href="/villas">Verfügbare Daten und Preise ansehen →</a></p>
+<h2>Tipps zur Buchung einer Strandvilla in Corralejo</h2>
+<ul>
+<li><strong>Früh buchen im Sommer</strong> — die besten Strandimmobilien in Corralejo sind für Juli und August Monate im Voraus ausgebucht. Bei Reisen in der Hochsaison am besten im Januar oder Februar anfangen.</li>
+<li><strong>Direkt buchen</strong> — Airbnb und Booking.com meiden spart 12–18 % Plattformgebühren. Das Geld besser in ein schönes Abendessen investieren.</li>
+<li><strong>Auto mieten</strong> — Corralejo ist kompakt und fußläufig, aber ein Mietwagen ermöglicht die Erkundung der ganzen Insel. Naturpark Corralejo, El Cotillo und Betancuria sind Tagesausflüge wert.</li>
+</ul>`,
+    faqs: [
+      { q: "Gibt es Strandvillen zu mieten in Corralejo?", a: "Ja — Corralejo hat mehrere Strandvillen und strandnahe Villen zur Ferienvermietung. Die begehrtesten Immobilien liegen direkt am oder innerhalb von 2 Gehminuten vom Strand, mit Meerblick und privaten Terrassen. Frühzeitige Buchung wird empfohlen, besonders für Juli und August." },
+      { q: "Was kostet eine Strandvilla in Corralejo pro Nacht?", a: "Strandvillapreise in Corralejo beginnen ab ca. €150–€180 pro Nacht für ein 2-Schlafzimmer-Objekt und können auf €300+ pro Nacht für größere Villen mit 6 oder mehr Schlafplätzen steigen. Direkt beim Villabesitzer oder einer lokalen Agentur zu buchen statt über Airbnb spart 10–18 % Plattformgebühren." },
+      { q: "Welche Strände liegen in der Nähe von Corralejo?", a: "Corralejo grenzt an den Naturpark Corralejo — 10 km geschützte weiße Sanddünen und türkisblaues Wasser, regelmäßig zu den besten Stränden Europas gezählt. Grandes Playas (Flag Beach) ist der bekannteste Abschnitt, beliebt bei Kitesurfern und Windsurfern." },
+      { q: "Ist Corralejo gut für Familien?", a: "Ja — Corralejo ist eines der besten Reiseziele in Fuerteventura für Familien. Die Strände sind traumhaft, die Stadt hat hervorragende Restaurants und eine entspannte Atmosphäre, und es gibt viele Aktivitäten. Eine Strandvilla gibt Familien mehr Platz und Flexibilität als ein Hotelzimmer." },
+    ],
+  },
+
+  "beachfront-villas-corralejo": {
+    title: "Strandvillen in Corralejo — Direkter Zugang zu den besten Stränden",
+    metaTitle: "Strandvillen in Corralejo Fuerteventura | Direkter Strandzugang 2025",
+    metaDescription: "Auf der Suche nach einer Strandvilla in Corralejo, Fuerteventura? Entdecken Sie die besten Strandimmobilien mit direktem Meereszugang, was Sie erwarten können und wie Sie direkt buchen und Geld sparen.",
+    excerpt: "Corralejo hat einige der schönsten Strandvillen in Fuerteventura. Hier erfahren Sie alles über Auswahl und Buchung – und warum direktes Buchen immer Geld spart.",
+    content: `<p>Corralejo ist Fuerteventuras gefragtestes Ziel für einen Strandvillenurlaub. An der nördlichen Spitze der Insel gelegen, grenzt es direkt an den Naturpark Corralejo – 10 km atemberaubende weiße Sanddünen, vor Bebauung geschützt, mit kristallklarem Atlantikwasser.</p>
+<p>Eine Strandvilla hier bedeutet nicht nur schöne Aussicht. Es bedeutet, mit dem Rauschen der Wellen aufzuwachen, direkt von der Terrasse auf den Sand zu treten und den Sonnenuntergang über dem Atlantik von Ihrem eigenen privaten Außenbereich aus zu beobachten.</p>
+<h2>Was macht Corralejo perfekt für einen Strandvillenurlaub?</h2>
+<ul>
+<li><strong>Die Strände</strong> — die Naturparkstrände nördlich der Stadt gehören zu den schönsten in Europa: weitläufig, unüberfüllt und vor Überbebauung geschützt</li>
+<li><strong>Die Stadt</strong> — Corralejo hat echtes Stadtflair: hervorragende lokale Restaurants, ein Hafen, Wochenmärkte, unabhängige Läden und eine lebhafte, aber nicht erdrückende Atmosphäre</li>
+<li><strong>Wassersport</strong> — Corralejo ist ein Weltklasse-Ziel für Kitesurfen, Windsurfen, Surfen, Tauchen und SUP. Flag Beach südlich der Stadt ist einer der Top-Kite- und Windsurfspots Europas</li>
+<li><strong>Lage</strong> — tägliche Fähren nach Lanzarote vom Hafen Corralejo machen einen Tagesausflug einfach</li>
+</ul>
+<h2>Worauf man bei einer Strandvilla in Corralejo achten sollte</h2>
+<ul>
+<li><strong>Direkter Strandzugang</strong> — gibt es einen Weg direkt vom Grundstück zum Sand, oder muss eine Straße überquert werden?</li>
+<li><strong>Terrassenausrichtung</strong> — zeigt die Terrasse zum Meer, oder ist der Meerblick nur aus einem Obergeschoss möglich?</li>
+<li><strong>Welcher Strand</strong> — Corralejo hat verschiedene Strände mit unterschiedlichem Charakter. Die Naturparkstrände sind atemberaubend, können aber windiger sein; die Stadtstrände sind geschützter</li>
+<li><strong>Pool vs. Strand</strong> — manche Strandimmobilien haben keinen privaten Pool, weil der direkte Strandzugang als gleichwertig gilt. Andere haben beides</li>
+</ul>
+<h2>The Beach House — Canary Villas' Flaggschiff-Strandimmobilie</h2>
+<p>The Beach House ist eine echte Strandvilla in Corralejo für bis zu 6 Gäste. Die Terrasse öffnet sich direkt zum Strand – genießen Sie Ihren Morgenkaffee mit dem Atlantik vor sich und sind Sie in Sekunden im Wasser.</p>
+<p>Die Villa bietet Panoramablick auf das Meer aus jedem Zimmer, einen privaten Pool, eine voll ausgestattete Küche, zwei Schlafzimmer (mit optionalem dritten) und einen geräumigen offenen Wohnbereich.</p>
+<p>Ab €180/Nacht bei Direktbuchung — ohne Airbnb-Gebühren, keine versteckten Kosten, flexible Zahlungsoptionen inklusive Banküberweisung.</p>
+<p><a href="/villas/beach-house">The Beach House ansehen und Verfügbarkeit prüfen →</a></p>
+<h2>Wann ist die beste Zeit für einen Strandvillenurlaub in Corralejo?</h2>
+<ul>
+<li><strong>April–Juni</strong>: warm (24–27 °C), ruhiger, gute Verfügbarkeit, hervorragendes Preis-Leistungs-Verhältnis</li>
+<li><strong>Juli–August</strong>: heiß (28–32 °C), belebt, Premiumpreise. Für Strandimmobilien 4–6 Monate im Voraus buchen</li>
+<li><strong>September–Oktober</strong>: noch warm (26–28 °C), Meerestemperatur auf dem Höchststand, weniger Betrieb</li>
+<li><strong>November–März</strong>: mild (18–22 °C), ruhig, günstigste Preise. Ideal für Paare und diejenigen, die dem Wintergrau entfliehen wollen</li>
+</ul>
+<p>Bereit, Ihre perfekte Strandvilla in Corralejo zu finden? <a href="/villas">Unsere verfügbaren Immobilien ansehen</a> oder <a href="/contact">lokales Team kontaktieren</a>.</p>`,
+    faqs: [
+      { q: "Welche Gegend in Fuerteventura hat die besten Strandvillen?", a: "Corralejo im Norden Fuerteventuras gilt allgemein als bestes Gebiet für Strandvillen. Es grenzt direkt an den Naturpark Corralejo mit 10 km geschützten weißen Sanddünen und kristallklarem Atlantikwasser. Die Stadt selbst ist lebhaft und gut ausgestattet mit Restaurants, Bars, Shops und Wassersportanbietern." },
+      { q: "Was bedeutet 'Strandvilla' bei einer Corralejo-Villa?", a: "Eine echte Strandvilla in Corralejo bedeutet, dass man direkt vom Grundstück auf den Strand gehen kann – keine Straße zu überqueren, kein Parkplatz. The Beach House von Canary Villas ist eine echte Strandimmobilie: Die Terrasse öffnet sich direkt zum Sand." },
+      { q: "Sind Strandvillen in Corralejo für Familien geeignet?", a: "Ja — Strandvillen in Corralejo sind ideal für Familien. Die Strände rund um Corralejo sind sicher und in den meisten Bereichen relativ geschützt. Direkter Strandzugang bedeutet, dass Kinder sicher auf dem Sand spielen können ohne Straßenüberquerung." },
+      { q: "Was kostet eine Strandvilla in Corralejo pro Nacht?", a: "Strandvillen in Corralejo kosten typischerweise €150–€300+ pro Nacht, je nach Größe und Saison. The Beach House schläft bis zu 6 Gäste und startet ab €180/Nacht bei Direktbuchung." },
+    ],
+  },
+
+  "where-to-stay-fuerteventura": {
+    title: "Wo übernachten in Fuerteventura: Corralejo vs. Caleta de Fuste vs. Morro Jable",
+    metaTitle: "Wo übernachten in Fuerteventura 2025 — Corralejo vs. Caleta de Fuste vs. Morro Jable",
+    metaDescription: "Unsicher, wo Sie in Fuerteventura übernachten sollen? Vergleichen Sie die drei Hauptgebiete — Corralejo, Caleta de Fuste und Morro Jable — um die beste Basis für Ihren Villenurlaub zu finden.",
+    excerpt: "Nicht sicher, wo Sie in Fuerteventura übernachten sollen? Wir vergleichen die drei Hauptgebiete — Corralejo, Caleta de Fuste und Morro Jable — damit Sie die richtige Basis für Ihren Villenurlaub wählen können.",
+    content: `<p>Fuerteventura ist eine große Insel — 100 km lang — und die Wahl des Standorts macht einen großen Unterschied für Ihren Urlaub. Die drei Hauptgebiete für Villenurlaube sind Corralejo im Norden, Caleta de Fuste im Zentrum-Osten und Morro Jable/Costa Calma im Süden. Jedes hat einen eigenen Charakter, andere Strände und spricht andere Reisende an.</p>
+<h2>Corralejo (Norden Fuerteventuras)</h2>
+<p>Corralejo ist unsere Heimatbasis — und wir sind der Meinung, dass es für die meisten Villenreisenden der beste Ort in Fuerteventura ist.</p>
+<p><strong>Die Strände:</strong> Corralejo grenzt an den Naturpark Corralejo mit 10 km geschützten weißen Sanddünen und kristallklarem Atlantikwasser. Diese gehören zu den schönsten Stränden Europas und können wegen des Schutzstatus nicht überbaut werden.</p>
+<p><strong>Die Stadt:</strong> Corralejo hat echtes Stadtflair — unabhängige Restaurants, Bars, ein Hafen, Wochenmärkte, Boutiquen und eine entspannte, aber gesellige Atmosphäre. Eine echte Mischung aus Einheimischen und Touristen, die ihr einen authentischen kanarischen Charakter verleiht.</p>
+<p><strong>Wassersport:</strong> Corralejo ist ein Weltklasse-Wassersportzentrum. Flag Beach ist einer der Top-Kite- und Windsurfspots Europas.</p>
+<p><strong>Am besten für:</strong> Paare, Familien, Wassersportbegeisterte, alle, die die besten Strände mit echtem Stadtleben verbinden wollen.</p>
+<p><strong>Villenangebot:</strong> Corralejo hat die größte Auswahl an Ferienvermietungen in Fuerteventura. <a href="/villas">Canary Villas hat zwei Immobilien in Corralejo</a> — The Beach House (Strandlage, bis zu 6 Gäste) und das Bungalow Apartment (privater Garten, bis zu 4 Gäste).</p>
+<h2>Caleta de Fuste (Zentrum-Osten Fuerteventuras)</h2>
+<p>Caleta de Fuste ist ein geplanter Ferienort ca. 15 Minuten südlich des Flughafens. Ruhiger, geschützter und mit einem sehr anderen Flair als Corralejo.</p>
+<p><strong>Die Strände:</strong> Eine geschützte Hufeisen-Bucht mit ruhigem, flachem Wasser — hervorragend für Kleinkinder und unsichere Schwimmer. Kein Äquivalent zu den Naturparkstränden hier.</p>
+<p><strong>Am besten für:</strong> Familien mit sehr kleinen Kindern. Diejenigen, die Bequemlichkeit über Charakter stellen und einfachen Flughafenzugang wollen.</p>
+<h2>Morro Jable & Costa Calma (Süden Fuerteventuras)</h2>
+<p>Das südliche Ende Fuerteventuras wird von der Jandia-Halbinsel und dem langen Sotavento-Strand dominiert — wohl das spektakulärste Strandabschnitt der Insel.</p>
+<p><strong>Die Strände:</strong> Sotavento Beach ist außergewöhnlich — Kilometer weißer Sand mit einer Lagune, die bei Ebbe entsteht, perfekt für Windsurfer und Kitesurfer. Für diejenigen, die einfach entspannen möchten, ist es einer der schönsten Strände auf den Kanaren.</p>
+<p><strong>Am besten für:</strong> Ernsthafte Windsurfer und Kitesurfer. Diejenigen, die sehr ruhige, unüberfüllte Strände wollen und kein Nachtleben oder lebhafte Stadtkulisse brauchen.</p>
+<h2>Unser Fazit</h2>
+<p>Für die meisten Menschen, die eine Ferienvilla in Fuerteventura suchen — <strong>ist Corralejo die richtige Wahl</strong>. Es hat die beste Kombination aus Strandqualität, Stadtflair, Wassersport und Vermietungsoptionen. Wenn Sie kleine Kinder haben und ruhiges Wasser über alles stellen, erwägen Sie El Cotillo (ein kleines Dorf 20 Minuten westlich von Corralejo mit einer traumhaften geschützten Lagune).</p>
+<p>Bereit, Ihre Villa in Corralejo zu buchen? <a href="/villas">Unsere verfügbaren Immobilien ansehen</a> oder <a href="/contact">uns kontaktieren</a>.</p>`,
+    faqs: [
+      { q: "Was ist besser für einen Villenurlaub — Corralejo oder Caleta de Fuste?", a: "Corralejo ist für die meisten Villenreisenden besser, besonders für diejenigen, die tolle Strände, Wassersport und lebhafte Stadtatmosphäre wollen. Caleta de Fuste ist ruhiger und familienfreundlicher, aber es fehlt die Strandqualität und der Stadtcharakter von Corralejo." },
+      { q: "Ist Corralejo gut für Familien?", a: "Ja — Corralejo ist ausgezeichnet für Familien. Die Strände sind sicher, der Ort ist kompakt und fußläufig, es gibt viel zu tun für alle Altersgruppen, und die Restaurants sind familienfreundlich." },
+      { q: "Lohnt sich ein Mietwagen in Fuerteventura?", a: "Ja, absolut. Der öffentliche Verkehr ist begrenzt und ein Mietwagen erschließt die ganze Insel. Kosten sind vernünftig — typischerweise €25–€50/Tag im Sommer, weniger in der Nebensaison. Für Juli und August im Voraus buchen." },
+    ],
+  },
+
+  "holiday-villas-to-rent-fuerteventura": {
+    title: "Ferienvillen zur Miete in Fuerteventura — Vollständiger Leitfaden 2025",
+    metaTitle: "Ferienvillen zur Miete in Fuerteventura 2025 | Canary Villas",
+    metaDescription: "Alles, was Sie über das Mieten einer Ferienvilla in Fuerteventura wissen müssen. Villenarten, beste Gebiete, worauf zu achten ist, und warum direktes Buchen Geld spart.",
+    excerpt: "Planen Sie, eine Ferienvilla in Fuerteventura zu mieten? Hier ist alles, was Sie wissen müssen — von der Wahl des richtigen Gebiets bis hin zu worauf zu achten ist und wie Sie das beste Angebot bekommen.",
+    content: `<p>Fuerteventura ist eine der beliebtesten Kanarischen Inseln für Selbstverpflegungsurlaube — und das aus gutem Grund. Die Kombination aus ganzjährigem Sonnenschein, Weltklasse-Stränden und entspannter Atmosphäre macht es perfekt für einen Villenurlaub. Aber bei so vielen Optionen — wie findet man die richtige Villa, im richtigen Gebiet, zum richtigen Preis?</p>
+<h2>Warum eine Villa in Fuerteventura mieten?</h2>
+<ul>
+<li><strong>Platz und Privatsphäre</strong> — eigene Terrasse, Wohnzimmer und Küche statt geteilter Hotelanlagen</li>
+<li><strong>Besseres Preis-Leistungs-Verhältnis für Gruppen</strong> — eine 3-Schlafzimmer-Villa aufgeteilt auf 6 Gäste ist oft günstiger pro Person als Hotelzimmer</li>
+<li><strong>Freiheit</strong> — essen wann man will, kommen und gehen wie man möchte</li>
+<li><strong>Heimkomfort</strong> — eigenes Frühstück kochen, Wäsche waschen, Kinder in ihrer Routine halten</li>
+<li><strong>Lokale Erfahrung</strong> — in einem Wohngebiet zu bleiben gibt ein viel authentischeres Gefühl für die Insel</li>
+</ul>
+<h2>Beste Gebiete für eine Ferienvilla in Fuerteventura</h2>
+<h3>Corralejo (Norden)</h3>
+<p>Corralejo ist das beliebteste Ziel für Villenurlaube in Fuerteventura. Die Stadt liegt an der nördlichen Spitze der Insel mit direktem Zugang zum Naturpark Corralejo — 10 km geschützte weiße Sanddünen und kristallklares Atlantikwasser. Die Stadt ist lebhaft, aber nicht überwältigend — tolle Restaurants, Bars, ein Hafen, Wochenmärkte und hervorragender Wassersport.</p>
+<p><strong>Am besten für:</strong> Familien, Paare, Wassersportbegeisterte, alle, die die besten Strände und etwas Nachtleben wollen.</p>
+<h3>El Cotillo (Nordwesten)</h3>
+<p>Etwa 20 Minuten westlich von Corralejo ist El Cotillo ein kleines Fischerdorf mit einer wunderschönen Lagune — geschütztes, ruhiges Wasser, viel ruhiger als Corralejo. Ideal für Kleinkinder, die sicheres Schwimmen brauchen.</p>
+<p><strong>Am besten für:</strong> Paare und junge Familien, die Ruhe und Abgeschiedenheit wollen.</p>
+<h3>Costa Calma & Jandia (Süden)</h3>
+<p>Der Süden Fuerteventuras beherbergt den langen Sotavento-Strand — legendär unter Windsurfern und Kitesurfern. Costa Calma und die Jandia-Halbinsel sind eher resort-artig als der Norden.</p>
+<p><strong>Am besten für:</strong> Windsurfer, Kitesurfer, diejenigen die einen traditionelleren Resortstil bevorzugen.</p>
+<h2>Was bei einer Fuerteventura-Villenvermietung zu beachten ist</h2>
+<ul>
+<li><strong>Lage zum Strand</strong> — „Meerblick" bedeutet nicht Strandlage. Karte sorgfältig prüfen</li>
+<li><strong>Klimaanlage</strong> — unverzichtbar in Juli und August, wenn Temperaturen 30 °C+ erreichen</li>
+<li><strong>Parkplatz</strong> — wichtig wenn Sie ein Auto mieten, was wir empfehlen</li>
+<li><strong>Reinigungsgebühr</strong> — immer prüfen was inbegriffen ist; ein niedriger Nachtpreis versteckt manchmal eine hohe Reinigungsgebühr</li>
+<li><strong>Stornierungsbedingungen</strong> — vor der Buchung verstehen</li>
+</ul>
+<h2>Wie viel kostet eine Ferienvilla in Fuerteventura?</h2>
+<ul>
+<li><strong>Studio / 1 Schlafzimmer:</strong> €60–€100/Nacht</li>
+<li><strong>2-Schlafzimmer-Villa:</strong> €90–€160/Nacht</li>
+<li><strong>3-Schlafzimmer-Strandvilla:</strong> €180–€300/Nacht</li>
+<li><strong>Große Luxusvilla (4–5 Schlafzimmer):</strong> €300–€600+/Nacht</li>
+</ul>
+<h2>Direkt buchen und Geld sparen</h2>
+<p>Einer der wichtigsten Tipps: <strong>Buchen Sie Ihre Fuerteventura-Villa direkt beim Eigentümer oder einer lokalen Agentur, nicht über Airbnb oder Booking.com.</strong> Airbnb fügt eine Gastgebühr von 12–18 % oben auf jede Buchung hinzu. Bei einem €1.500-Urlaub sind das €180–€270 extra an eine Technologiefirma statt in Ihr Urlaubserlebnis.</p>
+<h2>Unsere Immobilien in Corralejo</h2>
+<p>Bei Canary Villas verwalten wir zwei handverlesene Immobilien in Corralejo, beide direkt buchbar:</p>
+<p><strong>The Beach House</strong> ist eine atemberaubende Strandvilla für bis zu 6 Gäste mit Panoramablick auf den Atlantik und direktem Zugang zu einem der schönsten Strände Fuerteventuras. Ab €180/Nacht.</p>
+<p><strong>Das Bungalow Apartment</strong> ist ein charmanter privater Bungalow mit voll ausgestatteter Küche und verborgenem Garten — perfekt für Paare oder kleine Familien. Ab €95/Nacht.</p>
+<p><a href="/villas">Unsere Ferienvillen zur Miete in Fuerteventura ansehen →</a></p>`,
+    faqs: [
+      { q: "Was kostet es, eine Ferienvilla in Fuerteventura zu mieten?", a: "Ferienvillapreise in Fuerteventura reichen typischerweise von €80–€150 pro Nacht für ein oder zwei Schlafzimmer bis zu €200–€400+ pro Nacht für größere Strandvillen. Direktes Buchen spart in der Regel 10–20 % gegenüber Plattformgebühren." },
+      { q: "Was ist das beste Gebiet für eine Villa in Fuerteventura?", a: "Corralejo im Norden ist das beliebteste Gebiet für Villenvermietungen — es hat die besten Strände, tolle Restaurants und Bars sowie hervorragenden Wassersport. El Cotillo ist ruhiger und eignet sich für Paare. Costa Calma im Süden ist gut für Familien und Windsport." },
+      { q: "Was ist die beste Jahreszeit für eine Villa in Fuerteventura?", a: "Fuerteventura hat ganzjährig gutes Wetter mit Durchschnittstemperaturen von 20–28 °C. Juli und August sind die heißesten und teuersten Monate. April–Juni und September–Oktober bieten die beste Kombination aus gutem Wetter und niedrigeren Preisen." },
+      { q: "Ist es günstiger, direkt oder über Airbnb zu buchen?", a: "Direktbuchen ist fast immer günstiger. Airbnb fügt eine 12–18 % Servicegebühr zum beworbenen Preis hinzu. Direkt beim Villabesitzer oder einer lokalen Agentur wie Canary Villas zu buchen eliminiert diese Gebühren." },
+      { q: "Haben Fuerteventura-Villen Poolzugang?", a: "Viele Villen in Fuerteventura haben private oder gemeinschaftliche Pools. Strandvillen in der Nähe von Corralejo haben oft direkten Strandzugang als Alternative. Immer den Villainserat sorgfältig prüfen." },
+    ],
+  },
 };
 export default de;

@@ -705,5 +705,130 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
       },
     ],
   },
+
+  "beachfront-villa-corralejo": {
+    title: "Strandvilla's in Corralejo — Complete Gids",
+    metaTitle: "Strandvilla Corralejo Fuerteventura — Direct Boeken en Besparen",
+    metaDescription: "Op zoek naar een strandvilla in Corralejo, Fuerteventura? Ontdek wat Corralejo de beste basis maakt, wat je kunt verwachten van een villa aan zee en hoe je direct boekt voor de beste prijs.",
+    excerpt: "Corralejo is het populairste vakantieoord van Fuerteventura — en de strandvilla's zijn een van de meest gevraagde vakantieverblijven op de Canarische Eilanden.",
+    content: `<p>Corralejo ligt aan de noordpunt van Fuerteventura, met uitzicht over de Atlantische Oceaan richting Lanzarote. Het is al lang de populairste bestemming op het eiland: de stranden zijn werkelijk van wereldklasse, de stad heeft een echt karakter, en de combinatie van zon, watersport en uitstekende restaurants is moeilijk te evenaren in Europa.</p>
+<h2>Waarom Corralejo de beste basis is in Fuerteventura</h2>
+<ul>
+<li><strong>De stranden</strong> — het Natuurpark Corralejo beschermt 10 km witte zandduinen en turquoise water. Echte wilde en mooie stranden, geen hotelzwembadstranden.</li>
+<li><strong>De stad</strong> — Corralejo heeft zich ontwikkeld van klein vissersdorp tot levendig vakantieoord zonder zijn ziel te verliezen. Lokale tapas bars, een actieve haven met veerboten naar Lanzarote, weekmarkten en onafhankelijke winkels.</li>
+<li><strong>Watersport</strong> — Flag Beach (Grandes Playas) is een van de beste kitesurf- en windsurfspots van Europa.</li>
+<li><strong>Verbindingen</strong> — directe vluchten vanuit de meeste Nederlandse en Belgische luchthavens, veerboot naar Lanzarote en eenvoudige autoverhuur.</li>
+</ul>
+<h2>Onze Strandvilla in Corralejo</h2>
+<p>Bij Canary Villas is onze vlaggenschip eigendom <strong>The Beach House</strong> — een echte strandvilla in Corralejo voor maximaal 6 gasten. Het ligt direct op een van de mooiste stranden van Corralejo met panoramisch uitzicht op de Atlantische Oceaan vanuit de terrasse.</p>
+<p>We hebben ook <strong>het Bungalow Apartment</strong> — een charmante privé bungalow met privétuin, volledig uitgeruste keuken en een korte wandeling naar het strand.</p>
+<p>Beide accommodaties zijn beschikbaar voor directe boeking — zonder Airbnb-commissies, flexibele betaalopties en een lokaal team in Corralejo.</p>
+<p><a href="/villas">Beschikbare data en prijzen bekijken →</a></p>`,
+    faqs: [
+      { q: "Zijn er strandvilla's te huur in Corralejo?", a: "Ja — Corralejo heeft verschillende strandvilla's en villa's nabij het strand voor vakantieverhuur. De meest gevraagde panden liggen direct op of binnen 2 minuten lopen van het strand, met zeezicht en privéterras." },
+      { q: "Hoeveel kost een strandvilla in Corralejo per nacht?", a: "Strandvilla's in Corralejo beginnen vanaf ongeveer €150–€180 per nacht voor een woning met 2 slaapkamers en kunnen oplopen tot €300+ voor grotere villa's. Direct boeken bespaart 10–18% aan platformcommissies." },
+      { q: "Welke stranden liggen in de buurt van Corralejo?", a: "Corralejo grenst aan het Natuurpark Corralejo — 10 km beschermde witte zandduinen en turquoise water, die regelmatig worden gerangschikt als de beste stranden van Europa." },
+      { q: "Is Corralejo goed voor gezinnen?", a: "Ja — Corralejo is een van de beste bestemmingen in Fuerteventura voor gezinnen. De stranden zijn prachtig, de stad heeft uitstekende restaurants en een ontspannen sfeer, en er zijn veel activiteiten." },
+    ],
+  },
+
+  "beachfront-villas-corralejo": {
+    title: "Strandvilla's in Corralejo — Directe Toegang tot de Beste Stranden",
+    metaTitle: "Strandvilla's in Corralejo Fuerteventura | Directe Strandtoegang 2025",
+    metaDescription: "Op zoek naar een strandvilla in Corralejo, Fuerteventura? Ontdek de beste strandpanden met directe zeezoegang, wat je kunt verwachten en hoe je direct boekt om geld te besparen.",
+    excerpt: "Corralejo heeft een aantal van de mooiste strandvilla's in Fuerteventura. Alles wat je moet weten over kiezen en boeken — en waarom direct boeken altijd geld bespaart.",
+    content: `<p>Corralejo is de meest gevraagde bestemming van Fuerteventura voor een strandvilla vakantie. Gelegen aan de noordpunt van het eiland, grenst het direct aan het Natuurpark Corralejo — 10 km schitterende witte zandduinen, beschermd tegen bebouwing, met kristalhelder Atlantisch water.</p>
+<p>Een strandvilla hier betekent niet alleen een mooi uitzicht. Het betekent wakker worden met het geluid van de golven, direct van het terras naar het zand stappen en de zonsondergang over de Atlantische Oceaan aanschouwen vanuit je eigen privéruimte.</p>
+<h2>The Beach House — Het Vlaggenschip van Canary Villas</h2>
+<p>The Beach House is een echte strandvilla in Corralejo voor maximaal 6 gasten. Het terras opent direct naar het strand — geniet van je ochtendkoffie met de Atlantische Oceaan voor je en ben in seconden in het water.</p>
+<p>De villa biedt panoramisch zeezicht vanuit elke kamer, een privézwembad, volledig uitgeruste keuken, twee slaapkamers (met optionele derde) en een ruime open woonkamer.</p>
+<p>Vanaf €180/nacht bij directe boeking — geen Airbnb-commissies, geen verborgen kosten, flexibele betaalopties inclusief bankoverschrijving.</p>
+<p><a href="/villas/beach-house">The Beach House bekijken en beschikbaarheid controleren →</a></p>
+<h2>Wanneer Corralejo Bezoeken voor een Strandvilla Vakantie?</h2>
+<ul>
+<li><strong>April–Juni</strong>: warm (24–27 °C), rustiger, goede beschikbaarheid, uitstekende prijs-kwaliteitverhouding</li>
+<li><strong>Juli–Augustus</strong>: heter (28–32 °C), drukker, premiumprijzen. 4–6 maanden van tevoren boeken</li>
+<li><strong>September–Oktober</strong>: nog warm (26–28 °C), zeetemperatuur op hoogtepunt, minder drukte</li>
+<li><strong>November–Maart</strong>: mild (18–22 °C), rustig, laagste tarieven</li>
+</ul>`,
+    faqs: [
+      { q: "Welk gebied van Fuerteventura heeft de beste strandvilla's?", a: "Corralejo in het noorden van Fuerteventura wordt algemeen beschouwd als het beste gebied voor strandvilla's. Het grenst direct aan het Natuurpark Corralejo met 10 km beschermde witte zandduinen en kristalhelder water." },
+      { q: "Wat betekent 'strandvilla' voor een villa in Corralejo?", a: "Een echte strandvilla in Corralejo betekent dat je direct van de accommodatie naar het strand kunt lopen — zonder wegen over te steken. The Beach House van Canary Villas is een echt strandpand: het terras opent direct naar het zand." },
+      { q: "Zijn strandvilla's in Corralejo geschikt voor gezinnen?", a: "Ja — strandvilla's in Corralejo zijn ideaal voor gezinnen. De stranden rondom Corralejo zijn veilig en relatief beschut. Directe strandtoegang betekent dat kinderen veilig op het zand kunnen spelen." },
+      { q: "Hoeveel kost een strandvilla in Corralejo per nacht?", a: "Strandvilla's in Corralejo kosten doorgaans €150–€300+ per nacht afhankelijk van de grootte en het seizoen. The Beach House biedt plek voor maximaal 6 gasten en begint vanaf €180/nacht bij directe boeking." },
+    ],
+  },
+
+  "where-to-stay-fuerteventura": {
+    title: "Waar Verblijven in Fuerteventura: Corralejo vs Caleta de Fuste vs Morro Jable",
+    metaTitle: "Waar Verblijven in Fuerteventura 2025 — Corralejo vs Caleta de Fuste vs Morro Jable",
+    metaDescription: "Twijfel je waar je in Fuerteventura wilt verblijven? Vergelijk de drie hoofdgebieden — Corralejo, Caleta de Fuste en Morro Jable — om de beste basis te vinden voor je villakantie.",
+    excerpt: "Niet zeker waar je in Fuerteventura wilt verblijven? We vergelijken de drie hoofdgebieden — Corralejo, Caleta de Fuste en Morro Jable — zodat je de juiste basis kiest voor je villakantie.",
+    content: `<p>Fuerteventura is een groot eiland — 100 km lang — en waar je verblijft maakt een groot verschil voor je vakantie. De drie hoofdgebieden voor villakantie zijn Corralejo in het noorden, Caleta de Fuste in het centrum-oost en Morro Jable/Costa Calma in het zuiden.</p>
+<h2>Corralejo (Noord-Fuerteventura)</h2>
+<p>Corralejo is onze thuisbasis — en wij denken dat het voor de meeste villavakantiegangers de beste plek is in Fuerteventura.</p>
+<p><strong>De stranden:</strong> Corralejo grenst aan het Natuurpark Corralejo met 10 km beschermde witte zandduinen en kristalhelder Atlantisch water. Dit zijn van de mooiste stranden van Europa en kunnen, omdat ze beschermd zijn, niet overontwikkeld worden.</p>
+<p><strong>De stad:</strong> Corralejo heeft een echte stadssfeer — onafhankelijke restaurants, bars, een haven, weekmarkten, boetieks en een ontspannen maar gezellige sfeer.</p>
+<p><strong>Watersport:</strong> Corralejo is een wereldklasse watersportcentrum. Flag Beach ten zuiden van de stad is een van de beste kitesurf- en windsurfspots van Europa.</p>
+<p><strong>Het beste voor:</strong> Stellen, gezinnen, watersportliefhebbers, iedereen die de beste stranden wil gecombineerd met een echte stadservaring.</p>
+<h2>Caleta de Fuste (Centraal-Oost Fuerteventura)</h2>
+<p>Caleta de Fuste is een geplande badplaats ongeveer 15 minuten ten zuiden van het vliegveld. Rustiger, meer beschut en met een heel andere sfeer dan Corralejo.</p>
+<p><strong>Het beste voor:</strong> Gezinnen met heel jonge kinderen. Degenen die gemak boven karakter stellen en makkelijke toegang vanaf het vliegveld willen.</p>
+<h2>Morro Jable & Costa Calma (Zuid-Fuerteventura)</h2>
+<p>Het zuidelijke uiteinde van Fuerteventura wordt gedomineerd door het schiereiland Jandía en het lange Sotaventostrand — misschien wel het meest spectaculaire strandgedeelte van het eiland. Het PWA Windsurf & Kitesurf Wereldkampioenschap wordt hier jaarlijks gehouden.</p>
+<p><strong>Het beste voor:</strong> Serieuze windsurfers en kitesurfers. Degenen die heel rustige, ondrukke stranden willen.</p>
+<h2>Ons Oordeel</h2>
+<p>Voor de meeste mensen die een vakantievilla in Fuerteventura zoeken — <strong>is Corralejo de juiste keuze</strong>. Het heeft de beste combinatie van strandkwaliteit, stadssfeer, watersport en villaopties.</p>
+<p>Klaar om je villa in Corralejo te boeken? <a href="/villas">Onze beschikbare panden bekijken</a> of <a href="/contact">contact opnemen met ons lokale team</a>.</p>`,
+    faqs: [
+      { q: "Wat is beter voor een villakantie — Corralejo of Caleta de Fuste?", a: "Corralejo is beter voor de meeste villavakantiegangers, vooral voor degenen die goede stranden, watersport en een levendige stadssfeer willen. Caleta de Fuste is rustiger en gezinsvriendelijker maar mist de strandkwaliteit en het stadskarakter van Corralejo." },
+      { q: "Is Corralejo goed voor gezinnen?", a: "Ja — Corralejo is uitstekend voor gezinnen. De stranden zijn veilig en op sommige plaatsen relatief beschut, er zijn veel gezinsvriendelijke activiteiten en de stad is gemakkelijk te voet te verkennen." },
+      { q: "Is het de moeite waard om een auto te huren in Fuerteventura?", a: "Ja, absoluut. Openbaar vervoer is beperkt en een huurauto opent het hele eiland. De kosten zijn redelijk — doorgaans €25–€50/dag in de zomer. Vooruit boeken voor juli en augustus." },
+    ],
+  },
+
+  "holiday-villas-to-rent-fuerteventura": {
+    title: "Vakantievilla's te Huur in Fuerteventura — Complete Gids 2025",
+    metaTitle: "Vakantievilla's te Huur in Fuerteventura 2025 | Canary Villas",
+    metaDescription: "Alles wat je moet weten over het huren van een vakantievilla in Fuerteventura. Villatypen, beste gebieden, waar op te letten en waarom direct boeken geld bespaart.",
+    excerpt: "Overweeg je een vakantievilla te huren in Fuerteventura? Hier is alles wat je moet weten — van het kiezen van het juiste gebied tot waar je op moet letten en hoe je de beste deal krijgt.",
+    content: `<p>Fuerteventura is een van de populairste Canarische Eilanden voor zelfverzorgde vakanties — en terecht. De combinatie van jaarrond zon, stranden van wereldklasse en een ontspannen sfeer maakt het perfect voor een villakantie.</p>
+<h2>Waarom een villa huren in Fuerteventura?</h2>
+<ul>
+<li><strong>Ruimte en privacy</strong> — je eigen terras, woonkamer en keuken in plaats van gedeelde hotelvoorzieningen</li>
+<li><strong>Betere prijs-kwaliteit voor groepen</strong> — een villa met 3 slaapkamers gedeeld door 6 gasten is per persoon vaak goedkoper dan hotelkamers</li>
+<li><strong>Vrijheid</strong> — eet wanneer je wilt, kom en ga zoals het jou uitkomt</li>
+<li><strong>Thuiscomfort</strong> — maak je eigen ontbijt, doe de was, houd de routine van de kinderen aan</li>
+<li><strong>Lokale ervaring</strong> — verblijven in een woonwijk geeft een veel authentiekere ervaring van het eiland</li>
+</ul>
+<h2>Beste Gebieden voor een Vakantievilla in Fuerteventura</h2>
+<h3>Corralejo (Noord)</h3>
+<p>Corralejo is de populairste bestemming voor villakantie in Fuerteventura. De stad ligt aan de noordpunt van het eiland met directe toegang tot het Natuurpark Corralejo — 10 km beschermde witte zandduinen en kristalhelder Atlantisch water.</p>
+<p><strong>Het beste voor:</strong> Gezinnen, stellen, watersportliefhebbers.</p>
+<h3>El Cotillo (Noordwest)</h3>
+<p>Ongeveer 20 minuten ten westen van Corralejo is El Cotillo een klein vissersdorp met een prachtige lagune — beschut, rustig water, veel stiller dan Corralejo.</p>
+<h3>Costa Calma & Jandía (Zuid)</h3>
+<p>Het zuiden van Fuerteventura herbergt het lange Sotaventostrand — legendarisch onder windsurfers en kitesurfers.</p>
+<h2>Hoeveel Kost het Huren van een Villa in Fuerteventura?</h2>
+<ul>
+<li><strong>Studio / 1 slaapkamer:</strong> €60–€100/nacht</li>
+<li><strong>Villa 2 slaapkamers:</strong> €90–€160/nacht</li>
+<li><strong>Strand 3 slaapkamers:</strong> €180–€300/nacht</li>
+<li><strong>Grote luxevilla (4–5 sk.):</strong> €300–€600+/nacht</li>
+</ul>
+<h2>Direct Boeken en Besparen</h2>
+<p>Een van de belangrijkste tips: <strong>boek je villa in Fuerteventura direct bij de eigenaar of een lokaal bureau, niet via platforms zoals Airbnb of Booking.com.</strong> Airbnb voegt een gastenservicetoeslag van 12–18% toe bovenop elke boeking.</p>
+<h2>Onze Panden in Corralejo</h2>
+<p><strong>The Beach House</strong> is een schitterende strandvilla voor maximaal 6 gasten met panoramisch uitzicht op de Atlantische Oceaan en directe toegang tot een van de mooiste stranden van Fuerteventura. Vanaf €180/nacht.</p>
+<p><strong>Het Bungalow Apartment</strong> is een charmante privé bungalow met volledig uitgeruste keuken en privétuin — perfect voor stellen of kleine gezinnen. Vanaf €95/nacht.</p>
+<p><a href="/villas">Onze vakantievilla's te huur in Fuerteventura bekijken →</a></p>`,
+    faqs: [
+      { q: "Hoeveel kost het huren van een vakantievilla in Fuerteventura?", a: "Vakantievilla prijzen in Fuerteventura variëren doorgaans van €80–€150 per nacht voor één of twee slaapkamers, tot €200–€400+ per nacht voor grotere strandvilla's. Direct boeken bespaart doorgaans 10–20% aan platformcommissies." },
+      { q: "Wat is het beste gebied voor een villa in Fuerteventura?", a: "Corralejo in het noorden is het populairste gebied voor villahuur — het heeft de beste stranden, uitstekende restaurants en bars en uitzonderlijke watersport." },
+      { q: "Wat is het beste seizoen voor een villa in Fuerteventura?", a: "Fuerteventura heeft jaarrond goed weer met gemiddelde temperaturen van 20–28 °C. Juli en augustus zijn de warmste en duurste maanden. April–Juni en September–Oktober bieden de beste combinatie van goed weer en lagere prijzen." },
+      { q: "Is het goedkoper om een Fuerteventura villa direct of via Airbnb te boeken?", a: "Direct boeken is bijna altijd goedkoper. Airbnb voegt een servicekosten van 12–18% toe bovenop de geadverteerde prijs. Direct boeken bij de villa-eigenaar of een lokaal bureau zoals Canary Villas elimineert deze kosten." },
+      { q: "Zijn Fuerteventura villa's inclusief zwembadtoegang?", a: "Veel villa's in Fuerteventura hebben privé- of gemeenschappelijke zwembaden. Strandvilla's bij Corralejo hebben vaak directe strandtoegang als alternatief. Controleer altijd het villabericht zorgvuldig." },
+    ],
+  },
 };
 export default nl;

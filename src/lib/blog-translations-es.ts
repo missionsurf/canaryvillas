@@ -656,5 +656,146 @@ const es: Record<string, { title: string; metaTitle: string; metaDescription: st
       },
     ],
   },
+
+  "beachfront-villa-corralejo": {
+    title: "Villas en Primera Línea de Playa en Corralejo — Guía Completa",
+    metaTitle: "Villa en Primera Línea Corralejo Fuerteventura — Reserva Directa y Ahorra",
+    metaDescription: "¿Buscas una villa en primera línea de playa en Corralejo, Fuerteventura? Descubre qué hace de Corralejo la mejor base, qué esperar de una villa frente al mar y cómo reservar directamente al mejor precio.",
+    excerpt: "Corralejo es el destino turístico más popular de Fuerteventura — y sus villas en primera línea de playa se encuentran entre los alojamientos vacacionales más solicitados de las Islas Canarias.",
+    content: `<p>Corralejo se encuentra en la punta norte de Fuerteventura, con vistas al Atlántico hacia Lanzarote. Lleva mucho tiempo siendo el destino más popular de la isla por una razón: las playas aquí son de clase mundial, la ciudad tiene carácter real, y la combinación de sol, deportes acuáticos y excelentes restaurantes es difícil de superar en Europa.</p>
+<h2>Por qué Corralejo es la mejor base en Fuerteventura</h2>
+<ul>
+<li><strong>Las playas</strong> — el Parque Natural de Corralejo protege 10 km de dunas de arena blanca y aguas turquesas. No son playas de piscina hotelera; son playas salvajes y hermosas.</li>
+<li><strong>La ciudad</strong> — Corralejo ha evolucionado de pequeño pueblo pesquero a animado destino turístico sin perder su alma. Bares de tapas locales, un puerto activo con ferries a Lanzarote, mercados semanales y tiendas independientes.</li>
+<li><strong>Deportes acuáticos</strong> — Flag Beach (Grandes Playas) es uno de los mejores spots de kitesurf y windsurf de Europa.</li>
+<li><strong>Conexiones</strong> — vuelos directos desde los principales aeropuertos españoles y europeos, ferry a Lanzarote y alquiler de coches fácil.</li>
+</ul>
+<h2>Qué esperar de una villa en primera línea en Corralejo</h2>
+<h3>Directamente en la playa</h3>
+<p>Un pequeño número de propiedades en Corralejo están justo en la arena. Son raras, muy solicitadas y con precio acorde. Típicamente tienen vistas panorámicas al mar desde múltiples habitaciones y grandes terrazas diseñadas para vivir al aire libre.</p>
+<h3>Cerca de la playa (2–5 min a pie)</h3>
+<p>La mayoría de las villas "en primera línea" están a un corto paseo de la playa — suficientemente cerca para ver el mar desde la terraza, escuchar las olas por la noche y estar en la arena en 2–5 minutos.</p>
+<p><strong>Comprueba siempre la distancia exacta a la playa antes de reservar y mira el mapa en lugar de confiar solo en la descripción del anuncio.</strong></p>
+<h2>Nuestra Villa en Primera Línea en Corralejo</h2>
+<p>En Canary Villas, nuestra propiedad insignia es <strong>The Beach House</strong> — una auténtica villa en primera línea en Corralejo para hasta 6 huéspedes. Está directamente en una de las mejores playas de Corralejo con vistas panorámicas al Atlántico desde la terraza y las zonas de estar.</p>
+<p>También tenemos <strong>el Bungalow Apartment</strong> — un encantador bungalow privado con jardín privado, cocina totalmente equipada y a un corto paseo de la playa.</p>
+<p>Ambas propiedades están disponibles para reserva directa — sin comisiones de Airbnb, opciones de pago flexibles y un equipo local en Corralejo.</p>
+<p><a href="/villas">Ver fechas y precios disponibles →</a></p>`,
+    faqs: [
+      { q: "¿Hay villas en primera línea de playa en Corralejo?", a: "Sí — Corralejo tiene varias villas en primera línea y cerca de la playa disponibles para alquiler vacacional. Las propiedades más solicitadas están directamente en la playa o a 2 minutos a pie, con vistas al mar y terrazas privadas." },
+      { q: "¿Cuánto cuesta una villa en primera línea de playa en Corralejo por noche?", a: "Los precios de villas en primera línea en Corralejo comienzan desde aproximadamente €150–€180 por noche para una propiedad de 2 habitaciones y pueden subir a €300+ para villas más grandes. Reservar directamente ahorra el 10–18 % de comisiones de plataforma." },
+      { q: "¿Qué playas hay cerca de Corralejo?", a: "Corralejo limita con el Parque Natural de Corralejo — 10 km de dunas de arena blanca protegidas y agua turquesa, clasificadas constantemente entre las mejores playas de Europa." },
+      { q: "¿Es Corralejo bueno para familias?", a: "Sí — Corralejo es uno de los mejores destinos en Fuerteventura para familias. Las playas son impresionantes, la ciudad tiene excelentes restaurantes y ambiente relajado, y hay muchas actividades." },
+    ],
+  },
+
+  "beachfront-villas-corralejo": {
+    title: "Villas en Primera Línea de Playa en Corralejo — Acceso Directo a las Mejores Playas",
+    metaTitle: "Villas en Primera Línea Corralejo Fuerteventura | Acceso Directo a la Playa 2025",
+    metaDescription: "¿Buscas una villa en primera línea de playa en Corralejo, Fuerteventura? Descubre las mejores propiedades con acceso directo al mar, qué esperar y cómo reservar directamente para ahorrar dinero.",
+    excerpt: "Corralejo tiene algunas de las mejores villas en primera línea de playa de Fuerteventura. Todo lo que necesitas saber sobre cómo elegirla y reservarla — y por qué la reserva directa siempre ahorra dinero.",
+    content: `<p>Corralejo es el destino más solicitado de Fuerteventura para unas vacaciones en villa en primera línea. Situado en la punta norte de la isla, está justo al lado del Parque Natural de Corralejo — 10 km de impresionantes dunas de arena blanca, protegidas de la urbanización, con aguas cristalinas del Atlántico.</p>
+<p>Una villa en primera línea aquí no significa solo una buena vista. Significa despertar con el sonido de las olas, salir directamente de tu terraza a la arena y ver el atardecer sobre el Atlántico desde tu propio espacio privado al aire libre.</p>
+<h2>¿Qué hace a Corralejo perfecto para unas vacaciones en villa en primera línea?</h2>
+<ul>
+<li><strong>Las playas</strong> — las playas del Parque Natural al norte de la ciudad son de las mejores de Europa: vastas, sin aglomeraciones y protegidas del exceso de urbanización</li>
+<li><strong>La ciudad</strong> — Corralejo tiene un ambiente de ciudad real: excelentes restaurantes locales, un puerto, mercados semanales, tiendas independientes y una vida nocturna animada pero no abrumadora</li>
+<li><strong>Deportes acuáticos</strong> — Corralejo es un destino de clase mundial para kitesurf, windsurf, surf, buceo y SUP</li>
+<li><strong>Ubicación</strong> — ferries diarios a Lanzarote desde el puerto de Corralejo</li>
+</ul>
+<h2>The Beach House — La Propiedad Insignia de Canary Villas</h2>
+<p>The Beach House es una auténtica villa en primera línea de playa en Corralejo para hasta 6 huéspedes. La terraza se abre directamente a la playa — toma tu café de la mañana con el Atlántico ante ti y estás en el agua en segundos.</p>
+<p>La villa tiene vistas panorámicas al mar desde todas las habitaciones, piscina privada, cocina totalmente equipada, dos dormitorios (con un tercero opcional) y una amplia zona de estar de planta abierta.</p>
+<p>Desde €180/noche al reservar directamente — sin comisiones de Airbnb, sin cargos ocultos, opciones de pago flexibles incluyendo transferencia bancaria.</p>
+<p><a href="/villas/beach-house">Ver The Beach House y comprobar disponibilidad →</a></p>
+<h2>Cuándo Visitar Corralejo para Unas Vacaciones en Villa en Primera Línea</h2>
+<ul>
+<li><strong>Abril–Junio</strong>: cálido (24–27 °C), más tranquilo, buena disponibilidad, excelente relación calidad-precio</li>
+<li><strong>Julio–Agosto</strong>: más caluroso (28–32 °C), más concurrido, precios premium. Reservar con 4–6 meses de antelación</li>
+<li><strong>Septiembre–Octubre</strong>: aún cálido (26–28 °C), temperatura del mar en su punto máximo, menos afluencia</li>
+<li><strong>Noviembre–Marzo</strong>: templado (18–22 °C), tranquilo, tarifas más baratas</li>
+</ul>`,
+    faqs: [
+      { q: "¿Qué zona de Fuerteventura tiene las mejores villas en primera línea?", a: "Corralejo en el norte de Fuerteventura es ampliamente considerado como la mejor zona para villas en primera línea. Está justo al lado del Parque Natural de Corralejo, con 10 km de dunas de arena blanca protegidas y aguas cristalinas." },
+      { q: "¿Qué significa 'primera línea' para una villa en Corralejo?", a: "Una auténtica villa en primera línea en Corralejo significa que puedes ir directamente desde la propiedad a la playa — sin cruzar calles, sin navegar por aparcamientos. The Beach House de Canary Villas es una propiedad genuinamente en primera línea." },
+      { q: "¿Son las villas en primera línea en Corralejo adecuadas para familias?", a: "Sí — las villas en primera línea en Corralejo son ideales para familias. Las playas alrededor de Corralejo son seguras y relativamente resguardadas. Tener acceso directo a la playa significa que los niños pueden jugar en la arena con total seguridad." },
+      { q: "¿Cuánto cuesta una villa en primera línea en Corralejo por noche?", a: "Las villas en primera línea en Corralejo cuestan típicamente desde €150–€300+ por noche según tamaño y temporada. The Beach House duerme hasta 6 huéspedes y comienza desde €180/noche al reservar directamente." },
+    ],
+  },
+
+  "where-to-stay-fuerteventura": {
+    title: "Dónde Alojarse en Fuerteventura: Corralejo vs Caleta de Fuste vs Morro Jable",
+    metaTitle: "Dónde Alojarse en Fuerteventura 2025 — Corralejo vs Caleta de Fuste vs Morro Jable",
+    metaDescription: "¿Dudas sobre dónde alojarte en Fuerteventura? Compara las tres principales zonas — Corralejo, Caleta de Fuste y Morro Jable — para encontrar la mejor base para tu villa vacacional.",
+    excerpt: "¿No sabes dónde alojarte en Fuerteventura? Analizamos las tres principales zonas — Corralejo, Caleta de Fuste y Morro Jable — para que elijas la mejor base para tus vacaciones en villa.",
+    content: `<p>Fuerteventura es una isla grande — 100 km de largo — y dónde elijas quedarte marca una gran diferencia en tus vacaciones. Las tres principales zonas para vacaciones en villa son Corralejo en el norte, Caleta de Fuste en el centro-este y Morro Jable/Costa Calma en el sur.</p>
+<h2>Corralejo (Norte de Fuerteventura)</h2>
+<p>Corralejo es nuestra base — y creemos que es el mejor lugar para alojarse en Fuerteventura para la mayoría de los que buscan villas.</p>
+<p><strong>Las playas:</strong> Corralejo limita con el Parque Natural de Corralejo, con 10 km de dunas de arena blanca protegidas y aguas cristalinas del Atlántico. Se encuentran entre las mejores playas de Europa y, al estar protegidas, no pueden ser urbanizadas.</p>
+<p><strong>La ciudad:</strong> Corralejo tiene un ambiente de ciudad real — restaurantes independientes, bares, un puerto, mercados semanales, tiendas boutique y una atmósfera relajada pero social.</p>
+<p><strong>Deportes acuáticos:</strong> Corralejo es un hub de deportes acuáticos de clase mundial. Flag Beach al sur de la ciudad es uno de los mejores spots de kitesurf y windsurf de Europa.</p>
+<p><strong>Ideal para:</strong> Parejas, familias, entusiastas de los deportes acuáticos, quienes quieren las mejores playas combinadas con una experiencia de ciudad real.</p>
+<p><strong>Opciones de villa:</strong> Corralejo tiene la mayor variedad de alquileres de villa en Fuerteventura. <a href="/villas">Canary Villas tiene dos propiedades en Corralejo</a> — The Beach House (primera línea, hasta 6 huéspedes) y el Bungalow Apartment (jardín privado, hasta 4 huéspedes).</p>
+<h2>Caleta de Fuste (Centro-Este de Fuerteventura)</h2>
+<p>Caleta de Fuste es un complejo turístico planificado a unos 15 minutos al sur del aeropuerto. Es más tranquila, más resguardada y tiene un ambiente muy diferente a Corralejo.</p>
+<p><strong>Las playas:</strong> Una bahía en herradura resguardada con agua tranquila y plana — excelente para niños pequeños y nadadores inseguros. No hay equivalente a las playas del Parque Natural aquí.</p>
+<p><strong>Ideal para:</strong> Familias con niños muy pequeños. Quienes priorizan la comodidad sobre el carácter y quieren fácil acceso desde el aeropuerto.</p>
+<h2>Morro Jable & Costa Calma (Sur de Fuerteventura)</h2>
+<p>El extremo sur de Fuerteventura está dominado por la península de Jandía y la larga playa de Sotavento — posiblemente el tramo de arena más espectacular de la isla.</p>
+<p><strong>Las playas:</strong> Sotavento es extraordinaria — kilómetros de arena blanca con una laguna que se forma en marea baja, perfecta para windsurfistas y kitesurfistas. El Campeonato Mundial PWA se celebra aquí anualmente.</p>
+<p><strong>Ideal para:</strong> Windsurfistas y kitesurfistas serios. Quienes quieren playas muy tranquilas y sin aglomeraciones.</p>
+<h2>Nuestro Veredicto</h2>
+<p>Para la mayoría de las personas que buscan una villa vacacional en Fuerteventura — <strong>Corralejo es la elección correcta</strong>. Tiene la mejor combinación de calidad de playas, ambiente de ciudad, deportes acuáticos y opciones de villa.</p>
+<p>¿Listo para reservar tu villa en Corralejo? <a href="/villas">Ver nuestras propiedades disponibles</a> o <a href="/contact">contactar con nuestro equipo local</a>.</p>`,
+    faqs: [
+      { q: "¿Qué es mejor para unas vacaciones en villa — Corralejo o Caleta de Fuste?", a: "Corralejo es mejor para la mayoría de los que buscan villa, especialmente quienes quieren buenas playas, deportes acuáticos y ambiente de ciudad animado. Caleta de Fuste es más resguardada y familiar pero le falta la calidad de playa y el carácter de ciudad de Corralejo." },
+      { q: "¿Es Corralejo bueno para familias?", a: "Sí — Corralejo es excelente para familias. Las playas son seguras y relativamente resguardadas en algunos lugares, hay muchos restaurantes y actividades familiares, y la ciudad es fácil de recorrer a pie." },
+      { q: "¿Vale la pena alquilar un coche en Fuerteventura?", a: "Sí, absolutamente. El transporte público es limitado y un coche de alquiler abre toda la isla. Los costes son razonables — típicamente €25–€50/día en verano. Reservar con antelación para julio y agosto." },
+    ],
+  },
+
+  "holiday-villas-to-rent-fuerteventura": {
+    title: "Villas Vacacionales en Alquiler en Fuerteventura — Guía Completa 2025",
+    metaTitle: "Villas Vacacionales en Alquiler en Fuerteventura 2025 | Canary Villas",
+    metaDescription: "Todo lo que necesitas saber sobre alquilar una villa vacacional en Fuerteventura. Tipos de villa, mejores zonas, qué buscar y por qué reservar directamente ahorra dinero.",
+    excerpt: "¿Pensando en alquilar una villa vacacional en Fuerteventura? Todo lo que necesitas saber — desde elegir la zona correcta hasta qué buscar y cómo conseguir la mejor oferta.",
+    content: `<p>Fuerteventura es una de las Islas Canarias más populares para vacaciones de autoservicio — y por una buena razón. La combinación de sol durante todo el año, playas de clase mundial y ambiente relajado la hace perfecta para unas vacaciones en villa.</p>
+<h2>¿Por qué alquilar una villa en Fuerteventura?</h2>
+<ul>
+<li><strong>Espacio y privacidad</strong> — tu propia terraza, salón y cocina en lugar de instalaciones hoteleras compartidas</li>
+<li><strong>Mejor relación calidad-precio para grupos</strong> — una villa de 3 habitaciones dividida entre 6 huéspedes suele salir más barata por persona que las habitaciones de hotel</li>
+<li><strong>Libertad</strong> — come cuando quieras, ven y ve como te plazca</li>
+<li><strong>Comodidades del hogar</strong> — prepara tu propio desayuno, haz la colada, mantén a los niños en su rutina</li>
+<li><strong>Experiencia local</strong> — quedarse en una zona residencial te da una experiencia mucho más auténtica de la isla</li>
+</ul>
+<h2>Mejores Zonas para Alquilar una Villa Vacacional en Fuerteventura</h2>
+<h3>Corralejo (Norte)</h3>
+<p>Corralejo es el destino más popular para vacaciones en villa en Fuerteventura. La ciudad se encuentra en la punta norte de la isla con acceso directo al Parque Natural de Corralejo — 10 km de dunas de arena blanca protegidas y aguas cristalinas del Atlántico. La ciudad en sí es animada sin ser abrumadora — excelentes restaurantes, bares, un puerto, mercados semanales y excelentes deportes acuáticos.</p>
+<p><strong>Ideal para:</strong> Familias, parejas, entusiastas de los deportes acuáticos, quienes quieren las mejores playas y algo de vida nocturna.</p>
+<h3>El Cotillo (Noroeste)</h3>
+<p>A unos 20 minutos al oeste de Corralejo, El Cotillo es un pequeño pueblo pesquero con una preciosa laguna — aguas resguardadas y tranquilas, mucho más tranquilo que Corralejo. Ideal para niños pequeños que necesitan natación segura.</p>
+<h3>Costa Calma & Jandía (Sur)</h3>
+<p>El sur de Fuerteventura alberga la larga playa de Sotavento — legendaria entre windsurfistas y kitesurfistas. Costa Calma y la península de Jandía son más de tipo complejo que el norte.</p>
+<h2>¿Cuánto Cuesta Alquilar una Villa en Fuerteventura?</h2>
+<ul>
+<li><strong>Estudio / 1 habitación:</strong> €60–€100/noche</li>
+<li><strong>Villa de 2 habitaciones:</strong> €90–€160/noche</li>
+<li><strong>Primera línea de 3 habitaciones:</strong> €180–€300/noche</li>
+<li><strong>Villa de lujo grande (4–5 hab.):</strong> €300–€600+/noche</li>
+</ul>
+<h2>Reserva Directamente y Ahorra Dinero</h2>
+<p>Uno de los consejos más importantes: <strong>reserva tu villa en Fuerteventura directamente con el propietario o una agencia local, no a través de plataformas como Airbnb o Booking.com.</strong> Airbnb añade una tarifa de servicio de huésped del 12–18 % encima de cada reserva.</p>
+<h2>Nuestras Propiedades en Corralejo</h2>
+<p><strong>The Beach House</strong> es una impresionante villa en primera línea de playa para hasta 6 huéspedes con vistas panorámicas al Atlántico y acceso directo a una de las mejores playas de Fuerteventura. Desde €180/noche.</p>
+<p><strong>El Bungalow Apartment</strong> es un encantador bungalow privado con cocina totalmente equipada y jardín privado — perfecto para parejas o familias pequeñas. Desde €95/noche.</p>
+<p><a href="/villas">Ver nuestras villas vacacionales en alquiler en Fuerteventura →</a></p>`,
+    faqs: [
+      { q: "¿Cuánto cuesta alquilar una villa vacacional en Fuerteventura?", a: "Los precios de villa vacacional en Fuerteventura oscilan típicamente entre €80–€150 por noche para una o dos habitaciones, hasta €200–€400+ por noche para villas más grandes en primera línea. La reserva directa suele ahorrar el 10–20 % al evitar las comisiones de plataforma." },
+      { q: "¿Cuál es la mejor zona para alquilar una villa en Fuerteventura?", a: "Corralejo en el norte es la zona más popular para alquileres de villa — tiene las mejores playas, excelentes restaurantes y bares y deportes acuáticos excepcionales. El Cotillo es más tranquilo y es adecuado para parejas. Costa Calma en el sur es buena para familias y deportes de viento." },
+      { q: "¿Cuál es la mejor época del año para alquilar una villa en Fuerteventura?", a: "Fuerteventura tiene buen tiempo durante todo el año con temperaturas medias de 20–28 °C. Julio y agosto son los meses más calurosos y caros. Abril–Junio y Septiembre–Octubre ofrecen la mejor combinación de buen tiempo y precios más bajos." },
+      { q: "¿Es más barato reservar una villa en Fuerteventura directamente o a través de Airbnb?", a: "Reservar directamente es casi siempre más barato. Airbnb añade una tarifa de servicio del 12–18 % sobre el precio anunciado. Reservar directamente con el propietario de la villa o una agencia local como Canary Villas elimina ambas tarifas." },
+      { q: "¿Las villas en Fuerteventura incluyen acceso a piscina?", a: "Muchas villas en Fuerteventura tienen piscinas privadas o comunitarias. Las villas en primera línea cerca de Corralejo a menudo tienen acceso directo a la playa como alternativa. Comprueba siempre el anuncio de la villa cuidadosamente." },
+    ],
+  },
 };
 export default es;
