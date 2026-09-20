@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
     const conflicting = await prisma.booking.findFirst({
       where: {
         villaId,
-        status: { in: ["enquiry", "pending", "confirmed"] },
+        status: { in: ["pending", "confirmed"] },
         OR: [{ checkIn: { lt: checkOutDate }, checkOut: { gt: checkInDate } }],
       },
     });
