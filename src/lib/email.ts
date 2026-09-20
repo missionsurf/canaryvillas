@@ -4,6 +4,8 @@ import { format } from "date-fns";
 async function sendMail({ from, to, subject, html, bcc }: {
   from: string; to: string | string[]; subject: string; html: string; bcc?: string;
 }) {
+  console.log("[email] sending to:", to, "subject:", subject);
+  console.log("[email] SMTP_HOST:", process.env.SMTP_HOST, "SMTP_USER:", process.env.SMTP_USER);
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: Number(process.env.SMTP_PORT) || 587,
@@ -13,13 +15,14 @@ async function sendMail({ from, to, subject, html, bcc }: {
       pass: process.env.SMTP_PASS,
     },
   });
-  await transporter.sendMail({
+  const result = await transporter.sendMail({
     from,
     to: Array.isArray(to) ? to.join(",") : to,
     bcc,
     subject,
     html,
   });
+  console.log("[email] sent:", result.messageId, result.response);
 }
 
 const BOOKINGS_BCC = [process.env.ADMIN_EMAIL, "bookings@canaryvillas.com"].filter(Boolean).join(",");
