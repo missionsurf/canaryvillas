@@ -1,18 +1,25 @@
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 import { format } from "date-fns";
 
 async function sendMail({ from, to, subject, html, bcc }: {
   from: string; to: string | string[]; subject: string; html: string; bcc?: string;
 }) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
-  const { error } = await resend.emails.send({
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: Number(process.env.SMTP_PORT) || 587,
+    secure: false,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
+  await transporter.sendMail({
     from,
-    to: Array.isArray(to) ? to : [to],
-    bcc: bcc ? bcc.split(",").map(e => e.trim()).filter(Boolean) : undefined,
+    to: Array.isArray(to) ? to.join(",") : to,
+    bcc,
     subject,
     html,
   });
-  if (error) throw new Error(error.message);
 }
 
 const BOOKINGS_BCC = [process.env.ADMIN_EMAIL, "bookings@canaryvillas.com"].filter(Boolean).join(",");
