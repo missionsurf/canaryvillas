@@ -80,10 +80,14 @@ export async function POST(req: NextRequest) {
       bookingId: booking.id,
     };
 
-    await Promise.all([
-      sendEnquiryReceived(emailData),
-      sendBookingNotification(emailData),
-    ]);
+    try {
+      await Promise.all([
+        sendEnquiryReceived(emailData),
+        sendBookingNotification(emailData),
+      ]);
+    } catch (emailErr) {
+      console.error("Enquiry email failed:", emailErr);
+    }
 
     return NextResponse.json({ bookingId: booking.id });
   } catch (err) {
