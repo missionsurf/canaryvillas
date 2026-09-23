@@ -12,10 +12,9 @@ export async function GET() {
 
   const existing = await prisma.admin.findUnique({ where: { email } });
   if (existing) {
-    // Update password in case it changed
     const hashed = await hashPassword(password);
     await prisma.admin.update({ where: { email }, data: { password: hashed } });
-    return NextResponse.json({ message: "Admin password updated" });
+    return NextResponse.json({ message: "Admin password updated", email, passwordLength: password.length });
   }
 
   const hashed = await hashPassword(password);
@@ -23,5 +22,5 @@ export async function GET() {
     data: { email, password: hashed, name: "Admin" },
   });
 
-  return NextResponse.json({ message: "Admin account created" });
+  return NextResponse.json({ message: "Admin account created", email, passwordLength: password.length });
 }
