@@ -7,11 +7,13 @@ export async function POST(req: NextRequest) {
   const { email, password } = await req.json();
 
   const admin = await prisma.admin.findUnique({ where: { email } });
+  console.log("[login] email:", email, "admin found:", !!admin);
   if (!admin) {
     return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
   }
 
   const valid = await verifyPassword(password, admin.password);
+  console.log("[login] password valid:", valid);
   if (!valid) {
     return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
   }
