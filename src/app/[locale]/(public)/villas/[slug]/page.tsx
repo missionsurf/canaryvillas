@@ -181,7 +181,6 @@ function VillaSchema({ villa }: { villa: Awaited<ReturnType<typeof getVillaBySlu
 export default async function VillaDetailPage({ params }: Props) {
   const { slug, locale } = await params;
   const t = await getTranslations({ locale, namespace: "villa" });
-  const tContent = await getTranslations({ locale, namespace: `villas_content.${slug}` });
   const villa = await getVillaBySlug(slug);
   if (!villa) notFound();
 
@@ -238,7 +237,7 @@ export default async function VillaDetailPage({ params }: Props) {
               <div className="mb-10">
                 <h2 className="text-xl font-bold text-gray-900 mb-4">{t("about")}</h2>
                 <div className="text-gray-600 leading-relaxed space-y-4">
-                  {tContent("description").split("\n\n").map((para, i) => (
+                  {villa.description.split("\n\n").map((para, i) => (
                     <p key={i}>{para}</p>
                   ))}
                 </div>
