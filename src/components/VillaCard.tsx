@@ -40,7 +40,7 @@ export default function VillaCard({ villa }: { villa: Villa }) {
         <p className="text-gray-500 text-sm mb-1">{villa.location}</p>
         <p className="text-gray-600 text-sm mb-4 line-clamp-2">{villa.shortDesc}</p>
 
-        <div className="flex items-center gap-4 text-gray-500 text-sm mb-5">
+        <div className="flex flex-wrap items-center gap-4 text-gray-500 text-sm mb-2">
           <span className="flex items-center gap-1">
             <Bed className="w-4 h-4" /> {villa.bedrooms} bed{villa.bedrooms > 1 ? "s" : ""}
           </span>
@@ -51,6 +51,11 @@ export default function VillaCard({ villa }: { villa: Villa }) {
             <Users className="w-4 h-4" /> Up to {villa.maxGuests}
           </span>
         </div>
+        {villa.beds && (
+          <p className="text-gray-400 text-xs mb-4 flex items-center gap-1">
+            <Bed className="w-3.5 h-3.5" /> {villa.beds}
+          </p>
+        )}
 
         <div className="mt-auto">
           <Link
