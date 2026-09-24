@@ -25,6 +25,11 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
     if (key in body) data[key] = body[key];
   }
 
-  const villa = await prisma.villa.update({ where: { id }, data });
-  return NextResponse.json(villa);
+  try {
+    const villa = await prisma.villa.update({ where: { id }, data });
+    return NextResponse.json(villa);
+  } catch (err) {
+    console.error("[villa patch]", err);
+    return NextResponse.json({ error: String(err) }, { status: 500 });
+  }
 }

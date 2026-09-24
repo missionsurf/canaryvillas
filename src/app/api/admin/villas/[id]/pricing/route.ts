@@ -13,11 +13,15 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
     return NextResponse.json({ error: "Invalid values" }, { status: 400 });
   }
 
-  const villa = await prisma.villa.update({
-    where: { id },
-    data: { pricePerNight, cleaningFee },
-    select: { id: true, name: true, pricePerNight: true, cleaningFee: true },
-  });
-
-  return NextResponse.json(villa);
+  try {
+    const villa = await prisma.villa.update({
+      where: { id },
+      data: { pricePerNight, cleaningFee },
+      select: { id: true, name: true, pricePerNight: true, cleaningFee: true },
+    });
+    return NextResponse.json(villa);
+  } catch (err) {
+    console.error("[pricing patch]", err);
+    return NextResponse.json({ error: String(err) }, { status: 500 });
+  }
 }
