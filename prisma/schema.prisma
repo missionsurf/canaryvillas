@@ -17,6 +17,7 @@ model Villa {
   longitude     Float?
   bedrooms      Int
   bathrooms     Int
+  beds          String?
   maxGuests     Int
   pricePerNight Float
   cleaningFee   Float    @default(0)

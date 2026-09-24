@@ -1,7 +1,8 @@
 import { redirect } from "next/navigation";
 import { getAdminSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { Home, RefreshCw, ExternalLink } from "lucide-react";
+import { Home, RefreshCw, ExternalLink, Pencil } from "lucide-react";
+import Link from "next/link";
 import AdminSyncButton from "@/components/AdminSyncButton";
 import VillaIcalSettings from "@/components/VillaIcalSettings";
 
@@ -66,13 +67,14 @@ export default async function PropertiesPage() {
                   </h3>
                   <p className="text-gray-400 text-sm">{v.location}</p>
                 </div>
-                <a
-                  href={`/villas/${v.slug}`}
-                  target="_blank"
-                  className="text-sky-600 hover:text-sky-700"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                </a>
+                <div className="flex items-center gap-2">
+                  <Link href={`/admin/properties/${v.id}`} className="text-gray-400 hover:text-sky-600">
+                    <Pencil className="w-4 h-4" />
+                  </Link>
+                  <a href={`/villas/${v.slug}`} target="_blank" className="text-sky-600 hover:text-sky-700">
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
               <div className="grid grid-cols-2 gap-3 text-sm">
                 <div>

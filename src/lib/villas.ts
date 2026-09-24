@@ -12,6 +12,7 @@ function parseVilla(v: {
   longitude: number | null;
   bedrooms: number;
   bathrooms: number;
+  beds: string | null;
   maxGuests: number;
   pricePerNight: number;
   cleaningFee: number;

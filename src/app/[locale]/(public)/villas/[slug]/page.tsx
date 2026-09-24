@@ -214,7 +214,7 @@ export default async function VillaDetailPage({ params }: Props) {
                 </div>
               </div>
 
-              <div className="flex items-center gap-6 text-gray-600 pb-6 border-b mb-8">
+              <div className="flex flex-wrap items-center gap-6 text-gray-600 pb-6 border-b mb-8">
                 <span className="flex items-center gap-2">
                   <Bed className="w-5 h-5 text-sky-500" />
                   {t("bedrooms", { n: villa.bedrooms })}
@@ -227,6 +227,12 @@ export default async function VillaDetailPage({ params }: Props) {
                   <Users className="w-5 h-5 text-sky-500" />
                   {t("guests", { n: villa.maxGuests })}
                 </span>
+                {villa.beds && (
+                  <span className="flex items-center gap-2 text-sm text-gray-500">
+                    <Bed className="w-4 h-4 text-gray-400" />
+                    {villa.beds}
+                  </span>
+                )}
               </div>
 
               <div className="mb-10">
