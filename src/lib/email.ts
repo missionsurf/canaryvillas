@@ -9,7 +9,7 @@ export async function sendMail({ from, to, subject, html, bcc, replyTo }: {
     from,
     to: Array.isArray(to) ? to : [to],
     bcc: bcc ? bcc.split(",").map(e => e.trim()).filter(Boolean) : undefined,
-    reply_to: replyTo,
+    replyTo,
     subject,
     html,
   });
