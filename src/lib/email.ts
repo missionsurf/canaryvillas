@@ -1,7 +1,7 @@
 import { Resend } from "resend";
 import { format } from "date-fns";
 
-async function sendMail({ from, to, subject, html, bcc, replyTo }: {
+export async function sendMail({ from, to, subject, html, bcc, replyTo }: {
   from: string; to: string | string[]; subject: string; html: string; bcc?: string; replyTo?: string;
 }) {
   const resend = new Resend(process.env.RESEND_API_KEY);
