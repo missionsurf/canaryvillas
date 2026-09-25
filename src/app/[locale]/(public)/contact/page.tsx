@@ -1,6 +1,7 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import ContactForm from "@/components/ContactForm";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -59,14 +60,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
 
           <div className="bg-white rounded-2xl p-8 shadow-sm">
             <h2 className="text-xl font-bold text-gray-900 mb-6">{t("send")}</h2>
-            <form action="mailto:info@canaryvillas.com" method="GET" className="space-y-4">
-              <input type="text" name="name" placeholder={t("name")} className="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-400" />
-              <input type="email" name="email" placeholder={t("email")} className="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-400" />
-              <textarea name="body" placeholder={t("message")} rows={5} className="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-400 resize-none" />
-              <button type="submit" className="w-full bg-sky-500 hover:bg-sky-600 text-white py-3 rounded-xl font-semibold transition-colors">
-                {t("send")}
-              </button>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </div>

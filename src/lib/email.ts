@@ -1,14 +1,15 @@
 import { Resend } from "resend";
 import { format } from "date-fns";
 
-async function sendMail({ from, to, subject, html, bcc }: {
-  from: string; to: string | string[]; subject: string; html: string; bcc?: string;
+async function sendMail({ from, to, subject, html, bcc, replyTo }: {
+  from: string; to: string | string[]; subject: string; html: string; bcc?: string; replyTo?: string;
 }) {
   const resend = new Resend(process.env.RESEND_API_KEY);
   const { error } = await resend.emails.send({
     from,
     to: Array.isArray(to) ? to : [to],
     bcc: bcc ? bcc.split(",").map(e => e.trim()).filter(Boolean) : undefined,
+    reply_to: replyTo,
     subject,
     html,
   });
