@@ -182,7 +182,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <p>Our villas put you within walking distance of the beach, the shops, and the water sports schools — everything you need for a <Link href={`${prefix}/blog/things-to-do-corralejo`} className="text-sky-600 hover:underline">perfect holiday in Fuerteventura</Link>.</p>
           </div>
           <div className="text-center mt-8">
-            <Link href={`${prefix}/blog`} className="inline-block border-2 border-sky-500 text-sky-600 hover:bg-sky-50 px-6 py-3 rounded-full font-semibold text-sm transition-colors">{t("hero.learnMore")}</Link>
+            <Link href={`${prefix}/blog`} className="inline-block border-2 border-sky-500 text-sky-600 hover:bg-sky-50 px-6 py-3 rounded-full font-semibold text-sm transition-colors">{t("blog.viewAll")}</Link>
           </div>
         </div>
       </section>
