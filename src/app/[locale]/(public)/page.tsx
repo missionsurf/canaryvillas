@@ -72,9 +72,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <Image src="https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg" alt="Beachfront villa in Fuerteventura" fill className="object-cover" priority sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <p className="text-sky-300 text-sm font-semibold uppercase tracking-widest mb-4">{t("hero.tagline")}</p>
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg">{t("hero.h1")}</h1>
-          <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed">{t("hero.sub")}</p>
+          <p className="text-sky-300 text-xs font-semibold uppercase tracking-widest mb-3">{t("hero.tagline")}</p>
+          <h1 className="text-2xl sm:text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg">{t("hero.h1")}</h1>
+          <p className="text-sm sm:text-lg md:text-xl text-gray-200 mb-6 max-w-2xl mx-auto leading-relaxed">{t("hero.sub")}</p>
           <div className="flex flex-row flex-wrap gap-3 justify-center">
             <Link href={`${prefix}/villas`} className="bg-sky-500 hover:bg-sky-400 text-white px-5 py-3 rounded-full text-sm font-bold transition-colors shadow-lg">{t("hero.browseVillas")}</Link>
             <a href="#why-fuerteventura" className="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-5 py-3 rounded-full text-sm font-semibold transition-colors">{t("hero.learnMore")}</a>
