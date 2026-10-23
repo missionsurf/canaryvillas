@@ -75,13 +75,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <p className="text-sky-300 text-sm font-semibold uppercase tracking-widest mb-4">{t("hero.tagline")}</p>
           <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg">{t("hero.h1")}</h1>
           <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed">{t("hero.sub")}</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href={`${prefix}/villas`} className="bg-sky-500 hover:bg-sky-400 text-white px-8 py-4 rounded-full text-lg font-bold transition-colors shadow-lg">{t("hero.browseVillas")}</Link>
-            <a href="#why-fuerteventura" className="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors">{t("hero.learnMore")}</a>
+          <div className="flex flex-row flex-wrap gap-4 justify-center">
+            <Link href={`${prefix}/villas`} className="bg-sky-500 hover:bg-sky-400 text-white px-7 py-3.5 rounded-full text-base font-bold transition-colors shadow-lg">{t("hero.browseVillas")}</Link>
+            <a href="#why-fuerteventura" className="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-7 py-3.5 rounded-full text-base font-semibold transition-colors">{t("hero.learnMore")}</a>
           </div>
-          <div className="flex items-center justify-center gap-2 mt-10 text-amber-400">
-            {[1,2,3,4,5].map((i) => <Star key={i} className="w-5 h-5 fill-current" />)}
-            <span className="text-white ml-2 font-medium">{t("hero.rated")}</span>
+          <div className="flex items-center justify-center gap-1.5 mt-8 text-amber-400">
+            {[1,2,3,4,5].map((i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+            <span className="text-white ml-1.5 text-sm font-medium">{t("hero.rated")}</span>
           </div>
         </div>
       </section>
