@@ -42,7 +42,7 @@ const localeMeta: Record<Locale, { title: string; description: string; lang: str
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const meta = localeMeta[locale as Locale] ?? localeMeta.en;
-  const base = "https://canaryvillas.com";
+  const base = "https://www.canaryvillas.com";
   return {
     title: { default: meta.title, template: "%s | Canary Villas" },
     description: meta.description,

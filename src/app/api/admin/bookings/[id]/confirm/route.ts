@@ -18,7 +18,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     return NextResponse.json({ error: "Booking is not an enquiry" }, { status: 400 });
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://canaryvillas.com";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://www.canaryvillas.com";
   const depositAmount = booking.depositAmount ?? Math.round(booking.totalPrice / 2 * 100) / 100;
 
   // Create a Stripe Payment Link the guest can use

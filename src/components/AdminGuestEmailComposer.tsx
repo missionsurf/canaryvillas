@@ -25,7 +25,7 @@ export default function AdminGuestEmailComposer({ guestId, guestName, guestEmail
     discountText: "Your exclusive discount code",
     validUntil: "",
     ctaText: "Book Your Stay",
-    ctaUrl: "https://canaryvillas.com",
+    ctaUrl: "https://www.canaryvillas.com",
   });
 
   const [custom, setCustom] = useState({ subject: "", body: "" });

@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Privacy Policy | Canary Villas",
   description: "Privacy Policy for Canary Villas — how we collect, use and protect your personal data.",
-  alternates: { canonical: "https://canaryvillas.com/privacy" },
+  alternates: { canonical: "https://www.canaryvillas.com/privacy" },
   robots: { index: false },
 };
 

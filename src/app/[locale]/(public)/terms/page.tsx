@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Terms & Conditions | Canary Villas",
   description: "Booking terms and conditions for Canary Villas holiday villa rentals in Fuerteventura.",
-  alternates: { canonical: "https://canaryvillas.com/terms" },
+  alternates: { canonical: "https://www.canaryvillas.com/terms" },
   robots: { index: false },
 };
 

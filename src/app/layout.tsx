@@ -12,17 +12,21 @@ export const metadata: Metadata = {
   description:
     "Book stunning beachfront holiday villas in Corralejo, Fuerteventura. Direct booking, best price guaranteed. Sea views, private terraces & year-round sunshine.",
   alternates: {
-    canonical: "https://canaryvillas.com",
+    canonical: "https://www.canaryvillas.com",
     languages: {
-      "en": "https://canaryvillas.com",
-      "de": "https://canaryvillas.com",
-      "x-default": "https://canaryvillas.com",
+      "en": "https://www.canaryvillas.com",
+      "de": "https://www.canaryvillas.com/de",
+      "es": "https://www.canaryvillas.com/es",
+      "fr": "https://www.canaryvillas.com/fr",
+      "nl": "https://www.canaryvillas.com/nl",
+      "it": "https://www.canaryvillas.com/it",
+      "x-default": "https://www.canaryvillas.com",
     },
   },
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://canaryvillas.com",
+    url: "https://www.canaryvillas.com",
     siteName: "Canary Villas",
     images: [
       {
@@ -39,7 +43,7 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": ["Organization", "LodgingBusiness"],
   name: "Canary Villas",
-  url: "https://canaryvillas.com",
+  url: "https://www.canaryvillas.com",
   logo: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg",
   telephone: "+447809870561",
   email: "info@canaryvillas.com",
@@ -82,7 +86,7 @@ const organizationSchema = {
     closes: "21:00",
   },
   sameAs: [
-    "https://canaryvillas.com",
+    "https://www.canaryvillas.com",
   ],
 };
 
@@ -90,10 +94,10 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Canary Villas",
-  url: "https://canaryvillas.com",
+  url: "https://www.canaryvillas.com",
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://canaryvillas.com/villas?q={search_term_string}",
+    target: "https://www.canaryvillas.com/villas?q={search_term_string}",
     "query-input": "required name=search_term_string",
   },
 };
