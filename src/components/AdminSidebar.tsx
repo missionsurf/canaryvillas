@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import {
-  LayoutDashboard, Calendar, Users, Home,
+  LayoutDashboard, Calendar, CalendarDays, Users, Home,
   LogOut, TreePalm, Plus, ChevronRight, Settings, Menu, X, Tag
 } from "lucide-react";
 
@@ -14,6 +14,7 @@ interface Props {
 
 const nav = [
   { label: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
+  { label: "Calendar", href: "/admin/calendar", icon: CalendarDays },
   { label: "Bookings", href: "/admin/bookings", icon: Calendar },
   { label: "Guests", href: "/admin/guests", icon: Users },
   { label: "Properties", href: "/admin/properties", icon: Home },

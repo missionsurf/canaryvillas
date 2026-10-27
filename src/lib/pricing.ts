@@ -7,6 +7,8 @@ export interface PriceBreakdown {
   totalPrice: number;
   nights: number;
   seasonal: boolean; // true if any seasonal rate was used
+  specialOffer: boolean; // true if a special offer rate was used
+  specialOfferName?: string;
 }
 
 /**
@@ -34,6 +36,8 @@ export async function getEffectivePriceForStay(
 
   let totalNightCost = 0;
   let usedSeasonal = false;
+  let usedSpecialOffer = false;
+  let specialOfferName: string | undefined;
 
   for (const day of days) {
     const rate = rates.find(
@@ -42,6 +46,10 @@ export async function getEffectivePriceForStay(
     if (rate) {
       totalNightCost += rate.pricePerNight;
       usedSeasonal = true;
+      if ((rate as { isSpecialOffer?: boolean }).isSpecialOffer) {
+        usedSpecialOffer = true;
+        specialOfferName = rate.name;
+      }
     } else {
       totalNightCost += villa.pricePerNight;
     }
@@ -56,5 +64,7 @@ export async function getEffectivePriceForStay(
     totalPrice,
     nights,
     seasonal: usedSeasonal,
+    specialOffer: usedSpecialOffer,
+    specialOfferName,
   };
 }

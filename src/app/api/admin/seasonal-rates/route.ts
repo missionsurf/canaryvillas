@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
   const session = await getAdminSession();
   if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-  const { villaId, name, startDate, endDate, pricePerNight } = await req.json();
+  const { villaId, name, startDate, endDate, pricePerNight, isSpecialOffer } = await req.json();
   if (!villaId || !name || !startDate || !endDate || !pricePerNight) {
     return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
   }
@@ -30,6 +30,7 @@ export async function POST(req: NextRequest) {
       startDate: parseISO(startDate),
       endDate: parseISO(endDate),
       pricePerNight: Number(pricePerNight),
+      isSpecialOffer: Boolean(isSpecialOffer),
     },
   });
   return NextResponse.json(rate);

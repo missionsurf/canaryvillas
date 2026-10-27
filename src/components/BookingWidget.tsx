@@ -47,15 +47,19 @@ export default function BookingWidget({
 
   const [effectivePrice, setEffectivePrice] = useState<number>(pricePerNight);
   const [priceFetching, setPriceFetching] = useState(false);
+  const [specialOffer, setSpecialOffer] = useState<{ name: string } | null>(null);
 
   useEffect(() => {
-    if (!range?.from || !range?.to) { setEffectivePrice(pricePerNight); return; }
+    if (!range?.from || !range?.to) { setEffectivePrice(pricePerNight); setSpecialOffer(null); return; }
     const checkIn = format(range.from, "yyyy-MM-dd");
     const checkOut = format(range.to, "yyyy-MM-dd");
     setPriceFetching(true);
     fetch(`/api/villas/${villaId}/price-check?checkIn=${checkIn}&checkOut=${checkOut}`)
       .then(r => r.json())
-      .then(d => { if (d.pricePerNight) setEffectivePrice(d.pricePerNight); })
+      .then(d => {
+        if (d.pricePerNight) setEffectivePrice(d.pricePerNight);
+        setSpecialOffer(d.specialOffer && d.specialOfferName ? { name: d.specialOfferName } : null);
+      })
       .finally(() => setPriceFetching(false));
   }, [range, villaId, pricePerNight]);
 
@@ -196,7 +200,12 @@ export default function BookingWidget({
           <span className="text-sky-100">{t("perNight")}</span>
           {priceFetching && <span className="text-sky-200 text-xs ml-1">…</span>}
         </div>
-        <p className="text-sky-100 text-sm mt-1">{villaName}</p>
+        {specialOffer && (
+          <div className="inline-flex items-center gap-1 bg-orange-400 text-white text-xs font-semibold px-2 py-0.5 rounded-full mt-1">
+            🏷 {specialOffer.name}
+          </div>
+        )}
+        {!specialOffer && <p className="text-sky-100 text-sm mt-1">{villaName}</p>}
       </div>
 
       <div className="p-6">

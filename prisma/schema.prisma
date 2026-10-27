@@ -36,14 +36,15 @@ model Villa {
 }
 
 model SeasonalRate {
-  id            String   @id @default(cuid())
-  villaId       String
-  villa         Villa    @relation(fields: [villaId], references: [id])
-  name          String
-  startDate     DateTime
-  endDate       DateTime
-  pricePerNight Float
-  createdAt     DateTime @default(now())
+  id             String   @id @default(cuid())
+  villaId        String
+  villa          Villa    @relation(fields: [villaId], references: [id])
+  name           String
+  startDate      DateTime
+  endDate        DateTime
+  pricePerNight  Float
+  isSpecialOffer Boolean  @default(false)
+  createdAt      DateTime @default(now())
 
   @@map("seasonal_rates")
 }
