@@ -1230,6 +1230,142 @@ export const blogPosts: BlogPost[] = [
 <p>Ready to start planning your Fuerteventura villa holiday? <a href="/villas">Browse our available villas</a> or <a href="/contact">get in touch</a> with any questions — we're based in Corralejo and happy to help.</p>
     `,
   },
+  {
+    slug: "booking-direct-vs-airbnb-fuerteventura",
+    title: "Booking Direct vs Airbnb in Fuerteventura: Cost Comparison & Local Perks",
+    metaTitle: "Booking Direct vs Airbnb in Fuerteventura — Cost Comparison 2025 | Canary Villas",
+    metaDescription: "Is it cheaper to book a Fuerteventura villa direct or through Airbnb? We break down the real cost difference, what you gain from booking direct, and why more travellers are skipping the platforms.",
+    excerpt: "Airbnb and Booking.com charge guests 12–20% on top of the nightly rate. When you book a villa direct in Fuerteventura, that money stays in your pocket — plus you get direct access to the owners. Here's the full comparison.",
+    date: "2026-10-01",
+    category: "Travel Tips",
+    heroImage: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg",
+    heroAlt: "Luxury villa in Corralejo, Fuerteventura — book direct for the best price",
+    readTime: 8,
+    tags: ["booking direct", "Airbnb alternative", "villa rental", "Fuerteventura", "Corralejo", "travel tips"],
+    faqs: [
+      { q: "How much do I save booking a villa direct in Fuerteventura?", a: "Airbnb charges guests a service fee of 12–16% on top of the nightly rate, while Booking.com typically adds 13–18%. On a 10-night stay in a villa at €180/night (€1,800 base), that's an extra €216–€288 in platform fees alone — money that goes straight to Airbnb, not your host. Booking direct eliminates those fees entirely." },
+      { q: "Is it safe to book a villa direct without using Airbnb?", a: "Yes — booking direct with an established, verified property owner is perfectly safe. Canary Villas has been operating in Corralejo for years and processes payments securely via bank transfer or card. We provide a full booking confirmation, rental agreement, and are contactable directly before, during, and after your stay." },
+      { q: "Do I still have protection if I book direct?", a: "Direct bookings come with a full rental agreement that clearly sets out cancellation terms, damage deposit conditions, and what is included in the price. This gives you clear, contractual protection — often more transparent than platform terms, which can change and are subject to platform dispute processes you have no control over." },
+      { q: "Can I get a better deal on dates or longer stays by booking direct?", a: "Yes. Direct bookings allow for direct negotiation — particularly for longer stays, last-minute availability, or repeat guests. Platforms like Airbnb don't allow this kind of flexibility. Contact us directly and we can often accommodate requests that wouldn't be possible through a platform." },
+    ],
+    content: `
+<h2>The Real Cost of Airbnb and Booking.com</h2>
+<p>Most travellers don't realise how much platform fees add to their holiday cost until they see the checkout total. Airbnb charges a guest service fee of between <strong>12% and 16%</strong> on top of the nightly rate — a fee added at checkout, after you've already spent time searching, comparing, and choosing a property. Booking.com builds in a commission of 15–18% that is typically passed on to the guest through a higher listed price.</p>
+
+<p>Let's put some real numbers on it. Take a 7-night stay in a beachfront villa in Corralejo at €180/night:</p>
+
+<table>
+  <thead><tr><th>Cost</th><th>Airbnb</th><th>Booking direct</th></tr></thead>
+  <tbody>
+    <tr><td>Nightly rate (7 nights)</td><td>€1,260</td><td>€1,260</td></tr>
+    <tr><td>Platform service fee (14%)</td><td>€176</td><td>€0</td></tr>
+    <tr><td>Cleaning fee</td><td>€150</td><td>€150</td></tr>
+    <tr><td><strong>Total</strong></td><td><strong>€1,586</strong></td><td><strong>€1,410</strong></td></tr>
+  </tbody>
+</table>
+
+<p>That's <strong>€176 saved</strong> on a single week's stay — enough for two excellent restaurant dinners for a family, a day's car hire, or a kitesurfing lesson. On a two-week stay, the saving doubles to €350+.</p>
+
+<h2>What You Gain by Booking Direct</h2>
+<p>The financial saving is the headline, but there are several other advantages to booking a Fuerteventura villa direct:</p>
+
+<h3>1. Direct contact with the owners</h3>
+<p>When you book through Airbnb or Booking.com, your communication is filtered through the platform's messaging system, subject to their policies, and — critically — can be cut off if there's a dispute. Booking direct means you have the owner's phone number, WhatsApp, and email from day one. If your flight is delayed, you have a question about the area, or something needs attention at the villa, you speak to a real person who knows the property and can actually help.</p>
+
+<h3>2. Better local knowledge</h3>
+<p>Platform hosts are incentivised to maintain good reviews across dozens of bookings. Direct hosts — especially owner-operators like Canary Villas — have a personal stake in your holiday being perfect. You'll get honest recommendations for restaurants, beaches, and activities that you simply won't find in a generic guidebook or platform "house manual".</p>
+
+<h3>3. Flexible cancellation and payment terms</h3>
+<p>Platforms impose standardised cancellation policies (strict, moderate, flexible) that apply across all properties. Direct bookings allow owners to work with you on payment schedules — particularly useful for longer stays — and handle genuine emergencies with the human flexibility a platform algorithm can't provide.</p>
+
+<h3>4. No algorithm, no fake scarcity</h3>
+<p>Platforms use urgency tactics — "only 2 left at this price!", "12 people viewed this in the last 24 hours" — to pressure you into booking quickly. Booking direct lets you take your time, ask the questions that matter to you, and make the right decision without manufactured pressure.</p>
+
+<h2>The Honest Case for Airbnb</h2>
+<p>To be fair, platforms do offer genuine advantages in certain situations:</p>
+<ul>
+  <li><strong>Discovery:</strong> If you don't know the destination at all, Airbnb's search and map interface is excellent for exploring options across a whole island or region.</li>
+  <li><strong>Unknown owners:</strong> If you can't verify a property or its owner independently, Airbnb's review system and guest guarantee provide a safety net. This matters more for informal rentals from individuals than for established villa businesses.</li>
+  <li><strong>Payment protection:</strong> Airbnb's payment system holds funds until check-in, providing a layer of protection against scams on untrusted platforms.</li>
+</ul>
+
+<p>For an established business like Canary Villas — with a professional website, verified contact details, legal rental agreements, and years of reviews on multiple platforms — these platform advantages are largely redundant. You can verify us independently, pay securely, and have full contractual protection without paying a 14% premium for the privilege.</p>
+
+<h2>How to Book a Villa Direct in Fuerteventura</h2>
+<p>Booking direct with Canary Villas takes three steps:</p>
+<ol>
+  <li><strong>Check availability</strong> — use the booking widget on any villa page to select your dates and see live pricing with no hidden fees.</li>
+  <li><strong>Send an enquiry</strong> — if you have questions or want to discuss dates, use the <a href="/contact">contact form</a> or WhatsApp us directly. We reply same day.</li>
+  <li><strong>Confirm and pay</strong> — a deposit secures your booking. We'll send a full rental agreement and all the arrival details you need.</li>
+</ol>
+
+<p>Ready to start? <a href="/villas">Browse our Corralejo villas</a> and book direct for the best price — guaranteed.</p>
+    `,
+  },
+  {
+    slug: "flag-beach-corralejo-guide",
+    title: "Flag Beach Corralejo: The Complete Guide for Kitesurfers & Beach Lovers",
+    metaTitle: "Flag Beach Corralejo Guide 2025 — Kitesurfing, Beaches & Where to Stay",
+    metaDescription: "Your complete guide to Flag Beach (Playa de la Bandera), Corralejo. Everything about the kitesurfing, conditions, schools, the best nearby accommodation, and how to make the most of your visit.",
+    excerpt: "Flag Beach — Playa de la Bandera — is one of the world's top kitesurfing spots and one of Corralejo's most spectacular stretches of coast. Here's everything you need to know before you go.",
+    date: "2026-10-10",
+    category: "Destinations",
+    heroImage: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg",
+    heroAlt: "Flag Beach (Playa de la Bandera) Corralejo, Fuerteventura — kitesurfing and watersports",
+    readTime: 9,
+    tags: ["Flag Beach", "Corralejo", "kitesurfing", "Fuerteventura", "beaches", "watersports"],
+    faqs: [
+      { q: "Where exactly is Flag Beach in Corralejo?", a: "Flag Beach (Playa de la Bandera) is located approximately 2 km south of Corralejo town centre, just past the start of the Corralejo Natural Park. By car, take the FV-1 heading south and look for signs to 'Flag Beach' or 'Kite Beach'. There's a large car park and several kite schools visible from the road. By bike it's a pleasant 10-minute ride along the coast road." },
+      { q: "What are the wind conditions like at Flag Beach?", a: "Flag Beach receives consistent north-easterly trade winds (Tramontana) for most of the year, typically 15–30 knots, strongest from May to September. The beach is side-shore, which is ideal for kitesurfing. A shallow-water lagoon on the south end suits beginners, while the deeper water to the north offers better conditions for jumping and freestyle." },
+      { q: "Can beginners kitesurf at Flag Beach?", a: "Yes — Flag Beach is excellent for beginners. The shallow lagoon at the south end creates safe, flat water for learning, and there are over a dozen IKO-certified schools operating directly on the beach. Most schools run beginner group courses over 3–5 days (typically 9–12 hours of tuition), and instructors are used to working with complete novices." },
+      { q: "Where should I stay for easy access to Flag Beach?", a: "Corralejo town is the closest base — our villas are a 5 to 10-minute drive from Flag Beach. Staying in Corralejo means you can walk to restaurants and supermarkets in the evening, while the beach and kite schools are just a short journey away in the morning." },
+    ],
+    content: `
+<h2>What is Flag Beach?</h2>
+<p><strong>Flag Beach</strong> (officially Playa de la Bandera — "Beach of the Flags") earned its nickname from the colourful kites and windsurfer sails that fill the sky above it on any given day. Stretching south from the edge of Corralejo town into the Corralejo Natural Park, it forms part of the island's most dramatic coastal landscape: a 10-kilometre arc of white dunes meeting the deep blue of the Atlantic Ocean.</p>
+
+<p>The beach sits at the northern edge of the <strong>Grandes Playas</strong> — the chain of beaches running through the dunes — and is one of Fuerteventura's most visited destinations both for its natural beauty and its world-class watersports conditions. The annual <strong>PWA Kite World Cup</strong> is held here, attracting the sport's top athletes and thousands of spectators each year.</p>
+
+<h2>Kitesurfing at Flag Beach: Conditions & What to Expect</h2>
+<p>Flag Beach is reliably rated among the top 10 kitesurfing spots in the world, and for good reason. The north-easterly trade winds arrive consistently, side-shore, across the beach — the ideal angle for kitesurfing. Wind strength sits at 15–30 knots for the majority of the summer months, and 10–20 knots through winter (still very rideable, particularly for lighter riders and beginners).</p>
+
+<p>The beach can be divided into two distinct zones:</p>
+<ul>
+  <li><strong>The lagoon (south end):</strong> A shallow, flat-water area protected by a natural sandbar. Perfect for beginners learning body-drag and water starts, and for freestyle riders wanting butter-flat water for technical tricks.</li>
+  <li><strong>Open beach (north end):</strong> Deeper water, more wind chop, and occasional swell when the northerly swell wraps around the point. More challenging, and the preferred zone for experienced riders looking for speed, jumps, and wave riding.</li>
+</ul>
+
+<h2>Kite Schools at Flag Beach</h2>
+<p>There are over a dozen IKO-certified kite schools operating directly on Flag Beach, most of which also offer equipment rental. Among the most established are:</p>
+<ul>
+  <li><strong>ION Club Fuerteventura</strong> — one of the biggest operations on the beach, with a full equipment fleet, certified instructors in multiple languages, and a well-regarded beginner programme.</li>
+  <li><strong>Fuerteventura Kite &amp; Windsurf Centre</strong> — long-established, with both kitesurfing and windsurfing tuition, plus SUP rental.</li>
+  <li><strong>Dakhla Kite School</strong> — specialist kite-only school with small group sizes and a strong reputation for beginner instruction.</li>
+</ul>
+<p>Prices are broadly consistent across schools: a 3-day beginner group course (9 hours) costs €280–€350; equipment rental for experienced riders runs at €60–€80 per half day.</p>
+
+<h2>Getting to Flag Beach from Corralejo</h2>
+<p>Flag Beach is approximately 2 km south of Corralejo town centre. The easiest options:</p>
+<ul>
+  <li><strong>By car:</strong> 5 minutes on the FV-1 heading south. Large car park on-site (free).</li>
+  <li><strong>By bike:</strong> A pleasant 10-minute ride along the coast road. Several bike hire shops in Corralejo offer daily and weekly rates.</li>
+  <li><strong>By taxi:</strong> A taxi from central Corralejo costs around €5–€8.</li>
+  <li><strong>On foot:</strong> About 25 minutes along the beach from Corralejo town — a beautiful walk on a calm day.</li>
+</ul>
+
+<h2>Beyond Kitesurfing: Flag Beach for Non-Riders</h2>
+<p>You don't need to kitesurf to love Flag Beach. The beach itself is spectacular — wide, clean, and backed by the rolling white dunes of the Natural Park. On calmer days it's excellent for swimming, though always check conditions as the wind can create strong shore-break.</p>
+
+<p>The beach bars and kite school restaurants serve food and drinks throughout the day. Watching experienced riders perform aerial tricks and high jumps while you sit with a cold drink in the Fuerteventura sun is one of the island's great pleasures, even if you never go near the water yourself.</p>
+
+<h2>Where to Stay for Flag Beach Access</h2>
+<p>Staying in <strong>Corralejo town</strong> gives you the perfect balance — Flag Beach is a short drive or bike ride away, while the town's restaurants, bars, supermarkets, and nightlife are within easy walking distance of your accommodation.</p>
+
+<p>Our villas are a 5–10 minute drive from Flag Beach. <a href="/villas/beach-house">The Beach House</a> offers direct beachfront access on the town beach (step straight onto the sand), while the <a href="/villas/bungalow-apartment">Bungalow Apartment</a> is ideal for couples or small families seeking a quieter base with a private jacuzzi terrace. Both are available to book direct at the best price.</p>
+
+<p><a href="/villas">Browse our Corralejo villas →</a></p>
+    `,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
