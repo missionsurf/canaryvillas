@@ -4,6 +4,8 @@ import { getAllVillas } from "@/lib/villas";
 import VillaCard from "@/components/VillaCard";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import Link from "next/link";
+import { Wind, Waves, Users } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Beachfront Villas to Rent in Corralejo, Fuerteventura | Canary Villas",
@@ -54,6 +56,35 @@ export default async function VillasPage({ params }: { params: Promise<{ locale:
             <p className="mt-2">{t("checkBack")}</p>
           </div>
         )}
+
+        {/* Internal landing page links — SEO + user discovery */}
+        <div className="mt-16 border-t border-gray-200 pt-12">
+          <h2 className="text-xl font-bold text-gray-900 mb-2 text-center">Browse by holiday type</h2>
+          <p className="text-gray-500 text-center mb-8">Find the perfect villa for your trip to Corralejo, Fuerteventura.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <Link href={`/${locale}/villas/beachfront-villas-fuerteventura`} className="flex items-center gap-3 bg-white border border-gray-200 rounded-2xl px-5 py-4 hover:border-sky-300 hover:shadow-sm transition-all group">
+              <Waves className="w-5 h-5 text-sky-500 shrink-0" />
+              <div>
+                <p className="font-semibold text-gray-900 text-sm group-hover:text-sky-600 transition-colors">Beachfront villas</p>
+                <p className="text-xs text-gray-500">Direct beach access, Atlantic views</p>
+              </div>
+            </Link>
+            <Link href={`/${locale}/villas/kitesurfing-accommodation-corralejo`} className="flex items-center gap-3 bg-white border border-gray-200 rounded-2xl px-5 py-4 hover:border-sky-300 hover:shadow-sm transition-all group">
+              <Wind className="w-5 h-5 text-sky-500 shrink-0" />
+              <div>
+                <p className="font-semibold text-gray-900 text-sm group-hover:text-sky-600 transition-colors">Kitesurfing accommodation</p>
+                <p className="text-xs text-gray-500">2 km from Flag Beach</p>
+              </div>
+            </Link>
+            <Link href={`/${locale}/villas/corralejo-villas-with-private-pool`} className="flex items-center gap-3 bg-white border border-gray-200 rounded-2xl px-5 py-4 hover:border-sky-300 hover:shadow-sm transition-all group">
+              <Users className="w-5 h-5 text-sky-500 shrink-0" />
+              <div>
+                <p className="font-semibold text-gray-900 text-sm group-hover:text-sky-600 transition-colors">Villas with private pool</p>
+                <p className="text-xs text-gray-500">Jacuzzi & private outdoor space</p>
+              </div>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

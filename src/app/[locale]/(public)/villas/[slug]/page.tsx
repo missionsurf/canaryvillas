@@ -5,6 +5,8 @@ import PhotoGallery from "@/components/PhotoGallery";
 import { Bed, Bath, Users, MapPin, CheckCircle2 } from "lucide-react";
 import ConsentMap from "@/components/ConsentMap";
 import PriceDisplay from "@/components/PriceDisplay";
+import VillaFAQ, { VILLA_FAQS, DEFAULT_FAQS } from "@/components/VillaFAQ";
+import VillaLocationBadges from "@/components/VillaLocationBadges";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
@@ -178,6 +180,20 @@ function VillaSchema({ villa }: { villa: Awaited<ReturnType<typeof getVillaBySlu
   );
 }
 
+function VillaFAQSchema({ slug }: { slug: string }) {
+  const faqs = VILLA_FAQS[slug] ?? DEFAULT_FAQS;
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(f => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+}
+
 export default async function VillaDetailPage({ params }: Props) {
   const { slug, locale } = await params;
   const t = await getTranslations({ locale, namespace: "villa" });
@@ -190,6 +206,7 @@ export default async function VillaDetailPage({ params }: Props) {
   return (
     <>
       <VillaSchema villa={villa} />
+      <VillaFAQSchema slug={slug} />
 
       <div className="pt-16 min-h-screen">
         <PhotoGallery images={villa.images} villaName={villa.name} imageGroups={villa.imageGroups} />
@@ -255,6 +272,12 @@ export default async function VillaDetailPage({ params }: Props) {
                 </div>
               </div>
 
+              {/* Location proximity badges */}
+              <div className="mb-10">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">Getting around</h2>
+                <VillaLocationBadges slug={slug} />
+              </div>
+
               {villa.latitude && (
                 <div className="mb-10">
                   <h2 className="text-xl font-bold text-gray-900 mb-4">{t("location")}</h2>
@@ -275,6 +298,12 @@ export default async function VillaDetailPage({ params }: Props) {
                   </a>
                 </div>
               )}
+
+              {/* FAQ accordion */}
+              <div className="mb-10">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">Frequently asked questions</h2>
+                <VillaFAQ faqs={VILLA_FAQS[slug] ?? DEFAULT_FAQS} />
+              </div>
             </div>
 
             {/* Booking Widget */}
