@@ -830,5 +830,57 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
       { q: "Zijn Fuerteventura villa's inclusief zwembadtoegang?", a: "Veel villa's in Fuerteventura hebben privé- of gemeenschappelijke zwembaden. Strandvilla's bij Corralejo hebben vaak directe strandtoegang als alternatief. Controleer altijd het villabericht zorgvuldig." },
     ],
   },
+  "booking-direct-vs-airbnb-fuerteventura": {
+    title: "Direct boeken vs. Airbnb in Fuerteventura: Prijsvergelijking & voordelen",
+    metaTitle: "Direct boeken vs. Airbnb Fuerteventura — Prijsvergelijking 2025 | Canary Villas",
+    metaDescription: "Is het goedkoper om een villa in Fuerteventura direct of via Airbnb te boeken? We zetten de echte prijsverschillen op een rij en leggen uit waarom steeds meer reizigers de platforms overslaan.",
+    excerpt: "Airbnb en Booking.com rekenen gasten 12–20 % extra boven op de nachtprijs. Wie een villa in Fuerteventura direct boekt, houdt dat geld zelf — én heeft direct contact met de eigenaren.",
+    faqs: [
+      { q: "Hoeveel bespaar ik door een villa in Fuerteventura direct te boeken?", a: "Airbnb rekent een servicekosten van 12–16 % bovenop de nachtprijs; Booking.com voegt doorgaans 13–18 % toe. Bij een verblijf van 10 nachten à €180/nacht (€1.800 basisprijs) zijn dat tot €288 aan platformkosten. Direct boeken elimineert deze kosten volledig." },
+      { q: "Is het veilig om een villa in Fuerteventura direct te boeken?", a: "Ja. Direct boeken bij een gevestigde, geverifieerde verhuurder is volledig veilig. Canary Villas opereert al jaren in Corralejo, verwerkt betalingen veilig en levert een volledige boekingsbevestiging plus huurovereenkomst." },
+      { q: "Ben ik beschermd bij een directe boeking?", a: "Ja. Directe boekingen worden ondersteund door een volledige huurovereenkomst die annuleringsvoorwaarden, borg en wat is inbegrepen duidelijk omschrijft — vaak transparanter dan platformvoorwaarden." },
+      { q: "Kan ik betere condities krijgen voor langere verblijven bij direct boeken?", a: "Ja. Direct boeken maakt directe onderhandeling mogelijk, met name voor langere verblijven, last-minute beschikbaarheid of vaste gasten — flexibiliteit die via Airbnb niet mogelijk is." },
+    ],
+    content: `<h2>De echte kosten van Airbnb en Booking.com</h2>
+<p>De meeste reizigers beseffen pas bij het afrekenen hoeveel platformkosten hun vakantieprijs verhogen. Airbnb rekent een servicekosten van <strong>12 tot 16 %</strong> bovenop de nachtprijs — een bedrag dat pas bij betaling verschijnt, nadat je al tijd hebt besteed aan zoeken en vergelijken. Booking.com bouwt een commissie van 15–18 % in die doorgaans via een hogere geadverteerde prijs aan de gast wordt doorberekend.</p>
+<p>Een concreet voorbeeld: 7 nachten in een strandvilla in Corralejo à €180/nacht:</p>
+<table><thead><tr><th>Kosten</th><th>Airbnb</th><th>Direct boeken</th></tr></thead><tbody><tr><td>Nachten (7)</td><td>€1.260</td><td>€1.260</td></tr><tr><td>Servicekosten (14 %)</td><td>€176</td><td>€0</td></tr><tr><td>Schoonmaakkosten</td><td>€150</td><td>€150</td></tr><tr><td><strong>Totaal</strong></td><td><strong>€1.586</strong></td><td><strong>€1.410</strong></td></tr></tbody></table>
+<p>Dat is <strong>€176 besparing</strong> voor slechts één week — genoeg voor twee restaurantdiners voor het gezin, een dag autouur of een kitesurfles.</p>
+<h2>Voordelen van direct boeken</h2>
+<h3>1. Direct contact met de eigenaren</h3>
+<p>Bij direct boeken heb je vanaf het begin het telefoonnummer, WhatsApp en e-mail van de eigenaren — geen platformfilter. Bij een vertraagd vliegtuig of een vraag over de omgeving spreek je direct met iemand die de accommodatie kent en écht kan helpen.</p>
+<h3>2. Betere lokale kennis</h3>
+<p>Direct verhurende eigenaren hebben er persoonlijk belang bij dat jouw vakantie perfect is. Je krijgt eerlijke aanbevelingen voor restaurants, stranden en activiteiten die je in geen enkele reisgids vindt.</p>
+<h3>3. Flexibele betaal- en annuleringsvoorwaarden</h3>
+<p>Platforms leggen gestandaardiseerde annuleringsvoorwaarden op. Direct boeken stelt eigenaren in staat met menselijke flexibiliteit op individuele situaties in te spelen.</p>
+<h2>Hoe direct boeken bij Canary Villas?</h2>
+<ol><li><strong>Beschikbaarheid controleren</strong> — gebruik de boekingswidget op elke villapagina voor realtime prijzen zonder verborgen kosten.</li><li><strong>Vraag sturen</strong> — gebruik het <a href="/contact">contactformulier</a> of app ons via WhatsApp. We reageren dezelfde dag.</li><li><strong>Bevestigen en betalen</strong> — een aanbetaling reserveert jouw verblijf. We sturen een volledig contract en alle aankomstdetails.</li></ol>
+<p>Klaar? <a href="/villas">Bekijk onze villa's in Corralejo</a> en boek direct voor de laagste prijs — gegarandeerd.</p>`,
+  },
+  "flag-beach-corralejo-guide": {
+    title: "Flag Beach Corralejo: De complete gids voor kitesurfers en strandliefhebbers",
+    metaTitle: "Gids Flag Beach Corralejo 2025 — Kitesurfen, Stranden & Verblijf",
+    metaDescription: "Jouw complete gids over Flag Beach (Playa de la Bandera), Corralejo. Kitesurfcondities, scholen, de beste accommodatie in de buurt en tips voor het perfecte bezoek.",
+    excerpt: "Flag Beach — Playa de la Bandera — is een van de beste kitesurfspots ter wereld en een van de meest spectaculaire kuststroken van Corralejo.",
+    faqs: [
+      { q: "Waar ligt Flag Beach precies in Corralejo?", a: "Flag Beach (Playa de la Bandera) ligt circa 2 km ten zuiden van het centrum van Corralejo, net bij het begin van het Natuurpark. Met de auto neem je de FV-1 richting het zuiden. Er is een grote gratis parkeerplaats ter plaatse." },
+      { q: "Hoe zijn de windcondities op Flag Beach?", a: "Flag Beach ontvangt het hele jaar door consistente noordoostelijke passaatwinden (Tramontana), doorgaans 15–30 knopen, het sterkst van mei tot september. De wind komt zijdelings — ideaal voor kitesurfen." },
+      { q: "Kunnen beginners kitesurfen op Flag Beach?", a: "Ja — de ondiepe lagune aan de zuidkant biedt veilig, vlak water om te leren, en er zijn meer dan een dozijn IKO-gecertificeerde scholen direct op het strand." },
+      { q: "Waar verblijf ik het beste voor makkelijke toegang tot Flag Beach?", a: "Corralejo is de beste uitvalsbasis — onze villa's liggen op 5–10 minuten rijden van Flag Beach, met restaurants en supermarkten op loopafstand 's avonds." },
+    ],
+    content: `<h2>Wat is Flag Beach?</h2>
+<p><strong>Flag Beach</strong> (officieel Playa de la Bandera — 'vlaggestrand') dankt zijn bijnaam aan de kleurrijke vliegers en windsurfzeilen die op windrijke dagen de lucht vullen. Het strand strekt zich uit ten zuiden van Corralejo richting het Natuurpark en maakt deel uit van het meest dramatische kustlandschap van het eiland: 10 km witte duinen die grenzen aan het diepe blauw van de Atlantische Oceaan.</p>
+<p>De jaarlijkse <strong>PWA Kite World Cup</strong> wordt hier gehouden.</p>
+<h2>Kitesurfen op Flag Beach: condities en verwachtingen</h2>
+<p>De passaatwinden komen consistent en zijdelings aan — de ideale hoek voor kitesurfen. De windkracht bedraagt het grootste deel van de zomer 15–30 knopen.</p>
+<ul><li><strong>De lagune (zuidkant):</strong> Ondiep, vlak water — perfect voor beginners en freestylers.</li><li><strong>Open strand (noordkant):</strong> Dieper water, chop en occasionele deining voor gevorderde riders.</li></ul>
+<h2>Kitesurfscholen op Flag Beach</h2>
+<p>Meer dan een dozijn IKO-gecertificeerde scholen opereert direct op het strand. Een beginnerscursus van 3 dagen (9 uur) kost €280–€350; materiaalverhuur voor gevorderde riders €60–€80 per halve dag.</p>
+<h2>Hoe kom je van Corralejo naar Flag Beach?</h2>
+<ul><li><strong>Auto:</strong> 5 minuten over de FV-1 richting het zuiden. Grote gratis parkeerplaats.</li><li><strong>Fiets:</strong> 10 minuten over de kustweg. Fietsverhuur beschikbaar in Corralejo.</li><li><strong>Taxi:</strong> Circa €5–€8 vanuit het centrum.</li><li><strong>Te voet:</strong> Circa 25 minuten langs het strand.</li></ul>
+<h2>Verblijf in de buurt van Flag Beach</h2>
+<p><a href="/villas/beach-house">The Beach House</a> biedt direct strandtoegang, ideaal voor gezinnen of groepen. Het <a href="/villas/bungalow-apartment">Bungalow Apartment</a> is perfect voor koppels met een privé-jacuzzi. Beide villa's direct te boeken voor de beste prijs.</p>
+<p><a href="/villas">Alle villa's in Corralejo bekijken →</a></p>`,
+  },
 };
 export default nl;

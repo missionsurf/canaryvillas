@@ -6,24 +6,41 @@ import { Wind, Waves, MapPin, CheckCircle2 } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Kitesurfing Accommodation Corralejo, Fuerteventura | Canary Villas",
-  description: "Holiday villas in Corralejo, Fuerteventura — perfectly located for kitesurfing at Flag Beach and El Cotillo. Direct booking, best price guaranteed. From €95/night.",
-  alternates: {
-    canonical: "https://www.canaryvillas.com/villas/kitesurfing-accommodation-corralejo",
-    languages: {
-      en: "https://www.canaryvillas.com/villas/kitesurfing-accommodation-corralejo",
-      de: "https://www.canaryvillas.com/de/villas/kitesurfing-accommodation-corralejo",
-      "x-default": "https://www.canaryvillas.com/villas/kitesurfing-accommodation-corralejo",
-    },
-  },
-  openGraph: {
-    title: "Kitesurfing Accommodation Corralejo, Fuerteventura | Canary Villas",
-    description: "Holiday villas in Corralejo close to Flag Beach — the world-class kitesurfing spot on Fuerteventura. Book direct for the best price.",
-    url: "https://www.canaryvillas.com/villas/kitesurfing-accommodation-corralejo",
-    images: [{ url: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg", width: 1200, height: 630 }],
-  },
+const t: Record<string, { title: string; desc: string; hero: string; sub: string; why: string; whySub: string; villas: string; villasSub: string; guide: string; faqTitle: string; viewAll: string; ask: string }> = {
+  en: { title: "Kitesurfing Accommodation Corralejo, Fuerteventura", desc: "Holiday villas in Corralejo, Fuerteventura — perfectly located for kitesurfing at Flag Beach and El Cotillo. Direct booking, best price guaranteed. From €95/night.", hero: "Kitesurfing Accommodation in Corralejo, Fuerteventura", sub: "Stay minutes from Flag Beach — one of the world's best kitesurfing spots. Direct booking, best price guaranteed, no hidden fees.", why: "Why kitesurfers love staying in Corralejo", whySub: "Fuerteventura is one of the best kitesurfing destinations in the world. Our villas put you right in the heart of the action.", villas: "Our Corralejo villas", villasSub: "Both villas are a short drive from Flag Beach and the Corralejo Dunes wind corridor.", guide: "Flag Beach, Corralejo — a quick guide for kitesurfers", faqTitle: "Frequently asked questions", viewAll: "View all villas", ask: "Ask a question" },
+  de: { title: "Kitesurfing Unterkunft Corralejo, Fuerteventura", desc: "Ferienvillen in Corralejo, Fuerteventura — ideal gelegen für Kitesurfen am Flag Beach. Direktbuchung, Bestpreisgarantie. Ab €95/Nacht.", hero: "Kitesurfing Unterkunft in Corralejo, Fuerteventura", sub: "Nur Minuten vom Flag Beach entfernt — einer der weltbesten Kitesurfspots. Direktbuchung, Bestpreisgarantie, keine versteckten Gebühren.", why: "Warum Kitesurfer Corralejo lieben", whySub: "Fuerteventura ist eines der besten Kitesurfreiseziele der Welt. Unsere Villen bringen Sie mitten ins Geschehen.", villas: "Unsere Villen in Corralejo", villasSub: "Beide Villen sind eine kurze Fahrt vom Flag Beach und dem Windkorridor der Dünen entfernt.", guide: "Flag Beach, Corralejo — ein kurzer Ratgeber für Kitesurfer", faqTitle: "Häufig gestellte Fragen", viewAll: "Alle Villen ansehen", ask: "Frage stellen" },
+  es: { title: "Alojamiento para Kitesurf Corralejo, Fuerteventura", desc: "Villas vacacionales en Corralejo, Fuerteventura — perfectamente ubicadas para el kitesurf en Flag Beach. Reserva directa, mejor precio garantizado. Desde €95/noche.", hero: "Alojamiento para Kitesurf en Corralejo, Fuerteventura", sub: "A pocos minutos del Flag Beach — uno de los mejores spots de kitesurf del mundo. Reserva directa, mejor precio garantizado, sin cargos ocultos.", why: "Por qué los kitesurfistas adoran Corralejo", whySub: "Fuerteventura es uno de los mejores destinos de kitesurf del mundo. Nuestras villas te ponen en el centro de la acción.", villas: "Nuestras villas en Corralejo", villasSub: "Ambas villas están a poca distancia en coche del Flag Beach y el corredor de viento de las Dunas.", guide: "Flag Beach, Corralejo — guía rápida para kitesurfistas", faqTitle: "Preguntas frecuentes", viewAll: "Ver todas las villas", ask: "Hacer una pregunta" },
+  fr: { title: "Hébergement Kitesurf Corralejo, Fuerteventura", desc: "Villas de vacances à Corralejo, Fuerteventura — idéalement situées pour le kitesurf à Flag Beach. Réservation directe, meilleur prix garanti. Dès €95/nuit.", hero: "Hébergement Kitesurf à Corralejo, Fuerteventura", sub: "À quelques minutes de Flag Beach — l'un des meilleurs spots de kitesurf au monde. Réservation directe, meilleur prix garanti, sans frais cachés.", why: "Pourquoi les kitesurfeurs adorent Corralejo", whySub: "Fuerteventura est l'une des meilleures destinations de kitesurf au monde. Nos villas vous placent au cœur de l'action.", villas: "Nos villas à Corralejo", villasSub: "Les deux villas sont à courte distance en voiture de Flag Beach et du couloir de vent des Dunes.", guide: "Flag Beach, Corralejo — guide rapide pour kitesurfeurs", faqTitle: "Questions fréquentes", viewAll: "Voir toutes les villas", ask: "Poser une question" },
+  nl: { title: "Kitesurfen Accommodatie Corralejo, Fuerteventura", desc: "Vakantievilla's in Corralejo, Fuerteventura — perfect gelegen voor kitesurfen op Flag Beach. Direct boeken, beste prijs gegarandeerd. Vanaf €95/nacht.", hero: "Kitesurfen Accommodatie in Corralejo, Fuerteventura", sub: "Op enkele minuten van Flag Beach — een van de beste kitesurfspots ter wereld. Direct boeken, beste prijs gegarandeerd, geen verborgen kosten.", why: "Waarom kitesurfers dol zijn op Corralejo", whySub: "Fuerteventura is een van de beste kitesurfbestemmingen ter wereld. Onze villa's brengen je midden in het actiegebied.", villas: "Onze villa's in Corralejo", villasSub: "Beide villa's liggen op korte rijafstand van Flag Beach en de Duinen windcorridor.", guide: "Flag Beach, Corralejo — snelle gids voor kitesurfers", faqTitle: "Veelgestelde vragen", viewAll: "Alle villa's bekijken", ask: "Stel een vraag" },
+  it: { title: "Alloggio Kitesurf Corralejo, Fuerteventura", desc: "Ville vacanza a Corralejo, Fuerteventura — posizione ideale per il kitesurf al Flag Beach. Prenotazione diretta, miglior prezzo garantito. Da €95/notte.", hero: "Alloggio per Kitesurf a Corralejo, Fuerteventura", sub: "A pochi minuti dal Flag Beach — uno dei migliori spot di kitesurf al mondo. Prenotazione diretta, miglior prezzo garantito, senza costi nascosti.", why: "Perché i kitesurfisti amano Corralejo", whySub: "Fuerteventura è una delle migliori destinazioni di kitesurf al mondo. Le nostre ville ti mettono al centro dell'azione.", villas: "Le nostre ville a Corralejo", villasSub: "Entrambe le ville si trovano a pochi minuti di auto dal Flag Beach e dal corridoio del vento delle Dune.", guide: "Flag Beach, Corralejo — guida rapida per kitesurfisti", faqTitle: "Domande frequenti", viewAll: "Vedi tutte le ville", ask: "Fai una domanda" },
 };
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const tr = t[locale] ?? t.en;
+  return {
+    title: tr.title + " | Canary Villas",
+    description: tr.desc,
+    alternates: {
+      canonical: "https://www.canaryvillas.com/villas/kitesurfing-accommodation-corralejo",
+      languages: {
+        en: "https://www.canaryvillas.com/villas/kitesurfing-accommodation-corralejo",
+        de: "https://www.canaryvillas.com/de/villas/kitesurfing-accommodation-corralejo",
+        es: "https://www.canaryvillas.com/es/villas/kitesurfing-accommodation-corralejo",
+        fr: "https://www.canaryvillas.com/fr/villas/kitesurfing-accommodation-corralejo",
+        nl: "https://www.canaryvillas.com/nl/villas/kitesurfing-accommodation-corralejo",
+        it: "https://www.canaryvillas.com/it/villas/kitesurfing-accommodation-corralejo",
+        "x-default": "https://www.canaryvillas.com/villas/kitesurfing-accommodation-corralejo",
+      },
+    },
+    openGraph: {
+      title: tr.title + " | Canary Villas",
+      description: tr.desc,
+      url: "https://www.canaryvillas.com/villas/kitesurfing-accommodation-corralejo",
+      images: [{ url: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg", width: 1200, height: 630 }],
+    },
+  };
+}
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -73,6 +90,7 @@ const highlights = [
 
 export default async function KitesurfingPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  const tr = t[locale] ?? t.en;
   const villas = await getAllVillas();
 
   return (
@@ -87,18 +105,14 @@ export default async function KitesurfingPage({ params }: { params: Promise<{ lo
               <Wind className="w-6 h-6 text-sky-200" />
               <span className="text-sky-200 text-sm font-medium uppercase tracking-wider">Kitesurfing · Windsurfing · Wing Foiling</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-              Kitesurfing Accommodation<br className="hidden sm:block" /> in Corralejo, Fuerteventura
-            </h1>
-            <p className="text-sky-100 text-lg max-w-2xl mx-auto mb-8">
-              Stay minutes from Flag Beach — one of the world's best kitesurfing spots. Direct booking, best price guaranteed, no hidden fees.
-            </p>
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-4">{tr.hero}</h1>
+            <p className="text-sky-100 text-lg max-w-2xl mx-auto mb-8">{tr.sub}</p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link href={`/${locale}/villas`} className="bg-white text-sky-700 px-6 py-3 rounded-full font-bold text-sm hover:bg-sky-50 transition-colors">
-                View all villas
+                {tr.viewAll}
               </Link>
               <Link href={`/${locale}/contact`} className="border border-white/60 text-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-white/10 transition-colors">
-                Ask a question
+                {tr.ask}
               </Link>
             </div>
           </div>
@@ -108,10 +122,8 @@ export default async function KitesurfingPage({ params }: { params: Promise<{ lo
 
           {/* Why stay here */}
           <div className="mb-16">
-            <h2 className="text-2xl font-extrabold text-gray-900 mb-2 text-center">Why kitesurfers love staying in Corralejo</h2>
-            <p className="text-gray-500 text-center mb-8 max-w-2xl mx-auto">
-              Fuerteventura is one of the best kitesurfing destinations in the world. Our villas put you right in the heart of the action.
-            </p>
+            <h2 className="text-2xl font-extrabold text-gray-900 mb-2 text-center">{tr.why}</h2>
+            <p className="text-gray-500 text-center mb-8 max-w-2xl mx-auto">{tr.whySub}</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {highlights.map((h, i) => (
                 <div key={i} className="bg-white rounded-2xl border border-gray-200 p-5">
@@ -125,8 +137,8 @@ export default async function KitesurfingPage({ params }: { params: Promise<{ lo
 
           {/* Villa cards */}
           <div className="mb-16">
-            <h2 className="text-2xl font-extrabold text-gray-900 mb-2">Our Corralejo villas</h2>
-            <p className="text-gray-500 mb-8">Both villas are a short drive from Flag Beach and the Corralejo Dunes wind corridor.</p>
+            <h2 className="text-2xl font-extrabold text-gray-900 mb-2">{tr.villas}</h2>
+            <p className="text-gray-500 mb-8">{tr.villasSub}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {villas.map(v => <VillaCard key={v.id} villa={v} />)}
             </div>
@@ -134,7 +146,7 @@ export default async function KitesurfingPage({ params }: { params: Promise<{ lo
 
           {/* Flag Beach guide */}
           <div className="bg-white rounded-2xl border border-gray-200 p-8 mb-16">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Flag Beach, Corralejo — a quick guide for kitesurfers</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-4">{tr.guide}</h2>
             <div className="prose prose-sm text-gray-600 max-w-none space-y-3">
               <p>
                 <strong>Flag Beach (Playa de la Bandera)</strong> sits approximately 2 km south of Corralejo town centre, nestled between the Grandes Playas dunes and the Atlantic Ocean. It hosts the annual <strong>PWA Kite World Cup</strong> — one of the sport's most prestigious events — and is renowned for its consistent thermal winds, reliable side-shore conditions, and flat-water lagoon sections perfect for beginners and freestylers alike.
@@ -150,7 +162,7 @@ export default async function KitesurfingPage({ params }: { params: Promise<{ lo
 
           {/* FAQ */}
           <div>
-            <h2 className="text-2xl font-extrabold text-gray-900 mb-6">Frequently asked questions</h2>
+            <h2 className="text-2xl font-extrabold text-gray-900 mb-6">{tr.faqTitle}</h2>
             <div className="space-y-3">
               {pageSchema.mainEntity.map((q, i) => (
                 <details key={i} className="bg-white border border-gray-200 rounded-2xl overflow-hidden group">

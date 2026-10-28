@@ -805,5 +805,57 @@ const fr: Record<string, { title: string; metaTitle: string; metaDescription: st
       { q: "Les villas de Fuerteventura incluent-elles l'accès à une piscine ?", a: "De nombreuses villas à Fuerteventura ont des piscines privées ou communes. Les villas en bord de mer près de Corralejo ont souvent un accès direct à la plage comme alternative. Vérifiez toujours attentivement l'annonce de la villa." },
     ],
   },
+  "booking-direct-vs-airbnb-fuerteventura": {
+    title: "Réserver en direct vs. Airbnb à Fuerteventura : comparatif prix et avantages",
+    metaTitle: "Réserver en direct vs. Airbnb Fuerteventura — Comparatif prix 2025 | Canary Villas",
+    metaDescription: "Est-il moins cher de réserver une villa à Fuerteventura en direct ou via Airbnb ? On vous explique la vraie différence de prix et pourquoi de plus en plus de voyageurs évitent les plateformes.",
+    excerpt: "Airbnb et Booking.com facturent aux voyageurs 12 à 20 % en plus du tarif par nuit. En réservant une villa à Fuerteventura en direct, cet argent reste dans votre poche.",
+    faqs: [
+      { q: "Combien économisé-je en réservant une villa à Fuerteventura en direct ?", a: "Airbnb facture des frais de service de 12–16 % en plus du tarif par nuit ; Booking.com ajoute généralement 13–18 %. Pour un séjour de 10 nuits à €180/nuit (€1 800 de base), cela représente jusqu'à €288 de frais de plateforme. La réservation directe supprime totalement ces frais." },
+      { q: "Est-il sûr de réserver une villa à Fuerteventura en direct ?", a: "Oui. Réserver directement auprès d'un propriétaire établi et vérifié est tout à fait sûr. Canary Villas opère à Corralejo depuis plusieurs années, traite les paiements en toute sécurité et fournit une confirmation de réservation complète ainsi qu'un contrat de location." },
+      { q: "Suis-je protégé en cas de réservation directe ?", a: "Oui. Les réservations directes sont encadrées par un contrat de location complet précisant clairement les conditions d'annulation, le dépôt de garantie et ce qui est inclus — souvent plus transparent que les conditions des plateformes." },
+      { q: "Puis-je obtenir de meilleures conditions pour les longs séjours en réservant en direct ?", a: "Oui. Les réservations directes permettent de négocier directement, notamment pour les longs séjours, les disponibilités de dernière minute ou les clients fidèles — une flexibilité impossible via Airbnb." },
+    ],
+    content: `<h2>Le vrai coût d'Airbnb et Booking.com</h2>
+<p>La plupart des voyageurs ne réalisent l'impact des frais de plateforme qu'au moment du paiement. Airbnb facture des frais de service de <strong>12 à 16 %</strong> sur le tarif par nuit — une somme ajoutée au moment du règlement, après avoir passé du temps à chercher et comparer. Booking.com intègre une commission de 15–18 % généralement répercutée sur le voyageur via un prix affiché plus élevé.</p>
+<p>Un exemple concret : 7 nuits dans une villa en bord de mer à Corralejo à €180/nuit :</p>
+<table><thead><tr><th>Coût</th><th>Airbnb</th><th>Réservation directe</th></tr></thead><tbody><tr><td>Nuits (7)</td><td>€1 260</td><td>€1 260</td></tr><tr><td>Frais de service (14 %)</td><td>€176</td><td>€0</td></tr><tr><td>Frais de ménage</td><td>€150</td><td>€150</td></tr><tr><td><strong>Total</strong></td><td><strong>€1 586</strong></td><td><strong>€1 410</strong></td></tr></tbody></table>
+<p>Soit <strong>176 € d'économie</strong> pour une seule semaine — de quoi payer deux dîners au restaurant en famille, une journée de location de voiture ou un cours de kitesurf.</p>
+<h2>Les avantages de la réservation directe</h2>
+<h3>1. Contact direct avec les propriétaires</h3>
+<p>En réservant en direct, vous avez dès le départ le numéro de téléphone, WhatsApp et l'adresse e-mail des propriétaires — sans filtre de plateforme. En cas de retard de vol ou de question sur place, vous parlez à quelqu'un qui connaît le logement et peut vraiment vous aider.</p>
+<h3>2. Meilleurs conseils locaux</h3>
+<p>Les hôtes en direct ont un intérêt personnel à ce que vos vacances soient parfaites. Vous recevrez des recommandations sincères sur les restaurants, les plages et les activités que vous ne trouverez dans aucun guide.</p>
+<h3>3. Conditions de paiement et d'annulation flexibles</h3>
+<p>Les plateformes imposent des conditions d'annulation standardisées. Les réservations directes permettent aux propriétaires de s'adapter avec une flexibilité humaine qu'aucun algorithme ne peut offrir.</p>
+<h2>Comment réserver en direct avec Canary Villas ?</h2>
+<ol><li><strong>Vérifier les disponibilités</strong> — utilisez le widget de réservation sur chaque page de villa pour voir les prix en temps réel sans frais cachés.</li><li><strong>Envoyer une demande</strong> — utilisez le <a href="/contact">formulaire de contact</a> ou écrivez-nous par WhatsApp. Nous répondons le jour même.</li><li><strong>Confirmer et payer</strong> — un acompte sécurise votre réservation. Nous vous enverrons un contrat complet et tous les détails d'arrivée.</li></ol>
+<p>Prêt ? <a href="/villas">Découvrez nos villas à Corralejo</a> et réservez en direct au meilleur prix garanti.</p>`,
+  },
+  "flag-beach-corralejo-guide": {
+    title: "Flag Beach Corralejo : le guide complet pour kitesurfeurs et amoureux de la plage",
+    metaTitle: "Guide Flag Beach Corralejo 2025 — Kitesurf, Plages & Hébergement",
+    metaDescription: "Votre guide complet sur le Flag Beach (Playa de la Bandera) à Corralejo : conditions de kitesurf, écoles, meilleur hébergement à proximité et conseils pour profiter au maximum de votre visite.",
+    excerpt: "Le Flag Beach — Playa de la Bandera — est l'un des meilleurs spots de kitesurf au monde et l'un des plus beaux tronçons de côte de Corralejo.",
+    faqs: [
+      { q: "Où se trouve exactement le Flag Beach à Corralejo ?", a: "Le Flag Beach (Playa de la Bandera) est situé à environ 2 km au sud du centre-ville de Corralejo, juste à l'entrée du Parc Naturel. En voiture, prenez la FV-1 direction sud. Un grand parking gratuit est disponible sur place." },
+      { q: "Quelles sont les conditions de vent au Flag Beach ?", a: "Le Flag Beach bénéficie de vents alizés du nord-est (Tramontana) constants toute l'année, généralement entre 15 et 30 nœuds, les plus forts de mai à septembre. Le vent souffle en latéral — idéal pour le kitesurf." },
+      { q: "Les débutants peuvent-ils pratiquer le kitesurf au Flag Beach ?", a: "Oui — le Flag Beach est excellent pour les débutants. Le lagon peu profond à l'extrémité sud offre une eau calme et sûre pour apprendre, et plus d'une douzaine d'écoles certifiées IKO opèrent directement sur la plage." },
+      { q: "Où séjourner pour accéder facilement au Flag Beach ?", a: "Corralejo est la meilleure base — nos villas sont à 5–10 minutes en voiture du Flag Beach, avec restaurants et supermarchés accessibles à pied le soir." },
+    ],
+    content: `<h2>Qu'est-ce que le Flag Beach ?</h2>
+<p><strong>Flag Beach</strong> (officiellement Playa de la Bandera — « plage des drapeaux ») doit son surnom aux cerfs-volants colorés et aux voiles de windsurf qui peuplent le ciel lors des journées venteuses. Il s'étend au sud du centre de Corralejo vers le Parc Naturel, formant partie du paysage côtier le plus spectaculaire de l'île : 10 km de dunes blanches face au bleu profond de l'Atlantique.</p>
+<p>La <strong>Coupe du Monde PWA de Kitesurf</strong> se tient ici chaque année.</p>
+<h2>Kitesurf au Flag Beach : conditions et à quoi s'attendre</h2>
+<p>Les vents alizés arrivent de façon constante et latérale — l'angle idéal pour le kitesurf. La force du vent se situe entre 15 et 30 nœuds la majeure partie de l'été.</p>
+<ul><li><strong>Le lagon (extrémité sud) :</strong> Eau plate et peu profonde — parfait pour les débutants et le freestyle.</li><li><strong>Plage ouverte (extrémité nord) :</strong> Eau plus profonde, chop et occasionnellement du clapot pour les riders expérimentés.</li></ul>
+<h2>Écoles de kitesurf au Flag Beach</h2>
+<p>Plus d'une douzaine d'écoles certifiées IKO opèrent directement sur la plage. Un cours débutant de 3 jours (9 heures) coûte €280–€350 ; la location de matériel pour riders confirmés, €60–€80 par demi-journée.</p>
+<h2>Comment se rendre au Flag Beach depuis Corralejo ?</h2>
+<ul><li><strong>En voiture :</strong> 5 minutes sur la FV-1 direction sud. Grand parking gratuit.</li><li><strong>À vélo :</strong> 10 minutes sur la route côtière. Location de vélos disponible à Corralejo.</li><li><strong>En taxi :</strong> Environ €5–€8 depuis le centre-ville.</li><li><strong>À pied :</strong> Environ 25 minutes le long de la plage.</li></ul>
+<h2>Hébergement près du Flag Beach</h2>
+<p><a href="/villas/beach-house">The Beach House</a> offre un accès direct à la plage, idéal pour les familles. Le <a href="/villas/bungalow-apartment">Bungalow Apartment</a> est parfait pour les couples avec jacuzzi privé. Les deux villas sont disponibles en réservation directe au meilleur prix.</p>
+<p><a href="/villas">Voir toutes les villas à Corralejo →</a></p>`,
+  },
 };
 export default fr;

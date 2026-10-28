@@ -6,24 +6,41 @@ import { Waves, Sun, Star, CheckCircle2 } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Corralejo Villas with Private Pool & Jacuzzi, Fuerteventura | Canary Villas",
-  description: "Holiday villas in Corralejo, Fuerteventura with private pool or jacuzzi. Direct beachfront access. Book direct — best price guaranteed, no fees. From €95/night.",
-  alternates: {
-    canonical: "https://www.canaryvillas.com/villas/corralejo-villas-with-private-pool",
-    languages: {
-      en: "https://www.canaryvillas.com/villas/corralejo-villas-with-private-pool",
-      de: "https://www.canaryvillas.com/de/villas/corralejo-villas-with-private-pool",
-      "x-default": "https://www.canaryvillas.com/villas/corralejo-villas-with-private-pool",
-    },
-  },
-  openGraph: {
-    title: "Corralejo Villas with Private Pool & Jacuzzi | Canary Villas",
-    description: "Luxury holiday villas in Corralejo, Fuerteventura with private outdoor space, jacuzzi and sea views. Book direct for the best price.",
-    url: "https://www.canaryvillas.com/villas/corralejo-villas-with-private-pool",
-    images: [{ url: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg", width: 1200, height: 630 }],
-  },
+const t: Record<string, { title: string; desc: string; hero: string; sub: string; why: string; whySub: string; villas: string; villasSub: string; faqTitle: string; viewAll: string; ask: string }> = {
+  en: { title: "Corralejo Villas with Private Pool & Jacuzzi, Fuerteventura", desc: "Holiday villas in Corralejo, Fuerteventura with private pool or jacuzzi. Direct beachfront access. Book direct — best price guaranteed. From €95/night.", hero: "Corralejo Villas with Private Pool & Jacuzzi", sub: "Luxury holiday villas in Corralejo, Fuerteventura with private outdoor space. Soak in the Atlantic sun on your own terrace or step straight onto the beach. Book direct for the best price.", why: "Why choose a private villa in Corralejo?", whySub: "More space, more privacy, better value than a hotel — with your own outdoor space in the sun.", villas: "Our Corralejo villas", villasSub: "Both villas include private outdoor spaces and are available to book direct.", faqTitle: "Frequently asked questions", viewAll: "View all villas", ask: "Ask a question" },
+  de: { title: "Corralejo Villen mit privatem Pool & Jacuzzi, Fuerteventura", desc: "Ferienvillen in Corralejo, Fuerteventura mit privatem Pool oder Jacuzzi. Direktem Strandzugang. Direktbuchung — Bestpreisgarantie. Ab €95/Nacht.", hero: "Corralejo Villen mit privatem Pool & Jacuzzi", sub: "Luxus-Ferienvillen in Corralejo, Fuerteventura mit privatem Außenbereich. Genießen Sie die Atlantiksonne auf Ihrer eigenen Terrasse. Direkt buchen zum besten Preis.", why: "Warum eine private Villa in Corralejo wählen?", whySub: "Mehr Platz, mehr Privatsphäre, besseres Preis-Leistungs-Verhältnis als ein Hotel — mit eigenem Außenbereich in der Sonne.", villas: "Unsere Villen in Corralejo", villasSub: "Beide Villen verfügen über private Außenbereiche und sind direkt buchbar.", faqTitle: "Häufig gestellte Fragen", viewAll: "Alle Villen ansehen", ask: "Frage stellen" },
+  es: { title: "Villas en Corralejo con Piscina Privada y Jacuzzi, Fuerteventura", desc: "Villas vacacionales en Corralejo, Fuerteventura con piscina privada o jacuzzi. Acceso directo a la playa. Reserva directa — mejor precio garantizado. Desde €95/noche.", hero: "Villas en Corralejo con Piscina Privada y Jacuzzi", sub: "Villas de lujo en Corralejo, Fuerteventura con espacio exterior privado. Disfruta del sol atlántico en tu propia terraza o accede directamente a la playa. Reserva directa al mejor precio.", why: "¿Por qué elegir una villa privada en Corralejo?", whySub: "Más espacio, más privacidad, mejor relación calidad-precio que un hotel — con tu propio espacio exterior al sol.", villas: "Nuestras villas en Corralejo", villasSub: "Ambas villas incluyen espacios exteriores privados y están disponibles para reserva directa.", faqTitle: "Preguntas frecuentes", viewAll: "Ver todas las villas", ask: "Hacer una pregunta" },
+  fr: { title: "Villas à Corralejo avec Piscine Privée & Jacuzzi, Fuerteventura", desc: "Villas de vacances à Corralejo, Fuerteventura avec piscine privée ou jacuzzi. Accès direct à la plage. Réservation directe — meilleur prix garanti. Dès €95/nuit.", hero: "Villas à Corralejo avec Piscine Privée & Jacuzzi", sub: "Villas de luxe à Corralejo, Fuerteventura avec espace extérieur privé. Profitez du soleil atlantique sur votre propre terrasse ou accédez directement à la plage. Réservation directe au meilleur prix.", why: "Pourquoi choisir une villa privée à Corralejo ?", whySub: "Plus d'espace, plus d'intimité, meilleur rapport qualité-prix qu'un hôtel — avec votre propre espace extérieur au soleil.", villas: "Nos villas à Corralejo", villasSub: "Les deux villas disposent d'espaces extérieurs privés et sont disponibles en réservation directe.", faqTitle: "Questions fréquentes", viewAll: "Voir toutes les villas", ask: "Poser une question" },
+  nl: { title: "Corralejo Villa's met Privézwembad & Jacuzzi, Fuerteventura", desc: "Vakantievilla's in Corralejo, Fuerteventura met privézwembad of jacuzzi. Direct strandtoegang. Direct boeken — beste prijs gegarandeerd. Vanaf €95/nacht.", hero: "Corralejo Villa's met Privézwembad & Jacuzzi", sub: "Luxe vakantievilla's in Corralejo, Fuerteventura met privé buitenruimte. Geniet van de Atlantische zon op je eigen terras of stap direct het strand op. Direct boeken voor de beste prijs.", why: "Waarom kiezen voor een privévilla in Corralejo?", whySub: "Meer ruimte, meer privacy, betere prijs-kwaliteitsverhouding dan een hotel — met je eigen buitenruimte in de zon.", villas: "Onze villa's in Corralejo", villasSub: "Beide villa's hebben privé buitenruimtes en zijn direct te boeken.", faqTitle: "Veelgestelde vragen", viewAll: "Alle villa's bekijken", ask: "Stel een vraag" },
+  it: { title: "Ville a Corralejo con Piscina Privata & Jacuzzi, Fuerteventura", desc: "Ville vacanza a Corralejo, Fuerteventura con piscina privata o jacuzzi. Accesso diretto alla spiaggia. Prenotazione diretta — miglior prezzo garantito. Da €95/notte.", hero: "Ville a Corralejo con Piscina Privata & Jacuzzi", sub: "Ville di lusso a Corralejo, Fuerteventura con spazio esterno privato. Goditi il sole atlantico sulla tua terrazza o raggiungi direttamente la spiaggia. Prenotazione diretta al miglior prezzo.", why: "Perché scegliere una villa privata a Corralejo?", whySub: "Più spazio, più privacy, miglior rapporto qualità-prezzo di un hotel — con il tuo spazio esterno privato al sole.", villas: "Le nostre ville a Corralejo", villasSub: "Entrambe le ville includono spazi esterni privati e sono disponibili per la prenotazione diretta.", faqTitle: "Domande frequenti", viewAll: "Vedi tutte le ville", ask: "Fai una domanda" },
 };
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const tr = t[locale] ?? t.en;
+  return {
+    title: tr.title + " | Canary Villas",
+    description: tr.desc,
+    alternates: {
+      canonical: "https://www.canaryvillas.com/villas/corralejo-villas-with-private-pool",
+      languages: {
+        en: "https://www.canaryvillas.com/villas/corralejo-villas-with-private-pool",
+        de: "https://www.canaryvillas.com/de/villas/corralejo-villas-with-private-pool",
+        es: "https://www.canaryvillas.com/es/villas/corralejo-villas-with-private-pool",
+        fr: "https://www.canaryvillas.com/fr/villas/corralejo-villas-with-private-pool",
+        nl: "https://www.canaryvillas.com/nl/villas/corralejo-villas-with-private-pool",
+        it: "https://www.canaryvillas.com/it/villas/corralejo-villas-with-private-pool",
+        "x-default": "https://www.canaryvillas.com/villas/corralejo-villas-with-private-pool",
+      },
+    },
+    openGraph: {
+      title: tr.title + " | Canary Villas",
+      description: tr.desc,
+      url: "https://www.canaryvillas.com/villas/corralejo-villas-with-private-pool",
+      images: [{ url: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg", width: 1200, height: 630 }],
+    },
+  };
+}
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -73,6 +90,7 @@ const perks = [
 
 export default async function PrivatePoolPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  const tr = t[locale] ?? t.en;
   const villas = await getAllVillas();
 
   return (
@@ -87,18 +105,14 @@ export default async function PrivatePoolPage({ params }: { params: Promise<{ lo
               <Waves className="w-6 h-6 text-teal-200" />
               <span className="text-teal-200 text-sm font-medium uppercase tracking-wider">Private jacuzzi · Beachfront terrace · Year-round sun</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-              Corralejo Villas with<br className="hidden sm:block" /> Private Pool &amp; Jacuzzi
-            </h1>
-            <p className="text-teal-100 text-lg max-w-2xl mx-auto mb-8">
-              Luxury holiday villas in Corralejo, Fuerteventura with private outdoor space. Soak in the Atlantic sun on your own terrace or step straight onto the beach. Book direct for the best price.
-            </p>
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-4">{tr.hero}</h1>
+            <p className="text-teal-100 text-lg max-w-2xl mx-auto mb-8">{tr.sub}</p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link href={`/${locale}/villas`} className="bg-white text-teal-700 px-6 py-3 rounded-full font-bold text-sm hover:bg-teal-50 transition-colors">
-                View all villas
+                {tr.viewAll}
               </Link>
               <Link href={`/${locale}/contact`} className="border border-white/60 text-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-white/10 transition-colors">
-                Ask a question
+                {tr.ask}
               </Link>
             </div>
           </div>
@@ -108,10 +122,8 @@ export default async function PrivatePoolPage({ params }: { params: Promise<{ lo
 
           {/* Perks */}
           <div className="mb-16">
-            <h2 className="text-2xl font-extrabold text-gray-900 mb-2 text-center">Why choose a private villa in Corralejo?</h2>
-            <p className="text-gray-500 text-center mb-8 max-w-2xl mx-auto">
-              More space, more privacy, better value than a hotel — with your own outdoor space in the sun.
-            </p>
+            <h2 className="text-2xl font-extrabold text-gray-900 mb-2 text-center">{tr.why}</h2>
+            <p className="text-gray-500 text-center mb-8 max-w-2xl mx-auto">{tr.whySub}</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {perks.map((p, i) => (
                 <div key={i} className="bg-white rounded-2xl border border-gray-200 p-5">
@@ -125,8 +137,8 @@ export default async function PrivatePoolPage({ params }: { params: Promise<{ lo
 
           {/* Villa cards */}
           <div className="mb-16">
-            <h2 className="text-2xl font-extrabold text-gray-900 mb-2">Our Corralejo villas</h2>
-            <p className="text-gray-500 mb-8">Both villas include private outdoor spaces and are available to book direct.</p>
+            <h2 className="text-2xl font-extrabold text-gray-900 mb-2">{tr.villas}</h2>
+            <p className="text-gray-500 mb-8">{tr.villasSub}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {villas.map(v => <VillaCard key={v.id} villa={v} />)}
             </div>
@@ -134,7 +146,7 @@ export default async function PrivatePoolPage({ params }: { params: Promise<{ lo
 
           {/* FAQ */}
           <div>
-            <h2 className="text-2xl font-extrabold text-gray-900 mb-6">Frequently asked questions</h2>
+            <h2 className="text-2xl font-extrabold text-gray-900 mb-6">{tr.faqTitle}</h2>
             <div className="space-y-3">
               {pageSchema.mainEntity.map((q, i) => (
                 <details key={i} className="bg-white border border-gray-200 rounded-2xl overflow-hidden group">
