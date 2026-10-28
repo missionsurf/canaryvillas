@@ -5,7 +5,7 @@ import PhotoGallery from "@/components/PhotoGallery";
 import { Bed, Bath, Users, MapPin, CheckCircle2 } from "lucide-react";
 import ConsentMap from "@/components/ConsentMap";
 import PriceDisplay from "@/components/PriceDisplay";
-import VillaFAQ, { VILLA_FAQS, DEFAULT_FAQS } from "@/components/VillaFAQ";
+import VillaFAQ, { VILLA_FAQS, DEFAULT_FAQS, getVillaFAQs } from "@/components/VillaFAQ";
 import VillaLocationBadges from "@/components/VillaLocationBadges";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
@@ -180,8 +180,8 @@ function VillaSchema({ villa }: { villa: Awaited<ReturnType<typeof getVillaBySlu
   );
 }
 
-function VillaFAQSchema({ slug }: { slug: string }) {
-  const faqs = VILLA_FAQS[slug] ?? DEFAULT_FAQS;
+function VillaFAQSchema({ slug, locale = "en" }: { slug: string; locale?: string }) {
+  const faqs = getVillaFAQs(slug, locale);
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -206,7 +206,7 @@ export default async function VillaDetailPage({ params }: Props) {
   return (
     <>
       <VillaSchema villa={villa} />
-      <VillaFAQSchema slug={slug} />
+      <VillaFAQSchema slug={slug} locale={locale} />
 
       <div className="pt-16 min-h-screen">
         <PhotoGallery images={villa.images} villaName={villa.name} imageGroups={villa.imageGroups} />
@@ -275,7 +275,7 @@ export default async function VillaDetailPage({ params }: Props) {
               {/* Location proximity badges */}
               <div className="mb-10">
                 <h2 className="text-xl font-bold text-gray-900 mb-4">Getting around</h2>
-                <VillaLocationBadges slug={slug} />
+                <VillaLocationBadges slug={slug} locale={locale} />
               </div>
 
               {villa.latitude && (
@@ -302,7 +302,7 @@ export default async function VillaDetailPage({ params }: Props) {
               {/* FAQ accordion */}
               <div className="mb-10">
                 <h2 className="text-xl font-bold text-gray-900 mb-4">Frequently asked questions</h2>
-                <VillaFAQ faqs={VILLA_FAQS[slug] ?? DEFAULT_FAQS} />
+                <VillaFAQ faqs={getVillaFAQs(slug, locale)} />
               </div>
             </div>
 

@@ -42,56 +42,99 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-const pageSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Which Canary Villas properties have a private jacuzzi or pool?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "The Bungalow Apartment features a private outdoor jacuzzi on its sunny terrace, perfect for relaxing under the Fuerteventura sun. The Beach House has direct beachfront terrace access — you step straight onto the sand. Both properties are available to book direct at canaryvillas.com.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is the jacuzzi heated year-round?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes — the jacuzzi at the Bungalow Apartment is available year-round. Fuerteventura's warm climate (average 22°C even in winter) means outdoor use is comfortable throughout the year.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Are the villas suitable for a romantic couple's holiday?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "The Bungalow Apartment is ideal for couples — a private retreat with a jacuzzi, king-size bed with hotel-grade mattress, and just minutes from Corralejo's restaurants and beaches. It is one of the most sought-after romantic getaways on Fuerteventura.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can I book the villas for a family holiday?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "The Beach House sleeps up to 6 guests and is perfect for families — step straight off the private terrace onto the beach, with Corralejo's restaurants and supermarkets a short walk away. The Bungalow Apartment is ideal for smaller families of up to 4.",
-      },
-    },
+type FAQEntry = { name: string; text: string };
+const faqTranslations: Record<string, FAQEntry[]> = {
+  en: [
+    { name: "Which Canary Villas properties have a private jacuzzi or pool?", text: "The Bungalow Apartment features a private outdoor jacuzzi on its sunny terrace, perfect for relaxing under the Fuerteventura sun. The Beach House has direct beachfront terrace access — you step straight onto the sand. Both properties are available to book direct at canaryvillas.com." },
+    { name: "Is the jacuzzi heated year-round?", text: "Yes — the jacuzzi at the Bungalow Apartment is available year-round. Fuerteventura's warm climate (average 22°C even in winter) means outdoor use is comfortable throughout the year." },
+    { name: "Are the villas suitable for a romantic couple's holiday?", text: "The Bungalow Apartment is ideal for couples — a private retreat with a jacuzzi, king-size bed with hotel-grade mattress, and just minutes from Corralejo's restaurants and beaches. It is one of the most sought-after romantic getaways on Fuerteventura." },
+    { name: "Can I book the villas for a family holiday?", text: "The Beach House sleeps up to 6 guests and is perfect for families — step straight off the private terrace onto the beach, with Corralejo's restaurants and supermarkets a short walk away. The Bungalow Apartment is ideal for smaller families of up to 4." },
+  ],
+  de: [
+    { name: "Welche Canary Villas Unterkünfte haben einen privaten Jacuzzi oder Pool?", text: "Das Bungalow Apartment verfügt über einen privaten Außenjacuzzi auf seiner sonnigen Terrasse. Das Beach House bietet direkten Strandzugang — Sie treten direkt auf den Sand. Beide Unterkünfte sind direkt bei canaryvillas.com buchbar." },
+    { name: "Ist der Jacuzzi ganzjährig beheizt?", text: "Ja — der Jacuzzi im Bungalow Apartment ist das ganze Jahr verfügbar. Fuerteventuras warmes Klima (durchschnittlich 22°C selbst im Winter) macht die Nutzung im Freien das ganze Jahr angenehm." },
+    { name: "Sind die Villen für einen romantischen Paarurlaub geeignet?", text: "Das Bungalow Apartment ist ideal für Paare — ein privater Rückzugsort mit Jacuzzi, Kingsize-Bett mit Hotelmatratze, nur Minuten von Corralejos Restaurants und Stränden entfernt." },
+    { name: "Kann ich die Villen für einen Familienurlaub buchen?", text: "Das Beach House bietet Platz für bis zu 6 Gäste und ist perfekt für Familien — von der Terrasse direkt auf den Strand. Das Bungalow Apartment ist ideal für kleinere Familien bis zu 4 Personen." },
+  ],
+  es: [
+    { name: "¿Qué propiedades de Canary Villas tienen jacuzzi privado o piscina?", text: "El Bungalow Apartment tiene un jacuzzi exterior privado en su soleada terraza. El Beach House tiene acceso directo a la playa desde la terraza. Ambas propiedades están disponibles para reserva directa en canaryvillas.com." },
+    { name: "¿El jacuzzi está calentado todo el año?", text: "Sí — el jacuzzi del Bungalow Apartment está disponible todo el año. El cálido clima de Fuerteventura (media de 22°C incluso en invierno) hace que el uso exterior sea cómodo todo el año." },
+    { name: "¿Son las villas adecuadas para unas vacaciones románticas en pareja?", text: "El Bungalow Apartment es ideal para parejas — un retiro privado con jacuzzi, cama doble con colchón de calidad hotelera, a pocos minutos de los restaurantes y playas de Corralejo." },
+    { name: "¿Puedo reservar las villas para unas vacaciones en familia?", text: "El Beach House aloja hasta 6 huéspedes y es perfecto para familias — sale de la terraza directamente a la playa. El Bungalow Apartment es ideal para familias pequeñas de hasta 4." },
+  ],
+  fr: [
+    { name: "Quelles propriétés de Canary Villas disposent d'un jacuzzi ou d'une piscine privée ?", text: "Le Bungalow Apartment dispose d'un jacuzzi extérieur privé sur sa terrasse ensoleillée. Le Beach House offre un accès direct à la plage depuis la terrasse. Les deux propriétés sont disponibles en réservation directe sur canaryvillas.com." },
+    { name: "Le jacuzzi est-il chauffé toute l'année ?", text: "Oui — le jacuzzi du Bungalow Apartment est disponible toute l'année. Le climat chaud de Fuerteventura (22°C en moyenne même en hiver) rend son utilisation extérieure agréable toute l'année." },
+    { name: "Les villas conviennent-elles à des vacances en couple ?", text: "Le Bungalow Apartment est idéal pour les couples — un refuge privé avec jacuzzi, lit king-size avec matelas de qualité hôtelière, à quelques minutes des restaurants et plages de Corralejo." },
+    { name: "Puis-je réserver les villas pour des vacances en famille ?", text: "Le Beach House accueille jusqu'à 6 personnes et est parfait pour les familles — sortie directe sur la plage depuis la terrasse. Le Bungalow Apartment est idéal pour les petites familles jusqu'à 4 personnes." },
+  ],
+  nl: [
+    { name: "Welke Canary Villas accommodaties hebben een privéjacuzzi of privézwembad?", text: "Het Bungalow Apartment heeft een privéjacuzzi buiten op het zonnige terras. The Beach House heeft direct strandtoegang vanaf het terras. Beide accommodaties zijn direct te boeken op canaryvillas.com." },
+    { name: "Is de jacuzzi het hele jaar verwarmd?", text: "Ja — de jacuzzi in het Bungalow Apartment is het hele jaar beschikbaar. Fuerteventura's warm klimaat (gemiddeld 22°C ook in de winter) maakt buiten gebruik het hele jaar aangenaam." },
+    { name: "Zijn de villa's geschikt voor een romantische vakantie voor twee?", text: "Het Bungalow Apartment is ideaal voor koppels — een privéretreat met jacuzzi, kingsize bed met hotelkwaliteitsmatras, op enkele minuten van de restaurants en stranden van Corralejo." },
+    { name: "Kan ik de villa's boeken voor een gezinsvakantie?", text: "The Beach House slaapt tot 6 gasten en is perfect voor gezinnen — stap direct van het terras het strand op. Het Bungalow Apartment is ideaal voor kleine gezinnen van max. 4." },
+  ],
+  it: [
+    { name: "Quali proprietà di Canary Villas hanno jacuzzi o piscina privata?", text: "Il Bungalow Apartment ha un jacuzzi esterno privato sulla soleggiata terrazza. The Beach House ha accesso diretto alla spiaggia dalla terrazza. Entrambe le proprietà sono disponibili per prenotazione diretta su canaryvillas.com." },
+    { name: "Il jacuzzi è riscaldato tutto l'anno?", text: "Sì — il jacuzzi del Bungalow Apartment è disponibile tutto l'anno. Il clima caldo di Fuerteventura (media 22°C anche in inverno) rende l'uso esterno confortevole per tutto l'anno." },
+    { name: "Le ville sono adatte per una vacanza romantica di coppia?", text: "Il Bungalow Apartment è ideale per le coppie — un rifugio privato con jacuzzi, letto king-size con materasso di qualità alberghiera, a pochi minuti dai ristoranti e dalle spiagge di Corralejo." },
+    { name: "Posso prenotare le ville per una vacanza in famiglia?", text: "The Beach House ospita fino a 6 ospiti ed è perfetto per le famiglie — uscita diretta sulla spiaggia dalla terrazza. Il Bungalow Apartment è ideale per famiglie piccole fino a 4 persone." },
   ],
 };
 
-const perks = [
-  { icon: <Waves className="w-5 h-5" />, title: "Private outdoor space", desc: "Terrace, jacuzzi, or direct beach access — every villa has its own private outdoor area" },
-  { icon: <Sun className="w-5 h-5" />, title: "Year-round sunshine", desc: "Fuerteventura averages 300 days of sunshine and 22°C year-round — the outdoor space is usable every month" },
-  { icon: <Star className="w-5 h-5" />, title: "Hotel-grade amenities", desc: "Premium mattresses, quality linens, fully equipped kitchens — without the hotel price tag" },
-  { icon: <CheckCircle2 className="w-5 h-5" />, title: "Direct booking savings", desc: "Book direct and save 12–20% vs Airbnb — no platform fees, straight to the owners" },
-];
+type PerkEntry = { title: string; desc: string };
+const perkTranslations: Record<string, PerkEntry[]> = {
+  en: [
+    { title: "Private outdoor space", desc: "Terrace, jacuzzi, or direct beach access — every villa has its own private outdoor area" },
+    { title: "Year-round sunshine", desc: "Fuerteventura averages 300 days of sunshine and 22°C year-round — the outdoor space is usable every month" },
+    { title: "Hotel-grade amenities", desc: "Premium mattresses, quality linens, fully equipped kitchens — without the hotel price tag" },
+    { title: "Direct booking savings", desc: "Book direct and save 12–20% vs Airbnb — no platform fees, straight to the owners" },
+  ],
+  de: [
+    { title: "Privater Außenbereich", desc: "Terrasse, Jacuzzi oder direkter Strandzugang — jede Villa hat ihren eigenen privaten Außenbereich" },
+    { title: "Sonnenschein das ganze Jahr", desc: "Fuerteventura hat durchschnittlich 300 Sonnentage und 22°C das ganze Jahr — der Außenbereich ist jeden Monat nutzbar" },
+    { title: "Hotelqualität", desc: "Premium-Matratzen, Qualitätsbettwäsche, voll ausgestattete Küchen — ohne den Hotelpreis" },
+    { title: "Sparen durch Direktbuchung", desc: "Direkt buchen und 12–20 % gegenüber Airbnb sparen — keine Plattformgebühren" },
+  ],
+  es: [
+    { title: "Espacio exterior privado", desc: "Terraza, jacuzzi o acceso directo a la playa — cada villa tiene su propio espacio exterior privado" },
+    { title: "Sol todo el año", desc: "Fuerteventura tiene una media de 300 días de sol y 22°C todo el año — el espacio exterior es utilizable cada mes" },
+    { title: "Comodidades de hotel", desc: "Colchones premium, ropa de cama de calidad, cocinas totalmente equipadas — sin el precio del hotel" },
+    { title: "Ahorra reservando directo", desc: "Reserva directamente y ahorra 12–20 % frente a Airbnb — sin comisiones de plataforma" },
+  ],
+  fr: [
+    { title: "Espace extérieur privé", desc: "Terrasse, jacuzzi ou accès direct à la plage — chaque villa a son propre espace extérieur privé" },
+    { title: "Soleil toute l'année", desc: "Fuerteventura bénéficie en moyenne de 300 jours de soleil et 22°C toute l'année — l'espace extérieur est utilisable chaque mois" },
+    { title: "Équipements de qualité hôtelière", desc: "Matelas premium, linge de qualité, cuisines entièrement équipées — sans le prix de l'hôtel" },
+    { title: "Économies en réservant directement", desc: "Réservez directement et économisez 12–20 % par rapport à Airbnb — sans frais de plateforme" },
+  ],
+  nl: [
+    { title: "Privé buitenruimte", desc: "Terras, jacuzzi of directe strandtoegang — elke villa heeft zijn eigen privé buitenruimte" },
+    { title: "Zonneschijn het hele jaar", desc: "Fuerteventura heeft gemiddeld 300 zonnedagen en 22°C het hele jaar — de buitenruimte is elke maand bruikbaar" },
+    { title: "Hotelkwaliteit voorzieningen", desc: "Premium matrassen, kwaliteitsbeddengoed, volledig uitgeruste keukens — zonder de hotelprijs" },
+    { title: "Bespaar door direct te boeken", desc: "Direct boeken en 12–20% besparen t.o.v. Airbnb — geen platformkosten" },
+  ],
+  it: [
+    { title: "Spazio esterno privato", desc: "Terrazza, jacuzzi o accesso diretto alla spiaggia — ogni villa ha il proprio spazio esterno privato" },
+    { title: "Sole tutto l'anno", desc: "Fuerteventura ha in media 300 giorni di sole e 22°C tutto l'anno — lo spazio esterno è utilizzabile ogni mese" },
+    { title: "Servizi di qualità alberghiera", desc: "Materassi premium, biancheria di qualità, cucine completamente attrezzate — senza il prezzo dell'hotel" },
+    { title: "Risparmia con la prenotazione diretta", desc: "Prenota direttamente e risparmia il 12–20% rispetto ad Airbnb — senza commissioni di piattaforma" },
+  ],
+};
+
+const perkIcons = [<Waves className="w-5 h-5" />, <Sun className="w-5 h-5" />, <Star className="w-5 h-5" />, <CheckCircle2 className="w-5 h-5" />];
 
 export default async function PrivatePoolPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const tr = t[locale] ?? t.en;
   const villas = await getAllVillas();
+  const faqItems = faqTranslations[locale] ?? faqTranslations.en;
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map(f => ({ "@type": "Question", name: f.name, acceptedAnswer: { "@type": "Answer", text: f.text } })),
+  };
+  const perks = (perkTranslations[locale] ?? perkTranslations.en).map((p, i) => ({ icon: perkIcons[i], ...p }));
 
   return (
     <>
