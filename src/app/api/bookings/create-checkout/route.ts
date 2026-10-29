@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { stripe } from "@/lib/stripe";
+
+export const dynamic = "force-dynamic";
 import { parseISO, subWeeks } from "date-fns";
 import { getEffectivePriceForStay } from "@/lib/pricing";
 
