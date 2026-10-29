@@ -37,6 +37,8 @@ export default function CalendarPage() {
   const [saving, setSaving] = useState(false);
   const [formError, setFormError] = useState("");
   const [showOfferForm, setShowOfferForm] = useState(false);
+  const [syncing, setSyncing] = useState(false);
+  const [syncMsg, setSyncMsg] = useState("");
 
   const load = useCallback(() => {
     fetch("/api/admin/villas").then(r => r.json()).then(d => {
@@ -110,7 +112,30 @@ export default function CalendarPage() {
 
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
-        <h1 className="text-xl font-bold text-gray-900">Booking Calendar</h1>
+        <div className="flex items-center gap-3">
+          <h1 className="text-xl font-bold text-gray-900">Booking Calendar</h1>
+          <button
+            onClick={async () => {
+              setSyncing(true); setSyncMsg("");
+              try {
+                const res = await fetch("/api/admin/sync-calendars", { method: "POST" });
+                const data = await res.json();
+                if (data.synced !== undefined) {
+                  setSyncMsg(`Synced ${data.synced} villa(s)`);
+                  window.location.reload();
+                } else {
+                  setSyncMsg("Sync failed");
+                }
+              } catch { setSyncMsg("Sync failed"); }
+              finally { setSyncing(false); }
+            }}
+            disabled={syncing}
+            className="text-xs px-3 py-1.5 rounded-lg bg-sky-50 border border-sky-200 text-sky-700 font-medium hover:bg-sky-100 transition-colors disabled:opacity-50"
+          >
+            {syncing ? "Syncing…" : "↻ Sync Airbnb"}
+          </button>
+          {syncMsg && <span className="text-xs text-gray-500">{syncMsg}</span>}
+        </div>
 
         {/* Villa switcher */}
         <div className="flex gap-1 bg-gray-100 rounded-xl p-1">
