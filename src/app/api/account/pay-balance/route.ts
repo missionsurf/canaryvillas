@@ -3,6 +3,8 @@ import { getGuestSession } from "@/lib/guest-auth";
 import { prisma } from "@/lib/prisma";
 import { stripe } from "@/lib/stripe";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req: NextRequest) {
   const email = await getGuestSession();
   if (!email) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
