@@ -23,6 +23,9 @@ export const metadata: Metadata = {
       "x-default": "https://www.canaryvillas.com",
     },
   },
+  other: {
+    "llms-txt": "https://www.canaryvillas.com/llms.txt",
+  },
   openGraph: {
     type: "website",
     locale: "en_GB",
