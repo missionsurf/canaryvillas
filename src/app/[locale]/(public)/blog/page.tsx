@@ -20,14 +20,27 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "blog" });
+  const BASE = "https://www.canaryvillas.com";
+  const prefix = locale === "en" ? "" : `/${locale}`;
   return {
     title: `${t("title")} | Canary Villas`,
     description: t("subtitle"),
-    alternates: { canonical: "https://www.canaryvillas.com/blog" },
+    alternates: {
+      canonical: `${BASE}${prefix}/blog`,
+      languages: {
+        en: `${BASE}/blog`,
+        de: `${BASE}/de/blog`,
+        es: `${BASE}/es/blog`,
+        fr: `${BASE}/fr/blog`,
+        nl: `${BASE}/nl/blog`,
+        it: `${BASE}/it/blog`,
+        "x-default": `${BASE}/blog`,
+      },
+    },
     openGraph: {
       title: `${t("title")} | Canary Villas`,
       description: t("subtitle"),
-      url: "https://www.canaryvillas.com/blog",
+      url: `${BASE}${prefix}/blog`,
       images: [{ url: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg", width: 1200, height: 630 }],
     },
   };

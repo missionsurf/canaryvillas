@@ -19,30 +19,32 @@ interface Props {
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const villa = await getVillaBySlug(slug);
   if (!villa) return { title: "Villa Not Found" };
+  const BASE = "https://www.canaryvillas.com";
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const title = `${villa.name} — Beachfront Villa to Rent in Corralejo, Fuerteventura | Canary Villas`;
   const description = `${villa.shortDesc} Book this ${villa.bedrooms}-bedroom beachfront villa to rent in Corralejo, Fuerteventura — direct booking, best price guaranteed, no hidden fees.`;
   return {
     title,
     description,
     alternates: {
-      canonical: `https://www.canaryvillas.com/villas/${slug}`,
+      canonical: `${BASE}${prefix}/villas/${slug}`,
       languages: {
-        en: `https://www.canaryvillas.com/villas/${slug}`,
-        de: `https://www.canaryvillas.com/de/villas/${slug}`,
-        es: `https://www.canaryvillas.com/es/villas/${slug}`,
-        fr: `https://www.canaryvillas.com/fr/villas/${slug}`,
-        nl: `https://www.canaryvillas.com/nl/villas/${slug}`,
-        it: `https://www.canaryvillas.com/it/villas/${slug}`,
-        "x-default": `https://www.canaryvillas.com/villas/${slug}`,
+        en: `${BASE}/villas/${slug}`,
+        de: `${BASE}/de/villas/${slug}`,
+        es: `${BASE}/es/villas/${slug}`,
+        fr: `${BASE}/fr/villas/${slug}`,
+        nl: `${BASE}/nl/villas/${slug}`,
+        it: `${BASE}/it/villas/${slug}`,
+        "x-default": `${BASE}/villas/${slug}`,
       },
     },
     openGraph: {
       title,
       description,
-      url: `https://www.canaryvillas.com/villas/${slug}`,
+      url: `${BASE}${prefix}/villas/${slug}`,
       type: "website",
       images: [{ url: villa.images[0], width: 1200, height: 800, alt: `${villa.name} — holiday villa in Fuerteventura` }],
     },

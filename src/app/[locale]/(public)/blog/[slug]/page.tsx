@@ -30,25 +30,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const tr = blogTranslations[locale]?.[slug];
   const metaTitle = tr?.metaTitle ?? post.metaTitle;
   const metaDescription = tr?.metaDescription ?? post.metaDescription;
+  const BASE = "https://www.canaryvillas.com";
+  const prefix = locale === "en" ? "" : `/${locale}`;
   return {
     title: metaTitle,
     description: metaDescription,
     alternates: {
-      canonical: `https://www.canaryvillas.com/blog/${slug}`,
+      canonical: `${BASE}${prefix}/blog/${slug}`,
       languages: {
-        en: `https://www.canaryvillas.com/blog/${slug}`,
-        de: `https://www.canaryvillas.com/de/blog/${slug}`,
-        es: `https://www.canaryvillas.com/es/blog/${slug}`,
-        fr: `https://www.canaryvillas.com/fr/blog/${slug}`,
-        nl: `https://www.canaryvillas.com/nl/blog/${slug}`,
-        it: `https://www.canaryvillas.com/it/blog/${slug}`,
-        "x-default": `https://www.canaryvillas.com/blog/${slug}`,
+        en: `${BASE}/blog/${slug}`,
+        de: `${BASE}/de/blog/${slug}`,
+        es: `${BASE}/es/blog/${slug}`,
+        fr: `${BASE}/fr/blog/${slug}`,
+        nl: `${BASE}/nl/blog/${slug}`,
+        it: `${BASE}/it/blog/${slug}`,
+        "x-default": `${BASE}/blog/${slug}`,
       },
     },
     openGraph: {
       title: metaTitle,
       description: metaDescription,
-      url: `https://www.canaryvillas.com/blog/${slug}`,
+      url: `${BASE}${prefix}/blog/${slug}`,
       type: "article",
       publishedTime: post.date,
       images: [{ url: post.heroImage, width: 1200, height: 800, alt: post.heroAlt }],

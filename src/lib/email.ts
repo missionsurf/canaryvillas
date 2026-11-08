@@ -114,16 +114,24 @@ export interface BankTransferEmailData {
 }
 
 export async function sendBankTransferInstructions(data: BankTransferEmailData) {
-  // EUR account
-  const eurBank = process.env.BANK_NAME || "";
-  const eurAccountName = process.env.BANK_ACCOUNT_NAME || "Villas de Corralejho 2023";
-  const eurIban = process.env.BANK_IBAN || "";
-  const eurBic = process.env.BANK_BIC || "";
-  // GBP account
-  const gbpBank = process.env.BANK_GBP_NAME || "";
-  const gbpAccountName = process.env.BANK_GBP_ACCOUNT_NAME || "Villas de Corralejho 2023";
-  const gbpSortCode = process.env.BANK_GBP_SORT_CODE || "";
-  const gbpAccountNumber = process.env.BANK_GBP_ACCOUNT_NUMBER || "";
+  // Load bank details from DB settings, fall back to env vars
+  const { prisma } = await import("@/lib/prisma");
+  const dbSettings: Record<string, string> = {};
+  try {
+    const rows = await prisma.setting.findMany({
+      where: { key: { in: ["bankName","bankAccountName","bankIban","bankBic","bankGbpName","bankGbpAccountName","bankGbpSortCode","bankGbpAccountNumber"] } },
+    });
+    rows.forEach(r => { dbSettings[r.key] = r.value; });
+  } catch {}
+
+  const eurBank = dbSettings.bankName || process.env.BANK_NAME || "";
+  const eurAccountName = dbSettings.bankAccountName || process.env.BANK_ACCOUNT_NAME || "Canary Villas";
+  const eurIban = dbSettings.bankIban || process.env.BANK_IBAN || "";
+  const eurBic = dbSettings.bankBic || process.env.BANK_BIC || "";
+  const gbpBank = dbSettings.bankGbpName || process.env.BANK_GBP_NAME || "";
+  const gbpAccountName = dbSettings.bankGbpAccountName || process.env.BANK_GBP_ACCOUNT_NAME || "Canary Villas";
+  const gbpSortCode = dbSettings.bankGbpSortCode || process.env.BANK_GBP_SORT_CODE || "";
+  const gbpAccountNumber = dbSettings.bankGbpAccountNumber || process.env.BANK_GBP_ACCOUNT_NUMBER || "";
 
   const ref = data.bookingId.slice(-8).toUpperCase();
 

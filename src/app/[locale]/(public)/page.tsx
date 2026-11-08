@@ -15,14 +15,27 @@ import type { Metadata } from "next";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "home.hero" });
+  const BASE = "https://www.canaryvillas.com";
+  const prefix = locale === "en" ? "" : `/${locale}`;
   return {
     title: "Beachfront Holiday Villas in Fuerteventura | Canary Villas Corralejo",
     description: "Book luxury beachfront holiday villas in Corralejo, Fuerteventura directly. Private sea views, terraces, flexible booking & zero booking fees. From €95/night.",
-    alternates: { canonical: "https://www.canaryvillas.com" },
+    alternates: {
+      canonical: `${BASE}${prefix}`,
+      languages: {
+        en: BASE,
+        de: `${BASE}/de`,
+        es: `${BASE}/es`,
+        fr: `${BASE}/fr`,
+        nl: `${BASE}/nl`,
+        it: `${BASE}/it`,
+        "x-default": BASE,
+      },
+    },
     openGraph: {
       title: "Holiday Villas to Rent in Fuerteventura | Canary Villas",
       description: t("sub"),
-      url: "https://www.canaryvillas.com",
+      url: `${BASE}${prefix}`,
       type: "website",
       images: [{ url: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg", width: 1200, height: 630 }],
     },

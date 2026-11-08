@@ -113,6 +113,14 @@ model GuestToken {
   @@map("guest_tokens")
 }
 
+model Setting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+
+  @@map("settings")
+}
+
 model Guest {
   id             String   @id @default(cuid())
   email          String   @unique

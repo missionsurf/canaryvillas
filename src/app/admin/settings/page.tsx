@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Settings, DollarSign, Users, Eye, EyeOff, Trash2, Plus, Save, CheckCircle, Tag } from "lucide-react";
+import { Settings, DollarSign, Users, Eye, EyeOff, Trash2, Plus, Save, CheckCircle, Tag, CreditCard } from "lucide-react";
 import { format } from "date-fns";
 
 interface Villa {
@@ -26,7 +26,19 @@ interface AdminUser {
   createdAt: string;
 }
 
-type Tab = "pricing" | "admins";
+type Tab = "pricing" | "payment" | "admins";
+
+interface PaymentSettings {
+  defaultPaymentMethod: string;
+  bankName: string;
+  bankAccountName: string;
+  bankIban: string;
+  bankBic: string;
+  bankGbpName: string;
+  bankGbpAccountName: string;
+  bankGbpSortCode: string;
+  bankGbpAccountNumber: string;
+}
 
 const emptyRate = { name: "", startDate: "", endDate: "", pricePerNight: "" };
 
@@ -45,6 +57,15 @@ export default function SettingsPage() {
   const [newRate, setNewRate] = useState<Record<string, typeof emptyRate>>({});
   const [rateSaving, setRateSaving] = useState<Record<string, boolean>>({});
   const [rateMsg, setRateMsg] = useState<Record<string, { ok: boolean; text: string }>>({});
+
+  // Payment settings
+  const [paymentSettings, setPaymentSettings] = useState<PaymentSettings>({
+    defaultPaymentMethod: "stripe",
+    bankName: "", bankAccountName: "", bankIban: "", bankBic: "",
+    bankGbpName: "", bankGbpAccountName: "", bankGbpSortCode: "", bankGbpAccountNumber: "",
+  });
+  const [paymentSaving, setPaymentSaving] = useState(false);
+  const [paymentMsg, setPaymentMsg] = useState<{ ok: boolean; text: string } | null>(null);
 
   // Password change
   const [pwCurrent, setPwCurrent] = useState("");
@@ -78,6 +99,9 @@ export default function SettingsPage() {
       setNewRate(nr);
     });
     fetch("/api/admin/admins").then(r => r.json()).then((data: AdminUser[]) => setAdmins(data));
+    fetch("/api/admin/settings").then(r => r.json()).then((data: Partial<PaymentSettings>) => {
+      setPaymentSettings(prev => ({ ...prev, ...data }));
+    });
     fetch("/api/admin/me").then(r => r.json()).then((d: { id: string }) => setCurrentAdminId(d.id)).catch(() => {});
   }, []);
 
@@ -174,6 +198,19 @@ export default function SettingsPage() {
     else { const d = await res.json(); alert(d.error ?? "Failed"); }
   }
 
+  async function savePaymentSettings() {
+    setPaymentSaving(true); setPaymentMsg(null);
+    const res = await fetch("/api/admin/settings", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(paymentSettings),
+    });
+    setPaymentSaving(false);
+    if (res.ok) setPaymentMsg({ ok: true, text: "Saved" });
+    else setPaymentMsg({ ok: false, text: "Failed to save" });
+    setTimeout(() => setPaymentMsg(null), 3000);
+  }
+
   const fmtDate = (d: string) => format(new Date(d), "d MMM yyyy");
 
   return (
@@ -185,7 +222,7 @@ export default function SettingsPage() {
 
       {/* Tabs */}
       <div className="flex gap-1 bg-gray-100 p-1 rounded-xl mb-8 w-fit">
-        {([["pricing", DollarSign, "Pricing"], ["admins", Users, "Admin Users"]] as const).map(([key, Icon, label]) => (
+        {([["pricing", DollarSign, "Pricing"], ["payment", CreditCard, "Payment"], ["admins", Users, "Admin Users"]] as const).map(([key, Icon, label]) => (
           <button
             key={key}
             onClick={() => setTab(key as Tab)}
@@ -331,6 +368,88 @@ export default function SettingsPage() {
               </div>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* Payment tab */}
+      {tab === "payment" && (
+        <div className="space-y-6">
+          <div className="bg-white rounded-2xl border border-gray-200 p-6">
+            <h2 className="font-bold text-gray-900 text-lg mb-1">Default Payment Method</h2>
+            <p className="text-sm text-gray-500 mb-4">Which button appears first when you confirm an enquiry.</p>
+            <div className="flex gap-3">
+              {[["stripe", "Stripe (card)"], ["bank", "Bank Transfer"]].map(([val, label]) => (
+                <button
+                  key={val}
+                  onClick={() => setPaymentSettings(s => ({ ...s, defaultPaymentMethod: val }))}
+                  className={`px-5 py-2.5 rounded-xl text-sm font-semibold border transition-colors ${paymentSettings.defaultPaymentMethod === val ? "bg-sky-600 text-white border-sky-600" : "bg-white text-gray-700 border-gray-300 hover:border-sky-400"}`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-gray-200 p-6 space-y-5">
+            <h2 className="font-bold text-gray-900 text-lg">🇪🇺 Euro Bank Account</h2>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                ["bankName", "Bank name", "e.g. Banco Santander"],
+                ["bankAccountName", "Account name", "e.g. Canary Villas SL"],
+                ["bankIban", "IBAN", "e.g. ES12 1234 5678 9012 3456 7890"],
+                ["bankBic", "BIC / SWIFT", "e.g. BSCHESMM"],
+              ].map(([key, label, placeholder]) => (
+                <div key={key} className={key === "bankIban" ? "col-span-2" : ""}>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">{label}</label>
+                  <input
+                    type="text"
+                    value={paymentSettings[key as keyof PaymentSettings]}
+                    onChange={e => setPaymentSettings(s => ({ ...s, [key]: e.target.value }))}
+                    placeholder={placeholder}
+                    className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-gray-200 p-6 space-y-5">
+            <h2 className="font-bold text-gray-900 text-lg">🇬🇧 UK Sterling Account</h2>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                ["bankGbpName", "Bank name", "e.g. Barclays"],
+                ["bankGbpAccountName", "Account name", "e.g. Canary Villas Ltd"],
+                ["bankGbpSortCode", "Sort code", "e.g. 20-00-00"],
+                ["bankGbpAccountNumber", "Account number", "e.g. 12345678"],
+              ].map(([key, label, placeholder]) => (
+                <div key={key}>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">{label}</label>
+                  <input
+                    type="text"
+                    value={paymentSettings[key as keyof PaymentSettings]}
+                    onChange={e => setPaymentSettings(s => ({ ...s, [key]: e.target.value }))}
+                    placeholder={placeholder}
+                    className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <button
+              onClick={savePaymentSettings}
+              disabled={paymentSaving}
+              className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 disabled:opacity-50 text-white px-6 py-2.5 rounded-xl text-sm font-semibold transition-colors"
+            >
+              <Save className="w-4 h-4" />{paymentSaving ? "Saving…" : "Save Payment Settings"}
+            </button>
+            {paymentMsg && (
+              <span className={`flex items-center gap-1.5 text-sm font-medium ${paymentMsg.ok ? "text-green-600" : "text-red-500"}`}>
+                {paymentMsg.ok && <CheckCircle className="w-4 h-4" />}{paymentMsg.text}
+              </span>
+            )}
+          </div>
         </div>
       )}
 

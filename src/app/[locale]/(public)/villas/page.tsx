@@ -7,28 +7,33 @@ import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { Wind, Waves, Users } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Beachfront Villas to Rent in Corralejo, Fuerteventura | Canary Villas",
-  description: "Beachfront holiday villas to rent in Corralejo, Fuerteventura from €95/night. Direct beach access, sea views, private terraces. Book direct — best price guaranteed, no hidden fees.",
-  alternates: {
-    canonical: "https://www.canaryvillas.com/villas",
-    languages: {
-      en: "https://www.canaryvillas.com/villas",
-      de: "https://www.canaryvillas.com/de/villas",
-      es: "https://www.canaryvillas.com/es/villas",
-      fr: "https://www.canaryvillas.com/fr/villas",
-      nl: "https://www.canaryvillas.com/nl/villas",
-      it: "https://www.canaryvillas.com/it/villas",
-      "x-default": "https://www.canaryvillas.com/villas",
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const BASE = "https://www.canaryvillas.com";
+  const prefix = locale === "en" ? "" : `/${locale}`;
+  return {
+    title: "Beachfront Villas to Rent in Corralejo, Fuerteventura | Canary Villas",
+    description: "Beachfront holiday villas to rent in Corralejo, Fuerteventura from €95/night. Direct beach access, sea views, private terraces. Book direct — best price guaranteed, no hidden fees.",
+    alternates: {
+      canonical: `${BASE}${prefix}/villas`,
+      languages: {
+        en: `${BASE}/villas`,
+        de: `${BASE}/de/villas`,
+        es: `${BASE}/es/villas`,
+        fr: `${BASE}/fr/villas`,
+        nl: `${BASE}/nl/villas`,
+        it: `${BASE}/it/villas`,
+        "x-default": `${BASE}/villas`,
+      },
     },
-  },
-  openGraph: {
-    title: "Holiday Villas to Rent in Fuerteventura | Canary Villas",
-    description: "Luxury beachfront villas in Corralejo, Fuerteventura — book direct for the best price.",
-    url: "https://www.canaryvillas.com/villas",
-    images: [{ url: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg", width: 1200, height: 630 }],
-  },
-};
+    openGraph: {
+      title: "Holiday Villas to Rent in Fuerteventura | Canary Villas",
+      description: "Luxury beachfront villas in Corralejo, Fuerteventura — book direct for the best price.",
+      url: `${BASE}${prefix}/villas`,
+      images: [{ url: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg", width: 1200, height: 630 }],
+    },
+  };
+}
 
 export default async function VillasPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
