@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { format, differenceInDays } from "date-fns";
 import {
   ArrowLeft, User, Home, Calendar, CreditCard,
-  Mail, Phone, FileText, Clock, ExternalLink, ChevronRight
+  Mail, Phone, FileText, Clock, ExternalLink, ChevronRight, MessageSquare
 } from "lucide-react";
 import AdminBookingDetailActions from "@/components/AdminBookingDetailActions";
 import AdminEmailComposer from "@/components/AdminEmailComposer";
@@ -37,6 +37,18 @@ export default async function BookingDetailPage({ params }: Props) {
   if (!booking) notFound();
 
   const daysUntilCheckIn = differenceInDays(booking.checkIn, new Date());
+
+  // Parse timestamped log lines from notes
+  const logLines = (booking.notes || "")
+    .split("\n")
+    .filter(l => l.match(/^\[20\d\d-/))
+    .map(l => {
+      const match = l.match(/^\[(.+?)\]\s*(.+)$/);
+      if (!match) return null;
+      return { ts: new Date(match[1]), text: match[2] };
+    })
+    .filter(Boolean)
+    .reverse() as { ts: Date; text: string }[];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -206,6 +218,29 @@ export default async function BookingDetailPage({ params }: Props) {
 
           {/* Right column — email */}
           <div className="space-y-6">
+
+            {/* Communication log */}
+            <div className="bg-white rounded-2xl border shadow-sm p-6">
+              <h2 className="font-bold text-gray-900 flex items-center gap-2 mb-4">
+                <MessageSquare className="w-5 h-5 text-sky-500" /> Communication Log
+              </h2>
+              {logLines.length === 0 ? (
+                <p className="text-gray-400 text-sm">No emails sent yet.</p>
+              ) : (
+                <ol className="space-y-3">
+                  {logLines.map((entry, i) => (
+                    <li key={i} className="flex gap-3 text-sm">
+                      <div className="mt-0.5 w-2 h-2 rounded-full bg-sky-400 shrink-0 mt-1.5" />
+                      <div>
+                        <p className="text-gray-800 font-medium">{entry.text}</p>
+                        <p className="text-gray-400 text-xs">{format(entry.ts, "d MMM yyyy, HH:mm")}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              )}
+            </div>
+
             <div className="bg-white rounded-2xl border shadow-sm p-6">
               <h2 className="font-bold text-gray-900 flex items-center gap-2 mb-4">
                 <Mail className="w-5 h-5 text-sky-500" /> Send Email to Guest
