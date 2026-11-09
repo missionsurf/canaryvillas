@@ -121,6 +121,20 @@ model Setting {
   @@map("settings")
 }
 
+model EmailLog {
+  id        String   @id @default(cuid())
+  to        String
+  subject   String
+  type      String
+  bookingId String?
+  html      String
+  sentAt    DateTime @default(now())
+
+  @@index([sentAt])
+  @@index([bookingId])
+  @@map("email_logs")
+}
+
 model Guest {
   id             String   @id @default(cuid())
   email          String   @unique

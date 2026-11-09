@@ -1,8 +1,9 @@
 import { Resend } from "resend";
 import { format } from "date-fns";
 
-export async function sendMail({ from, to, subject, html, bcc, replyTo }: {
+export async function sendMail({ from, to, subject, html, bcc, replyTo, type, bookingId }: {
   from: string; to: string | string[]; subject: string; html: string; bcc?: string; replyTo?: string;
+  type?: string; bookingId?: string;
 }) {
   const resend = new Resend(process.env.RESEND_API_KEY);
   const { error } = await resend.emails.send({
@@ -14,6 +15,17 @@ export async function sendMail({ from, to, subject, html, bcc, replyTo }: {
     html,
   });
   if (error) throw new Error(error.message);
+
+  // Log every outbound client email (skip internal admin notifications)
+  if (type) {
+    try {
+      const { prisma } = await import("@/lib/prisma");
+      const recipient = Array.isArray(to) ? to[0] : to;
+      await prisma.emailLog.create({
+        data: { to: recipient, subject, type, bookingId: bookingId ?? null, html },
+      });
+    } catch {}
+  }
 }
 
 const BOOKINGS_BCC = [process.env.ADMIN_EMAIL, "bookings@canaryvillas.com"].filter(Boolean).join(",");
@@ -95,6 +107,8 @@ export async function sendBookingConfirmation(data: BookingEmailData) {
     bcc: BOOKINGS_BCC,
     subject: `✓ Booking Confirmed — ${data.villaName} | Canary Villas`,
     html,
+    type: "booking_confirmation",
+    bookingId: data.bookingId,
   });
 }
 
@@ -196,6 +210,8 @@ export async function sendBankTransferInstructions(data: BankTransferEmailData) 
     bcc: BOOKINGS_BCC,
     subject: `Dates Reserved — Please Transfer Deposit | ${data.villaName} | Canary Villas`,
     html,
+    type: "bank_transfer_instructions",
+    bookingId: data.bookingId,
   });
 }
 
@@ -246,6 +262,8 @@ export async function sendBalanceReminder(data: BalanceReminderData) {
     bcc: BOOKINGS_BCC,
     subject: `Balance Due — ${data.villaName} | Canary Villas`,
     html,
+    type: "balance_reminder",
+    bookingId: data.bookingId,
   });
 }
 
@@ -269,6 +287,8 @@ export async function sendBalancePaidConfirmation(data: BookingEmailData) {
     bcc: BOOKINGS_BCC,
     subject: `Balance Received — ${data.villaName} Fully Confirmed | Canary Villas`,
     html,
+    type: "balance_paid",
+    bookingId: data.bookingId,
   });
 }
 
@@ -297,6 +317,8 @@ export async function sendEnquiryReceived(data: BookingEmailData) {
     bcc: BOOKINGS_BCC,
     subject: `Enquiry Received — ${data.villaName} | Canary Villas`,
     html,
+    type: "enquiry_received",
+    bookingId: data.bookingId,
   });
 }
 
@@ -325,6 +347,8 @@ export async function sendPaymentRequest(data: BookingEmailData & { stripeUrl: s
     bcc: BOOKINGS_BCC,
     subject: `Your Dates are Confirmed — Pay Deposit to Secure | Canary Villas`,
     html,
+    type: "payment_request",
+    bookingId: data.bookingId,
   });
 }
 
@@ -415,6 +439,8 @@ export async function sendArrivalInstructions(data: ArrivalData) {
     to: data.guestEmail,
     subject: `Your Arrival Instructions — ${data.villaName} | Canary Villas`,
     html,
+    type: "arrival_instructions",
+    bookingId: data.bookingId,
   });
 }
 
@@ -468,6 +494,7 @@ export async function sendSpecialOffer(data: SpecialOfferData) {
     to: data.guestEmail,
     subject: data.subject,
     html,
+    type: "special_offer",
   });
 }
 
@@ -492,7 +519,7 @@ export async function sendGuestOtp(email: string, otp: string) {
   });
 }
 
-export async function sendCustomEmail(to: string, guestName: string, subject: string, bodyHtml: string) {
+export async function sendCustomEmail(to: string, guestName: string, subject: string, bodyHtml: string, bookingId?: string) {
   const html = baseStyle + `
     <p style="color:#64748b;margin:0 0 16px;">Dear ${guestName},</p>
     <div style="color:#1e293b;font-size:15px;line-height:1.7;">${bodyHtml}</div>
@@ -507,5 +534,7 @@ export async function sendCustomEmail(to: string, guestName: string, subject: st
     to,
     subject,
     html,
+    type: "custom",
+    bookingId,
   });
 }

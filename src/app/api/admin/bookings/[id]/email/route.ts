@@ -43,7 +43,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
       });
     } else if (type === "custom") {
       if (!subject || !htmlBody) return NextResponse.json({ error: "subject and htmlBody required" }, { status: 400 });
-      await sendCustomEmail(booking.guestEmail, booking.guestName, subject, htmlBody);
+      await sendCustomEmail(booking.guestEmail, booking.guestName, subject, htmlBody, booking.id);
     } else {
       return NextResponse.json({ error: "Invalid email type" }, { status: 400 });
     }

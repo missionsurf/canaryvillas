@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import {
   LayoutDashboard, Calendar, CalendarDays, Users, Home,
-  LogOut, TreePalm, Plus, ChevronRight, Settings, Menu, X, Tag
+  LogOut, TreePalm, Plus, ChevronRight, Settings, Menu, X, Tag, Mail
 } from "lucide-react";
 
 interface Props {
@@ -19,6 +19,7 @@ const nav = [
   { label: "Guests", href: "/admin/guests", icon: Users },
   { label: "Properties", href: "/admin/properties", icon: Home },
   { label: "Pricing", href: "/admin/pricing", icon: Tag },
+  { label: "Email Log", href: "/admin/emails", icon: Mail },
   { label: "Settings", href: "/admin/settings", icon: Settings },
 ];
 
