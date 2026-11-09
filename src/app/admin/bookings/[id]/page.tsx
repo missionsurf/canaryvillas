@@ -10,6 +10,7 @@ import {
 import AdminBookingDetailActions from "@/components/AdminBookingDetailActions";
 import AdminEmailComposer from "@/components/AdminEmailComposer";
 import AdminNotesEditor from "@/components/AdminNotesEditor";
+import AdminBookingEditor from "@/components/AdminBookingEditor";
 
 export const dynamic = "force-dynamic";
 
@@ -60,7 +61,26 @@ export default async function BookingDetailPage({ params }: Props) {
         <span className={`ml-1 px-2.5 py-0.5 rounded-full text-xs font-semibold ${statusColour[booking.status] || "bg-gray-100 text-gray-600"}`}>
           {booking.status}
         </span>
-        <div className="ml-auto">
+        <div className="ml-auto flex items-center gap-2">
+          <AdminBookingEditor
+            booking={{
+              id: booking.id,
+              guestName: booking.guestName,
+              guestEmail: booking.guestEmail,
+              guestPhone: booking.guestPhone,
+              checkIn: booking.checkIn.toISOString(),
+              checkOut: booking.checkOut.toISOString(),
+              nights: booking.nights,
+              guests: booking.guests,
+              pricePerNight: booking.pricePerNight,
+              cleaningFee: booking.cleaningFee,
+              totalPrice: booking.totalPrice,
+              depositAmount: booking.depositAmount,
+              balanceAmount: booking.balanceAmount,
+              status: booking.status,
+              villaName: booking.villa.name,
+            }}
+          />
           <a
             href={`/api/admin/bookings/${booking.id}/invoice`}
             target="_blank"
