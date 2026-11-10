@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
       orderBy: { sentAt: "desc" },
       skip,
       take: limit,
-      select: { id: true, to: true, subject: true, type: true, bookingId: true, sentAt: true },
+      select: { id: true, recipient: true, subject: true, type: true, bookingId: true, sentAt: true },
     }),
     prisma.emailLog.count(),
   ]);
