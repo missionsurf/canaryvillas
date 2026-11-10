@@ -22,7 +22,7 @@ export async function sendMail({ from, to, subject, html, bcc, replyTo, type, bo
       const { prisma } = await import("@/lib/prisma");
       const recipient = Array.isArray(to) ? to[0] : to;
       await prisma.emailLog.create({
-        data: { to: recipient, subject, type, bookingId: bookingId ?? null, html },
+        data: { recipient, subject, type, bookingId: bookingId ?? null, html },
       });
     } catch {}
   }

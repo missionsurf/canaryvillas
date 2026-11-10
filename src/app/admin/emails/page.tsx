@@ -55,7 +55,7 @@ export default async function EmailsPage() {
         <AdminEmailLogViewer
           emails={emails.map((e) => ({
             id: e.id,
-            to: e.to,
+            to: e.recipient,
             subject: e.subject,
             type: e.type,
             bookingId: e.bookingId,

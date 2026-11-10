@@ -1,6 +1,6 @@
 CREATE TABLE "email_logs" (
     "id" TEXT NOT NULL PRIMARY KEY,
-    "to" TEXT NOT NULL,
+    "recipient" TEXT NOT NULL,
     "subject" TEXT NOT NULL,
     "type" TEXT NOT NULL,
     "bookingId" TEXT,

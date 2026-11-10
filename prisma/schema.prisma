@@ -123,7 +123,7 @@ model Setting {
 
 model EmailLog {
   id        String   @id @default(cuid())
-  to        String
+  recipient String
   subject   String
   type      String
   bookingId String?
