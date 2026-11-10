@@ -16,12 +16,15 @@ export async function POST(req: NextRequest) {
       where: { guestEmail: normalised },
     });
     if (!booking) {
+      console.log("send-otp: no booking found for", normalised);
       // Don't reveal whether the email exists
       return NextResponse.json({ ok: true });
     }
 
+    console.log("send-otp: found booking", booking.id, "sending OTP to", normalised);
     const otp = await createGuestToken(normalised);
     await sendGuestOtp(normalised, otp);
+    console.log("send-otp: OTP sent successfully to", normalised);
 
     return NextResponse.json({ ok: true });
   } catch (err) {
