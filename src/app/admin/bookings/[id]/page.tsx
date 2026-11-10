@@ -40,11 +40,16 @@ export default async function BookingDetailPage({ params }: Props) {
 
   const daysUntilCheckIn = differenceInDays(booking.checkIn, new Date());
 
-  const sentEmails = await prisma.emailLog.findMany({
-    where: { bookingId: booking.id },
-    orderBy: { sentAt: "desc" },
-    select: { id: true, subject: true, type: true, html: true, sentAt: true },
-  });
+  let sentEmails: { id: string; subject: string; type: string; html: string; sentAt: Date }[] = [];
+  try {
+    sentEmails = await prisma.emailLog.findMany({
+      where: { bookingId: booking.id },
+      orderBy: { sentAt: "desc" },
+      select: { id: true, subject: true, type: true, html: true, sentAt: true },
+    });
+  } catch {
+    // email_logs table may not exist yet — migration pending
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">

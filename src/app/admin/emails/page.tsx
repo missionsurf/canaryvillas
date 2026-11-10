@@ -23,10 +23,15 @@ export default async function EmailsPage() {
   const session = await getAdminSession();
   if (!session) redirect("/admin");
 
-  const emails = await prisma.emailLog.findMany({
-    orderBy: { sentAt: "desc" },
-    take: 200,
-  });
+  let emails: Awaited<ReturnType<typeof prisma.emailLog.findMany>> = [];
+  try {
+    emails = await prisma.emailLog.findMany({
+      orderBy: { sentAt: "desc" },
+      take: 200,
+    });
+  } catch {
+    // email_logs table may not exist yet — migration pending
+  }
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
