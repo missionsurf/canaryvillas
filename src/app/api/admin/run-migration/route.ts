@@ -44,6 +44,8 @@ export async function POST(req: NextRequest) {
       "sentAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
     )
   `);
+  // rename old "to" column if it still exists (reserved keyword workaround)
+  await run("email_logs rename to->recipient", `ALTER TABLE "email_logs" RENAME COLUMN "to" TO "recipient"`);
   await run("email_logs sentAt index", `CREATE INDEX IF NOT EXISTS "email_logs_sentAt_idx" ON "email_logs"("sentAt")`);
   await run("email_logs bookingId index", `CREATE INDEX IF NOT EXISTS "email_logs_bookingId_idx" ON "email_logs"("bookingId")`);
 
