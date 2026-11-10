@@ -498,6 +498,42 @@ export async function sendSpecialOffer(data: SpecialOfferData) {
   });
 }
 
+export async function sendPaypalPaymentLink(data: {
+  guestName: string; guestEmail: string; villaName: string;
+  checkIn: Date; checkOut: Date; amount: number; label: string;
+  paypalUrl: string; bookingId: string;
+}) {
+  const ref = data.bookingId.slice(-8).toUpperCase();
+  const html = baseStyle + `
+    <div style="display:inline-block;background:#fef9c3;border-radius:50px;padding:8px 16px;margin-bottom:20px;">
+      <span style="color:#854d0e;font-weight:700;font-size:14px;">💳 Payment Request — ${data.label}</span>
+    </div>
+    <h2 style="margin:0 0 8px;color:#1e293b;font-size:22px;">Hi ${data.guestName},</h2>
+    <p style="color:#64748b;margin:0 0 24px;font-size:15px;line-height:1.6;">Please use the button below to pay your <strong>${data.label.toLowerCase()}</strong> for <strong>${data.villaName}</strong>.</p>
+    <table style="width:100%;border-collapse:collapse;margin:0 0 24px;font-size:14px;">
+      <tr style="background:#f8fafc;"><td style="padding:10px 14px;color:#64748b;font-weight:600;">Property</td><td style="padding:10px 14px;color:#1e293b;font-weight:700;">${data.villaName}</td></tr>
+      <tr><td style="padding:10px 14px;color:#64748b;font-weight:600;">Check-in</td><td style="padding:10px 14px;color:#1e293b;">${format(data.checkIn, "EEEE, d MMMM yyyy")}</td></tr>
+      <tr style="background:#f8fafc;"><td style="padding:10px 14px;color:#64748b;font-weight:600;">Check-out</td><td style="padding:10px 14px;color:#1e293b;">${format(data.checkOut, "EEEE, d MMMM yyyy")}</td></tr>
+      <tr style="background:#dcfce7;"><td style="padding:10px 14px;color:#166534;font-weight:700;font-size:15px;">Amount due</td><td style="padding:10px 14px;color:#166534;font-weight:700;font-size:15px;">€${data.amount.toFixed(2)}</td></tr>
+    </table>
+    <div style="text-align:center;margin:28px 0;">
+      <a href="${data.paypalUrl}" style="display:inline-block;background:#0070ba;color:#ffffff;text-decoration:none;font-weight:700;font-size:16px;padding:16px 36px;border-radius:50px;box-shadow:0 4px 14px rgba(0,112,186,0.3);">Pay €${data.amount.toFixed(2)} via PayPal →</a>
+      <p style="margin:12px 0 0;color:#94a3b8;font-size:12px;">Secure payment via PayPal · Reference: ${ref}</p>
+    </div>
+    <p style="color:#64748b;font-size:14px;">Questions? Reply to this email or call us on <a href="tel:+447809870561" style="color:#0284c7;">+44 7809 870561</a>.</p>
+  ` + baseClose;
+
+  await sendMail({
+    from: `"Canary Villas" <${process.env.EMAIL_FROM}>`,
+    to: data.guestEmail,
+    bcc: BOOKINGS_BCC,
+    subject: `Payment Request — €${data.amount.toFixed(2)} | Canary Villas`,
+    html,
+    type: "payment_request",
+    bookingId: data.bookingId,
+  });
+}
+
 export async function sendGuestOtp(email: string, otp: string) {
   const html = baseStyle + `
     <h2 style="margin:0 0 8px;color:#1e293b;font-size:22px;">Your login code</h2>

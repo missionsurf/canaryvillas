@@ -12,6 +12,7 @@ import AdminEmailComposer from "@/components/AdminEmailComposer";
 import AdminNotesEditor from "@/components/AdminNotesEditor";
 import AdminBookingEditor from "@/components/AdminBookingEditor";
 import AdminBookingEmailLog from "@/components/AdminBookingEmailLog";
+import AdminSendPaymentLink from "@/components/AdminSendPaymentLink";
 
 export const dynamic = "force-dynamic";
 
@@ -218,11 +219,17 @@ export default async function BookingDetailPage({ params }: Props) {
                   <p className="font-mono text-xs text-gray-600">{booking.stripePaymentId || "—"}</p>
                 </div>
               </div>
-              <div className="mt-5">
+              <div className="mt-5 space-y-3">
                 <AdminBookingDetailActions
                   bookingId={booking.id}
                   status={booking.status}
                   stripePaymentId={booking.stripePaymentId}
+                />
+                <AdminSendPaymentLink
+                  bookingId={booking.id}
+                  depositAmount={booking.depositAmount ?? Math.round(booking.totalPrice / 2 * 100) / 100}
+                  balanceAmount={booking.balanceAmount ?? Math.round(booking.totalPrice / 2 * 100) / 100}
+                  totalPrice={booking.totalPrice}
                 />
               </div>
             </div>

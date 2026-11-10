@@ -8,6 +8,7 @@ const ALLOWED_KEYS = [
   "defaultPaymentMethod",
   "bankName", "bankAccountName", "bankIban", "bankBic",
   "bankGbpName", "bankGbpAccountName", "bankGbpSortCode", "bankGbpAccountNumber",
+  "paypalMe",
 ];
 
 export async function GET() {

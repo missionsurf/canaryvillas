@@ -38,6 +38,7 @@ interface PaymentSettings {
   bankGbpAccountName: string;
   bankGbpSortCode: string;
   bankGbpAccountNumber: string;
+  paypalMe: string;
 }
 
 const emptyRate = { name: "", startDate: "", endDate: "", pricePerNight: "" };
@@ -63,6 +64,7 @@ export default function SettingsPage() {
     defaultPaymentMethod: "stripe",
     bankName: "", bankAccountName: "", bankIban: "", bankBic: "",
     bankGbpName: "", bankGbpAccountName: "", bankGbpSortCode: "", bankGbpAccountNumber: "",
+    paypalMe: "",
   });
   const [paymentSaving, setPaymentSaving] = useState(false);
   const [paymentMsg, setPaymentMsg] = useState<{ ok: boolean; text: string } | null>(null);
@@ -433,6 +435,21 @@ export default function SettingsPage() {
                   />
                 </div>
               ))}
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-gray-200 p-6">
+            <h2 className="font-bold text-gray-900 text-lg mb-1">💳 PayPal</h2>
+            <p className="text-sm text-gray-500 mb-4">Your PayPal.me handle (without the URL). Used when sending PayPal payment links to guests.</p>
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-gray-500 whitespace-nowrap">paypal.me/</span>
+              <input
+                type="text"
+                value={paymentSettings.paypalMe ?? ""}
+                onChange={e => setPaymentSettings(s => ({ ...s, paypalMe: e.target.value }))}
+                placeholder="yourhandle"
+                className="flex-1 px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+              />
             </div>
           </div>
 
