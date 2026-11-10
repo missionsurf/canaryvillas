@@ -70,40 +70,45 @@ export default function AdminBookingEditor({ booking }: Props) {
     setSaving(true);
     setError("");
 
-    const datesChanged = form.checkIn !== booking.checkIn.slice(0, 10) || form.checkOut !== booking.checkOut.slice(0, 10);
+    try {
+      const datesChanged = form.checkIn !== booking.checkIn.slice(0, 10) || form.checkOut !== booking.checkOut.slice(0, 10);
 
-    const body: Record<string, unknown> = {
-      guestName: form.guestName,
-      guestEmail: form.guestEmail,
-      guestPhone: form.guestPhone,
-      checkIn: form.checkIn,
-      checkOut: form.checkOut,
-      guests: Number(form.guests),
-      status: form.status,
-      sendConfirmation,
-    };
+      const body: Record<string, unknown> = {
+        guestName: form.guestName,
+        guestEmail: form.guestEmail,
+        guestPhone: form.guestPhone,
+        checkIn: form.checkIn,
+        checkOut: form.checkOut,
+        guests: Number(form.guests),
+        status: form.status,
+        sendConfirmation,
+        // Always send pricing — server uses it directly (no recalc unless dates changed and no price sent)
+        pricePerNight: parseFloat(form.pricePerNight),
+        cleaningFee: parseFloat(form.cleaningFee),
+        totalPrice: parseFloat(form.totalPrice),
+        recalcPricing: datesChanged && recalcPricing,
+      };
 
-    // Only send pricing if dates didn't change or recalcPricing is off
-    if (!datesChanged || !recalcPricing) {
-      body.pricePerNight = parseFloat(form.pricePerNight);
-      body.cleaningFee = parseFloat(form.cleaningFee);
-      body.totalPrice = parseFloat(form.totalPrice);
+      const res = await fetch(`/api/admin/bookings/${booking.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      let data: { error?: string } = {};
+      try { data = await res.json(); } catch {}
+
+      if (res.ok) {
+        setOpen(false);
+        router.refresh();
+      } else {
+        setError(data.error || `Save failed (${res.status})`);
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Network error — please try again");
+    } finally {
+      setSaving(false);
     }
-
-    const res = await fetch(`/api/admin/bookings/${booking.id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-
-    if (res.ok) {
-      setOpen(false);
-      router.refresh();
-    } else {
-      const data = await res.json();
-      setError(data.error || "Failed to save changes");
-    }
-    setSaving(false);
   }
 
   return (

@@ -5,6 +5,7 @@ import { differenceInDays } from "date-fns";
 import { getEffectivePriceForStay } from "@/lib/pricing";
 
 export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  try {
   const session = await getAdminSession();
   if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
@@ -17,7 +18,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
     guestName, guestEmail, guestPhone,
     checkIn, checkOut, guests,
     pricePerNight, cleaningFee, totalPrice,
-    status, sendConfirmation,
+    status, sendConfirmation, recalcPricing,
   } = body;
 
   const checkInDate = checkIn ? new Date(checkIn) : booking.checkIn;
@@ -25,21 +26,21 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
   const nights = differenceInDays(checkOutDate, checkInDate);
   if (nights < 1) return NextResponse.json({ error: "Check-out must be after check-in" }, { status: 400 });
 
-  // If dates changed and no manual price override, recalculate
-  let resolvedPPN = pricePerNight != null ? Number(pricePerNight) : null;
-  let resolvedCF = cleaningFee != null ? Number(cleaningFee) : null;
-  let resolvedTotal = totalPrice != null ? Number(totalPrice) : null;
+  let resolvedPPN: number;
+  let resolvedCF: number;
+  let resolvedTotal: number;
 
-  const datesChanged = checkIn || checkOut;
-  if (datesChanged && resolvedPPN == null) {
+  if (recalcPricing) {
+    // Dates changed and admin wants auto-pricing from seasonal rates
     const pricing = await getEffectivePriceForStay(booking.villaId, checkInDate, checkOutDate);
     resolvedPPN = pricing.pricePerNight;
     resolvedCF = pricing.cleaningFee;
     resolvedTotal = pricing.totalPrice;
   } else {
-    resolvedPPN = resolvedPPN ?? booking.pricePerNight;
-    resolvedCF = resolvedCF ?? booking.cleaningFee;
-    resolvedTotal = resolvedTotal ?? (resolvedPPN * nights + resolvedCF);
+    // Use whatever the client sent (or fall back to existing values)
+    resolvedPPN = pricePerNight != null ? Number(pricePerNight) : booking.pricePerNight;
+    resolvedCF = cleaningFee != null ? Number(cleaningFee) : booking.cleaningFee;
+    resolvedTotal = totalPrice != null ? Number(totalPrice) : booking.totalPrice;
   }
 
   const updated = await prisma.booking.update({
@@ -92,4 +93,8 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
   }
 
   return NextResponse.json(updated);
+  } catch (err) {
+    console.error("Booking PATCH error:", err);
+    return NextResponse.json({ error: err instanceof Error ? err.message : "Internal server error" }, { status: 500 });
+  }
 }
