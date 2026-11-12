@@ -20,7 +20,8 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return blogPosts.map((p) => ({ slug: p.slug }));
+  const locales = ["en", "de", "es", "fr", "nl", "it"];
+  return blogPosts.flatMap((p) => locales.map((locale) => ({ locale, slug: p.slug })));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
