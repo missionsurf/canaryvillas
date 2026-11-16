@@ -25,7 +25,7 @@ export default function Beds24Widget({ propId, villaName, pricePerNight }: Props
     return () => window.removeEventListener("message", handleMessage);
   }, []);
 
-  const iframeSrc = `https://beds24.com/booking3.php?propid=${propId}&target=iframe&lang=en`;
+  const iframeSrc = `https://beds24.com/booking2.php?propid=${propId}&target=iframe&lang=en`;
 
   return (
     <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden sticky top-24">
