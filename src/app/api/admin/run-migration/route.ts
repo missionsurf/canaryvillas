@@ -99,6 +99,7 @@ export async function POST(req: NextRequest) {
   await run("bookings.balanceDueDate column", `ALTER TABLE "bookings" ADD COLUMN "balanceDueDate" DATETIME`);
   await run("bookings.paymentMethod column", `ALTER TABLE "bookings" ADD COLUMN "paymentMethod" TEXT NOT NULL DEFAULT 'stripe'`);
   await run("bookings.paypalOrderId column", `ALTER TABLE "bookings" ADD COLUMN "paypalOrderId" TEXT`);
+  await run("villas.beds24PropId column", `ALTER TABLE "villas" ADD COLUMN "beds24PropId" TEXT`);
 
   return NextResponse.json({ ok: errors.length === 0, results, errors });
 }

@@ -8,14 +8,14 @@ import Link from "next/link";
 interface Villa {
   id: string; name: string; slug: string; description: string; shortDesc: string;
   location: string; bedrooms: number; bathrooms: number; beds: string | null;
-  maxGuests: number; amenities: string;
+  maxGuests: number; amenities: string; beds24PropId: string | null;
 }
 
 export default function EditVillaPage() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
   const [villa, setVilla] = useState<Villa | null>(null);
-  const [form, setForm] = useState({ name: "", description: "", shortDesc: "", location: "", bedrooms: "", bathrooms: "", beds: "", maxGuests: "", amenities: "" });
+  const [form, setForm] = useState({ name: "", description: "", shortDesc: "", location: "", bedrooms: "", bathrooms: "", beds: "", maxGuests: "", amenities: "", beds24PropId: "" });
   const [saving, setSaving] = useState(false);
   const [msg, setMsg] = useState("");
 
@@ -33,6 +33,7 @@ export default function EditVillaPage() {
         beds: v.beds ?? "",
         maxGuests: String(v.maxGuests),
         amenities,
+        beds24PropId: v.beds24PropId ?? "",
       });
     });
   }, [id]);
@@ -51,6 +52,7 @@ export default function EditVillaPage() {
         bathrooms: Number(form.bathrooms),
         maxGuests: Number(form.maxGuests),
         amenities: JSON.stringify(amenitiesArr),
+        beds24PropId: form.beds24PropId.trim() || null,
       }),
     });
     if (res.ok) {
@@ -130,6 +132,33 @@ export default function EditVillaPage() {
               <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">One amenity per line</label>
               <textarea value={form.amenities} onChange={e => setForm(f => ({ ...f, amenities: e.target.value }))} rows={10} placeholder={"WiFi\nPool\nAir conditioning\nParking"} className="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-sky-500" />
             </div>
+          </div>
+
+          {/* Beds24 */}
+          <div className="bg-white rounded-2xl border border-gray-200 p-6 space-y-4">
+            <div>
+              <h2 className="font-bold text-gray-900">Beds24 Integration</h2>
+              <p className="text-xs text-gray-400 mt-1">When set, the Beds24 booking widget replaces the custom booking form. Required for Google Vacation Rentals.</p>
+            </div>
+            <div>
+              <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Beds24 Property ID</label>
+              <input
+                value={form.beds24PropId}
+                onChange={e => setForm(f => ({ ...f, beds24PropId: e.target.value }))}
+                placeholder="e.g. 123456 — found in Beds24 → Properties → Edit"
+                className="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-sky-500"
+              />
+            </div>
+            {form.beds24PropId.trim() && (
+              <a
+                href={`https://beds24.com/booking3.php?propid=${form.beds24PropId.trim()}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-xs text-sky-600 hover:underline"
+              >
+                Preview widget →
+              </a>
+            )}
           </div>
 
           <div className="flex items-center gap-4">

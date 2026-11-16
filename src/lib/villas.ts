@@ -20,6 +20,7 @@ function parseVilla(v: {
   imageGroups: string | null;
   amenities: string;
   airbnbIcalUrl: string | null;
+  beds24PropId?: string | null;
 }): Villa {
   return {
     ...v,

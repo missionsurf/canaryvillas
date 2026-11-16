@@ -17,6 +17,7 @@ export interface Villa {
   imageGroups?: { label: string; images: string[] }[] | null;
   amenities: string[];
   airbnbIcalUrl?: string | null;
+  beds24PropId?: string | null;
 }
 
 export interface Booking {

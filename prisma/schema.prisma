@@ -25,6 +25,7 @@ model Villa {
   imageGroups   String?
   amenities     String
   airbnbIcalUrl String?
+  beds24PropId  String?
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 

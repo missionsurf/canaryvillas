@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getVillaBySlug, getBookedDates } from "@/lib/villas";
 import BookingWidget from "@/components/BookingWidget";
+import Beds24Widget from "@/components/Beds24Widget";
 import PhotoGallery from "@/components/PhotoGallery";
 import { Bed, Bath, Users, MapPin, CheckCircle2 } from "lucide-react";
 import ConsentMap from "@/components/ConsentMap";
@@ -311,14 +312,22 @@ export default async function VillaDetailPage({ params }: Props) {
 
             {/* Booking Widget */}
             <div className="lg:col-span-1">
-              <BookingWidget
-                villaId={villa.id}
-                villaName={villa.name}
-                pricePerNight={villa.pricePerNight}
-                cleaningFee={villa.cleaningFee}
-                maxGuests={villa.maxGuests}
-                bookedDates={bookedDatesStr}
-              />
+              {villa.beds24PropId ? (
+                <Beds24Widget
+                  propId={villa.beds24PropId}
+                  villaName={villa.name}
+                  pricePerNight={villa.pricePerNight}
+                />
+              ) : (
+                <BookingWidget
+                  villaId={villa.id}
+                  villaName={villa.name}
+                  pricePerNight={villa.pricePerNight}
+                  cleaningFee={villa.cleaningFee}
+                  maxGuests={villa.maxGuests}
+                  bookedDates={bookedDatesStr}
+                />
+              )}
             </div>
           </div>
         </div>
