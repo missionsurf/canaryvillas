@@ -18,7 +18,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "watersports-fuerteventura",
     title: "The Ultimate Guide to Watersports in Fuerteventura",
-    metaTitle: "Watersports in Fuerteventura: The Ultimate Guide 2025",
+    metaTitle: "Watersports in Fuerteventura: The Ultimate Guide 2026",
     metaDescription: "Discover the best watersports in Fuerteventura — kitesurfing, windsurfing, surfing, diving, paddleboarding and whale watching. Everything you need to know for the perfect action-packed holiday.",
     excerpt: "From world-record kitesurfing speeds to pristine diving reefs, Fuerteventura is Europe's undisputed capital of watersports. Here's your complete guide to making the most of it.",
     date: "2026-11-01",
@@ -77,7 +77,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "best-beaches-fuerteventura",
     title: "The 12 Best Beaches in Fuerteventura",
-    metaTitle: "Best Beaches in Fuerteventura 2025 — Top 12 Beaches Ranked",
+    metaTitle: "Best Beaches in Fuerteventura 2026 — Top 12 Beaches Ranked",
     metaDescription: "Discover the 12 best beaches in Fuerteventura — from the famous Corralejo dunes and Flag Beach to the wild beauty of Cofete. Your complete guide to finding the perfect stretch of sand.",
     excerpt: "With over 150 beaches and 340 days of sunshine, Fuerteventura has some of the finest sand in Europe. We've ranked the very best — from wild Atlantic shores to sheltered family bays.",
     date: "2026-11-02",
@@ -138,7 +138,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "kitesurfing-fuerteventura-guide",
     title: "Kitesurfing in Fuerteventura: The Complete Guide",
-    metaTitle: "Kitesurfing in Fuerteventura — Complete Guide 2025 | Flag Beach & Beyond",
+    metaTitle: "Kitesurfing in Fuerteventura — Complete Guide 2026 | Flag Beach & Beyond",
     metaDescription: "Everything you need to know about kitesurfing in Fuerteventura. Best spots, schools, when to go, what to expect — from Flag Beach to Sotavento. Europe's kitesurfing capital awaits.",
     excerpt: "Flag Beach, Sotavento, consistent trade winds of 20–35 knots, and over 30 certified schools — Fuerteventura has earned its reputation as Europe's kitesurfing capital. Here's everything you need to know.",
     date: "2026-11-02",
@@ -192,7 +192,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "surfing-fuerteventura",
     title: "Surfing in Fuerteventura: Best Spots for All Levels",
-    metaTitle: "Surfing in Fuerteventura 2025 — Best Surf Spots & Schools",
+    metaTitle: "Surfing in Fuerteventura 2026 — Best Surf Spots & Schools",
     metaDescription: "Find the best surf spots in Fuerteventura for beginners to advanced. Rocky Point, Majanicho, El Cotillo — plus where to learn, surf schools, and tips for the perfect surf holiday.",
     excerpt: "Consistent Atlantic swells, warm water, and uncrowded lineups make Fuerteventura a seriously underrated surf destination. Here's where to paddle out, whatever your level.",
     date: "2026-11-03",
@@ -242,7 +242,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "things-to-do-corralejo",
     title: "25 Best Things to Do in Corralejo, Fuerteventura",
-    metaTitle: "25 Best Things to Do in Corralejo, Fuerteventura 2025",
+    metaTitle: "25 Best Things to Do in Corralejo, Fuerteventura 2026",
     metaDescription: "Planning a holiday in Corralejo? Discover the 25 best things to do — from watersports and whale watching to the famous sand dunes, local markets, and the best restaurants in town.",
     excerpt: "Corralejo is the liveliest resort town in northern Fuerteventura — and there's far more to do than just lie on the beach. Here are 25 experiences you shouldn't miss.",
     date: "2026-11-03",
@@ -301,10 +301,10 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: "fuerteventura-travel-guide",
-    title: "Complete Fuerteventura Travel Guide 2025",
-    metaTitle: "Fuerteventura Travel Guide 2025 — Everything You Need to Know",
-    metaDescription: "Your complete guide to visiting Fuerteventura in 2025. Getting there, best areas, what to do, where to eat, when to go, and how to make the most of your Canary Islands holiday.",
-    excerpt: "Everything you need for the perfect Fuerteventura holiday — from when to go and how to get around to the best beaches, activities, and local food. Your definitive 2025 guide.",
+    title: "Complete Fuerteventura Travel Guide 2026",
+    metaTitle: "Fuerteventura Travel Guide 2026 — Everything You Need to Know",
+    metaDescription: "Your complete guide to visiting Fuerteventura in 2026. Getting there, best areas, what to do, where to eat, when to go, and how to make the most of your Canary Islands holiday.",
+    excerpt: "Everything you need for the perfect Fuerteventura holiday — from when to go and how to get around to the best beaches, activities, and local food. Your definitive 2026 guide.",
     date: "2026-11-04",
     category: "Travel Guide",
     heroImage: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg",
@@ -370,7 +370,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "family-holidays-fuerteventura",
     title: "Family Holidays in Fuerteventura: The Complete Guide",
-    metaTitle: "Family Holidays in Fuerteventura 2025 — Best Activities & Tips",
+    metaTitle: "Family Holidays in Fuerteventura 2026 — Best Activities & Tips",
     metaDescription: "Planning a family holiday in Fuerteventura? Discover the best family beaches, activities for kids, safe swimming spots, villa accommodation, and everything you need for a stress-free family trip.",
     excerpt: "Fuerteventura is one of Europe's best family holiday destinations — with safe, calm beaches, year-round sunshine, and endless activities for all ages. Here's everything families need to know.",
     date: "2026-11-04",
@@ -417,7 +417,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "whale-dolphin-watching-fuerteventura",
     title: "Whale & Dolphin Watching in Fuerteventura",
-    metaTitle: "Whale & Dolphin Watching in Fuerteventura 2025 — Best Tours & Tips",
+    metaTitle: "Whale & Dolphin Watching in Fuerteventura 2026 — Best Tours & Tips",
     metaDescription: "Discover the best whale and dolphin watching in Fuerteventura. Learn which species to spot, the best tours from Corralejo, and when to go for the best chance of sightings.",
     excerpt: "The deep waters around Fuerteventura are home to over 30 species of whale and dolphin year-round. Here's how to make the most of one of the Atlantic's great wildlife spectacles.",
     date: "2026-11-05",
@@ -464,7 +464,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "restaurants-corralejo-fuerteventura",
     title: "Best Restaurants in Corralejo, Fuerteventura",
-    metaTitle: "Best Restaurants in Corralejo Fuerteventura 2025 — Where to Eat",
+    metaTitle: "Best Restaurants in Corralejo Fuerteventura 2026 — Where to Eat",
     metaDescription: "Discover the best restaurants in Corralejo, Fuerteventura — from fresh grilled fish at the harbour to tapas bars, rooftop cocktails, and authentic Canarian cuisine. Our top picks for every budget.",
     excerpt: "Corralejo's dining scene has grown significantly — you'll find everything from traditional Canarian fish restaurants at the old harbour to modern tapas bars and beachfront cocktail spots. Here are our favourites.",
     date: "2026-11-05",
@@ -513,7 +513,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "corralejo-dunes-natural-park",
     title: "Corralejo Dunes & Natural Park: Your Complete Guide",
-    metaTitle: "Corralejo Dunes Natural Park Fuerteventura — Complete Visitor Guide 2025",
+    metaTitle: "Corralejo Dunes Natural Park Fuerteventura — Complete Visitor Guide 2026",
     metaDescription: "Everything you need to visit the Corralejo Natural Park and its famous sand dunes. How to get there, what to do, the best beaches within the park, and tips for a perfect visit.",
     excerpt: "The Corralejo Natural Park is one of the most spectacular landscapes in the Canary Islands — 10km of rolling white dunes backed by volcanic peaks. Here's how to make the most of it.",
     date: "2026-11-06",
@@ -557,7 +557,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "diving-fuerteventura",
     title: "Scuba Diving in Fuerteventura: Best Dive Sites & Tips",
-    metaTitle: "Scuba Diving in Fuerteventura 2025 — Best Dive Sites & Dive Schools",
+    metaTitle: "Scuba Diving in Fuerteventura 2026 — Best Dive Sites & Dive Schools",
     metaDescription: "Discover the best scuba diving in Fuerteventura — angel sharks, sea turtles, El Cantil wall, Los Lobos reefs, and the Metron wreck. Complete guide for beginners and experienced divers.",
     excerpt: "Clear Atlantic water, extraordinary marine life (including critically endangered angel sharks), and diverse dive sites from shallow reefs to dramatic walls make Fuerteventura an outstanding scuba diving destination.",
     date: "2026-11-06",
@@ -594,8 +594,8 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: "fuerteventura-weather-best-time-to-visit",
-    title: "Fuerteventura Weather: Best Time to Visit in 2025",
-    metaTitle: "Fuerteventura Weather 2025 — Best Time to Visit & Month by Month Guide",
+    title: "Fuerteventura Weather: Best Time to Visit in 2026",
+    metaTitle: "Fuerteventura Weather 2026 — Best Time to Visit & Month by Month Guide",
     metaDescription: "What's the weather like in Fuerteventura? Find out the best time to visit, month-by-month temperatures, rainfall, and wind conditions — plus tips for planning the perfect holiday.",
     excerpt: "With 340 days of sunshine per year and year-round mild temperatures, Fuerteventura is genuinely a holiday destination for every month. But when is the absolute best time to go?",
     date: "2026-11-07",
@@ -644,7 +644,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "windsurfing-fuerteventura",
     title: "Windsurfing in Fuerteventura: The Ultimate Guide",
-    metaTitle: "Windsurfing in Fuerteventura 2025 — Best Spots, Schools & Tips",
+    metaTitle: "Windsurfing in Fuerteventura 2026 — Best Spots, Schools & Tips",
     metaDescription: "Everything about windsurfing in Fuerteventura — from the legendary Sotavento World Cup beach to Flag Beach and El Cotillo. Best schools, when to go, and tips for all levels.",
     excerpt: "Fuerteventura has hosted the PWA Windsurfing World Cup for over 30 years. Find out why it's the ultimate windsurfing destination — and how to make the most of it whatever your level.",
     date: "2026-11-07",
@@ -690,7 +690,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "day-trips-from-corralejo",
     title: "Best Day Trips from Corralejo, Fuerteventura",
-    metaTitle: "Best Day Trips from Corralejo Fuerteventura 2025",
+    metaTitle: "Best Day Trips from Corralejo Fuerteventura 2026",
     metaDescription: "Discover the best day trips from Corralejo — Lobos Island, Lanzarote by ferry, El Cotillo, Betancuria, Cofete beach, and more. Make the most of your Fuerteventura holiday.",
     excerpt: "Corralejo's position in northern Fuerteventura makes it the perfect launchpad for exploring both the island and neighbouring Lanzarote. Here are the day trips that shouldn't be missed.",
     date: "2026-11-08",
@@ -742,7 +742,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "villa-vs-hotel-fuerteventura",
     title: "Villa Rental vs Hotel in Fuerteventura: Which is Better?",
-    metaTitle: "Villa Rental vs Hotel Fuerteventura — Which Should You Choose? 2025",
+    metaTitle: "Villa Rental vs Hotel Fuerteventura — Which Should You Choose? 2026",
     metaDescription: "Comparing villa rental vs hotels in Fuerteventura? We break down the pros and cons for families, couples, and groups — and why booking a villa direct is often the smarter choice.",
     excerpt: "Hotels offer convenience; villas offer space, privacy, and a sense of home. For most Fuerteventura holidays — especially families and groups — a villa wins every time. Here's why.",
     date: "2026-11-08",
@@ -784,7 +784,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "paddleboarding-fuerteventura",
     title: "Paddleboarding in Fuerteventura: Everything You Need to Know",
-    metaTitle: "Paddleboarding in Fuerteventura 2025 — SUP Guide for Beginners & Beyond",
+    metaTitle: "Paddleboarding in Fuerteventura 2026 — SUP Guide for Beginners & Beyond",
     metaDescription: "Discover the best paddleboarding spots in Fuerteventura — from the calm harbour at Corralejo to guided SUP tours to sea caves and secluded coves. Tips, rentals, and tours for all levels.",
     excerpt: "Stand-up paddleboarding (SUP) in Fuerteventura's crystal-clear Atlantic waters is one of the island's most accessible and rewarding outdoor activities. Here's everything you need to get on the water.",
     date: "2026-11-08",
@@ -936,7 +936,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "beachfront-villas-corralejo",
     title: "Beachfront Villas in Corralejo — Direct Access to the Best Beaches",
-    metaTitle: "Beachfront Villas in Corralejo Fuerteventura | Direct Beach Access 2025",
+    metaTitle: "Beachfront Villas in Corralejo Fuerteventura | Direct Beach Access 2026",
     metaDescription: "Looking for a beachfront villa in Corralejo, Fuerteventura? Discover the best beachfront properties with direct sea access, what to expect, and how to book direct to save money.",
     excerpt: "Corralejo has some of the finest beachfront villas in Fuerteventura. Here's everything you need to know about choosing and booking one — including why direct booking always saves you money.",
     date: "2026-11-09",
@@ -1028,7 +1028,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "where-to-stay-fuerteventura",
     title: "Where to Stay in Fuerteventura: Corralejo vs Caleta de Fuste vs Morro Jable",
-    metaTitle: "Where to Stay in Fuerteventura 2025 — Corralejo vs Caleta de Fuste vs Morro Jable",
+    metaTitle: "Where to Stay in Fuerteventura 2026 — Corralejo vs Caleta de Fuste vs Morro Jable",
     metaDescription: "Choosing where to stay in Fuerteventura? Compare the top areas — Corralejo, Caleta de Fuste, and Morro Jable — to find the best base for your holiday villa.",
     excerpt: "Not sure where to stay in Fuerteventura? We break down the three main areas — Corralejo, Caleta de Fuste, and Morro Jable — so you can choose the right base for your villa holiday.",
     date: "2026-11-09",
@@ -1101,8 +1101,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "holiday-villas-to-rent-fuerteventura",
-    title: "Holiday Villas to Rent in Fuerteventura — Complete Guide 2025",
-    metaTitle: "Holiday Villas to Rent in Fuerteventura 2025 | Canary Villas",
+    title: "Holiday Villas to Rent in Fuerteventura — Complete Guide 2026",
+    metaTitle: "Holiday Villas to Rent in Fuerteventura 2026 | Canary Villas",
     metaDescription: "Everything you need to know about renting a holiday villa in Fuerteventura. Types of villa, best areas, what to look for, and why booking direct saves you money.",
     excerpt: "Thinking of renting a holiday villa in Fuerteventura? Here's everything you need to know — from choosing the right area to what to look for and how to get the best deal.",
     date: "2026-11-08",
@@ -1233,7 +1233,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "booking-direct-vs-airbnb-fuerteventura",
     title: "Booking Direct vs Airbnb in Fuerteventura: Cost Comparison & Local Perks",
-    metaTitle: "Booking Direct vs Airbnb in Fuerteventura — Cost Comparison 2025 | Canary Villas",
+    metaTitle: "Booking Direct vs Airbnb in Fuerteventura — Cost Comparison 2026 | Canary Villas",
     metaDescription: "Is it cheaper to book a Fuerteventura villa direct or through Airbnb? We break down the real cost difference, what you gain from booking direct, and why more travellers are skipping the platforms.",
     excerpt: "Airbnb and Booking.com charge guests 12–20% on top of the nightly rate. When you book a villa direct in Fuerteventura, that money stays in your pocket — plus you get direct access to the owners. Here's the full comparison.",
     date: "2026-10-01",
@@ -1305,7 +1305,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "flag-beach-corralejo-guide",
     title: "Flag Beach Corralejo: The Complete Guide for Kitesurfers & Beach Lovers",
-    metaTitle: "Flag Beach Corralejo Guide 2025 — Kitesurfing, Beaches & Where to Stay",
+    metaTitle: "Flag Beach Corralejo Guide 2026 — Kitesurfing, Beaches & Where to Stay",
     metaDescription: "Your complete guide to Flag Beach (Playa de la Bandera), Corralejo. Everything about the kitesurfing, conditions, schools, the best nearby accommodation, and how to make the most of your visit.",
     excerpt: "Flag Beach — Playa de la Bandera — is one of the world's top kitesurfing spots and one of Corralejo's most spectacular stretches of coast. Here's everything you need to know before you go.",
     date: "2026-10-10",

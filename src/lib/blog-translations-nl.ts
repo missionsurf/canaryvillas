@@ -1,7 +1,7 @@
 const nl: Record<string, { title: string; metaTitle: string; metaDescription: string; excerpt: string; content: string; faqs?: { q: string; a: string }[] }> = {
   "watersports-fuerteventura": {
     title: "De ultieme gids voor watersport op Fuerteventura",
-    metaTitle: "Watersport op Fuerteventura: De ultieme gids 2025",
+    metaTitle: "Watersport op Fuerteventura: De ultieme gids 2026",
     metaDescription: "Ontdek de beste watersport op Fuerteventura — kitesurfen, windsurfen, surfen, duiken, paddleboarden en walvissen spotten. Alles wat je moet weten voor de perfecte actievakantie.",
     excerpt: "Van wereldrecord kitesurfsnelheden tot maagdelijke duikriffen — Fuerteventura is de onbetwiste Europese hoofdstad van de watersport. Dit is jouw complete gids om er optimaal van te profiteren.",
     content: `<h2>Waarom Fuerteventura Europa's watersporthoofstad is</h2>
@@ -52,7 +52,7 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "best-beaches-fuerteventura": {
     title: "De 12 mooiste stranden van Fuerteventura",
-    metaTitle: "Mooiste stranden van Fuerteventura 2025 — Top 12 op een rij",
+    metaTitle: "Mooiste stranden van Fuerteventura 2026 — Top 12 op een rij",
     metaDescription: "Ontdek de 12 mooiste stranden van Fuerteventura — van de beroemde duinen van Corralejo en Flag Beach tot de ruige schoonheid van Cofete. Jouw complete gids om het perfecte stuk zand te vinden.",
     excerpt: "Met meer dan 150 stranden en 340 zonnedagen per jaar heeft Fuerteventura een van de mooiste kustlijnen van Europa. Wij kozen de absolute toppers — van wilde Atlantische oevers tot beschutte gezinsbaaien.",
     content: `<p>Fuerteventura heeft meer strand per vierkante kilometer dan enig ander Canarisch eiland — en de kwaliteit is evenredig aan de hoeveelheid. De noordoostpassaatwinden zorgen het hele jaar voor een aangename temperatuur (22–28°C in de zomer, 18–22°C in de winter), terwijl de Atlantische Oceaan helder, schoon water levert dat in kleur kan wedijveren met de Caraïben. Dit zijn de stranden die je absoluut gezien moet hebben.</p>
@@ -100,7 +100,7 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "kitesurfing-fuerteventura-guide": {
     title: "Kitesurfen op Fuerteventura: de complete gids",
-    metaTitle: "Kitesurfen op Fuerteventura — Complete gids 2025 | Flag Beach en verder",
+    metaTitle: "Kitesurfen op Fuerteventura — Complete gids 2026 | Flag Beach en verder",
     metaDescription: "Alles wat je moet weten over kitesurfen op Fuerteventura. Beste spots, scholen, wanneer te gaan, wat te verwachten — van Flag Beach tot Sotavento. Europa's kitesurfhoofdstad wacht op je.",
     excerpt: "Flag Beach, Sotavento, constante passaatwinden van 20–35 knopen en meer dan 30 gecertificeerde scholen — Fuerteventura heeft zijn reputatie als kitesurfhoofdstad van Europa meer dan verdiend. Dit is alles wat je moet weten.",
     content: `<h2>Waarom Fuerteventura voor kitesurfen?</h2>
@@ -148,7 +148,7 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "surfing-fuerteventura": {
     title: "Surfen op Fuerteventura: beste spots voor elk niveau",
-    metaTitle: "Surfen op Fuerteventura 2025 — Beste surfspots en scholen",
+    metaTitle: "Surfen op Fuerteventura 2026 — Beste surfspots en scholen",
     metaDescription: "Vind de beste surfspots op Fuerteventura voor beginners tot gevorderden. Rocky Point, Majanicho, El Cotillo — plus waar je kunt leren, surfscholen en tips voor de perfecte surfvakantie.",
     excerpt: "Constante Atlantische deining, warm water en rustige lineups maken Fuerteventura een serieus onderschatte surfbestemming. Hier lees je waar je het water in kunt, wat je niveau ook is.",
     content: `<h2>Fuerteventura: een onderschatte surfbestemming</h2>
@@ -193,7 +193,7 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "things-to-do-corralejo": {
     title: "25 beste dingen om te doen in Corralejo, Fuerteventura",
-    metaTitle: "25 beste dingen om te doen in Corralejo, Fuerteventura 2025",
+    metaTitle: "25 beste dingen om te doen in Corralejo, Fuerteventura 2026",
     metaDescription: "Plan je vakantie in Corralejo? Ontdek de 25 beste activiteiten — van watersport en walvissen spotten tot de beroemde zandduinen, lokale markten en de beste restaurants in de stad.",
     excerpt: "Corralejo is het levendigste badplaatsje van het noorden van Fuerteventura — en er is veel meer te doen dan alleen op het strand liggen. Dit zijn 25 ervaringen die je niet mag missen.",
     content: `<p>Corralejo ligt op de noordelijke punt van Fuerteventura, 38 km van de hoofdstad Puerto del Rosario, en is gegroeid van een rustig vissersdorpje tot het meest populaire resort van het eiland — zonder zijn ziel volledig te verliezen. De oude havenwijk heeft nog steeds smalle straatjes, witgekalkte muren en visrestaurants die er al tientallen jaren staan. Dit zijn 25 dingen die jouw verblijf onvergetelijk maken.</p>
@@ -245,10 +245,10 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
     ],
   },
   "fuerteventura-travel-guide": {
-    title: "Complete Reisgids Fuerteventura 2025",
-    metaTitle: "Reisgids Fuerteventura 2025 — Alles wat je moet weten",
-    metaDescription: "Jouw complete gids voor een bezoek aan Fuerteventura in 2025. Hoe je er komt, de beste gebieden, wat te doen, waar te eten, wanneer te gaan en hoe je het meeste haalt uit jouw vakantie op de Canarische Eilanden.",
-    excerpt: "Alles wat je nodig hebt voor de perfecte vakantie op Fuerteventura — van het beste reisseizoen en vervoer tot de mooiste stranden, activiteiten en lokale gerechten. Jouw definitieve gids voor 2025.",
+    title: "Complete Reisgids Fuerteventura 2026",
+    metaTitle: "Reisgids Fuerteventura 2026 — Alles wat je moet weten",
+    metaDescription: "Jouw complete gids voor een bezoek aan Fuerteventura in 2026. Hoe je er komt, de beste gebieden, wat te doen, waar te eten, wanneer te gaan en hoe je het meeste haalt uit jouw vakantie op de Canarische Eilanden.",
+    excerpt: "Alles wat je nodig hebt voor de perfecte vakantie op Fuerteventura — van het beste reisseizoen en vervoer tot de mooiste stranden, activiteiten en lokale gerechten. Jouw definitieve gids voor 2026.",
     content: `<h2>Fuerteventura in het kort</h2>
 <p>Fuerteventura is het op één na grootste Canarische Eiland met een oppervlakte van 1.660 km². De naam betekent 'groot avontuur' of 'sterke wind', afhankelijk van wie je het vraagt. Het eiland ligt slechts 100 km voor de kust van Marokko in de Atlantische Oceaan. Die ligging dicht bij Afrika zorgt voor het meeste zonlicht van heel Spanje — meer dan 3.000 uur per jaar — terwijl de vulkanische oorsprong een imposant, prachtig landschap creëert van okerkleurige bergen, oude kraters en eindeloos zand.</p>
 <p>Het eiland is een UNESCO Biosfeerreservaat, bekend om zijn bijzondere natuur, de constante passaatwinden die het tot Europa's topbestemming voor windsport maken, en stranden die variëren van drukke badplaatsen tot volledig wilde, ongerepte Atlantische kusten.</p>
@@ -304,7 +304,7 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
   "family-holidays-fuerteventura": {
     title: "Gezinsvakantie op Fuerteventura: de complete gids",
-    metaTitle: "Gezinsvakantie op Fuerteventura 2025 — Beste activiteiten & tips",
+    metaTitle: "Gezinsvakantie op Fuerteventura 2026 — Beste activiteiten & tips",
     metaDescription: "Een gezinsvakantie op Fuerteventura plannen? Ontdek de beste gezinsstranden, activiteiten voor kinderen, veilige zwemplekken, villa-accommodatie en alles wat je nodig hebt voor een zorgeloze familiereis.",
     excerpt: "Fuerteventura is een van Europa's beste gezinsvakantiestemmingen — met veilige, rustige stranden, zon het hele jaar door en eindeloze activiteiten voor alle leeftijden. Dit moet elk gezin weten.",
     content: `<h2>Waarom Fuerteventura perfect is voor gezinnen</h2>
@@ -345,7 +345,7 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
   "whale-dolphin-watching-fuerteventura": {
     title: "Walvissen & dolfijnen spotten op Fuerteventura",
-    metaTitle: "Walvissen & dolfijnen spotten op Fuerteventura 2025 — Beste tochten & tips",
+    metaTitle: "Walvissen & dolfijnen spotten op Fuerteventura 2026 — Beste tochten & tips",
     metaDescription: "Ontdek de beste walvis- en dolfijnenspotting op Fuerteventura. Welke soorten kun je zien, welke tochten vertrekken vanuit Corralejo en wanneer heb je de meeste kans op waarnemingen?",
     excerpt: "In de diepe wateren rond Fuerteventura leven meer dan 30 soorten walvissen en dolfijnen, het hele jaar door. Zo haal je het meeste uit een van de grootste wildlife-spektakels van de Atlantische Oceaan.",
     content: `<h2>De cetaceëncorridor van de Canarische Eilanden</h2>
@@ -387,7 +387,7 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
   "restaurants-corralejo-fuerteventura": {
     title: "De beste restaurants in Corralejo, Fuerteventura",
-    metaTitle: "Beste restaurants in Corralejo Fuerteventura 2025 — Waar eten?",
+    metaTitle: "Beste restaurants in Corralejo Fuerteventura 2026 — Waar eten?",
     metaDescription: "Ontdek de beste restaurants in Corralejo, Fuerteventura — van verse gegrilde vis bij de haven tot tapasbarren, daktopterrassen met cocktails en authentieke Canarische gerechten. Onze favorieten voor elk budget.",
     excerpt: "Het restaurantaanbod in Corralejo is de afgelopen jaren flink gegroeid — je vindt er alles van traditionele Canarische visrestaurants bij de oude haven tot moderne tapasbarren en strandlocaties voor cocktails. Dit zijn onze favorieten.",
     content: `<p>Corralejo is uitgegroeid van een eenvoudig vissersdorp tot een badplaats met een gevarieerde en steeds betere eetscene. Het gebied rond de oude haven en de straatjes direct achter het havenfront zijn nog altijd de beste plekken om te eten — hier vind je familiebedrijven die al tientallen jaren verse vis serveren, naast nieuwere gelegenheden die moderne benaderingen combineren met Canarische ingrediënten.</p>
@@ -430,7 +430,7 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
   "corralejo-dunes-natural-park": {
     title: "Duinen van Corralejo & Nationaal Park: de complete gids",
-    metaTitle: "Duinen van Corralejo Nationaal Park Fuerteventura — Complete Bezoekersgids 2025",
+    metaTitle: "Duinen van Corralejo Nationaal Park Fuerteventura — Complete Bezoekersgids 2026",
     metaDescription: "Alles wat je nodig hebt om het Nationaal Park Corralejo en zijn beroemde zandduinen te bezoeken. Hoe je er komt, wat je kunt doen, de mooiste stranden in het park en tips voor een perfect bezoek.",
     excerpt: "Het Nationaal Park Corralejo is een van de meest spectaculaire landschappen van de Canarische Eilanden — 10 km rollende witte duinen met vulkanische bergtoppen op de achtergrond. Zo haal je er het meeste uit.",
     content: `<h2>Het Nationaal Park Corralejo</h2>
@@ -468,7 +468,7 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
   "diving-fuerteventura": {
     title: "Duiken in Fuerteventura: Beste Duikplekken & Tips",
-    metaTitle: "Duiken in Fuerteventura 2025 — Beste Duikplekken & Duikscholen",
+    metaTitle: "Duiken in Fuerteventura 2026 — Beste Duikplekken & Duikscholen",
     metaDescription: "Ontdek de mooiste duikplekken in Fuerteventura — engelenhaaien, zeeschildpadden, de El Cantil-wand, de riffen van Los Lobos en het wrak van de Metron. Complete gids voor beginners en ervaren duikers.",
     excerpt: "Helder Atlantisch water, bijzondere zeefauna (waaronder de ernstig bedreigde engelenhaai), en een gevarieerd aanbod aan duiklocaties — van ondiepe riffen tot dramatische wanden — maken Fuerteventura tot een uitstekende duikbestemming.",
     content: `<h2>Waarom duiken in Fuerteventura?</h2>
@@ -502,8 +502,8 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
 
   "fuerteventura-weather-best-time-to-visit": {
-    title: "Het Weer in Fuerteventura: Beste Reistijd in 2025",
-    metaTitle: "Weer Fuerteventura 2025 — Beste Reistijd & Maand voor Maand Gids",
+    title: "Het Weer in Fuerteventura: Beste Reistijd in 2026",
+    metaTitle: "Weer Fuerteventura 2026 — Beste Reistijd & Maand voor Maand Gids",
     metaDescription: "Hoe is het weer in Fuerteventura? Ontdek de beste reistijd, temperaturen per maand, neerslag en windcondities — plus tips voor het plannen van de perfecte vakantie.",
     excerpt: "Met 340 zonnige dagen per jaar en het hele jaar door milde temperaturen is Fuerteventura werkelijk een vakantiebestemming voor elke maand. Maar wanneer is het absoluut het beste om te gaan?",
     content: `<h2>Het klimaat van Fuerteventura in één oogopslag</h2>
@@ -548,7 +548,7 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "windsurfing-fuerteventura": {
     title: "Windsurfen in Fuerteventura: De Ultieme Gids",
-    metaTitle: "Windsurfen in Fuerteventura 2025 — Beste Spots, Scholen & Tips",
+    metaTitle: "Windsurfen in Fuerteventura 2026 — Beste Spots, Scholen & Tips",
     metaDescription: "Alles over windsurfen in Fuerteventura — van het legendarische Sotavento World Cup-strand tot Flag Beach en El Cotillo. Beste scholen, wanneer te gaan en tips voor elk niveau.",
     excerpt: "Fuerteventura organiseert al meer dan 30 jaar het PWA Windsurfing World Cup. Ontdek waarom dit de ultieme windsurfbestemming is — en hoe je er het meeste uithaalt, wat je niveau ook is.",
     content: `<h2>Fuerteventura: het eiland van de windsurfer</h2>
@@ -589,7 +589,7 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "day-trips-from-corralejo": {
     title: "Beste Dagtochten vanuit Corralejo, Fuerteventura",
-    metaTitle: "Beste Dagtochten vanuit Corralejo Fuerteventura 2025",
+    metaTitle: "Beste Dagtochten vanuit Corralejo Fuerteventura 2026",
     metaDescription: "Ontdek de mooiste dagtochten vanuit Corralejo — Lobos eiland, Lanzarote per ferry, El Cotillo, Betancuria, Cofete-strand en meer. Haal het meeste uit jouw vakantie in Fuerteventura.",
     excerpt: "De ligging van Corralejo in het noorden van Fuerteventura maakt het de perfecte uitvalsbasis om zowel het eiland als het naburige Lanzarote te verkennen. Dit zijn de dagtochten die je niet mag missen.",
     content: `<p>De ligging van Corralejo aan de noordpunt van Fuerteventura is ideaal om te verkennen — zowel het eiland zelf als de bredere regio. Dit zijn de beste dagtochten, van een veerpont van 20 minuten tot een volle dag rijden door het dramatische binnenland.</p>
@@ -635,7 +635,7 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "villa-vs-hotel-fuerteventura": {
     title: "Villahuur vs. Hotel in Fuerteventura: Wat is Beter?",
-    metaTitle: "Villahuur vs. Hotel Fuerteventura — Wat Moet Je Kiezen? 2025",
+    metaTitle: "Villahuur vs. Hotel Fuerteventura — Wat Moet Je Kiezen? 2026",
     metaDescription: "Twijfel je tussen een villa huren of een hotel in Fuerteventura? We zetten de voor- en nadelen op een rij voor gezinnen, koppels en groepen — en waarom direct een villa boeken vaak de slimmere keuze is.",
     excerpt: "Hotels bieden gemak; villa's bieden ruimte, privacy en een thuisgevoel. Voor de meeste vakanties in Fuerteventura — zeker voor gezinnen en groepen — wint een villa het altijd. Dit is waarom.",
     content: `<h2>Waarom kiezen voor een villa?</h2>
@@ -672,7 +672,7 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "paddleboarding-fuerteventura": {
     title: "Suppen in Fuerteventura: Alles wat je moet weten",
-    metaTitle: "Suppen in Fuerteventura 2025 — SUP-gids voor Beginners & Gevorderden",
+    metaTitle: "Suppen in Fuerteventura 2026 — SUP-gids voor Beginners & Gevorderden",
     metaDescription: "Ontdek de beste supplekken in Fuerteventura — van de rustige haven van Corralejo tot begeleide SUP-tochten langs zeegrotten en afgelegen baaien. Tips, verhuur en tours voor elk niveau.",
     excerpt: "Stand-up paddleboarden (SUP) in het kristalheldere Atlantische water van Fuerteventura is een van de meest toegankelijke en bevredigende buitenactiviteiten van het eiland. Dit is alles wat je nodig hebt om het water op te gaan.",
     content: `<h2>Waarom suppen in Fuerteventura?</h2>
@@ -734,7 +734,7 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "beachfront-villas-corralejo": {
     title: "Strandvilla's in Corralejo — Directe Toegang tot de Beste Stranden",
-    metaTitle: "Strandvilla's in Corralejo Fuerteventura | Directe Strandtoegang 2025",
+    metaTitle: "Strandvilla's in Corralejo Fuerteventura | Directe Strandtoegang 2026",
     metaDescription: "Op zoek naar een strandvilla in Corralejo, Fuerteventura? Ontdek de beste strandpanden met directe zeezoegang, wat je kunt verwachten en hoe je direct boekt om geld te besparen.",
     excerpt: "Corralejo heeft een aantal van de mooiste strandvilla's in Fuerteventura. Alles wat je moet weten over kiezen en boeken — en waarom direct boeken altijd geld bespaart.",
     content: `<p>Corralejo is de meest gevraagde bestemming van Fuerteventura voor een strandvilla vakantie. Gelegen aan de noordpunt van het eiland, grenst het direct aan het Natuurpark Corralejo — 10 km schitterende witte zandduinen, beschermd tegen bebouwing, met kristalhelder Atlantisch water.</p>
@@ -761,7 +761,7 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "where-to-stay-fuerteventura": {
     title: "Waar Verblijven in Fuerteventura: Corralejo vs Caleta de Fuste vs Morro Jable",
-    metaTitle: "Waar Verblijven in Fuerteventura 2025 — Corralejo vs Caleta de Fuste vs Morro Jable",
+    metaTitle: "Waar Verblijven in Fuerteventura 2026 — Corralejo vs Caleta de Fuste vs Morro Jable",
     metaDescription: "Twijfel je waar je in Fuerteventura wilt verblijven? Vergelijk de drie hoofdgebieden — Corralejo, Caleta de Fuste en Morro Jable — om de beste basis te vinden voor je villakantie.",
     excerpt: "Niet zeker waar je in Fuerteventura wilt verblijven? We vergelijken de drie hoofdgebieden — Corralejo, Caleta de Fuste en Morro Jable — zodat je de juiste basis kiest voor je villakantie.",
     content: `<p>Fuerteventura is een groot eiland — 100 km lang — en waar je verblijft maakt een groot verschil voor je vakantie. De drie hoofdgebieden voor villakantie zijn Corralejo in het noorden, Caleta de Fuste in het centrum-oost en Morro Jable/Costa Calma in het zuiden.</p>
@@ -788,8 +788,8 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
 
   "holiday-villas-to-rent-fuerteventura": {
-    title: "Vakantievilla's te Huur in Fuerteventura — Complete Gids 2025",
-    metaTitle: "Vakantievilla's te Huur in Fuerteventura 2025 | Canary Villas",
+    title: "Vakantievilla's te Huur in Fuerteventura — Complete Gids 2026",
+    metaTitle: "Vakantievilla's te Huur in Fuerteventura 2026 | Canary Villas",
     metaDescription: "Alles wat je moet weten over het huren van een vakantievilla in Fuerteventura. Villatypen, beste gebieden, waar op te letten en waarom direct boeken geld bespaart.",
     excerpt: "Overweeg je een vakantievilla te huren in Fuerteventura? Hier is alles wat je moet weten — van het kiezen van het juiste gebied tot waar je op moet letten en hoe je de beste deal krijgt.",
     content: `<p>Fuerteventura is een van de populairste Canarische Eilanden voor zelfverzorgde vakanties — en terecht. De combinatie van jaarrond zon, stranden van wereldklasse en een ontspannen sfeer maakt het perfect voor een villakantie.</p>
@@ -832,7 +832,7 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
   "booking-direct-vs-airbnb-fuerteventura": {
     title: "Direct boeken vs. Airbnb in Fuerteventura: Prijsvergelijking & voordelen",
-    metaTitle: "Direct boeken vs. Airbnb Fuerteventura — Prijsvergelijking 2025 | Canary Villas",
+    metaTitle: "Direct boeken vs. Airbnb Fuerteventura — Prijsvergelijking 2026 | Canary Villas",
     metaDescription: "Is het goedkoper om een villa in Fuerteventura direct of via Airbnb te boeken? We zetten de echte prijsverschillen op een rij en leggen uit waarom steeds meer reizigers de platforms overslaan.",
     excerpt: "Airbnb en Booking.com rekenen gasten 12–20 % extra boven op de nachtprijs. Wie een villa in Fuerteventura direct boekt, houdt dat geld zelf — én heeft direct contact met de eigenaren.",
     faqs: [
@@ -859,7 +859,7 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
   "flag-beach-corralejo-guide": {
     title: "Flag Beach Corralejo: De complete gids voor kitesurfers en strandliefhebbers",
-    metaTitle: "Gids Flag Beach Corralejo 2025 — Kitesurfen, Stranden & Verblijf",
+    metaTitle: "Gids Flag Beach Corralejo 2026 — Kitesurfen, Stranden & Verblijf",
     metaDescription: "Jouw complete gids over Flag Beach (Playa de la Bandera), Corralejo. Kitesurfcondities, scholen, de beste accommodatie in de buurt en tips voor het perfecte bezoek.",
     excerpt: "Flag Beach — Playa de la Bandera — is een van de beste kitesurfspots ter wereld en een van de meest spectaculaire kuststroken van Corralejo.",
     faqs: [

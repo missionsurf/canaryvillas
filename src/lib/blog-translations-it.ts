@@ -1,7 +1,7 @@
 const it: Record<string, { title: string; metaTitle: string; metaDescription: string; excerpt: string; content: string; faqs?: { q: string; a: string }[] }> = {
   "watersports-fuerteventura": {
     title: "La Guida Definitiva agli Sport Acquatici a Fuerteventura",
-    metaTitle: "Sport Acquatici a Fuerteventura: La Guida Definitiva 2025",
+    metaTitle: "Sport Acquatici a Fuerteventura: La Guida Definitiva 2026",
     metaDescription: "Scopri i migliori sport acquatici a Fuerteventura — kitesurf, windsurf, surf, immersioni, paddleboard e whale watching. Tutto quello che ti serve per una vacanza all'insegna dell'avventura.",
     excerpt: "Da velocità record nel kitesurf a reef incontaminati per le immersioni, Fuerteventura è la capitale europea degli sport acquatici. Ecco la tua guida completa per viverla al massimo.",
     content: `<h2>Perché Fuerteventura è la Capitale Europea degli Sport Acquatici</h2>
@@ -48,7 +48,7 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "best-beaches-fuerteventura": {
     title: "Le 12 Migliori Spiagge di Fuerteventura",
-    metaTitle: "Le Migliori Spiagge di Fuerteventura 2025 — Top 12 Classificate",
+    metaTitle: "Le Migliori Spiagge di Fuerteventura 2026 — Top 12 Classificate",
     metaDescription: "Scopri le 12 migliori spiagge di Fuerteventura — dalle famose dune di Corralejo e Flag Beach alla selvaggia bellezza di Cofete. La tua guida completa per trovare l'angolo di sabbia perfetto.",
     excerpt: "Con oltre 150 spiagge e 340 giorni di sole, Fuerteventura vanta alcune delle sabbie più belle d'Europa. Abbiamo selezionato le migliori — dalle coste atlantiche selvagge alle baie riparate per tutta la famiglia.",
     content: `<p>Fuerteventura ha più spiaggia per chilometro quadrato di qualsiasi altra isola delle Canarie — e la qualità è all'altezza della quantità. Ecco le spiagge che consideriamo imperdibili.</p>
@@ -96,7 +96,7 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "kitesurfing-fuerteventura-guide": {
     title: "Kitesurf a Fuerteventura: La Guida Completa",
-    metaTitle: "Kitesurf a Fuerteventura — Guida Completa 2025 | Flag Beach e Oltre",
+    metaTitle: "Kitesurf a Fuerteventura — Guida Completa 2026 | Flag Beach e Oltre",
     metaDescription: "Tutto quello che devi sapere sul kitesurf a Fuerteventura. I migliori spot, le scuole, quando andare e cosa aspettarsi — da Flag Beach a Sotavento. La capitale europea del kitesurf ti aspetta.",
     excerpt: "Flag Beach, Sotavento, alisei costanti a 20–35 nodi e oltre 30 scuole certificate — Fuerteventura si è guadagnata la reputazione di capitale europea del kitesurf. Ecco tutto quello che devi sapere.",
     content: `<h2>Perché Scegliere Fuerteventura per il Kitesurf?</h2>
@@ -137,7 +137,7 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "surfing-fuerteventura": {
     title: "Surf a Fuerteventura: I Migliori Spot per Ogni Livello",
-    metaTitle: "Surf a Fuerteventura 2025 — Migliori Spot e Scuole di Surf",
+    metaTitle: "Surf a Fuerteventura 2026 — Migliori Spot e Scuole di Surf",
     metaDescription: "Scopri i migliori spot di surf a Fuerteventura per principianti e avanzati. Rocky Point, Majanicho, El Cotillo — dove imparare, le scuole di surf e consigli per la vacanza surf perfetta.",
     excerpt: "Onde atlantiche costanti, acqua calda e lineup poco affollate fanno di Fuerteventura una destinazione surf seriamente sottovalutata. Ecco dove pagaiare, qualunque sia il tuo livello.",
     content: `<h2>Fuerteventura: Una Destinazione Surf Sottovalutata</h2>
@@ -178,7 +178,7 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "things-to-do-corralejo": {
     title: "25 Cose da Fare a Corralejo, Fuerteventura",
-    metaTitle: "25 Migliori Cose da Fare a Corralejo, Fuerteventura 2025",
+    metaTitle: "25 Migliori Cose da Fare a Corralejo, Fuerteventura 2026",
     metaDescription: "Stai pianificando una vacanza a Corralejo? Scopri le 25 migliori esperienze — dagli sport acquatici e l'avvistamento dei cetacei alle famose dune, ai mercati locali e ai migliori ristoranti.",
     excerpt: "Corralejo è il borgo turistico più vivace del nord di Fuerteventura — e c'è molto di più da fare che stare semplicemente in spiaggia. Ecco 25 esperienze da non perdere.",
     content: `<p>Corralejo si trova all'estremità settentrionale di Fuerteventura, a 38km dalla capitale Puerto del Rosario, ed è cresciuta da tranquillo villaggio di pescatori fino a diventare il resort più popolare dell'isola senza perdere del tutto la sua anima. Ecco 25 esperienze che renderanno il vostro soggiorno memorabile.</p>
@@ -230,10 +230,10 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
     ],
   },
   "fuerteventura-travel-guide": {
-    title: "Guida di Viaggio Completa a Fuerteventura 2025",
-    metaTitle: "Guida di Viaggio Fuerteventura 2025 — Tutto Quello che Devi Sapere",
-    metaDescription: "La guida completa per visitare Fuerteventura nel 2025. Come arrivare, le zone migliori, cosa fare, dove mangiare, quando andare e come sfruttare al meglio la tua vacanza alle Canarie.",
-    excerpt: "Tutto il necessario per una vacanza perfetta a Fuerteventura — da quando partire a come spostarsi, dalle spiagge più belle alle attività e alla cucina locale. La guida definitiva 2025.",
+    title: "Guida di Viaggio Completa a Fuerteventura 2026",
+    metaTitle: "Guida di Viaggio Fuerteventura 2026 — Tutto Quello che Devi Sapere",
+    metaDescription: "La guida completa per visitare Fuerteventura nel 2026. Come arrivare, le zone migliori, cosa fare, dove mangiare, quando andare e come sfruttare al meglio la tua vacanza alle Canarie.",
+    excerpt: "Tutto il necessario per una vacanza perfetta a Fuerteventura — da quando partire a come spostarsi, dalle spiagge più belle alle attività e alla cucina locale. La guida definitiva 2026.",
     content: `<h2>Fuerteventura in Breve</h2>
 <p>La seconda isola delle Canarie per estensione con i suoi 1.660 km², Fuerteventura sorge nell'Oceano Atlantico a soli 100 km dalla costa del Marocco. La sua posizione così vicina all'Africa le garantisce il primato di insolazione di tutta la Spagna — oltre 3.000 ore di sole all'anno — mentre le origini vulcaniche hanno modellato un paesaggio aspro e bellissimo, fatto di montagne ocra, antichi crateri e dune infinite. L'isola è Riserva della Biosfera UNESCO, celebre per il suo straordinario ambiente naturale, i venti alisei costanti che ne fanno la principale destinazione europea per gli sport del vento, e spiagge che spaziano dai litorali più frequentati delle zone turistiche fino a coste atlantiche selvagge e incontaminate.</p>
 <h2>Quando Andare</h2>
@@ -288,7 +288,7 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
   "family-holidays-fuerteventura": {
     title: "Vacanze in Famiglia a Fuerteventura: La Guida Completa",
-    metaTitle: "Vacanze in Famiglia a Fuerteventura 2025 — Attività & Consigli",
+    metaTitle: "Vacanze in Famiglia a Fuerteventura 2026 — Attività & Consigli",
     metaDescription: "Stai pianificando una vacanza in famiglia a Fuerteventura? Scopri le migliori spiagge per famiglie, le attività per bambini, le zone di nuoto sicure, le ville e tutto quello che serve per un viaggio senza stress.",
     excerpt: "Fuerteventura è una delle migliori destinazioni europee per le famiglie — con spiagge sicure e tranquille, sole garantito tutto l'anno e infinite attività per tutte le età. Tutto quello che le famiglie devono sapere.",
     content: `<h2>Perché Fuerteventura è Perfetta per le Famiglie</h2>
@@ -325,7 +325,7 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
   "whale-dolphin-watching-fuerteventura": {
     title: "Avvistamento di Balene e Delfini a Fuerteventura",
-    metaTitle: "Avvistamento Balene e Delfini a Fuerteventura 2025 — Migliori Tour & Consigli",
+    metaTitle: "Avvistamento Balene e Delfini a Fuerteventura 2026 — Migliori Tour & Consigli",
     metaDescription: "Scopri i migliori tour per l'avvistamento di balene e delfini a Fuerteventura. Quali specie avvistare, i tour da Corralejo e quando andare per le maggiori probabilità di incontro.",
     excerpt: "Le acque profonde intorno a Fuerteventura ospitano oltre 30 specie di balene e delfini tutto l'anno. Ecco come vivere al meglio uno degli spettacoli naturali più straordinari dell'Atlantico.",
     content: `<h2>Il Corridoio dei Cetacei delle Canarie</h2>
@@ -360,7 +360,7 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
   "restaurants-corralejo-fuerteventura": {
     title: "I Migliori Ristoranti di Corralejo, Fuerteventura",
-    metaTitle: "Migliori Ristoranti a Corralejo Fuerteventura 2025 — Dove Mangiare",
+    metaTitle: "Migliori Ristoranti a Corralejo Fuerteventura 2026 — Dove Mangiare",
     metaDescription: "Scopri i migliori ristoranti di Corralejo, Fuerteventura — dal pesce fresco grigliato al vecchio porto ai bar di tapas, cocktail sui rooftop e autentica cucina canaria. I nostri preferiti per ogni budget.",
     excerpt: "La scena gastronomica di Corralejo è cresciuta notevolmente — si trova di tutto, dai tradizionali ristoranti di pesce del vecchio porto ai moderni bar di tapas e ai locali sul mare per cocktail al tramonto. Ecco i nostri preferiti.",
     content: `<p>Corralejo è passata da semplice villaggio di pescatori a un resort con una scena gastronomica genuinamente varia e in continua crescita. La zona del vecchio porto rimane il posto migliore per mangiare.</p>
@@ -400,7 +400,7 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
   "corralejo-dunes-natural-park": {
     title: "Dune di Corralejo e Parco Naturale: La Guida Completa",
-    metaTitle: "Parco Naturale delle Dune di Corralejo Fuerteventura — Guida Completa 2025",
+    metaTitle: "Parco Naturale delle Dune di Corralejo Fuerteventura — Guida Completa 2026",
     metaDescription: "Tutto quello che serve per visitare il Parco Naturale di Corralejo e le sue famose dune di sabbia. Come arrivare, cosa fare, le migliori spiagge nel parco e consigli per una visita perfetta.",
     excerpt: "Il Parco Naturale di Corralejo è uno dei paesaggi più spettacolari delle Isole Canarie — 10 km di dune bianche ondulate con le vette vulcaniche sullo sfondo. Ecco come viverlo al meglio.",
     content: `<h2>Il Parco Naturale di Corralejo</h2>
@@ -437,7 +437,7 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
   "diving-fuerteventura": {
     title: "Immersioni Subacquee a Fuerteventura: Migliori Siti e Consigli",
-    metaTitle: "Immersioni Subacquee a Fuerteventura 2025 — Migliori Siti e Scuole Sub",
+    metaTitle: "Immersioni Subacquee a Fuerteventura 2026 — Migliori Siti e Scuole Sub",
     metaDescription: "Scopri le migliori immersioni a Fuerteventura — squali angelo, tartarughe marine, la parete El Cantil, le barriere di Los Lobos e il relitto Metron. Guida completa per principianti e subacquei esperti.",
     excerpt: "Acque atlantiche cristalline, una vita marina straordinaria (inclusi i rari squali angelo in via di estinzione critica) e siti di immersione variegati — da barriere poco profonde a spettacolari pareti — fanno di Fuerteventura una destinazione subacquea di eccellenza.",
     content: `<h2>Perché Fare Immersioni a Fuerteventura?</h2>
@@ -470,8 +470,8 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
 
   "fuerteventura-weather-best-time-to-visit": {
-    title: "Clima a Fuerteventura: Il Periodo Migliore per Visitarla nel 2025",
-    metaTitle: "Clima a Fuerteventura 2025 — Periodo Migliore e Guida Mese per Mese",
+    title: "Clima a Fuerteventura: Il Periodo Migliore per Visitarla nel 2026",
+    metaTitle: "Clima a Fuerteventura 2026 — Periodo Migliore e Guida Mese per Mese",
     metaDescription: "Com'è il clima a Fuerteventura? Scopri il periodo migliore per visitarla, le temperature mese per mese, le precipitazioni e le condizioni del vento — con consigli per pianificare la vacanza perfetta.",
     excerpt: "Con 340 giorni di sole all'anno e temperature miti in ogni stagione, Fuerteventura è davvero una meta per tutte le stagioni. Ma qual è il momento ideale per andarci?",
     content: `<h2>Il Clima di Fuerteventura</h2>
@@ -514,7 +514,7 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "windsurfing-fuerteventura": {
     title: "Windsurf a Fuerteventura: La Guida Definitiva",
-    metaTitle: "Windsurf a Fuerteventura 2025 — Migliori Spot, Scuole e Consigli",
+    metaTitle: "Windsurf a Fuerteventura 2026 — Migliori Spot, Scuole e Consigli",
     metaDescription: "Tutto sul windsurf a Fuerteventura — dalla leggendaria spiaggia di Sotavento della Coppa del Mondo a Flag Beach e El Cotillo. Migliori scuole, periodo ideale e consigli per tutti i livelli.",
     excerpt: "Fuerteventura ospita la PWA Windsurfing World Cup da oltre 30 anni. Scopri perché è la destinazione windsurf per eccellenza — e come viverla al meglio, qualunque sia il tuo livello.",
     content: `<h2>Fuerteventura: L'Isola del Windsurf</h2>
@@ -552,7 +552,7 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "day-trips-from-corralejo": {
     title: "Le Migliori Gite Fuori Porta da Corralejo, Fuerteventura",
-    metaTitle: "Migliori Gite da Corralejo Fuerteventura 2025",
+    metaTitle: "Migliori Gite da Corralejo Fuerteventura 2026",
     metaDescription: "Scopri le migliori gite fuori porta da Corralejo — Isla de Lobos, Lanzarote in traghetto, El Cotillo, Betancuria, la spiaggia di Cofete e altro ancora. Sfrutta al massimo la tua vacanza a Fuerteventura.",
     excerpt: "La posizione di Corralejo nel nord di Fuerteventura la rende il punto di partenza ideale per esplorare sia l'isola che la vicina Lanzarote. Ecco le gite da non perdere assolutamente.",
     content: `<p>La posizione di Corralejo all'estremo nord di Fuerteventura è ideale per esplorare sia l'isola che la regione più ampia. Ecco le migliori gite fuori porta, da un traghetto di 20 minuti a un'avventura in auto per tutta la giornata.</p>
@@ -594,7 +594,7 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "villa-vs-hotel-fuerteventura": {
     title: "Villa o Hotel a Fuerteventura: Qual È la Scelta Migliore?",
-    metaTitle: "Villa o Hotel a Fuerteventura — Cosa Scegliere? 2025",
+    metaTitle: "Villa o Hotel a Fuerteventura — Cosa Scegliere? 2026",
     metaDescription: "Confronto tra villa e hotel a Fuerteventura: analizziamo i pro e i contro per famiglie, coppie e gruppi — e perché prenotare una villa direttamente è spesso la scelta più intelligente.",
     excerpt: "Gli hotel offrono comodità; le ville offrono spazio, privacy e un senso di casa. Per la maggior parte delle vacanze a Fuerteventura — soprattutto per famiglie e gruppi — la villa vince ogni volta. Ecco perché.",
     content: `<h2>Il Caso per le Ville</h2>
@@ -628,7 +628,7 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "paddleboarding-fuerteventura": {
     title: "Paddleboard a Fuerteventura: Tutto Quello che Devi Sapere",
-    metaTitle: "Paddleboard a Fuerteventura 2025 — Guida SUP per Principianti e Non Solo",
+    metaTitle: "Paddleboard a Fuerteventura 2026 — Guida SUP per Principianti e Non Solo",
     metaDescription: "Scopri i migliori spot per il paddleboard a Fuerteventura — dal tranquillo porto di Corralejo ai tour SUP guidati verso grotte marine e calette isolate. Consigli, noleggio e tour per tutti i livelli.",
     excerpt: "Il paddleboard in piedi (SUP) nelle acque cristalline dell'Atlantico a Fuerteventura è una delle attività all'aperto più accessibili e gratificanti dell'isola. Tutto quello che vi serve per scendere in acqua.",
     content: `<h2>Perché il SUP a Fuerteventura?</h2>
@@ -689,7 +689,7 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "beachfront-villas-corralejo": {
     title: "Ville sul Mare a Corralejo — Accesso Diretto alle Migliori Spiagge",
-    metaTitle: "Ville sul Mare a Corralejo Fuerteventura | Accesso Diretto alla Spiaggia 2025",
+    metaTitle: "Ville sul Mare a Corralejo Fuerteventura | Accesso Diretto alla Spiaggia 2026",
     metaDescription: "Cerchi una villa sul mare a Corralejo, Fuerteventura? Scopri le migliori proprietà con accesso diretto al mare, cosa aspettarsi e come prenotare direttamente per risparmiare.",
     excerpt: "Corralejo ha alcune delle più belle ville sul mare di Fuerteventura. Tutto ciò che devi sapere per sceglierla e prenotarla — e perché la prenotazione diretta fa sempre risparmiare.",
     content: `<p>Corralejo è la destinazione più ricercata di Fuerteventura per una vacanza in villa sul mare. Situata all'estremità nord dell'isola, confina direttamente con il Parco Naturale di Corralejo — 10 km di dune di sabbia bianca mozzafiato, protette dall'urbanizzazione, con acque cristalline dell'Atlantico.</p>
@@ -716,7 +716,7 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
 
   "where-to-stay-fuerteventura": {
     title: "Dove Alloggiare a Fuerteventura: Corralejo vs Caleta de Fuste vs Morro Jable",
-    metaTitle: "Dove Alloggiare a Fuerteventura 2025 — Corralejo vs Caleta de Fuste vs Morro Jable",
+    metaTitle: "Dove Alloggiare a Fuerteventura 2026 — Corralejo vs Caleta de Fuste vs Morro Jable",
     metaDescription: "Non sai dove alloggiare a Fuerteventura? Confronta le tre aree principali — Corralejo, Caleta de Fuste e Morro Jable — per trovare la base migliore per la tua vacanza in villa.",
     excerpt: "Non sai dove alloggiare a Fuerteventura? Analizziamo le tre aree principali — Corralejo, Caleta de Fuste e Morro Jable — per aiutarti a scegliere la base giusta per le tue vacanze.",
     content: `<p>Fuerteventura è un'isola grande — 100 km di lunghezza — e dove scegli di soggiornare fa una grande differenza per le tue vacanze. Le tre aree principali per le vacanze in villa sono Corralejo a nord, Caleta de Fuste al centro-est e Morro Jable/Costa Calma a sud.</p>
@@ -743,8 +743,8 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
 
   "holiday-villas-to-rent-fuerteventura": {
-    title: "Ville Vacanza in Affitto a Fuerteventura — Guida Completa 2025",
-    metaTitle: "Ville Vacanza in Affitto a Fuerteventura 2025 | Canary Villas",
+    title: "Ville Vacanza in Affitto a Fuerteventura — Guida Completa 2026",
+    metaTitle: "Ville Vacanza in Affitto a Fuerteventura 2026 | Canary Villas",
     metaDescription: "Tutto ciò che devi sapere sull'affitto di una villa vacanza a Fuerteventura. Tipi di villa, zone migliori, cosa cercare e perché prenotare direttamente fa risparmiare.",
     excerpt: "Stai pensando di affittare una villa vacanza a Fuerteventura? Ecco tutto quello che devi sapere — dalla scelta della zona giusta a cosa cercare e come ottenere la migliore offerta.",
     content: `<p>Fuerteventura è una delle Isole Canarie più popolari per le vacanze in self-catering — e per una buona ragione. La combinazione di sole tutto l'anno, spiagge di livello mondiale e atmosfera rilassata la rende perfetta per una vacanza in villa.</p>
@@ -787,7 +787,7 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
   "booking-direct-vs-airbnb-fuerteventura": {
     title: "Prenotare diretto vs. Airbnb a Fuerteventura: confronto prezzi e vantaggi",
-    metaTitle: "Prenotare diretto vs. Airbnb Fuerteventura — Confronto prezzi 2025 | Canary Villas",
+    metaTitle: "Prenotare diretto vs. Airbnb Fuerteventura — Confronto prezzi 2026 | Canary Villas",
     metaDescription: "Conviene prenotare una villa a Fuerteventura direttamente o tramite Airbnb? Analizziamo la reale differenza di prezzo e perché sempre più viaggiatori evitano le piattaforme.",
     excerpt: "Airbnb e Booking.com aggiungono dal 12 al 20 % sul prezzo per notte. Prenotando direttamente una villa a Fuerteventura, questi soldi rimangono in tasca tua.",
     faqs: [
@@ -814,7 +814,7 @@ const it: Record<string, { title: string; metaTitle: string; metaDescription: st
   },
   "flag-beach-corralejo-guide": {
     title: "Flag Beach Corralejo: la guida completa per kitesurfisti e amanti della spiaggia",
-    metaTitle: "Guida Flag Beach Corralejo 2025 — Kitesurf, Spiagge & Dove Soggiornare",
+    metaTitle: "Guida Flag Beach Corralejo 2026 — Kitesurf, Spiagge & Dove Soggiornare",
     metaDescription: "La tua guida completa al Flag Beach (Playa de la Bandera) di Corralejo: condizioni di kitesurf, scuole, il miglior alloggio nelle vicinanze e consigli per trarre il massimo dalla visita.",
     excerpt: "Flag Beach — Playa de la Bandera — è uno dei migliori spot di kitesurf al mondo e uno dei tratti di costa più spettacolari di Corralejo.",
     faqs: [
