@@ -9,11 +9,12 @@ import { Wind, Waves, Users } from "lucide-react";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
+  const seo = await getTranslations({ locale, namespace: "seo" });
   const BASE = "https://www.canaryvillas.com";
   const prefix = locale === "en" ? "" : `/${locale}`;
   return {
-    title: "Beachfront Villas to Rent in Corralejo, Fuerteventura | Canary Villas",
-    description: "Beachfront holiday villas to rent in Corralejo, Fuerteventura from €95/night. Direct beach access, sea views, private terraces. Book direct — best price guaranteed, no hidden fees.",
+    title: seo("villasTitle"),
+    description: seo("villasDescription"),
     alternates: {
       canonical: `${BASE}${prefix}/villas`,
       languages: {

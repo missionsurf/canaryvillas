@@ -191,6 +191,12 @@
     "faq": "Preguntas frecuentes",
     "backToBlog": "Volver al blog",
     "readMore": "Leer más",
-    "viewAll": "View all travel guides"
+    "viewAll": "Ver todos los guías de viaje"
+  },
+  "seo": {
+    "homeTitle": "Villas de playa en Fuerteventura | Canary Villas Corralejo",
+    "homeDescription": "Reserva villas de lujo en primera línea de playa en Corralejo, Fuerteventura. Vistas al mar, terrazas privadas, acceso directo a la playa y sin comisiones. Desde €95/noche.",
+    "villasTitle": "Villas de vacaciones en Fuerteventura | Canary Villas",
+    "villasDescription": "Explora villas de lujo en Corralejo, Fuerteventura. Propiedades en primera línea de playa con terrazas privadas y vistas al mar. Reserva directo y ahorra."
   }
 }

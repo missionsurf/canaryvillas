@@ -191,6 +191,12 @@
     "faq": "Questions fréquentes",
     "backToBlog": "Retour au blog",
     "readMore": "Lire la suite",
-    "viewAll": "View all travel guides"
+    "viewAll": "Voir tous les guides de voyage"
+  },
+  "seo": {
+    "homeTitle": "Villas de plage à Fuerteventura | Canary Villas Corralejo",
+    "homeDescription": "Réservez des villas de luxe en bord de mer à Corralejo, Fuerteventura directement. Vue mer, terrasses privées, accès direct à la plage & zéro frais de réservation. Dès €95/nuit.",
+    "villasTitle": "Location de villas de vacances à Fuerteventura | Canary Villas",
+    "villasDescription": "Découvrez des villas de luxe à louer à Corralejo, Fuerteventura. Propriétés en bord de mer avec terrasses privées et vue sur mer. Réservez en direct et économisez."
   }
 }

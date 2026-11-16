@@ -15,11 +15,12 @@ import type { Metadata } from "next";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "home.hero" });
+  const seo = await getTranslations({ locale, namespace: "seo" });
   const BASE = "https://www.canaryvillas.com";
   const prefix = locale === "en" ? "" : `/${locale}`;
   return {
-    title: "Beachfront Holiday Villas in Fuerteventura | Canary Villas Corralejo",
-    description: "Book luxury beachfront holiday villas in Corralejo, Fuerteventura directly. Private sea views, terraces, flexible booking & zero booking fees. From €95/night.",
+    title: seo("homeTitle"),
+    description: seo("homeDescription"),
     alternates: {
       canonical: `${BASE}${prefix}`,
       languages: {
