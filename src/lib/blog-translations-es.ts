@@ -849,5 +849,56 @@ const es: Record<string, { title: string; metaTitle: string; metaDescription: st
 <p><a href="/villas/beach-house">The Beach House</a> ofrece acceso directo a la playa, ideal para familias o grupos. El <a href="/villas/bungalow-apartment">Bungalow Apartment</a> es perfecto para parejas con jacuzzi privado. Ambas villas disponibles con reserva directa al mejor precio.</p>
 <p><a href="/villas">Ver todas las villas en Corralejo →</a></p>`,
   },
+  "isla-de-lobos-day-trip-from-corralejo": {
+    title: "Excursión a la Isla de Lobos desde Corralejo: ferry, rutas y playas",
+    metaTitle: "Excursión a Isla de Lobos desde Corralejo: guía completa",
+    metaDescription: "Planifica una excursión a la Isla de Lobos desde Corralejo: ferry, permiso de acceso, Playa de la Concha, ruta a La Caldera y consejos prácticos.",
+    excerpt: "A un corto trayecto en ferry de Corralejo, la isla de Lobos es un espacio natural sin coches, con aguas turquesa tranquilas y rutas volcánicas. Así puedes planificar tu día.",
+    content: `<h2>¿Por qué visitar la Isla de Lobos?</h2>
+<p>Si miras hacia el norte desde la playa de Corralejo, verás una isla baja de color arena justo al otro lado del agua. Es la <strong>Isla de Lobos</strong>, un pequeño islote volcánico de unos cinco kilómetros cuadrados protegido como parque natural. No hay carreteras, ni hoteles, ni coches: solo senderos, salinas, un faro y algunas de las aguas más tranquilas para nadar de la zona.</p>
+<p>Es también una de las excursiones más fáciles y gratificantes desde Corralejo, ideal si te alojas en una villa en el pueblo y quieres un cambio de ritmo respecto a las dunas y el oleaje.</p>
+
+<h2>Cómo llegar: ferry desde Corralejo</h2>
+<p>Los barcos a Lobos salen del puerto de Corralejo. La travesía dura unos 15 minutos y dos empresas operan la ruta, con salidas durante el día y el último regreso a última hora de la tarde. Los horarios y precios exactos varían según la temporada y la fuente, así que consulta el horario y la tarifa actuales con la empresa y vigila el último barco de vuelta.</p>
+<p>Al puerto de Corralejo se llega fácilmente en coche, taxi o bicicleta desde casi cualquier punto del pueblo, y si te alojas en el centro seguramente puedas ir andando.</p>
+
+<h2>El permiso de acceso</h2>
+<p>Como Lobos es un parque natural protegido, necesitas un <strong>permiso de acceso del Cabildo de Fuerteventura</strong> antes de desembarcar. El número de visitantes diarios es limitado y las plazas vuelan en verano, en Semana Santa y en fines de semana. Consigue primero el permiso y después elige la hora del ferry. Consulta la web oficial para conocer el proceso y las tasas vigentes, ya que las normas pueden cambiar.</p>
+
+<h2>Playa de la Concha: para darse un baño</h2>
+<p>A pocos minutos a pie del muelle, la <strong>Playa de la Concha</strong> es una bahía en forma de media luna con arena clara y aguas someras y resguardadas por un arrecife natural. Es la playa más conocida de la isla y un lugar estupendo para familias o para quien quiera un baño suave tras la costa ventosa de Fuerteventura. La sombra es escasa, así que lleva sombrilla o un buen sombrero.</p>
+
+<h2>Senderismo en Lobos</h2>
+<p>La isla es lo bastante pequeña para recorrerla a pie y los senderos están bien señalizados. Las plataformas de senderismo indican una ruta circular de unos 10 km, aunque puedes hacer fácilmente una versión más corta.</p>
+<ul>
+  <li><strong>La Caldera:</strong> el antiguo cono volcánico y, con unos 127 metros, el punto más alto de la isla. La subida es asumible, aunque el suelo es pedregoso y el sol fuerte; las vistas sobre Corralejo y hacia Lanzarote merecen la pena.</li>
+  <li><strong>Faro de Martiño:</strong> el faro del extremo norte, en funcionamiento desde la década de 1860 y automático desde 1968.</li>
+  <li><strong>Salinas y lagunas:</strong> por el camino se atraviesan marismas saladas y pequeños montículos volcánicos llamados hornitos.</li>
+</ul>
+<p>Los tiempos dependen de tu ritmo, así que toma las distancias que leas en internet como aproximadas. Lleva calzado resistente, porque el terreno es irregular, y sal por la mañana antes de que apriete el calor.</p>
+
+<h2>Comer en El Puertito</h2>
+<p>El diminuto caserío pesquero de <strong>El Puertito</strong> tiene unos pocos restaurantes sencillos con pescado y marisco fresco, y es el lugar natural para comer. En temporada alta conviene reservar o llegar pronto. Si prefieres un pícnic, lleva todo lo necesario, incluida el agua, y vuelve con tus residuos a la isla grande.</p>
+
+<h2>Consejos prácticos para un día sin sobresaltos</h2>
+<ul>
+  <li>Consigue el permiso antes de fijar una fecha concreta.</li>
+  <li>Lleva protector solar, gorra, agua y una capa ligera para el barco, que puede ir ventoso.</li>
+  <li>Comprueba el último ferry de regreso y deja un margen.</li>
+  <li>Permanece en los senderos señalizados para proteger este frágil paisaje.</li>
+  <li>Mira el tiempo: el viento fuerte puede afectar a las travesías y hacer menos agradables las rutas.</li>
+</ul>
+<p>Para más ideas, lee nuestra guía de <a href="/blog/day-trips-from-corralejo">excursiones desde Corralejo</a> o descubre el paisaje cercano en nuestra <a href="/blog/corralejo-dunes-natural-park">guía del Parque Natural de las Dunas de Corralejo</a>.</p>
+
+<h2>Haz de Corralejo tu base</h2>
+<p>Lobos es más fácil cuando te despiertas en Corralejo, a pocos minutos del puerto. Volver a tu propio espacio con una bebida fresca y un lugar donde quitarte la arena es un auténtico placer tras un día de sol. Explora <a href="/villas">nuestras villas en Corralejo</a>, echa un vistazo a las <a href="/villas/corralejo-villas-with-private-pool">villas con piscina privada</a> o <a href="/contact">ponte en contacto</a> y te ayudaremos a elegir.</p>
+<p>¿Listo para planificar tus vacaciones? <a href="/villas">Ver nuestras villas y reservar directamente →</a></p>`,
+    faqs: [
+      { q: "¿Cómo se llega a la Isla de Lobos desde Corralejo?", a: "Pequeños ferris de pasajeros salen del puerto de Corralejo y la travesía dura unos 15 minutos. Hay salidas repartidas a lo largo del día, pero los horarios y las tarifas cambian según la temporada y la empresa, así que consúltalos cerca de tu fecha de viaje." },
+      { q: "¿Hace falta permiso para visitar la Isla de Lobos?", a: "Sí. Lobos es un parque natural protegido y los visitantes necesitan un permiso de acceso del Cabildo de Fuerteventura. El número de visitantes diarios es limitado, así que reserva con antelación en verano, Semana Santa y fines de semana, y consulta las normas vigentes en la web oficial." },
+      { q: "¿Cuánto tiempo conviene pasar en Lobos?", a: "La mayoría de los visitantes dedican un día entero: da tiempo a bañarse en la Playa de la Concha, subir a La Caldera y comer en El Puertito. Una visita solo de playa puede hacerse en unas tres horas." },
+      { q: "¿Hay comida y sombra en la isla?", a: "En El Puertito hay unos pocos restaurantes sencillos de pescado, pero en el resto de la isla hay poca sombra natural. Lleva protector solar, gorra, mucha agua y calzado resistente para las rutas." },
+    ],
+  },
 };
 export default es;

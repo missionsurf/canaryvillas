@@ -882,5 +882,56 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
 <p><a href="/villas/beach-house">The Beach House</a> biedt direct strandtoegang, ideaal voor gezinnen of groepen. Het <a href="/villas/bungalow-apartment">Bungalow Apartment</a> is perfect voor koppels met een privé-jacuzzi. Beide villa's direct te boeken voor de beste prijs.</p>
 <p><a href="/villas">Alle villa's in Corralejo bekijken →</a></p>`,
   },
+  "isla-de-lobos-day-trip-from-corralejo": {
+    title: "Dagtrip naar Isla de Lobos vanaf Corralejo: veerboot, wandelingen & stranden",
+    metaTitle: "Dagtrip naar Isla de Lobos vanaf Corralejo: de gids",
+    metaDescription: "Plan een dagtrip naar Isla de Lobos vanaf Corralejo: veerboot, toegangsvergunning, Playa de la Concha, wandeling naar La Caldera en praktische tips.",
+    excerpt: "Een korte veerbootreis vanaf Corralejo ligt het autovrije eilandje Lobos, met kalm turquoise water en vulkanische wandelpaden. Zo plan je je dag.",
+    content: `<h2>Waarom Isla de Lobos bezoeken?</h2>
+<p>Kijk je vanaf het strand van Corralejo naar het noorden, dan zie je aan de overkant van het water een laag, zandkleurig eiland. Dat is <strong>Isla de Lobos</strong>, een klein vulkanisch eilandje van ongeveer vijf vierkante kilometer dat als natuurpark beschermd is. Er zijn geen wegen, geen hotels en geen auto's, alleen wandelpaden, zoutvlakten, een vuurtoren en een van de rustigste zwemplekken in de omgeving.</p>
+<p>Het is ook een van de makkelijkste en mooiste dagtrips vanaf Corralejo, ideaal als je in een villa in het dorp verblijft en na duinen en golven even iets anders wilt.</p>
+
+<h2>Er komen: met de veerboot vanuit Corralejo</h2>
+<p>De boten naar Lobos vertrekken uit de haven van Corralejo. De overtocht duurt ongeveer 15 minuten en twee maatschappijen varen de route, met afvaarten door de dag en de laatste terugvaart aan het eind van de middag. Exacte tijden en prijzen verschillen per seizoen en bron. Controleer dus de actuele dienstregeling en het tarief bij de maatschappij en let op de laatste terugvaart.</p>
+<p>De haven van Corralejo is vanaf de meeste plekken in het dorp makkelijk bereikbaar met de auto, taxi of fiets, en wie centraal verblijft kan er waarschijnlijk naartoe lopen.</p>
+
+<h2>De toegangsvergunning</h2>
+<p>Omdat Lobos een beschermd natuurpark is, heb je voordat je aan wal gaat een <strong>toegangsvergunning van het Cabildo de Fuerteventura</strong> nodig. Het aantal bezoekers per dag is beperkt en in de zomer, rond Pasen en in het weekend zijn de plekken snel vergeven. Regel eerst de vergunning en kies dan je veertijd. Bekijk de officiële website voor de procedure en eventuele kosten, want regels kunnen veranderen.</p>
+
+<h2>Playa de la Concha: de plek om te zwemmen</h2>
+<p>Op een paar minuten lopen van de steiger ligt <strong>Playa de la Concha</strong>, een halvemaanvormige baai met licht zand en ondiep water, beschut door een natuurlijk rif. Het is het bekendste strand van het eiland en heerlijk voor gezinnen of iedereen die na de winderige kust rustig wil zwemmen. Schaduw is schaars, dus neem een parasol of goede hoed mee.</p>
+
+<h2>Wandelen op Lobos</h2>
+<p>Het eiland is klein genoeg om te voet te verkennen en de paden zijn goed bewegwijzerd. Wandelplatforms noemen een rondwandeling van ongeveer 10 km, maar je kunt gemakkelijk een kortere versie lopen.</p>
+<ul>
+  <li><strong>La Caldera:</strong> de oude vulkaankegel en met ongeveer 127 meter het hoogste punt van het eiland. De klim is goed te doen, al is de bodem rotsachtig en de zon fel; het uitzicht over Corralejo en naar Lanzarote is de moeite waard.</li>
+  <li><strong>Faro de Martiño:</strong> de vuurtoren aan de noordpunt, sinds de jaren 1860 in gebruik en sinds 1968 geautomatiseerd.</li>
+  <li><strong>Zoutvlakten en lagunes:</strong> onderweg kom je langs zoutmoerassen en kleine vulkanische heuveltjes, hornitos genoemd.</li>
+</ul>
+<p>Hoe lang je erover doet hangt af van je tempo; zie afstanden die je online leest als indicatie. Draag stevige schoenen, want de ondergrond is ongelijk, en vertrek 's ochtends voordat het warm wordt.</p>
+
+<h2>Lunchen in El Puertito</h2>
+<p>In het piepkleine vissersdorpje <strong>El Puertito</strong> serveren een paar eenvoudige restaurants verse vis en zeevruchten. Het is de vanzelfsprekende plek voor de lunch. In het hoogseizoen is reserveren of vroeg komen verstandig. Liever picknicken? Neem dan alles mee, inclusief water, en neem je afval mee terug naar het vasteland.</p>
+
+<h2>Praktische tips voor een zorgeloze dag</h2>
+<ul>
+  <li>Regel de vergunning voordat je je op een datum vastlegt.</li>
+  <li>Neem zonnebrandcrème, een hoed, water en een dun laagje voor de boot mee, want het kan winderig zijn.</li>
+  <li>Controleer de laatste terugvaart en houd wat speling.</li>
+  <li>Blijf op de gemarkeerde paden om het kwetsbare landschap te beschermen.</li>
+  <li>Check het weer: harde wind kan de overtochten beïnvloeden en wandelingen minder aangenaam maken.</li>
+</ul>
+<p>Meer ideeën vind je in onze gids met <a href="/blog/day-trips-from-corralejo">dagtrips vanaf Corralejo</a> of in onze <a href="/blog/corralejo-dunes-natural-park">gids over het natuurpark Corralejo Dunes</a>.</p>
+
+<h2>Maak Corralejo je uitvalsbasis</h2>
+<p>Lobos is het makkelijkst als je wakker wordt in Corralejo, op een paar minuten van de haven. Na een dag in de zon terugkomen in je eigen ruimte met iets koels te drinken en een plek om het zand af te spoelen is echt genieten. Bekijk <a href="/villas">onze villa's in Corralejo</a>, de <a href="/villas/corralejo-villas-with-private-pool">villa's met privézwembad</a> of <a href="/contact">neem contact op</a>, dan helpen we je kiezen.</p>
+<p>Klaar om je vakantie te plannen? <a href="/villas">Bekijk onze villa's en boek direct →</a></p>`,
+    faqs: [
+      { q: "Hoe kom ik vanaf Corralejo op Isla de Lobos?", a: "Kleine passagiersveerboten vertrekken vanuit de haven van Corralejo en de overtocht duurt ongeveer 15 minuten. De afvaarten zijn over de dag verspreid, maar dienstregeling en tarieven verschillen per seizoen en maatschappij. Controleer ze dus kort voor je reis." },
+      { q: "Heb je een vergunning nodig voor Isla de Lobos?", a: "Ja. Lobos is een beschermd natuurpark en bezoekers hebben een toegangsvergunning van het Cabildo de Fuerteventura nodig. Het aantal bezoekers per dag is beperkt. Boek daarom vroeg in de zomer, met Pasen en in het weekend, en bekijk de actuele regels op de officiële website." },
+      { q: "Hoe lang kun je het best op Lobos blijven?", a: "De meeste bezoekers blijven een hele dag. Dan heb je tijd voor een duik bij Playa de la Concha, de wandeling naar La Caldera en lunch in El Puertito. Een bezoek alleen voor het strand kan in ongeveer drie uur." },
+      { q: "Is er eten en schaduw op het eiland?", a: "In El Puertito zijn een paar eenvoudige visrestaurants, maar elders is er weinig natuurlijke schaduw. Neem zonnebrandcrème, een hoed, veel water en stevige schoenen mee voor de wandelingen." },
+    ],
+  },
 };
 export default nl;

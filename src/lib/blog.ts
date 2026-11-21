@@ -1366,6 +1366,66 @@ export const blogPosts: BlogPost[] = [
 <p><a href="/villas">Browse our Corralejo villas →</a></p>
     `,
   },
+  {
+    slug: "isla-de-lobos-day-trip-from-corralejo",
+    title: "Isla de Lobos Day Trip from Corralejo: Ferry, Walks & Beaches",
+    metaTitle: "Isla de Lobos Day Trip from Corralejo: Complete Guide",
+    metaDescription: "Plan a day trip to Isla de Lobos from Corralejo: ferry crossing, access permit, Playa de la Concha, the La Caldera walk and practical tips for a perfect day.",
+    excerpt: "Just a short ferry hop from Corralejo, the little island of Lobos is a car-free nature reserve of calm turquoise water and volcanic walks. Here is how to plan your day.",
+    date: "2026-11-21",
+    category: "Destinations",
+    heroImage: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/trees1.jpeg",
+    heroAlt: "Corralejo harbour in Fuerteventura, departure point for the Isla de Lobos ferry",
+    readTime: 7,
+    tags: ["Isla de Lobos", "Corralejo", "day trips", "hiking", "beaches", "Fuerteventura"],
+    faqs: [
+      { q: "How do you get to Isla de Lobos from Corralejo?", a: "Small passenger ferries run from Corralejo harbour to the island, and the crossing takes roughly 15 minutes. Sailings are spread through the day, but timetables and fares change by season and operator, so check them close to your travel dates." },
+      { q: "Do you need a permit to visit Isla de Lobos?", a: "Yes. Lobos is a protected natural park, and visitors need an access permit issued by the Cabildo de Fuerteventura. Daily numbers are limited, so book it ahead in summer, at Easter and at weekends, and check the current rules on the official website." },
+      { q: "How long should I spend on Lobos?", a: "Most visitors take a full day. That gives you time for a swim at Playa de la Concha, the walk up La Caldera and lunch in El Puertito. A shorter beach-only visit can be done in around three hours." },
+      { q: "Is there food and shade on the island?", a: "There are a few simple seafood restaurants at El Puertito, but little natural shade elsewhere. Bring sun cream, a hat, plenty of water and sturdy shoes for the walks." },
+    ],
+    content: `
+<h2>Why Visit Isla de Lobos?</h2>
+<p>Look north from the beach at Corralejo and you will see a low, sandy-coloured island just across the water. That is <strong>Isla de Lobos</strong>, a small volcanic islet of around five square kilometres that has been protected as a natural park. There are no roads, no hotels and no cars, just footpaths, salt flats, a lighthouse and some of the calmest swimming water in the area.</p>
+<p>It is also one of the easiest and most rewarding day trips from Corralejo, which makes it a great fit if you are staying in a villa in town and want a change of pace from the dunes and the surf.</p>
+
+<h2>Getting There: Ferry from Corralejo</h2>
+<p>Boats to Lobos leave from Corralejo harbour. The crossing takes roughly 15 minutes, and two operators serve the route, with sailings through the day and the last boat back in the late afternoon. Exact times and prices vary by season and by source, so check the current timetable and fare with the operator when you plan your day, and keep an eye on the last return sailing.</p>
+<p>Corralejo harbour is an easy drive, taxi ride or bike ride from most places in town, and there is a good chance you can walk to it if you are staying centrally.</p>
+
+<h2>The Access Permit</h2>
+<p>Because Lobos is a protected natural park, you need an <strong>access permit from the Cabildo de Fuerteventura</strong> before you can go ashore. Visitor numbers are limited each day, and slots go quickly in summer, around Easter and on weekends. Sort the permit first, then choose your ferry time. Check the official website for the current process and any fees, as rules can change.</p>
+
+<h2>Playa de la Concha: The Place to Swim</h2>
+<p>A few minutes' walk from the landing pier, <strong>Playa de la Concha</strong> is a crescent-shaped bay of pale sand with shallow, sheltered water, protected by a natural reef. It is the island's best-known beach and a lovely spot for families or anyone who wants a gentle swim after the breezy mainland coast. Shade is limited, so bring a parasol or a good hat.</p>
+
+<h2>Walking on Lobos</h2>
+<p>The island is small enough to explore on foot, and the paths are clearly marked. Hiking platforms list a full circular route of around 10 km, though you can easily do a shorter version.</p>
+<ul>
+  <li><strong>La Caldera:</strong> the old volcanic cone, at about 127 metres the island's highest point. The climb is manageable, though the ground is rocky and the sun strong, and the views back over Corralejo and across to Lanzarote are worth it.</li>
+  <li><strong>Faro de Martiño:</strong> the lighthouse at the northern tip, in operation since the 1860s and automatic since 1968.</li>
+  <li><strong>Salt flats and lagoons:</strong> the landscape on the way includes salt marshes and small volcanic mounds known as hornitos.</li>
+</ul>
+<p>Walking times depend on your pace, so treat any distance you read online as approximate. Wear sturdy shoes, as the ground is uneven, and set off in the morning before the day heats up.</p>
+
+<h2>Lunch in El Puertito</h2>
+<p>The tiny fishing hamlet of <strong>El Puertito</strong> has a handful of simple restaurants serving fresh fish and seafood, and it is the natural place for lunch. In busy periods it is worth reserving or arriving early. If you prefer a picnic, bring everything with you, including water, and take your rubbish back to the mainland.</p>
+
+<h2>Practical Tips for a Smooth Day</h2>
+<ul>
+  <li>Book your permit before you set your heart on a particular date.</li>
+  <li>Take sun cream, a hat, water and a light layer for the boat, which can be breezy.</li>
+  <li>Check the last return ferry and give yourself a margin.</li>
+  <li>Stay on the marked paths to protect the fragile landscape.</li>
+  <li>Check the weather, because strong wind can affect sailings and make the walks less comfortable.</li>
+</ul>
+<p>For more ideas beyond Lobos, read our guide to <a href="/blog/day-trips-from-corralejo">day trips from Corralejo</a>, or explore the surrounding landscape in our <a href="/blog/corralejo-dunes-natural-park">Corralejo Dunes Natural Park guide</a>.</p>
+
+<h2>Make Corralejo Your Base</h2>
+<p>Lobos is at its easiest when you wake up in Corralejo, a short walk or drive from the harbour. Coming home to your own space, with a cool drink and a place to rinse the sand off, is a real treat after a day in the sun. You can browse all <a href="/villas">our villas in Corralejo</a>, look at <a href="/villas/corralejo-villas-with-private-pool">villas with a private pool</a>, or <a href="/contact">get in touch</a> and we will help you pick the right base for your trip.</p>
+<p>Ready to plan your holiday? <a href="/villas">View our villas and book direct →</a></p>
+    `,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
