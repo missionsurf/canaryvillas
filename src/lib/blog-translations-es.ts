@@ -900,5 +900,54 @@ const es: Record<string, { title: string; metaTitle: string; metaDescription: st
       { q: "¿Hay comida y sombra en la isla?", a: "En El Puertito hay unos pocos restaurantes sencillos de pescado, pero en el resto de la isla hay poca sombra natural. Lleva protector solar, gorra, mucha agua y calzado resistente para las rutas." },
     ],
   },
+  "getting-to-corralejo-airport-transfer-ferry": {
+    title: "Cómo llegar a Corralejo: traslados del aeropuerto, autobús y ferry desde Lanzarote",
+    metaTitle: "Cómo llegar a Corralejo: aeropuerto, bus y ferry",
+    metaDescription: "Descubre cómo ir del aeropuerto de Fuerteventura a Corralejo en taxi, autobús, shuttle o coche de alquiler, además del ferry desde Lanzarote y consejos útiles.",
+    excerpt: "Corralejo está a unos 40 km del aeropuerto de Fuerteventura y a un corto trayecto en ferry desde Lanzarote. Así puedes llegar en taxi, autobús, shuttle, coche de alquiler o barco.",
+    content: `
+<h2>Llegar a Fuerteventura: lo esencial</h2>
+<p>Casi todos los visitantes aterrizan en el <strong>aeropuerto de Fuerteventura</strong> (FUE), junto a la capital, Puerto del Rosario. Desde allí hay unos 40 km hacia el norte hasta Corralejo, y el trayecto dura entre 30 y 35 minutos con la carretera despejada. Si ya estás en Lanzarote, hay un ferry regular desde Playa Blanca directo al puerto de Corralejo.</p>
+<p>Con un poco de planificación, las primeras horas de vacaciones serán mucho más tranquilas. Estas son las opciones principales con costes aproximados. Los precios y horarios cambian, así que confírmalos con el operador antes de viajar.</p>
+
+<h2>Opción 1: taxi desde el aeropuerto</h2>
+<p>El taxi es la forma más sencilla de llegar a la villa, sobre todo tras un vuelo nocturno o con equipaje y niños. Se hace cola frente a la zona de llegadas y el trayecto a Corralejo suele durar de 30 a 35 minutos. Calcula entre 50 y 60 €, según la hora, el tamaño del vehículo y tu dirección exacta. Pregunta la tarifa antes de salir y si aceptan tarjeta.</p>
+<p>¿Prefieres seguridad? También puedes reservar un traslado privado por internet: el conductor te espera al aterrizar y el precio está cerrado de antemano. Es buena idea para grupos grandes, ya que el coste se reparte.</p>
+
+<h2>Opción 2: autobús público</h2>
+<p>La opción económica es la red de guaguas de la isla, operada por Tiadhe. No hay autobús directo del aeropuerto a Corralejo. Lo habitual es tomar la línea 3 hasta Puerto del Rosario y cambiar a la línea 6 hacia Corralejo. Calcula en total una hora y media, más el tramo final hasta tu alojamiento, y unos 5 € por persona y trayecto. Por la noche y los domingos hay menos frecuencias, así que revisa el horario y las últimas salidas.</p>
+<p>El autobús funciona bien con poco equipaje y sin prisa. Con maletas grandes o una llegada tardía, las demás opciones suelen ser más cómodas.</p>
+
+<h2>Opción 3: shuttle compartido</h2>
+<p>Los shuttles compartidos están a medio camino entre taxi y autobús en precio. Recogen a varios pasajeros y hacen varias paradas, por lo que el trayecto ronda la hora y cuarto en lugar de media hora. El precio por persona es relativamente bajo, aunque varía según la empresa y la temporada. Es ideal para viajeros solos y parejas a los que no les importa un viaje algo más largo.</p>
+
+<h2>Opción 4: coche de alquiler</h2>
+<p>Un coche de alquiler te da la máxima libertad. Hay varias empresas en el aeropuerto y la carretera FV-1 hacia el norte está bien señalizada y es en gran parte de doble carril. Así llegas fácilmente a las dunas, la costa oeste y las playas tranquilas, y la compra semanal es más sencilla. Reserva con antelación en vacaciones escolares y verano, y revisa qué cubre el seguro. Si pasarás casi todo el tiempo en Corralejo, quizá solo necesites coche parte de la estancia, ya que el pueblo es compacto y llano.</p>
+
+<h2>Opción 5: el ferry desde Lanzarote</h2>
+<p>Combinar dos islas es muy popular, y la travesía de Playa Blanca a Corralejo es corta: normalmente entre 25 y 35 minutos según el barco. Fred Olsen, Naviera Armas y Balearia operan la ruta con varias salidas al día. Las tarifas son dinámicas: suelen ser más bajas si reservas con tiempo y viajas entre semana, y más altas en fines de semana y vacaciones. Los pasajeros a pie suelen tener que facturar al menos 30 minutos antes, y quienes viajan con vehículo, aproximadamente una hora antes.</p>
+<p>El puerto de Corralejo queda a un corto paseo o trayecto en taxi desde la mayor parte del pueblo. Para ideas una vez aquí, consulta nuestra <a href="/blog/day-trips-from-corralejo">guía de excursiones desde Corralejo</a>.</p>
+
+<h2>Consejos para una llegada sin estrés</h2>
+<ul>
+  <li><strong>Avisa de tu hora de llegada</strong> a tu anfitrión con antelación para organizar el check-in.</li>
+  <li><strong>Haz la compra pronto.</strong> Los supermercados de Corralejo están cerca, pero los domingos abren menos horas.</li>
+  <li><strong>Lleva algo de efectivo</strong> para pequeñas compras y taxis, aunque en el pueblo se aceptan tarjetas casi en todas partes.</li>
+  <li><strong>Prepárate para el viento.</strong> Las noches junto al mar pueden ser más frescas de lo esperado; lleva una capa ligera.</li>
+  <li><strong>Consulta el clima y la temporada.</strong> Nuestra <a href="/blog/fuerteventura-travel-guide">guía de viaje de Fuerteventura</a> explica cuándo ir y qué llevar.</li>
+</ul>
+
+<h2>Por qué una villa facilita la llegada</h2>
+<p>Tras un vuelo o un ferry, es especial entrar en tu propio espacio, con sitio para deshacer las maletas, cocina para una primera comida sencilla y, a menudo, una zona exterior privada para relajarte. Alojarte en una villa de Corralejo te acerca al puerto, al centro y a las playas. Descubre las <a href="/villas/corralejo-villas-with-private-pool">villas con piscina privada</a> si sueñas con una primera tarde junto al agua, o <a href="/contact">contáctanos</a> y te ayudaremos a planificar tu llegada.</p>
+<p>¿Listo para planificar? <a href="/villas">Ver villas y reservar directamente →</a></p>
+`,
+    faqs: [
+      { q: "¿A qué distancia está el aeropuerto de Fuerteventura de Corralejo?", a: "Corralejo está a unos 40 km al norte del aeropuerto. En taxi o coche de alquiler el trayecto por la FV-1 suele durar de 30 a 35 minutos, según el tráfico." },
+      { q: "¿Hay autobús directo del aeropuerto a Corralejo?", a: "No hay servicio directo. La mayoría toma la línea 3 hasta Puerto del Rosario y después la línea 6 a Corralejo, en total cerca de una hora y media. Consulta los horarios actuales en Tiadhe, ya que por la noche y los domingos hay menos servicios." },
+      { q: "¿Cuánto cuesta un taxi del aeropuerto a Corralejo?", a: "Calcula entre 50 y 60 € para un taxi estándar, según la hora, el tamaño del vehículo y la dirección. Confirma la tarifa antes de salir." },
+      { q: "¿Cuánto dura el ferry de Lanzarote a Corralejo?", a: "La travesía de Playa Blanca a Corralejo dura entre 25 y 35 minutos según el barco. Varias navieras cubren la ruta y las tarifas varían según la fecha, así que reserva con tiempo y confirma los horarios con el operador." },
+      { q: "¿Necesito coche de alquiler en Corralejo?", a: "No necesariamente. Corralejo es compacto y llano, y muchos visitantes van a pie o en bici. El coche es útil para las dunas, la costa oeste y El Cotillo, y muchos lo alquilan solo parte de la estancia." },
+    ],
+  },
 };
 export default es;

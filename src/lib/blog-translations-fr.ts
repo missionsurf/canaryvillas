@@ -908,5 +908,54 @@ const fr: Record<string, { title: string; metaTitle: string; metaDescription: st
       { q: "Y a-t-il de quoi manger et de l'ombre sur l'île ?", a: "Quelques restaurants de poisson simples se trouvent à El Puertito, mais l'ombre naturelle est rare ailleurs. Prévoyez crème solaire, chapeau, beaucoup d'eau et de bonnes chaussures pour les balades." },
     ],
   },
+  "getting-to-corralejo-airport-transfer-ferry": {
+    title: "Comment se rendre à Corralejo : transfert aéroport, bus et ferry depuis Lanzarote",
+    metaTitle: "Aller à Corralejo : aéroport, bus et ferry",
+    metaDescription: "Comment aller de l'aéroport de Fuerteventura à Corralejo en taxi, bus, navette ou voiture de location, plus le ferry depuis Lanzarote et nos conseils d'arrivée.",
+    excerpt: "Corralejo se trouve à environ 40 km de l'aéroport de Fuerteventura et à une courte traversée de Lanzarote. Voici comment arriver en taxi, bus, navette, voiture de location ou ferry.",
+    content: `
+<h2>Arriver à Fuerteventura : l'essentiel</h2>
+<p>Presque tous les visiteurs atterrissent à l'<strong>aéroport de Fuerteventura</strong> (FUE), à côté de la capitale, Puerto del Rosario. De là, Corralejo est à environ 40 km vers le nord, soit 30 à 35 minutes de route quand la circulation est fluide. Si vous êtes déjà à Lanzarote, un ferry régulier relie Playa Blanca directement au port de Corralejo.</p>
+<p>Un peu d'organisation rend les premières heures de vos vacances bien plus sereines. Voici les principales options, avec des coûts approximatifs. Les prix et horaires changent : confirmez-les auprès de l'opérateur avant de partir.</p>
+
+<h2>Option 1 : le taxi depuis l'aéroport</h2>
+<p>Le taxi est le moyen le plus simple de rejoindre votre villa, surtout après un vol en soirée ou avec bagages et enfants. On patiente à la file devant les arrivées et la course jusqu'à Corralejo dure en général de 30 à 35 minutes. Comptez environ 50 à 60 €, selon l'heure, la taille du véhicule et votre adresse exacte. Demandez le tarif avant de partir et vérifiez si la carte est acceptée.</p>
+<p>Envie de certitude ? Vous pouvez aussi réserver un transfert privé en ligne : le chauffeur vous attend à l'atterrissage et le prix est fixé à l'avance. C'est intéressant pour les groupes, car le coût est partagé.</p>
+
+<h2>Option 2 : le bus public</h2>
+<p>Le choix économique est le réseau de bus de l'île, géré par Tiadhe. Il n'existe pas de bus direct entre l'aéroport et Corralejo. On prend généralement la ligne 3 jusqu'à Puerto del Rosario, puis la ligne 6 vers Corralejo. Comptez environ une heure et demie au total, plus le dernier tronçon jusqu'à votre hébergement, et environ 5 € par personne et par trajet. Les fréquences baissent le soir et le dimanche : vérifiez les horaires et les derniers départs.</p>
+<p>Le bus convient bien si vous voyagez léger et sans hâte. Avec de grosses valises ou une arrivée tardive, les autres options sont souvent plus pratiques.</p>
+
+<h2>Option 3 : la navette partagée</h2>
+<p>Les navettes partagées se situent entre le taxi et le bus côté prix. Elles regroupent plusieurs passagers et font plusieurs arrêts : le trajet dure plutôt une heure et quart qu'une demi-heure. Le tarif par personne est relativement bas, mais varie selon la société et la saison. Idéal pour les voyageurs seuls et les couples que n'effraie pas un trajet un peu plus long.</p>
+
+<h2>Option 4 : la voiture de location</h2>
+<p>La voiture de location offre le plus de liberté. Plusieurs loueurs sont présents à l'aéroport et la route FV-1 vers le nord est bien signalée, en grande partie à deux voies. Vous accédez facilement aux dunes, à la côte ouest et aux plages tranquilles, et les courses de la semaine sont plus simples. Réservez tôt pour les vacances scolaires et l'été, et vérifiez les garanties d'assurance. Si vous passez l'essentiel du séjour à Corralejo, vous n'aurez peut-être besoin d'une voiture que pour une partie du séjour : la ville est compacte et plate.</p>
+
+<h2>Option 5 : le ferry depuis Lanzarote</h2>
+<p>Combiner deux îles est très apprécié, et la traversée de Playa Blanca à Corralejo est courte : généralement 25 à 35 minutes selon le navire. Fred Olsen, Naviera Armas et Balearia desservent la ligne avec plusieurs départs par jour. Les tarifs sont dynamiques : plus bas en réservant tôt et en semaine, plus élevés le week-end et pendant les vacances. Les piétons doivent généralement s'enregistrer au moins 30 minutes avant le départ, et les voyageurs avec véhicule environ une heure avant.</p>
+<p>Le port de Corralejo est à courte distance à pied ou en taxi de la plupart des quartiers. Pour des idées une fois sur place, consultez notre <a href="/blog/day-trips-from-corralejo">guide des excursions depuis Corralejo</a>.</p>
+
+<h2>Conseils pour une arrivée sereine</h2>
+<ul>
+  <li><strong>Communiquez votre heure d'arrivée</strong> à votre hôte à l'avance pour organiser l'accueil.</li>
+  <li><strong>Faites vos courses tôt.</strong> Les supermarchés de Corralejo sont proches, mais les horaires sont réduits le dimanche.</li>
+  <li><strong>Prévoyez un peu d'espèces</strong> pour les petits achats et certains taxis, même si la carte est largement acceptée en ville.</li>
+  <li><strong>Pensez au vent.</strong> Les soirées en bord de mer peuvent être plus fraîches que prévu : emportez une couche légère.</li>
+  <li><strong>Vérifiez météo et saison.</strong> Notre <a href="/blog/fuerteventura-travel-guide">guide de voyage de Fuerteventura</a> explique quand partir et quoi emporter.</li>
+</ul>
+
+<h2>Pourquoi une villa facilite l'arrivée</h2>
+<p>Après un vol ou un ferry, c'est un vrai plaisir de pousser la porte de son propre espace : de la place pour défaire les valises, une cuisine pour un premier repas simple et souvent un coin extérieur privé pour se détendre. Séjourner dans une villa à Corralejo vous place près du port, du centre et des plages. Découvrez nos <a href="/villas/corralejo-villas-with-private-pool">villas avec piscine privée</a> si vous rêvez d'une première soirée au bord de l'eau, ou <a href="/contact">contactez-nous</a> : nous vous aiderons à préparer votre arrivée.</p>
+<p>Prêt à planifier ? <a href="/villas">Voir nos villas et réserver en direct →</a></p>
+`,
+    faqs: [
+      { q: "À quelle distance l'aéroport de Fuerteventura est-il de Corralejo ?", a: "Corralejo se trouve à environ 40 km au nord de l'aéroport. En taxi ou en voiture de location, le trajet par la FV-1 dure généralement de 30 à 35 minutes, selon la circulation." },
+      { q: "Existe-t-il un bus direct de l'aéroport à Corralejo ?", a: "Non. La plupart des voyageurs prennent la ligne 3 jusqu'à Puerto del Rosario, puis la ligne 6 vers Corralejo, soit environ une heure et demie au total. Consultez les horaires actuels sur Tiadhe : le soir et le dimanche, les services sont moins fréquents." },
+      { q: "Combien coûte un taxi de l'aéroport à Corralejo ?", a: "Comptez environ 50 à 60 € pour un taxi standard, selon l'heure, la taille du véhicule et l'adresse. Confirmez le tarif avant de partir." },
+      { q: "Combien de temps dure le ferry de Lanzarote à Corralejo ?", a: "La traversée de Playa Blanca à Corralejo dure environ 25 à 35 minutes selon le navire. Plusieurs compagnies desservent la ligne et les tarifs varient selon la date : réservez tôt et vérifiez les horaires auprès de l'opérateur." },
+      { q: "Ai-je besoin d'une voiture de location à Corralejo ?", a: "Pas forcément. Corralejo est compacte et plate, et beaucoup de visiteurs se déplacent à pied ou à vélo. Une voiture est utile pour les dunes, la côte ouest et El Cotillo, et beaucoup n'en louent que pour une partie du séjour." },
+    ],
+  },
 };
 export default fr;

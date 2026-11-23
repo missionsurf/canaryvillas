@@ -933,5 +933,54 @@ const nl: Record<string, { title: string; metaTitle: string; metaDescription: st
       { q: "Is er eten en schaduw op het eiland?", a: "In El Puertito zijn een paar eenvoudige visrestaurants, maar elders is er weinig natuurlijke schaduw. Neem zonnebrandcrème, een hoed, veel water en stevige schoenen mee voor de wandelingen." },
     ],
   },
+  "getting-to-corralejo-airport-transfer-ferry": {
+    title: "Naar Corralejo reizen: luchthaventransfer, bus en veerboot vanaf Lanzarote",
+    metaTitle: "Naar Corralejo reizen: luchthaven, bus en veerboot",
+    metaDescription: "Zo reist u van de luchthaven van Fuerteventura naar Corralejo met taxi, bus, shuttle of huurauto, plus de veerboot vanaf Lanzarote en handige aankomsttips.",
+    excerpt: "Corralejo ligt zo'n 40 km van de luchthaven van Fuerteventura en op een korte overtocht van Lanzarote. Zo komt u aan per taxi, bus, shuttle, huurauto of boot.",
+    content: `
+<h2>Aankomst op Fuerteventura: in het kort</h2>
+<p>Bijna alle bezoekers landen op de <strong>luchthaven van Fuerteventura</strong> (FUE), vlak bij de hoofdstad Puerto del Rosario. Vandaar is het ongeveer 40 km noordwaarts naar Corralejo, en de rit duurt bij vlot verkeer zo'n 30 tot 35 minuten. Bent u al op Lanzarote, dan vaart er een reguliere veerboot van Playa Blanca rechtstreeks naar de haven van Corralejo.</p>
+<p>Met een beetje planning verlopen de eerste uren van uw vakantie veel rustiger. Hieronder vindt u de belangrijkste opties met globale kosten. Prijzen en dienstregelingen veranderen, controleer ze dus altijd bij de aanbieder voordat u reist.</p>
+
+<h2>Optie 1: taxi vanaf de luchthaven</h2>
+<p>De taxi is de eenvoudigste manier om uw villa te bereiken, zeker na een avondvlucht of met bagage en kinderen. U sluit aan in de rij buiten de aankomsthal en de rit naar Corralejo duurt doorgaans 30 tot 35 minuten. Reken op ongeveer € 50 tot € 60, afhankelijk van het tijdstip, de voertuiggrootte en uw exacte adres. Vraag het tarief vóór vertrek en of u met pinpas kunt betalen.</p>
+<p>Liever zekerheid? Dan kunt u online een privétransfer reserveren: de chauffeur staat klaar als u landt en de prijs is vooraf afgesproken. Handig voor grotere groepen, want de kosten worden gedeeld.</p>
+
+<h2>Optie 2: lijnbus</h2>
+<p>De voordeligste keuze is het busnetwerk van het eiland, geëxploiteerd door Tiadhe. Er is geen directe bus van de luchthaven naar Corralejo. Meestal neemt u lijn 3 naar Puerto del Rosario en stapt u daar over op lijn 6 naar Corralejo. Reken op ongeveer anderhalf uur in totaal, plus het laatste stuk naar uw accommodatie, en circa € 5 per persoon per enkele reis. In de avond en op zondag rijden er minder bussen, controleer dus de dienstregeling en de laatste vertrektijden.</p>
+<p>De bus past goed bij licht reizen zonder haast. Met grote koffers of een late aankomst is een van de andere opties meestal makkelijker.</p>
+
+<h2>Optie 3: gedeelde shuttle</h2>
+<p>Gedeelde luchthavenshuttles zitten qua prijs tussen taxi en bus in. Ze pikken meerdere passagiers op en maken enkele stops, waardoor de rit eerder een uur en een kwartier duurt dan een half uur. De prijs per persoon is relatief laag, maar verschilt per bedrijf en seizoen. Geschikt voor alleenreizigers en stellen die een iets langere rit niet erg vinden.</p>
+
+<h2>Optie 4: huurauto</h2>
+<p>Met een huurauto bent u het vrijst. Op de luchthaven zitten meerdere verhuurders en de weg FV-1 naar het noorden is goed bewegwijzerd en grotendeels dubbelbaans. Zo bereikt u gemakkelijk de duinen, de westkust en rustige stranden, en is de weekboodschap zo gedaan. Boek tijdig voor schoolvakanties en de zomer en controleer wat de verzekering dekt. Brengt u de meeste tijd door in Corralejo zelf, dan hebt u de auto misschien maar voor een deel van uw verblijf nodig, want het dorp is compact en vlak.</p>
+
+<h2>Optie 5: de veerboot vanaf Lanzarote</h2>
+<p>Twee eilanden combineren is populair, en de overtocht van Playa Blanca naar Corralejo is kort: meestal 25 tot 35 minuten, afhankelijk van het schip. Fred Olsen, Naviera Armas en Balearia varen de route meerdere keren per dag. De tarieven zijn dynamisch: vaak lager als u vroeg boekt en doordeweeks reist, hoger in weekenden en vakantieperiodes. Voetgangers moeten doorgaans minimaal 30 minuten voor vertrek inchecken, reizigers met voertuig ongeveer een uur ervoor.</p>
+<p>De haven van Corralejo ligt op korte loop- of taxiafstand van het grootste deel van het dorp. Ideeën voor onderweg vindt u in onze <a href="/blog/day-trips-from-corralejo">gids met dagtripjes vanuit Corralejo</a>.</p>
+
+<h2>Tips voor een soepele aankomst</h2>
+<ul>
+  <li><strong>Geef uw aankomsttijd</strong> vooraf door aan uw gastheer, zodat de check-in goed geregeld is.</li>
+  <li><strong>Doe vroeg boodschappen.</strong> De supermarkten in Corralejo liggen dichtbij, maar op zondag zijn de openingstijden korter.</li>
+  <li><strong>Neem wat contant geld mee</strong> voor kleine aankopen en taxi's, al worden pinpassen in het dorp breed geaccepteerd.</li>
+  <li><strong>Denk aan de wind.</strong> Avonden aan zee kunnen koeler aanvoelen dan verwacht, neem een licht vest mee.</li>
+  <li><strong>Check weer en seizoen.</strong> In onze <a href="/blog/fuerteventura-travel-guide">reisgids voor Fuerteventura</a> leest u wanneer u het best gaat en wat u inpakt.</li>
+</ul>
+
+<h2>Waarom een villa de aankomst makkelijker maakt</h2>
+<p>Na een vlucht of overtocht is het heerlijk om uw eigen plek binnen te stappen: ruimte om uit te pakken, een keuken voor een eenvoudige eerste maaltijd en vaak een privébuitenruimte om tot rust te komen. Een villa in Corralejo brengt u dicht bij haven, centrum en stranden. Bekijk onze <a href="/villas/corralejo-villas-with-private-pool">villa's met privézwembad</a> als u droomt van een eerste avond aan het water, of <a href="/contact">neem contact met ons op</a>, dan helpen we u graag met de planning van uw aankomst.</p>
+<p>Klaar om te plannen? <a href="/villas">Bekijk onze villa's en boek direct →</a></p>
+`,
+    faqs: [
+      { q: "Hoe ver is de luchthaven van Fuerteventura van Corralejo?", a: "Corralejo ligt ongeveer 40 km ten noorden van de luchthaven. Met taxi of huurauto duurt de rit over de FV-1 meestal 30 tot 35 minuten, afhankelijk van het verkeer." },
+      { q: "Is er een directe bus van de luchthaven naar Corralejo?", a: "Nee. De meeste reizigers nemen lijn 3 naar Puerto del Rosario en daarna lijn 6 naar Corralejo, samen ongeveer anderhalf uur. Controleer de actuele dienstregeling bij Tiadhe, want 's avonds en op zondag rijden er minder bussen." },
+      { q: "Wat kost een taxi van de luchthaven naar Corralejo?", a: "Reken op ongeveer € 50 tot € 60 voor een standaardtaxi, afhankelijk van tijdstip, voertuiggrootte en adres. Bevestig het tarief voor vertrek." },
+      { q: "Hoe lang duurt de veerboot van Lanzarote naar Corralejo?", a: "De overtocht van Playa Blanca naar Corralejo duurt ongeveer 25 tot 35 minuten, afhankelijk van het schip. Meerdere rederijen varen de route en de tarieven verschillen per datum, dus boek op tijd en controleer de tijden bij de aanbieder." },
+      { q: "Heb ik een huurauto nodig in Corralejo?", a: "Niet per se. Corralejo is compact en vlak, en veel gasten lopen of fietsen. Een auto is handig voor de duinen, de westkust en El Cotillo, en veel gasten huren er maar voor een deel van hun verblijf een." },
+    ],
+  },
 };
 export default nl;
