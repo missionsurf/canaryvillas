@@ -19,10 +19,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const tr = t[locale] ?? t.en;
   return {
-    title: tr.title + " | Canary Villas",
+    title: tr.title,
     description: tr.desc,
     alternates: {
-      canonical: "https://www.canaryvillas.com/villas/corralejo-villas-with-private-pool",
+      canonical: `https://www.canaryvillas.com${locale === "en" ? "" : `/${locale}`}/villas/corralejo-villas-with-private-pool`,
       languages: {
         en: "https://www.canaryvillas.com/villas/corralejo-villas-with-private-pool",
         de: "https://www.canaryvillas.com/de/villas/corralejo-villas-with-private-pool",
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title: tr.title + " | Canary Villas",
       description: tr.desc,
-      url: "https://www.canaryvillas.com/villas/corralejo-villas-with-private-pool",
+      url: `https://www.canaryvillas.com${locale === "en" ? "" : `/${locale}`}/villas/corralejo-villas-with-private-pool`,
       images: [{ url: "https://pnkxfbsjd3gpupqs.public.blob.vercel-storage.com/header-1.jpg", width: 1200, height: 630 }],
     },
   };

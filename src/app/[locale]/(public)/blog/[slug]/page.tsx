@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const BASE = "https://www.canaryvillas.com";
   const prefix = locale === "en" ? "" : `/${locale}`;
   return {
-    title: metaTitle,
+    title: { absolute: metaTitle },
     description: metaDescription,
     alternates: {
       canonical: `${BASE}${prefix}/blog/${slug}`,
