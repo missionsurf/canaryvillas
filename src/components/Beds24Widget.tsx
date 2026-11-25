@@ -39,9 +39,8 @@ export default function Beds24Widget({ propId, villaName, pricePerNight }: Props
       <div ref={containerRef}>
         <iframe
           src={iframeSrc}
-          style={{ width: "100%", minHeight: "600px", border: "none", display: "block" }}
+          style={{ width: "100%", height: "700px", border: "none", display: "block" }}
           title={`Book ${villaName}`}
-          loading="lazy"
           allow="payment"
         />
       </div>

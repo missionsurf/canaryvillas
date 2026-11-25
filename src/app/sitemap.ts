@@ -6,7 +6,7 @@ const BASE = "https://www.canaryvillas.com";
 const LOCALES = ["de", "es", "fr", "nl", "it"];
 
 const SITE_LAUNCH = new Date("2025-01-01");
-const VILLAS_UPDATED = new Date("2025-04-01");
+const VILLAS_UPDATED = new Date();
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const villas = await getAllVillas();
