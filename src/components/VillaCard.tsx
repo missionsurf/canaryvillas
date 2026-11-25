@@ -18,7 +18,7 @@ export default function VillaCard({ villa }: { villa: Villa }) {
       <Link href={`${prefix}/villas/${villa.slug}`} className="relative h-64 overflow-hidden block">
         <Image
           src={villa.images[0]}
-          alt={villa.name}
+          alt={`${villa.name} — holiday villa to rent in ${villa.location}`}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

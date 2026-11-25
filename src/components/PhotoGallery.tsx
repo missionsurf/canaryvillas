@@ -12,10 +12,12 @@ interface ImageGroup {
 interface Props {
   images: string[];
   villaName: string;
+  villaLocation?: string;
   imageGroups?: ImageGroup[] | null;
 }
 
-export default function PhotoGallery({ images, villaName, imageGroups }: Props) {
+export default function PhotoGallery({ images, villaName, villaLocation = "Corralejo, Fuerteventura", imageGroups }: Props) {
+  const geoSuffix = `holiday villa to rent in ${villaLocation}`;
   const [gridOpen, setGridOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [carouselIndex, setCarouselIndex] = useState(0);
@@ -147,7 +149,7 @@ export default function PhotoGallery({ images, villaName, imageGroups }: Props) 
           >
             {images.map((src, i) => (
               <div key={i} className="relative h-full" style={{ width: `${100 / images.length}%` }}>
-                <Image src={src} alt={`${villaName} photo ${i + 1}`} fill className="object-cover" sizes="100vw" priority={i === 0} />
+                <Image src={src} alt={`${villaName} — ${geoSuffix} — photo ${i + 1}`} fill className="object-cover" sizes="100vw" priority={i === 0} />
               </div>
             ))}
           </div>
@@ -190,12 +192,12 @@ export default function PhotoGallery({ images, villaName, imageGroups }: Props) 
           style={{ gridTemplateColumns: "2fr 1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "4px" }}
         >
           <button onClick={() => openPhoto(0)} className="relative row-span-2 overflow-hidden group focus:outline-none">
-            <Image src={images[0]} alt={`${villaName} — main photo`} fill className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" sizes="50vw" priority />
+            <Image src={images[0]} alt={`${villaName} — ${geoSuffix}`} fill className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" sizes="50vw" priority />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
           </button>
           {[1, 2, 3, 4].map((idx) => images[idx] && (
             <button key={idx} onClick={() => openPhoto(idx)} className="relative overflow-hidden group focus:outline-none">
-              <Image src={images[idx]} alt={`${villaName} photo ${idx + 1}`} fill className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" sizes="25vw" />
+              <Image src={images[idx]} alt={`${villaName} — ${geoSuffix} — photo ${idx + 1}`} fill className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" sizes="25vw" />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
             </button>
           ))}
@@ -266,7 +268,7 @@ export default function PhotoGallery({ images, villaName, imageGroups }: Props) 
                           >
                             <Image
                               src={src}
-                              alt={`${villaName} — ${group.label} ${pi + 1}`}
+                              alt={`${villaName} — ${group.label} — ${geoSuffix} — photo ${pi + 1}`}
                               fill
                               className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
                               sizes="(max-width: 640px) 100vw, 50vw"
@@ -289,7 +291,7 @@ export default function PhotoGallery({ images, villaName, imageGroups }: Props) 
                     >
                       <Image
                         src={src}
-                        alt={`${villaName} photo ${i + 1}`}
+                        alt={`${villaName} — ${geoSuffix} — photo ${i + 1}`}
                         fill
                         className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
                         sizes="(max-width: 640px) 100vw, 50vw"
@@ -335,7 +337,7 @@ export default function PhotoGallery({ images, villaName, imageGroups }: Props) 
               <Image
                 key={lightboxIndex}
                 src={images[lightboxIndex]}
-                alt={`${villaName} photo ${lightboxIndex + 1}`}
+                alt={`${villaName} — ${geoSuffix} — photo ${lightboxIndex + 1}`}
                 fill
                 className="object-contain"
                 sizes="100vw"
