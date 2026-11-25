@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const BASE = "https://www.canaryvillas.com";
   const prefix = locale === "en" ? "" : `/${locale}`;
   return {
-    title: seo("homeTitle"),
+    title: { absolute: seo("homeTitle") },
     description: seo("homeDescription"),
     alternates: {
       canonical: `${BASE}${prefix}`,

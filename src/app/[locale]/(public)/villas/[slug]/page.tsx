@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!villa) return { title: "Villa Not Found" };
   const BASE = "https://www.canaryvillas.com";
   const prefix = locale === "en" ? "" : `/${locale}`;
-  const title = `${villa.name} — Beachfront Villa to Rent in Corralejo, Fuerteventura | Canary Villas`;
+  const title = `${villa.name} — Beachfront Villa in Corralejo`;
   const description = `${villa.shortDesc} Book this ${villa.bedrooms}-bedroom beachfront villa to rent in Corralejo, Fuerteventura — direct booking, best price guaranteed, no hidden fees.`;
   return {
     title,

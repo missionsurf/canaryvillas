@@ -7,7 +7,7 @@ import { CheckCircle2 } from "lucide-react";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Beachfront Villas to Rent in Fuerteventura | Corralejo | Canary Villas",
+  title: "Beachfront Villas to Rent in Fuerteventura",
   description: "Book beachfront holiday villas to rent in Corralejo, Fuerteventura. Direct sea access, private terraces and stunning Atlantic views. Book direct — best price guaranteed, zero booking fees.",
   alternates: {
     canonical: "https://www.canaryvillas.com/villas/beachfront-villas-fuerteventura",
